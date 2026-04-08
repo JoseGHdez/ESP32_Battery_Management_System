@@ -5,6 +5,9 @@
 #include <iostream> // std::cout, std::endl
 #include <array>    // std::array
 #include <iomanip>  // std::setprecision, std::fixed
+#include <unordered_map> // std::unordered_map for mapping strings to function pointers
+#include <functional> // std::function for function pointers
+#include <algorithm> // std::transform for string manipulation
 
 #include "freertos/FreeRTOS.h" // FreeRTOS types and functions (e.g., vTaskDelay, xQueueSend)
 #include "freertos/task.h"     // FreeRTOS task functions (e.g., xTaskCreate)
@@ -65,6 +68,11 @@
 #define CONFIG_OFFSETX 52    // X offset for the display (to center the content on the M5StickC screen)
 #define CONFIG_OFFSETY 40    // Y offset for the display (to center the content on the M5StickC screen)
 
+// Power hold GPIO for the display (used to ensure the display receives power)
+#define POWER_HOLD_GPIO 4
+// GPIO for enabling the SGM2578 power management IC (used to provide power to the display)
+#define SGM2578_ENABLE_GPIO 27
+
 /** 
  * @brief Logger tag for the M5StickCPlus2 system 
  */
@@ -74,6 +82,10 @@ static const char *TAG = "M5_SYSTEM";
  * @brief Queue for sending messages to the display task
  */
 static QueueHandle_t xQueueDisplay = NULL;
+
+/** * @brief Cola de eventos para el UART
+ */
+static QueueHandle_t uart_queue;
 
 /**
  * @brief FreeRTOS task that initializes the TFT display and waits for messages to update the screen.
@@ -92,12 +104,10 @@ extern "C" void ShowText(void *pvParameters) {
   ESP_LOGI(TAG, "Tarea TFT iniciada");
 
   // Initialize the display
-  #define POWER_HOLD_GPIO 4
   gpio_reset_pin((gpio_num_t)POWER_HOLD_GPIO);
   gpio_set_direction((gpio_num_t)POWER_HOLD_GPIO, GPIO_MODE_OUTPUT);
   gpio_set_level((gpio_num_t)POWER_HOLD_GPIO, 1);
     
-  #define SGM2578_ENABLE_GPIO 27
   sgm2578_Enable(SGM2578_ENABLE_GPIO);
 
   FontxFile fx16G[2];
@@ -317,152 +327,135 @@ extern "C" void BatteryTask(void *pvParameters) {
  */
 extern "C" void UARTTask(void *pvParameters) {
   char command[BUF_SIZE];
-  int cmd_idx = 0;               // Índice actual de escritura en el buffer
-  char msg_to_queue[64];
-  I2CRelay relayController(RELAY_ADDR, REG_RELAY_CTRL, I2C_MASTER_NUM);
+  int cmd_idx = 0;
+  
+  I2CRelay relayController; 
   ADS1115 adsController(I2C_MASTER_NUM, ADS1115_ADDR);
 
-  // Mostrar el prompt inicial por primera vez
-  sleep(5); // Pequeña pausa para asegurar que el UART esté listo
+  // ==========================================================
+  // 1. HELPER: Función para no repetir código de envío
+  // ==========================================================
+  auto send_response = [&](const std::string& uart_msg, const std::string& tft_msg) {
+    // 1. Enviar por UART
+    uart_write_bytes(UART_NUM, uart_msg.c_str(), uart_msg.length());
+    
+    // 2. Enviar a la pantalla de forma segura (sin Buffer Overflow)
+    if (!tft_msg.empty()) {
+      char msg_to_queue[64];
+      strncpy(msg_to_queue, tft_msg.c_str(), sizeof(msg_to_queue) - 1);
+      msg_to_queue[sizeof(msg_to_queue) - 1] = '\0'; // Asegurar terminador nulo
+      xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+    }
+  };
+
+  // ==========================================================
+  // 2. DICCIONARIO DE COMANDOS (Command Parser)
+  // ==========================================================
+  std::unordered_map<std::string, std::function<void()>> command_map = {
+    {"HELLO",   [&]() { send_response("Hola desde ESP32!\r\n", ""); }},
+    
+    // Relés individuales
+    {"R1 ON",   [&]() { relayController.set_relay(1, true);  send_response("Encendiendo R1\r\n", "RELAY 1: ON"); }},
+    {"R1 OFF",  [&]() { relayController.set_relay(1, false); send_response("Apagando R1\r\n", "RELAY 1: OFF"); }},
+    {"R2 ON",   [&]() { relayController.set_relay(2, true);  send_response("Encendiendo R2\r\n", "RELAY 2: ON"); }},
+    {"R2 OFF",  [&]() { relayController.set_relay(2, false); send_response("Apagando R2\r\n", "RELAY 2: OFF"); }},
+    {"R3 ON",   [&]() { relayController.set_relay(3, true);  send_response("Encendiendo R3\r\n", "RELAY 3: ON"); }},
+    {"R3 OFF",  [&]() { relayController.set_relay(3, false); send_response("Apagando R3\r\n", "RELAY 3: OFF"); }},
+    {"R4 ON",   [&]() { relayController.set_relay(4, true);  send_response("Encendiendo R4\r\n", "RELAY 4: ON"); }},
+    {"R4 OFF",  [&]() { relayController.set_relay(4, false); send_response("Apagando R4\r\n", "RELAY 4: OFF"); }},
+    
+    // Relés globales
+    {"ALL ON",  [&]() { relayController.set_all_relays_mask(0x0F); send_response("Encendiendo todos\r\n", "ALL: ON"); }},
+    {"ALL OFF", [&]() { relayController.set_all_relays_mask(0x00); send_response("Apagando todos\r\n", "ALL: OFF"); }},
+    
+    // Lecturas de Sensores
+    {"VOLTAGE A1", [&]() { 
+      float v = adsController.ReadVoltage(1);
+      send_response("Bat: " + std::to_string(v) + "V\r\n", "Bat: " + std::to_string(v) + "V"); 
+    }},
+    {"VOLTAGE A2", [&]() { 
+      float v = adsController.ReadVoltage(2);
+      send_response("V(A2): " + std::to_string(v) + "V\r\n", "V(A2): " + std::to_string(v) + "V"); 
+    }},
+    {"VOLTAGE A3", [&]() { 
+      float v = adsController.ReadVoltage(3, true);
+      send_response("V(A3): " + std::to_string(v) + "V\r\n", "V(A3): " + std::to_string(v) + "V"); 
+    }},
+    {"VOLTAGE PIN", [&]() { 
+      float v = GetADCPinVoltage();
+      send_response("Bat: " + std::to_string(v) + "V\r\n", "Bat: " + std::to_string(v) + "V"); 
+    }},
+    {"CURRENT", [&]() { 
+      float ampers = adsController.ReadCurrent(2);
+      send_response("Current: " + std::to_string(ampers) + "A\r\n", "Current: " + std::to_string(ampers) + "A"); 
+    }}
+  };
+
+  // Pausa inicial
+  vTaskDelay(pdMS_TO_TICKS(5000));
   uart_write_bytes(UART_NUM, "> ", 2);
 
+  uart_event_t event;
+  uint8_t dtmp[BUF_SIZE];
+
+  // ==========================================================
+  // 3. BUCLE PRINCIPAL DE LA TAREA
+  // ==========================================================
   while (1) {
-    uint8_t rx_char;
-    
-    // Leemos 1 byte cada vez, esperando de forma indefinida hasta que llegue algo
-    int len = uart_read_bytes(UART_NUM, &rx_char, 1, portMAX_DELAY);
-
-    if (len > 0) {
-      // 1. Detección de ENTER (Retorno de carro o salto de línea)
-      if (rx_char == '\n' || rx_char == '\r') {
+    if (xQueueReceive(uart_queue, (void *)&event, portMAX_DELAY)) {
+      if (event.type == UART_DATA) {
+        int len = uart_read_bytes(UART_NUM, dtmp, event.size, portMAX_DELAY);
         
-        // Hacemos un eco del salto de línea para que la terminal baje de renglón
-        uart_write_bytes(UART_NUM, "\r\n", 2);
+        for (int i = 0; i < len; i++) {
+          char rx_char = dtmp[i];
+          
+          if (rx_char == '\n' || rx_char == '\r') {
+            uart_write_bytes(UART_NUM, "\r\n", 2);
+            
+            if (cmd_idx > 0) {
+              command[cmd_idx] = '\0'; 
+              
+              // 1. Convertimos el comando entrante a mayúsculas (para emular strcasecmp)
+              std::string cmd_str(command);
+              std::transform(cmd_str.begin(), cmd_str.end(), cmd_str.begin(), ::toupper);
+              ESP_LOGI(TAG, "Comando recibido: %s", cmd_str.c_str());
 
-        // Solo procesamos si el usuario escribió algo
-        if (cmd_idx > 0) {
-          command[cmd_idx] = '\0'; // Terminador nulo de la cadena en C
-          ESP_LOGI(TAG, "Comando recibido (%d bytes): %s", cmd_idx, command);
+              // 2. Buscamos el comando en nuestro diccionario
+              auto it = command_map.find(cmd_str);
+              if (it != command_map.end()) {
+                // Comando encontrado: ejecutamos su función lambda
+                it->second();
+              } else {
+                // Comando no encontrado
+                uart_write_bytes(UART_NUM, "Comando no reconocido\r\n", 23);
+              }
 
-          // --- INICIO DE TU LÓGICA DE PROCESAMIENTO ---
-          if (strcasecmp(command, "HELLO") == 0) {
-            uart_write_bytes(UART_NUM, "Hola desde ESP32!\r\n", strlen("Hola desde ESP32!\r\n"));
-          } else if (strcasecmp(command, "R1 ON") == 0) {
-            uart_write_bytes(UART_NUM, "Encendiendo R1\r\n", strlen("Encendiendo R1\r\n"));
-            relayController.set_relay(1, true);
-            strcpy(msg_to_queue, "RELAY 1: ON");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "R1 OFF") == 0) {
-            uart_write_bytes(UART_NUM, "Apagando R1\r\n", strlen("Apagando R1\r\n"));
-            relayController.set_relay(1, false);
-            strcpy(msg_to_queue, "RELAY 1: OFF");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "R2 ON") == 0) {
-            uart_write_bytes(UART_NUM, "Encendiendo R2\r\n", strlen("Encendiendo R2\r\n"));
-            relayController.set_relay(2, true);
-            strcpy(msg_to_queue, "RELAY 2: ON");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "R2 OFF") == 0) {
-            uart_write_bytes(UART_NUM, "Apagando R2\r\n", strlen("Apagando R2\r\n"));
-            relayController.set_relay(2, false);
-            strcpy(msg_to_queue, "RELAY 2: OFF");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "R3 ON") == 0) {
-            uart_write_bytes(UART_NUM, "Encendiendo R3\r\n", strlen("Encendiendo R3\r\n"));
-            relayController.set_relay(3, true);
-            strcpy(msg_to_queue, "RELAY 3: ON");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "R3 OFF") == 0) {
-            uart_write_bytes(UART_NUM, "Apagando R3\r\n", strlen("Apagando R3\r\n"));
-            relayController.set_relay(3, false);
-            strcpy(msg_to_queue, "RELAY 3: OFF");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "R4 ON") == 0) {
-            uart_write_bytes(UART_NUM, "Encendiendo R4\r\n", strlen("Encendiendo R4\r\n"));
-            relayController.set_relay(4, true);
-            strcpy(msg_to_queue, "RELAY 4: ON");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "R4 OFF") == 0) {
-            uart_write_bytes(UART_NUM, "Apagando R4\r\n", strlen("Apagando R4\r\n"));
-            relayController.set_relay(4, false);
-            strcpy(msg_to_queue, "RELAY 4: OFF");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "ALL ON") == 0) {
-            uart_write_bytes(UART_NUM, "Encendiendo todos los relés\r\n", strlen("Encendiendo todos los relés\r\n"));
-            relayController.set_all_relays_mask(0x0F);
-            strcpy(msg_to_queue, "ALL: ON");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "ALL OFF") == 0) {
-            uart_write_bytes(UART_NUM, "Apagando todos los relés\r\n", strlen("Apagando todos los relés\r\n"));
-            relayController.set_all_relays_mask(0x00);
-            strcpy(msg_to_queue, "ALL: OFF");
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "VOLTAGE A1") == 0) {
-            float v = adsController.ReadVoltage(1);
-            std::string msg = "Bat: " + std::to_string(v) + "V\r\n";
-            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
-            strcpy(msg_to_queue, msg.c_str());
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "VOLTAGE A2") == 0) {
-            float v = adsController.ReadVoltage(2);
-            std::string msg = "V(A2): " + std::to_string(v) + "V\r\n";
-            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
-            strcpy(msg_to_queue, msg.c_str());
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "VOLTAGE A3") == 0) {
-            float v = adsController.ReadVoltage(3, true);
-            std::string msg = "V(A3): " + std::to_string(v) + "V\r\n";
-            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
-            strcpy(msg_to_queue, msg.c_str());
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "VOLTAGE PIN") == 0) {
-            float v = GetADCPinVoltage();
-            std::string msg = "Bat: " + std::to_string(v) + "V\r\n";
-            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
-            strcpy(msg_to_queue, msg.c_str());
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else if (strcasecmp(command, "CURRENT") == 0) {
-            float ampers = adsController.ReadCurrent(2);
-            std::string msg = "Current: " + std::to_string(ampers) + "A\r\n";
-            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
-            strcpy(msg_to_queue, msg.c_str());
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-          } else {
-            uart_write_bytes(UART_NUM, "Comando no reconocido\r\n", strlen("Comando no reconocido\r\n"));
+              cmd_idx = 0; 
+            }
+            vTaskDelay(pdMS_TO_TICKS(1000)); 
+            uart_write_bytes(UART_NUM, "> ", 2);
           }
-          // --- FIN DE TU LÓGICA DE PROCESAMIENTO ---
-
-          // Reiniciamos el índice para el próximo comando
-          cmd_idx = 0; 
-        }
-
-        // Una vez procesado, volvemos a imprimir el indicador visual para el usuario
-        sleep(1); // Pequeña pausa para evitar que el prompt se mezcle con la respuesta
-        uart_write_bytes(UART_NUM, "> ", 2);
-
-      } 
-      // 2. Detección de la tecla Retroceso (Backspace / Delete)
-      else if (rx_char == '\b' || rx_char == 127) { 
-        if (cmd_idx > 0) {
-          cmd_idx--; // Eliminamos el carácter de nuestro buffer
-          // Enviamos a la terminal: retroceso (\b), espacio vacio para limpiar visualmente, y otro retroceso
-          uart_write_bytes(UART_NUM, "\b \b", 3); 
+          else if (rx_char == '\b' || rx_char == 127) {
+            if (cmd_idx > 0) {
+              cmd_idx--;
+              uart_write_bytes(UART_NUM, "\b \b", 3);
+            }
+          }
+          else {
+            uart_write_bytes(UART_NUM, &rx_char, 1);
+            if (cmd_idx < BUF_SIZE - 1) {
+              command[cmd_idx++] = rx_char;
+            }
+          }
         }
       } 
-      // 3. Guardado normal de cualquier otro carácter
-      else {
-        // Hacemos "eco" del carácter enviado para que el usuario pueda ver lo que está tecleando
-        uart_write_bytes(UART_NUM, &rx_char, 1);
-
-        // Guardamos en nuestro buffer, cuidando de no exceder el tamaño máximo
-        if (cmd_idx < BUF_SIZE - 1) {
-          command[cmd_idx++] = (char)rx_char;
-        }
+      else if (event.type == UART_FIFO_OVF || event.type == UART_BUFFER_FULL) {
+        uart_flush_input(UART_NUM);
+        xQueueReset(uart_queue);
       }
     }
   }
 }
-
 // ============ MAIN FUNCTION ============
 
 /**
@@ -505,7 +498,7 @@ extern "C" void app_main(void) {
   cfg.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;
 
   uart_param_config(UART_NUM, &cfg);
-  uart_driver_install(UART_NUM, BUF_SIZE * 2, BUF_SIZE * 2, 0, NULL, 0);
+  uart_driver_install(UART_NUM, BUF_SIZE * 2, BUF_SIZE * 2, 20, &uart_queue, 0);
 
   // Message queue for display updates
   xQueueDisplay = xQueueCreate(5, 64);

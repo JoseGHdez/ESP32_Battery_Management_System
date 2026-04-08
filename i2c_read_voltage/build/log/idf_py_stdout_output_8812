@@ -1,0 +1,113 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\i2c_read_voltage\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\i2c_read_voltage\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+z��� comp�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Apr  8 2026 15:35:52[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00110000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00130000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00180000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=12b50h ( 76624) map[0m
+[0;32mI (134) esp_image: segment 1: paddr=00022b78 vaddr=3ffb0000 size=02788h ( 10120) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=00025308 vaddr=40080000 size=0ad10h ( 44304) load[0m
+[0;32mI (156) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=524e8h (337128) map[0m
+[0;32mI (271) esp_image: segment 4: paddr=00082510 vaddr=4008ad10 size=05fb0h ( 24496) load[0m
+[0;32mI (281) esp_image: segment 5: paddr=000884c8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (290) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (290) boot: Disabling RNG early entropy source...[0m
+[0;32mI (302) cpu_start: Multicore app[0m
+[0;32mI (310) cpu_start: Pro cpu start user code[0m
+[0;32mI (310) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (310) app_init: Application information:[0m
+[0;32mI (310) app_init: Project name:     read_voltage[0m
+[0;32mI (314) app_init: App version:      c7473db-dirty[0m
+[0;32mI (319) app_init: Compile time:     Apr  8 2026 18:35:16[0m
+[0;32mI (324) app_init: ELF file SHA256:  2a9f92838...[0m
+[0;32mI (328) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (332) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (336) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (340) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (344) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (350) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (355) heap_init: At 3FFB4FF0 len 0002B010 (172 KiB): DRAM[0m
+[0;32mI (360) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (366) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (371) heap_init: At 40090CC0 len 0000F340 (60 KiB): IRAM[0m
+[0;32mI (378) spi_flash: detected chip: generic[0m
+[0;32mI (380) spi_flash: flash io: dio[0m
+[0;33mW (386) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (394) main_task: Started on CPU0[0m
+[0;32mI (404) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (404) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (414) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (414) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (414) M5_SYSTEM: I2C Relay inicializado[0m
+Escaneando bus I2C...
+¡Dispositivo encontrado en dirección: 0x26!
+[0;32mI (444) uart: queue free spaces: 20[0m
+[0;32mI (444) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (444) main_task: Returned from app_main()[0m
+[0;32mI (2444) ST7789: GPIO_CS=5[0m
+[0;32mI (2444) ST7789: GPIO_DC=14[0m
+[0;32mI (2444) ST7789: GPIO_RESET=12[0m
+[0;32mI (2594) ST7789: GPIO_BL=-1[0m
+[0;32mI (2594) ST7789: GPIO_MOSI=15[0m
+[0;32mI (2594) ST7789: GPIO_SCLK=13[0m
+[0;32mI (3294) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+> voltage a1
+[0;32mI (21984) M5_SYSTEM: Comando recibido: voltage a1[0m
+Bat: -1.000000V
+[0;32mI (22024) M5_SYSTEM: Pantalla actualizada: Bat: -1.000000V[0m
+
+> voltage a3
+[0;32mI (29794) M5_SYSTEM: Comando recibido: voltage a3[0m
+V(A3): -1.000000V
+[0;32mI (29834) M5_SYSTEM: Pantalla actualizada: V(A3): -1.000000V[0m
+
+> r1 on
+[0;32mI (57234) M5_SYSTEM: Comando recibido: r1 on[0m
+[0;32mI (57234) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Encendiendo R1
+[0;32mI (57274) M5_SYSTEM: Pantalla actualizada: RELAY 1: ON[0m
+> r1 off
+[0;32mI (65534) M5_SYSTEM: Comando recibido: r1 off[0m
+[0;32mI (65534) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Apagando R1
+[0;32mI (65574) M5_SYSTEM: Pantalla actualizada: RELAY 1: OFF[0m
+> vlo  oltage a1
+[0;32mI (158624) M5_SYSTEM: Comando recibido: voltage a1[0m
+Bat: 5.246812V
+[0;32mI (158674) M5_SYSTEM: Pantalla actualizada: Bat: 5.246812V[0m
+
+> va oltage a3
+[0;32mI (163494) M5_SYSTEM: Comando recibido: voltage a3[0m
+V(A3): 4.636505V
+[0;32mI (163544) M5_SYSTEM: Pantalla actualizada: V(A3): 4.636505V[0m
+
+> voltage a3
+[0;32mI (177144) M5_SYSTEM: Comando recibido: voltage a3[0m
+V(A3): 4.626141V
+[0;32mI (177194) M5_SYSTEM: Pantalla actualizada: V(A3): 4.626141V[0m
+
+> Vale    
