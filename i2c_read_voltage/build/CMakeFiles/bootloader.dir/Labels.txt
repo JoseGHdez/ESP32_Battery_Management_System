@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/CMakeFiles/bootloader
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/CMakeFiles/bootloader.rule
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/CMakeFiles/bootloader-complete.rule
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
