@@ -55,6 +55,7 @@ class ADS1115 {
   float ReadVoltage(uint8_t channel, bool fz0430_flag = false);
   float CalibrateVoltage(float known_voltage, float factor);
   float ReadCurrent(uint8_t channel);
+  void Diagnostic();
 
  private:
   i2c_port_t i2c_port_;
@@ -118,3 +119,52 @@ float ADS1115::ReadCurrent(uint8_t channel) {
   float current = voltage / 0.033f; 
   return current;
 } 
+
+/**
+ * @brief Diagnosis function to verify correct operation of the ADS1115 and I2C communication.
+ * 
+ * This function performs the following steps:
+ * 1. Reads the configuration register of the ADS1115 to verify if the chip accepted the settings (should be 0xC083 or 0x4083).
+ * 2. Iterates through all 4 channels (A0 to A3) by configuring the MUX bits and reads the raw ADC value for each channel.
+ * 3. Converts the raw ADC values to voltages and prints them to the console for verification.
+ * 4. If the configuration read does not match the expected values, it prints an error message indicating a potential issue with the I2C connection or chip configuration.
+ * 
+ * @note: This function is intended for debugging purposes to ensure that the ADS1115 is properly configured and communicating over I2C before using it for actual sensor readings.
+ * @configuration: 
+ * - MUX bits for channels: A0=0xC0, A1=0xD0, A2=0xE0, A3=0xF0
+ * - Gain: +/- 6.144V (0.1875mV per bit)
+ * - Data rate: 128SPS (8ms conversion time)
+ * - Mode: Single-shot
+ * - Bit meaning for config bytes:
+ * - MSB: 1(Start) MUX(100 for A0, 101 for A1, 110 for A2, 111 for A3) 000(+/-6.144V) 0(Single-shot)
+ * - LSB: 100(128 SPS) 0(Trad) 0(Alert Low) 11(Disable Comp)
+ */
+void ADS1115::Diagnostic() {
+  uint8_t config_reg = ads1115_reg_config_;
+  uint8_t data[2];
+
+  // Read configuration register to verify if the chip accepted our settings
+  i2c_master_write_read_device(i2c_port_, ads1115_addr_, &config_reg, 1, data, 2, pdMS_TO_TICKS(100));
+  uint16_t actual_config = (data[0] << 8) | data[1];
+  printf("--- Configuration Verification ---\n");
+  printf("Config in the chip: 0x%04X (Should be 0xC083)\n", actual_config);
+
+  if (actual_config != 0xC083 && actual_config != 0x4083) { // 0x4083 is when the OS bit returns to 0
+    printf("¡ERROR! The chip did not configure properly. Check SDA/SCL cables.\n");
+  }
+
+  // Channel MUX test: Read all 4 channels to verify correct readings
+  uint8_t mux_values[4] = {0xC0, 0xD0, 0xE0, 0xF0}; // MSB for A0, A1, A2, A3
+    
+  for (int i = 0; i < 4; i++) {
+    uint8_t setup[3] = {ads1115_reg_config_, mux_values[i], 0x83};
+    i2c_master_write_to_device(i2c_port_, ads1115_addr_, setup, 3, pdMS_TO_TICKS(100));
+    vTaskDelay(pdMS_TO_TICKS(20));
+
+    uint8_t conv_reg = ads1115_reg_conv_;
+    i2c_master_write_read_device(i2c_port_, ads1115_addr_, &conv_reg, 1, data, 2, pdMS_TO_TICKS(100));
+        
+    int16_t raw = (data[0] << 8) | data[1];
+    printf("Channel A%d -> Raw: %d | Volt: %.3fV\n", i, raw, raw * 0.0001875f);
+ }
+}

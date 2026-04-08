@@ -59,7 +59,7 @@ class I2CRelay {
   int timeout_ms_;
 };
 
-I2CRelay::I2CRelay(int addr, uint8_t reg_addr, i2c_port_t port, int timeout_ms) {
+inline I2CRelay::I2CRelay(int addr, uint8_t reg_addr, i2c_port_t port, int timeout_ms) {
   relay_state_ = 0x00; // Initialize relay state to all OFF
   relay_address_ = addr;
   register_address_ = reg_addr;
@@ -75,7 +75,7 @@ I2CRelay::I2CRelay(int addr, uint8_t reg_addr, i2c_port_t port, int timeout_ms) 
  * @param state A boolean value where true sets the relay to ON and false sets it to OFF.
  * @return void - This function does not return a value, but it updates the relay state and communicates with the relay controller over I2C. It also logs the result of the I2C communication for debugging purposes.
  */
-void I2CRelay::set_relay(int relay_num, bool state) {
+inline void I2CRelay::set_relay(int relay_num, bool state) {
   if (relay_num < 1 || relay_num > 4) return;
   if (state) {
     relay_state_ |= (1 << (relay_num - 1));
@@ -99,7 +99,7 @@ void I2CRelay::set_relay(int relay_num, bool state) {
  * @param mask4bits A 4-bit value where each bit represents the desired state of a relay (bit 0 for relay 1, bit 1 for relay 2, bit 2 for relay 3, bit 3 for relay 4).
  * @return esp_err_t - Returns ESP_OK if the I2C communication was successful, or an error code if it failed.
  */
-esp_err_t I2CRelay::set_all_relays_mask(uint8_t mask4bits) {
+inline esp_err_t I2CRelay::set_all_relays_mask(uint8_t mask4bits) {
     relay_state_ = (mask4bits & 0x0F);
     uint8_t data[2] = {register_address_, relay_state_};
     return i2c_master_write_to_device(i2c_port_, relay_address_, data, 2, pdMS_TO_TICKS(timeout_ms_));
