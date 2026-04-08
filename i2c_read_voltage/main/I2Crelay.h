@@ -45,11 +45,6 @@
  */
 static const char *RELAYTAG = "I2C_RELAY";
 
-/** 
- * @brief State of the relays 
- */
-static uint8_t relay_state = 0x00;
-
 class I2CRelay {
  public:
   I2CRelay(int relay_address = RELAY_ADDR, uint8_t register_address = REG_RELAY_CTRL, i2c_port_t i2c_port = I2C_MASTER_NUM, 

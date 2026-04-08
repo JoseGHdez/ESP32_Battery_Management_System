@@ -18,8 +18,8 @@ end
 
 # Load bootloader symbols
 set confirm off
-    add-symbol-file C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader/bootloader.elf
+    add-symbol-file C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader/bootloader.elf
 set confirm on
 
 # Load application symbols
-file C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/read_voltage.elf
+file C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/read_voltage.elf

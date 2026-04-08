@@ -24,6 +24,7 @@
 #include "fontx.h" // Font rendering library for displaying text on the TFT screen
 #include "bmpfile.h" // Bitmap file handling library (not used in this code but included for potential future use in displaying images on the TFT)
 #include "I2Crelay.h" // Header file for relay control functions
+#include "ADS1115.h" // Header file for ADS1115 ADC functions
 
 // Configuración I2C (Puerto Grove M5StickCPlus2)
 #define I2C_MASTER_SDA_IO         32        /*!<@brief I2C master SDA GPIO */
@@ -220,7 +221,7 @@ esp_err_t i2c_master_init() {
  *  - MSB (0xD0): 1(Start) 100(A1) 000(+/-6.144V) 0(Single-shot)
  * - LSB (0x83): 100(128 SPS) 0(Trad) 0(Alert Low) 11(Disable Comp) 
  */
-float GetVoltage() {
+float GetVoltageA1() {
     uint8_t config_data[3] = {
       ADS1115_REG_CONFIG, 
       0xD0,
@@ -247,11 +248,89 @@ float GetVoltage() {
     // std::cout << "--- Datos Crudos ---" << std::endl;
     // std::cout << "MSB (Byte 0): " << (int)data[0] << " (Hex: 0x" << std::hex << (int)data[0] << std::dec << ")" << std::endl;
     // std::cout << "LSB (Byte 1): " << (int)data[1] << " (Hex: 0x" << std::hex << (int)data[1] << std::dec << ")" << std::endl;
-    // std::cout << "Valor RAW: " << raw << std::endl;
+    std::cout << "Valor RAW: " << raw << std::endl;
 
     // Convert the raw ADC value to voltage (0.1875mV per bit for +/-6.144V range)
     float voltage = raw * 0.0001875f;
     return voltage;
+}
+
+float GetVoltageA2() {
+    uint8_t config_data[3] = {
+      ADS1115_REG_CONFIG, 
+      0xE0, // Change later to read from A2 (MUX bits 110)
+      0x83  
+    };
+
+    // Configure the ADS1115 to read from channel A2 with the desired settings
+    esp_err_t err_init = i2c_master_write_to_device(I2C_MASTER_NUM, ADS1115_ADDR, config_data, 3, pdMS_TO_TICKS(I2C_MASTER_TIMEOUT_MS));
+    if (err_init != ESP_OK) return -1.0;
+
+    vTaskDelay(pdMS_TO_TICKS(20));  // Configuration delay
+
+    // Read the conversion result from the ADS1115
+    uint8_t reg = ADS1115_REG_CONV;
+    uint8_t data[2] = {0, 0};
+    esp_err_t err_read = i2c_master_write_read_device(I2C_MASTER_NUM, ADS1115_ADDR, &reg, 1, data, 2, pdMS_TO_TICKS(I2C_MASTER_TIMEOUT_MS));
+
+    if (err_read != ESP_OK) return -1.0;
+
+    // Convert the raw ADC value to a signed integer
+    int16_t raw = (data[0] << 8) | data[1];
+
+    // // --- BLOQUE DE DEBUG ---
+    // std::cout << "--- Datos Crudos ---" << std::endl;
+    // std::cout << "MSB (Byte 0): " << (int)data[0] << " (Hex: 0x" << std::hex << (int)data[0] << std::dec << ")" << std::endl;
+    // std::cout << "LSB (Byte 1): " << (int)data[1] << " (Hex: 0x" << std::hex << (int)data[1] << std::dec << ")" << std::endl;
+    std::cout << "Valor RAW: " << raw << std::endl;
+
+    // Convert the raw ADC value to voltage (0.1875mV per bit for +/-6.144V range)
+    float voltage = raw * 0.0001875f;
+    return voltage;
+}
+
+// Using Sensor medidor de Voltaje hasta 25V - FZ0430
+float GetVoltageA3() {
+    uint8_t config_data[3] = {
+      ADS1115_REG_CONFIG, 
+      0xF0, 
+      0x83  
+    };
+
+    // Configure the ADS1115 to read from channel A3 with the desired settings
+    esp_err_t err_init = i2c_master_write_to_device(I2C_MASTER_NUM, ADS1115_ADDR, config_data, 3, pdMS_TO_TICKS(I2C_MASTER_TIMEOUT_MS));
+    if (err_init != ESP_OK) return -1.0;
+
+    vTaskDelay(pdMS_TO_TICKS(20));  // Configuration delay
+
+    // Read the conversion result from the ADS1115
+    uint8_t reg = ADS1115_REG_CONV;
+    uint8_t data[2] = {0, 0};
+    esp_err_t err_read = i2c_master_write_read_device(I2C_MASTER_NUM, ADS1115_ADDR, &reg, 1, data, 2, pdMS_TO_TICKS(I2C_MASTER_TIMEOUT_MS));
+
+    if (err_read != ESP_OK) return -1.0;
+
+    // Convert the raw ADC value to a signed integer
+    int16_t raw = (data[0] << 8) | data[1];
+
+    // // --- BLOQUE DE DEBUG ---
+    // std::cout << "--- Datos Crudos ---" << std::endl;
+    // std::cout << "MSB (Byte 0): " << (int)data[0] << " (Hex: 0x" << std::hex << (int)data[0] << std::dec << ")" << std::endl;
+    // std::cout << "LSB (Byte 1): " << (int)data[1] << " (Hex: 0x" << std::hex << (int)data[1] << std::dec << ")" << std::endl;
+    std::cout << "Valor RAW: " << raw << std::endl;
+
+    // Convert the raw ADC value to voltage (0.1875mV per bit for +/-6.144V range)
+    float v_pin = raw * 0.0001875f;
+    
+    // Multiplicamos por 5 para deshacer el divisor de tensión del FZ0430
+    // Como tu lectura dio 0.995V en vez de 1.000V exactos, tu factor real 
+    // es aproximadamente 5.025 (5V / 0.995V). Puedes usar 5.0f o el valor calibrado.
+    float calibration_factor = 5.025f; 
+    float real_battery_voltage = v_pin * calibration_factor;
+
+    std::cout << "Voltaje en Pin S: " << v_pin << "V | Voltaje Real Batería: " << real_battery_voltage << "V" << std::endl;
+
+    return real_battery_voltage;
 }
 
 /**
@@ -335,21 +414,27 @@ float GetCurrentAmp() {
 
     uint8_t reg = ADS1115_REG_CONV;
     uint8_t data[2];
-    i2c_master_write_read_device(I2C_MASTER_NUM, ADS1115_ADDR, &reg, 1, data, 2, pdMS_TO_TICKS(100));
 
-    int16_t raw = (data[0] << 8) | data[1];
-
+    int16_t raw = 0;
+  
     // Voltage in sensor output
-    float v_sensor = raw * 0.0001875f; 
+    float v_sensor = 0.0; 
+    for (int i = 0; i < 20; i++) {
+      i2c_master_write_read_device(I2C_MASTER_NUM, ADS1115_ADDR, &reg, 1, data, 2, pdMS_TO_TICKS(100));
+  
+      raw = (data[0] << 8) | data[1];
+  
+      // Voltage in sensor output
+      v_sensor += raw * 0.0001875f; 
+    }
+
+    v_sensor /= 20.0; // Average the readings
 
     // Calibration values (these depend on your specific sensor and setup, adjust accordingly)
-    float zero_point = 2.58394f; 
+    float zero_point = 2.5828f; 
     float sensitivity = 0.033f; // 33mV/A
 
     float amperage = (v_sensor - zero_point) / sensitivity;
-
-    // Stabilize small readings to zero (noise threshold)
-    if (amperage > -0.001 && amperage < 0.001) amperage = 0.0f;
 
     std::cout << "V_Sensor: " << v_sensor << "V | Amp: " << amperage << "A" << std::endl;
 
@@ -472,89 +557,149 @@ extern "C" void BatteryTask(void *pvParameters) {
  * @param pvParameters - Pointer to task parameters (not used in this implementation).
  */
 extern "C" void UARTTask(void *pvParameters) {
-  uint8_t buf[BUF_SIZE];
+  char command[BUF_SIZE];
+  int cmd_idx = 0;               // Índice actual de escritura en el buffer
   char msg_to_queue[64];
   I2CRelay relayController(RELAY_ADDR, I2C_MASTER_NUM);
-  while (1) {
-    int len = uart_read_bytes(UART_NUM, buf, BUF_SIZE - 1, pdMS_TO_TICKS(1000));
-    if (len > 0) {
-      buf[len] = 0; 
-      // Delete trailing newline characters for cleaner processing
-      while (len > 0 && (buf[len-1] == '\n' || buf[len-1] == '\r')) {
-        buf[--len] = 0;
-      }
-      if (len == 0) continue;
-      ESP_LOGI(TAG, "Recibido %d bytes: %s", len, (char*)buf);
+  ADS1115 adsController(I2C_MASTER_NUM, ADS1115_ADDR);
 
-      if (strcasecmp((char*)buf, "HELLO") == 0) {
-        uart_write_bytes(UART_NUM, "Hola desde ESP32!\r\n", strlen("Hola desde ESP32!\r\n"));
-      } else if (strcasecmp((char*)buf, "R1 ON") == 0) {
-        uart_write_bytes(UART_NUM, "Encendiendo R1\r\n", strlen("Encendiendo R1\r\n"));
-        relayController.set_relay(1, true);
-        strcpy(msg_to_queue, "RELAY 1: ON");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0); // Enviar a pantalla
-      } else if (strcasecmp((char*)buf, "R1 OFF") == 0) {
-        uart_write_bytes(UART_NUM, "Apagando R1\r\n", strlen("Apagando R1\r\n"));
-        relayController.set_relay(1, false);
-        strcpy(msg_to_queue, "RELAY 1: OFF");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "R2 ON") == 0) {
-        uart_write_bytes(UART_NUM, "Encendiendo R2\r\n", strlen("Encendiendo R2\r\n"));
-        relayController.set_relay(2, true);
-        strcpy(msg_to_queue, "RELAY 2: ON");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "R2 OFF") == 0) {
-        uart_write_bytes(UART_NUM, "Apagando R2\r\n", strlen("Apagando R2\r\n"));
-        relayController.set_relay(2, false);
-        strcpy(msg_to_queue, "RELAY 2: OFF");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "R3 ON") == 0) {
-        uart_write_bytes(UART_NUM, "Encendiendo R3\r\n", strlen("Encendiendo R3\r\n"));
-        relayController.set_relay(3, true);
-        strcpy(msg_to_queue, "RELAY 3: ON");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "R3 OFF") == 0) {
-        uart_write_bytes(UART_NUM, "Apagando R3\r\n", strlen("Apagando R3\r\n"));
-        relayController.set_relay(3, false);
-        strcpy(msg_to_queue, "RELAY 3: OFF");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "R4 ON") == 0) {
-        uart_write_bytes(UART_NUM, "Encendiendo R4\r\n", strlen("Encendiendo R4\r\n"));
-        relayController.set_relay(4, true);
-        strcpy(msg_to_queue, "RELAY 4: ON");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "R4 OFF") == 0) {
-        uart_write_bytes(UART_NUM, "Apagando R4\r\n", strlen("Apagando R4\r\n"));
-        relayController.set_relay(4, false);
-        strcpy(msg_to_queue, "RELAY 4: OFF");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "ALL ON") == 0) {
-        uart_write_bytes(UART_NUM, "Encendiendo todos los relés\r\n", strlen("Encendiendo todos los relés\r\n"));
-        relayController.set_all_relays_mask(0x0F); // 0b1111 -> los 4 relays ON
-        strcpy(msg_to_queue, "ALL: ON");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "ALL OFF") == 0) {
-        uart_write_bytes(UART_NUM, "Apagando todos los relés\r\n", strlen("Apagando todos los relés\r\n"));
-        relayController.set_all_relays_mask(0x00);
-        strcpy(msg_to_queue, "ALL: OFF");
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "VOLTAGE") == 0) {
-        float v = GetVoltage();
-        //DiagnosticADS1115();
-        std::string msg = "Bat: " + std::to_string(v) + "V\r";
-        uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
-        strcpy(msg_to_queue, msg.c_str());
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else if (strcasecmp((char*)buf, "CURRENT") == 0) {
-        float ampers = GetCurrentAmp();
-        std::string msg = "Current: " + std::to_string(ampers) + "A\r";
-        uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
-        strcpy(msg_to_queue, msg.c_str());
-        xQueueSend(xQueueDisplay, &msg_to_queue, 0);
-      } else {
-        uart_write_bytes(UART_NUM, "Comando no reconocido\r\n", strlen("Comando no reconocido\r\n"));
+  // Mostrar el prompt inicial por primera vez
+  sleep(5); // Pequeña pausa para asegurar que el UART esté listo
+  uart_write_bytes(UART_NUM, "> ", 2);
+
+  while (1) {
+    uint8_t rx_char;
+    
+    // Leemos 1 byte cada vez, esperando de forma indefinida hasta que llegue algo
+    int len = uart_read_bytes(UART_NUM, &rx_char, 1, portMAX_DELAY);
+
+    if (len > 0) {
+      // 1. Detección de ENTER (Retorno de carro o salto de línea)
+      if (rx_char == '\n' || rx_char == '\r') {
+        
+        // Hacemos un eco del salto de línea para que la terminal baje de renglón
+        uart_write_bytes(UART_NUM, "\r\n", 2);
+
+        // Solo procesamos si el usuario escribió algo
+        if (cmd_idx > 0) {
+          command[cmd_idx] = '\0'; // Terminador nulo de la cadena en C
+          ESP_LOGI(TAG, "Comando recibido (%d bytes): %s", cmd_idx, command);
+
+          // --- INICIO DE TU LÓGICA DE PROCESAMIENTO ---
+          if (strcasecmp(command, "HELLO") == 0) {
+            uart_write_bytes(UART_NUM, "Hola desde ESP32!\r\n", strlen("Hola desde ESP32!\r\n"));
+          } else if (strcasecmp(command, "R1 ON") == 0) {
+            uart_write_bytes(UART_NUM, "Encendiendo R1\r\n", strlen("Encendiendo R1\r\n"));
+            relayController.set_relay(1, true);
+            strcpy(msg_to_queue, "RELAY 1: ON");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "R1 OFF") == 0) {
+            uart_write_bytes(UART_NUM, "Apagando R1\r\n", strlen("Apagando R1\r\n"));
+            relayController.set_relay(1, false);
+            strcpy(msg_to_queue, "RELAY 1: OFF");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "R2 ON") == 0) {
+            uart_write_bytes(UART_NUM, "Encendiendo R2\r\n", strlen("Encendiendo R2\r\n"));
+            relayController.set_relay(2, true);
+            strcpy(msg_to_queue, "RELAY 2: ON");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "R2 OFF") == 0) {
+            uart_write_bytes(UART_NUM, "Apagando R2\r\n", strlen("Apagando R2\r\n"));
+            relayController.set_relay(2, false);
+            strcpy(msg_to_queue, "RELAY 2: OFF");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "R3 ON") == 0) {
+            uart_write_bytes(UART_NUM, "Encendiendo R3\r\n", strlen("Encendiendo R3\r\n"));
+            relayController.set_relay(3, true);
+            strcpy(msg_to_queue, "RELAY 3: ON");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "R3 OFF") == 0) {
+            uart_write_bytes(UART_NUM, "Apagando R3\r\n", strlen("Apagando R3\r\n"));
+            relayController.set_relay(3, false);
+            strcpy(msg_to_queue, "RELAY 3: OFF");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "R4 ON") == 0) {
+            uart_write_bytes(UART_NUM, "Encendiendo R4\r\n", strlen("Encendiendo R4\r\n"));
+            relayController.set_relay(4, true);
+            strcpy(msg_to_queue, "RELAY 4: ON");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "R4 OFF") == 0) {
+            uart_write_bytes(UART_NUM, "Apagando R4\r\n", strlen("Apagando R4\r\n"));
+            relayController.set_relay(4, false);
+            strcpy(msg_to_queue, "RELAY 4: OFF");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "ALL ON") == 0) {
+            uart_write_bytes(UART_NUM, "Encendiendo todos los relés\r\n", strlen("Encendiendo todos los relés\r\n"));
+            relayController.set_all_relays_mask(0x0F);
+            strcpy(msg_to_queue, "ALL: ON");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "ALL OFF") == 0) {
+            uart_write_bytes(UART_NUM, "Apagando todos los relés\r\n", strlen("Apagando todos los relés\r\n"));
+            relayController.set_all_relays_mask(0x00);
+            strcpy(msg_to_queue, "ALL: OFF");
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "VOLTAGE A1") == 0) {
+            float v = adsController.ReadVoltage(1);
+            std::string msg = "Bat: " + std::to_string(v) + "V\r\n";
+            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
+            strcpy(msg_to_queue, msg.c_str());
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "VOLTAGE A2") == 0) {
+            float v = adsController.ReadVoltage(2);
+            std::string msg = "V(A2): " + std::to_string(v) + "V\r\n";
+            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
+            strcpy(msg_to_queue, msg.c_str());
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "VOLTAGE A3") == 0) {
+            float v = adsController.ReadVoltage(3, true);
+            std::string msg = "V(A3): " + std::to_string(v) + "V\r\n";
+            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
+            strcpy(msg_to_queue, msg.c_str());
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "VOLTAGE PIN") == 0) {
+            float v = GetADCPinVoltage();
+            std::string msg = "Bat: " + std::to_string(v) + "V\r\n";
+            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
+            strcpy(msg_to_queue, msg.c_str());
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else if (strcasecmp(command, "CURRENT") == 0) {
+            float ampers = GetCurrentAmp();
+            std::string msg = "Current: " + std::to_string(ampers) + "A\r\n";
+            uart_write_bytes(UART_NUM, msg.c_str(), strlen(msg.c_str()));
+            strcpy(msg_to_queue, msg.c_str());
+            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+          } else {
+            uart_write_bytes(UART_NUM, "Comando no reconocido\r\n", strlen("Comando no reconocido\r\n"));
+          }
+          // --- FIN DE TU LÓGICA DE PROCESAMIENTO ---
+
+          // Reiniciamos el índice para el próximo comando
+          cmd_idx = 0; 
+        }
+
+        // Una vez procesado, volvemos a imprimir el indicador visual para el usuario
+        sleep(1); // Pequeña pausa para evitar que el prompt se mezcle con la respuesta
+        uart_write_bytes(UART_NUM, "> ", 2);
+
+      } 
+      // 2. Detección de la tecla Retroceso (Backspace / Delete)
+      else if (rx_char == '\b' || rx_char == 127) { 
+        if (cmd_idx > 0) {
+          cmd_idx--; // Eliminamos el carácter de nuestro buffer
+          // Enviamos a la terminal: retroceso (\b), espacio vacio para limpiar visualmente, y otro retroceso
+          uart_write_bytes(UART_NUM, "\b \b", 3); 
+        }
+      } 
+      // 3. Guardado normal de cualquier otro carácter
+      else {
+        // Hacemos "eco" del carácter enviado para que el usuario pueda ver lo que está tecleando
+        uart_write_bytes(UART_NUM, &rx_char, 1);
+
+        // Guardamos en nuestro buffer, cuidando de no exceder el tamaño máximo
+        if (cmd_idx < BUF_SIZE - 1) {
+          command[cmd_idx++] = (char)rx_char;
+        }
       }
-      vTaskDelay(pdMS_TO_TICKS(2000));
     }
   }
 }

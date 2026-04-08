@@ -1,5 +1,5 @@
-Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\i2c_read_voltage\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\i2c_read_voltage\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
-ets Jul 29 2019 12:21:46
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\i2c_read_voltage\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\i2c_read_voltage\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+4) heap_i�ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 configsip: 271414342, SPIWP:0xee
@@ -11,7 +11,7 @@ load:0x40078000,len:15916
 load:0x40080400,len:3860
 entry 0x40080638
 [0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
-[0;32mI (30) boot: compile time Feb 11 2026 18:30:52[0m
+[0;32mI (30) boot: compile time Apr  8 2026 15:35:52[0m
 [0;32mI (30) boot: Multicore bootloader[0m
 [0;32mI (31) boot: chip revision: v3.0[0m
 [0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
@@ -27,84 +27,93 @@ entry 0x40080638
 [0;32mI (84) boot:  4 storage2         Unknown data     01 82 00130000 00050000[0m
 [0;32mI (91) boot:  5 storage3         Unknown data     01 82 00180000 00080000[0m
 [0;32mI (97) boot: End of partition table[0m
-[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=126a0h ( 75424) map[0m
-[0;32mI (134) esp_image: segment 1: paddr=000226c8 vaddr=3ffb0000 size=02788h ( 10120) load[0m
-[0;32mI (138) esp_image: segment 2: paddr=00024e58 vaddr=40080000 size=0b1c0h ( 45504) load[0m
-[0;32mI (156) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=50ee4h (331492) map[0m
-[0;32mI (270) esp_image: segment 4: paddr=00080f0c vaddr=4008b1c0 size=05b00h ( 23296) load[0m
-[0;32mI (279) esp_image: segment 5: paddr=00086a14 vaddr=50000000 size=00020h (    32) load[0m
-[0;32mI (287) boot: Loaded app from partition at offset 0x10000[0m
-[0;32mI (287) boot: Disabling RNG early entropy source...[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=126f8h ( 75512) map[0m
+[0;32mI (134) esp_image: segment 1: paddr=00022720 vaddr=3ffb0000 size=02788h ( 10120) load[0m
+[0;32mI (138) esp_image: segment 2: paddr=00024eb0 vaddr=40080000 size=0b168h ( 45416) load[0m
+[0;32mI (156) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=51264h (332388) map[0m
+[0;32mI (270) esp_image: segment 4: paddr=0008128c vaddr=4008b168 size=05b58h ( 23384) load[0m
+[0;32mI (279) esp_image: segment 5: paddr=00086dec vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (288) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (288) boot: Disabling RNG early entropy source...[0m
 [0;32mI (300) cpu_start: Multicore app[0m
 [0;32mI (308) cpu_start: Pro cpu start user code[0m
 [0;32mI (308) cpu_start: cpu freq: 160000000 Hz[0m
 [0;32mI (308) app_init: Application information:[0m
-[0;32mI (308) app_init: Project name:     read_voltage[0m
-[0;32mI (313) app_init: App version:      1[0m
-[0;32mI (316) app_init: Compile time:     Feb 11 2026 18:30:30[0m
-[0;32mI (321) app_init: ELF file SHA256:  4cbbf6ace...[0m
-[0;32mI (325) app_init: ESP-IDF:          v5.5.1[0m
-[0;32mI (329) efuse_init: Min chip rev:     v0.0[0m
-[0;32mI (333) efuse_init: Max chip rev:     v3.99 [0m
-[0;32mI (337) efuse_init: Chip rev:         v3.0[0m
-[0;32mI (341) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (347) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
-[0;32mI (352) heap_init: At 3FFB4FD0 len 0002B030 (172 KiB): DRAM[0m
-[0;32mI (357) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
-[0;32mI (363) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
-[0;32mI (368) heap_init: At 40090CC0 len 0000F340 (60 KiB): IRAM[0m
-[0;32mI (375) spi_flash: detected chip: generic[0m
-[0;32mI (377) spi_flash: flash io: dio[0m
-[0;33mW (383) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
-[0;32mI (391) main_task: Started on CPU0[0m
-[0;32mI (401) main_task: Calling app_main()[0m
+[0;32mI (309) app_init: Project name:     read_voltage[0m
+[0;32mI (313) app_init: App version:      f976686-dirty[0m
+[0;32mI (317) app_init: Compile time:     Apr  8 2026 15:35:32[0m
+[0;32mI (322) app_init: ELF file SHA256:  975363d6f...[0m
+[0;32mI (327) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (330) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (334) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (338) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (342) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (349) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (353) heap_init: At 3FFB4FD0 len 0002B030 (172 KiB): DRAM[0m
+[0;32mI (359) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (364) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (370) heap_init: At 40090CC0 len 0000F340 (60 KiB): IRAM[0m
+[0;32mI (376) spi_flash: detected chip: generic[0m
+[0;32mI (379) spi_flash: flash io: dio[0m
+[0;33mW (384) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (392) main_task: Started on CPU0[0m
+[0;32mI (402) main_task: Calling app_main()[0m
 ----- Initialising program -----
-[0;32mI (401) M5_SYSTEM: Initializing SPIFFS[0m
-[0;32mI (411) M5_SYSTEM: Mount /fonts to storage1 success[0m
-[0;32mI (411) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
-[0;32mI (411) M5_SYSTEM: I2C Relay inicializado[0m
+[0;32mI (402) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (412) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (412) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (412) M5_SYSTEM: I2C Relay inicializado[0m
 Escaneando bus I2C...
 ¡Dispositivo encontrado en dirección: 0x48!
-[0;32mI (441) M5_SYSTEM: Tarea TFT iniciada[0m
-[0;32mI (441) main_task: Returned from app_main()[0m
-[0;32mI (2441) ST7789: GPIO_CS=5[0m
-[0;32mI (2441) ST7789: GPIO_DC=14[0m
-[0;32mI (2441) ST7789: GPIO_RESET=12[0m
-[0;32mI (2591) ST7789: GPIO_BL=-1[0m
-[0;32mI (2591) ST7789: GPIO_MOSI=15[0m
-[0;32mI (2591) ST7789: GPIO_SCLK=13[0m
-[0;32mI (3291) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
-[0;32mI (63161) M5_SYSTEM: Recibido 7 bytes: voltage[0m
---- Datos Crudos ---
-MSB (Byte 0): 11 (Hex: 0xb)
-LSB (Byte 1): 188 (Hex: 0xbc)
-Valor RAW: 3004
-Bat: 0.563250VI (63221) M5_SYSTEM: Pantalla actualizada: Bat: 0.563250V
-[0;32mI (71251) M5_SYSTEM: Recibido 5 bytes: r1 on[0m
-[1;31mE (71251) M5_SYSTEM: Error I2C (esperado): ESP_FAIL[0m
-Encendiendo R1
-[0;32mI (71281) M5_SYSTEM: Pantalla actualizada: RELAY 1: ON[0m
-[0;32mI (80201) M5_SYSTEM: Recibido 6 bytes: r1 off[0m
-[1;31mE (80201) M5_SYSTEM: Error I2C (esperado): ESP_FAIL[0m
-Apagando R1
-[0;32mI (80231) M5_SYSTEM: Pantalla actualizada: RELAY 1: OFF[0m
-[0;32mI (109141) M5_SYSTEM: Recibido 3 bytes: vol[0m
-Comando no reconocido
-[0;32mI (116161) M5_SYSTEM: Recibido 7 bytes: voltage[0m
---- Datos Crudos ---
-MSB (Byte 0): 109 (Hex: 0x6d)
-LSB (Byte 1): 26 (Hex: 0x1a)
-Valor RAW: 27930
-Bat: 5.236875VI (116211) M5_SYSTEM: Pantalla actualizada: Bat: 5.236875V
-[0;32mI (123691) M5_SYSTEM: Recibido 7 bytes: voltage[0m
---- Datos Crudos ---
-MSB (Byte 0): 109 (Hex: 0x6d)
-LSB (Byte 1): 23 (Hex: 0x17)
-Valor RAW: 27927
-Bat: 5.236312VI (123741) M5_SYSTEM: Pantalla actualizada: Bat: 5.236312V
-[0;32mI (206861) M5_SYSTEM: Recibido 7 bytes: voltage[0m
---- Datos Crudos ---
-MSB (Byte 0): 11 (Hex: 0xb)
-LSB (Byte 1): 184 (Hex: 0xb8)
-Valor RAW: 3000
-Bat: 0.562500VI (206911) M5_SYSTEM: Pantalla actualizada: Bat: 0.562500V
+[0;32mI (442) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (452) main_task: Returned from app_main()[0m
+[0;32mI (2452) ST7789: GPIO_CS=5[0m
+[0;32mI (2452) ST7789: GPIO_DC=14[0m
+[0;32mI (2452) ST7789: GPIO_RESET=12[0m
+[0;32mI (2602) ST7789: GPIO_BL=-1[0m
+[0;32mI (2602) ST7789: GPIO_MOSI=15[0m
+[0;32mI (2602) ST7789: GPIO_SCLK=13[0m
+[0;32mI (3302) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+> current
+[0;32mI (8972) M5_SYSTEM: Comando recibido (7 bytes): current[0m
+V_Sensor: 2.58225V | Amp: -0.0772693A
+Current: -0.077269A
+[0;32mI (9042) M5_SYSTEM: Pantalla actualizada: Current: -0.077269A[0m
+
+> current
+[0;32mI (23242) M5_SYSTEM: Comando recibido (7 bytes): current[0m
+V_Sensor: 2.583V | Amp: -0.0545473A
+Current: -0.054547A
+[0;32mI (23302) M5_SYSTEM: Pantalla actualizada: Current: -0.054547A[0m
+
+> current
+[0;32mI (59352) M5_SYSTEM: Comando recibido (7 bytes): current[0m
+V_Sensor: 2.58225V | Amp: -0.0772693A
+Current: -0.077269A
+[0;32mI (59412) M5_SYSTEM: Pantalla actualizada: Current: -0.077269A[0m
+
+> current
+[0;32mI (64112) M5_SYSTEM: Comando recibido (7 bytes): current[0m
+V_Sensor: 2.58262V | Amp: -0.0659119A
+Current: -0.065912A
+[0;32mI (64172) M5_SYSTEM: Pantalla actualizada: Current: -0.065912A[0m
+
+> currn ent
+[0;32mI (66752) M5_SYSTEM: Comando recibido (7 bytes): current[0m
+V_Sensor: 2.58244V | Amp: -0.0715906A
+Current: -0.071591A
+[0;32mI (66812) M5_SYSTEM: Pantalla actualizada: Current: -0.071591A[0m
+
+> current
+[0;32mI (69092) M5_SYSTEM: Comando recibido (7 bytes): current[0m
+V_Sensor: 2.58169V | Amp: -0.0943198A
+Current: -0.094320A
+[0;32mI (69152) M5_SYSTEM: Pantalla actualizada: Current: -0.094320A[0m
+
+> current
+[0;32mI (71442) M5_SYSTEM: Comando recibido (7 bytes): current[0m
+V_Sensor: 2.58262V | Amp: -0.0659119A
+Current: -0.065912A
+[0;32mI (71502) M5_SYSTEM: Pantalla actualizada: Current: -0.065912A[0m
+
+> 

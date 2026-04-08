@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/components/I2Cdev
+# Install script for directory: C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/components/I2Cdev
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

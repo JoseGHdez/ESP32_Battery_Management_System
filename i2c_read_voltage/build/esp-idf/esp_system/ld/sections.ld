@@ -1,6 +1,6 @@
 /* Automatically generated file; DO NOT EDIT */
 /* Espressif IoT Development Framework Linker Script */
-/* Generated from: C:\Users\Jose\ESP32_Battery_Management_System\i2c_read_voltage\build\esp-idf\esp_system\ld\sections.ld.in */
+/* Generated from: C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\i2c_read_voltage\build\esp-idf\esp_system\ld\sections.ld.in */
 
 /*
 

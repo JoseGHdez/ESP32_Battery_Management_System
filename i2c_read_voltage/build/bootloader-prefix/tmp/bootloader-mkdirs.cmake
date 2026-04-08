@@ -10,18 +10,18 @@ if(NOT EXISTS "C:/Espressif/frameworks/esp-idf-v5.5.1/components/bootloader/subp
   file(MAKE_DIRECTORY "C:/Espressif/frameworks/esp-idf-v5.5.1/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader"
-  "C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix"
-  "C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/tmp"
-  "C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp"
-  "C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src"
-  "C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader"
+  "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix"
+  "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/tmp"
+  "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src"
+  "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

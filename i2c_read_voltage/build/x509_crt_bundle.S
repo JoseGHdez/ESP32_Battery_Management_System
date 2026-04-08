@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

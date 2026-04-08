@@ -43,33 +43,78 @@
 #define BAT_ADC_CHAN              ADC_CHANNEL_0 /*!<@brief ADC channel for battery voltage reading (GPIO 36) */
 #define BAT_VOLTAGE_DIVIDER       2.0 /*!<@brief Battery voltage divider ratio if needed */
 
-// ============ UART CONFIGURATION ============
-#define UART_NUM UART_NUM_0 /*!<@brief UART port number for console output and command input */
-#define BUF_SIZE 256 /*!<@brief Buffer size for UART communication */
-
 // ============ TASK CONFIGURATION ============
 #define INTERVAL 400 /*!<@brief Delay interval for the task */
 #define WAIT vTaskDelay(INTERVAL) /*!<@brief Delay code for the task */
 
-// =========== M5STICKCPLUS2 CONFIGURATION ============
-#define CONFIG_WIDTH 135     // Display width in pixels
-#define CONFIG_HEIGHT 240    // Display height in pixels
-#define CONFIG_MOSI_GPIO 15  // GPIO for SPI MOSI (Master Out Slave In)
-#define CONFIG_SCLK_GPIO 13  // GPIO for SPI SCLK (Serial Clock)
-#define CONFIG_CS_GPIO 5     // GPIO for SPI CS (Chip Select)
-#define CONFIG_DC_GPIO 14    // GPIO for SPI DC (Data/Command)
-#define CONFIG_RESET_GPIO 12 // GPIO for SPI Reset
-#define CONFIG_BL_GPIO -1    // GPIO for SPI Backlight (set to -1 if not used, as M5StickCPlus2 has a fixed backlight control)
-#define CONFIG_LED_GPIO 19   // GPIO for controlling an LED (optional, can be used for status indication)
-#define CONFIG_OFFSETX 52    // X offset for the display (to center the content on the M5StickC screen)
-#define CONFIG_OFFSETY 40    // Y offset for the display (to center the content on the M5StickC screen)
+class ADS1115 {
+ public:
+  ADS1115(i2c_port_t i2c_port = I2C_MASTER_NUM, uint8_t ads1115_addr = ADS1115_ADDR, 
+          uint8_t ads1115_reg_config = ADS1115_REG_CONFIG, uint8_t ads1115_reg_conv = ADS1115_REG_CONV,
+          int timeout_ms = I2C_MASTER_TIMEOUT_MS);
+  float ReadVoltage(uint8_t channel, bool fz0430_flag = false);
+  float CalibrateVoltage(float known_voltage, float factor);
+  float ReadCurrent(uint8_t channel);
 
-/** 
- * @brief Logger tag for the M5StickCPlus2 system 
- */
-static const char *TAG = "M5_SYSTEM";
+ private:
+  i2c_port_t i2c_port_;
+  int timeout_ms_;
+  uint8_t ads1115_addr_;
+  uint8_t ads1115_reg_config_;
+  uint8_t ads1115_reg_conv_;
+};
 
-/** 
- * @brief Queue for sending messages to the display task
- */
-static QueueHandle_t xQueueDisplay = NULL;
+ADS1115::ADS1115(i2c_port_t port, uint8_t ads1115_addr, uint8_t ads1115_reg_config, uint8_t ads1115_reg_conv, int timeout_ms) {
+  i2c_port_ = port;
+  ads1115_addr_ = ads1115_addr;
+  ads1115_reg_config_ = ads1115_reg_config;
+  ads1115_reg_conv_ = ads1115_reg_conv;
+  timeout_ms_ = timeout_ms;
+}
+
+float ADS1115::ReadVoltage(uint8_t channel, bool fz0430_flag) {
+  if (channel > 3) return -1.0; // Invalid channel
+
+  uint8_t mux_bits = 0x40 | (channel << 4); // MUX bits for single-ended input on the specified channel
+  uint8_t config_data[3] = {
+    ads1115_reg_config_, 
+    mux_bits,
+    0x83  // Gain: +/- 6.144V, Data rate: 128SPS, Single-shot mode
+  };
+  
+  // Configure the ADS1115 to read from the specified channel with the desired settings
+  esp_err_t err_init = i2c_master_write_to_device(i2c_port_, ads1115_addr_, config_data, 3, pdMS_TO_TICKS(timeout_ms_));
+  if (err_init != ESP_OK) return -1.0;
+
+  vTaskDelay(pdMS_TO_TICKS(20));  // Configuration delay
+
+  // Read the conversion result from the ADS1115
+  uint8_t reg = ads1115_reg_conv_;
+  uint8_t data[2] = {0, 0};
+  esp_err_t err_read = i2c_master_write_read_device(i2c_port_, ads1115_addr_, &reg, 1, data, 2, pdMS_TO_TICKS(timeout_ms_));
+  if (err_read != ESP_OK) return -1.0;
+
+  // Convert the raw ADC value to a signed integer
+  int16_t raw = (data[0] << 8) | data[1];
+
+  // Convert the raw ADC value to voltage (0.1875mV per bit for +/-6.144V range)
+  float voltage = raw * 0.0001875f;
+
+  return fz0430_flag ? CalibrateVoltage(voltage, 5.025f) : voltage;
+}
+
+float ADS1115::CalibrateVoltage(float known_voltage, float factor) {
+  return known_voltage * factor; // Simple calibration using a known voltage and a factor
+}
+
+float ADS1115::ReadCurrent(uint8_t channel) {
+  float voltage = ReadVoltage(channel);
+  if (voltage < 0) return -1.0; // Error reading voltage
+
+  // Example calibration for a current sensor with sensitivity of 0.033V/A
+  float zero_point = 2.5828f; // Voltage at 0A (this should be determined experimentally for your specific sensor)
+  voltage -= zero_point; // Remove zero-point offset
+
+  float current = voltage / 0.033f; 
+  return current;
+} 

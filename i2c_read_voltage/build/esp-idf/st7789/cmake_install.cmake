@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/components/st7789
+# Install script for directory: C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/components/st7789
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

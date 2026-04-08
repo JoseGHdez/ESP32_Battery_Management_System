@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
-  include("C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
-  include("C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
-  include("C:/Users/Jose/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
+  include("C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
+  include("C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/i2c_read_voltage/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
 
 endif()
 
