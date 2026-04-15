@@ -1,0 +1,1114 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_test\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_test\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+�(
+B���JB���}�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Apr 15 2026 16:51:04[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00110000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00130000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00180000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=14178h ( 82296) map[0m
+[0;32mI (136) esp_image: segment 1: paddr=000241a0 vaddr=3ffb0000 size=02798h ( 10136) load[0m
+[0;32mI (140) esp_image: segment 2: paddr=00026940 vaddr=40080000 size=096d8h ( 38616) load[0m
+[0;32mI (156) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=5619ch (352668) map[0m
+[0;32mI (276) esp_image: segment 4: paddr=000861c4 vaddr=400896d8 size=075f0h ( 30192) load[0m
+[0;32mI (288) esp_image: segment 5: paddr=0008d7bc vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (297) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (297) boot: Disabling RNG early entropy source...[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (317) cpu_start: Pro cpu start user code[0m
+[0;32mI (317) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (317) app_init: Application information:[0m
+[0;32mI (317) app_init: Project name:     read_voltage[0m
+[0;32mI (322) app_init: App version:      c874d72-dirty[0m
+[0;32mI (326) app_init: Compile time:     Apr 15 2026 16:50:53[0m
+[0;32mI (331) app_init: ELF file SHA256:  b3ce6f453...[0m
+[0;32mI (335) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (339) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (343) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (347) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (351) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (357) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (362) heap_init: At 3FFB5068 len 0002AF98 (171 KiB): DRAM[0m
+[0;32mI (368) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (373) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (378) heap_init: At 40090CC8 len 0000F338 (60 KiB): IRAM[0m
+[0;32mI (385) spi_flash: detected chip: generic[0m
+[0;32mI (387) spi_flash: flash io: dio[0m
+[0;33mW (393) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (401) main_task: Started on CPU0[0m
+[0;32mI (411) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (411) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (421) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (421) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (421) M5_SYSTEM: I2C Relay inicializado[0m
+Escaneando bus I2C...
+¡Dispositivo encontrado en dirección: 0x48!
+[0;32mI (451) servo_contrI (451) uart: queue free spaces: 20[0m
+[0;32mI (451) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (461) main_task: Returned from app_main()[0m
+Auto-read:
+VOLT: 0.57V
+AMP: -61.08A
+[0;32mI (2461) ST7789: GPIO_CS=5[0m
+[0;32mI (2461) ST7789: GPIO_DC=14[0m
+[0;32mI (2461) ST7789: GPIO_RESET=12[0m
+[0;32mI (2611) ST7789: GPIO_BL=-1[0m
+[0;32mI (2611) ST7789: GPIO_MOSI=15[0m
+[0;32mI (2611) ST7789: GPIO_SCLK=13[0m
+[0;32mI (3311) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (3351) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.08 A
+
+> Auto-read:
+VOLT: 0.56V
+AMP: -60.58A
+[0;32mI (10581) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.58 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.89A
+[0;32mI (20631) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.89 A
+
+start charge
+[0;32mI (28661) M5_SYSTEM: Command received: START CHARGE[0m
+Initiating charge sequence...
+[0;32mI (28661) M5_SYSTEM: Move to long press1400[0m
+[0;32mI (28701) M5_SYSTEM: Pantalla actualizada: Charging...[0m
+[0;32mI (29171) M5_SYSTEM: Wait long press1500[0m
+Auto-read:
+VOLT: 0.57V
+AMP: -61.53A
+[0;32mI (30681) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.53 A
+
+[0;32mI (32171) M5_SYSTEM: Move to first depress 1600[0m
+[0;32mI (32371) M5_SYSTEM: Move to short press 1400[0m
+[0;32mI (32871) M5_SYSTEM: Move to final depress 1600[0m
+> start chAuto-read:
+VOLT: 0.55V
+AMP: -61.69A
+[0;32mI (40731) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.69 A
+
+arge
+[0;32mI (41871) M5_SYSTEM: Command received: START CHARGE[0m
+Initiating charge sequence...
+[0;32mI (41871) M5_SYSTEM: Move to long press1400[0m
+[0;32mI (41911) M5_SYSTEM: Pantalla actualizada: Charging...[0m
+[0;32mI (42371) M5_SYSTEM: Wait long press1500[0m
+[0;32mI (45371) M5_SYSTEM: Move to first depress 1600[0m
+[0;32mI (45571) M5_SYSTEM: Move to short press 1400[0m
+[0;32mI (46071) M5_SYSTEM: Move to final depress 1600[0m
+> Auto-read:
+VOLT: 0.57V
+AMP: -60.49A
+[0;32mI (50781) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.49 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.36A
+[0;32mI (60831) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.36 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.95A
+[0;32mI (70881) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.95 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.76A
+[0;32mI (80931) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.76 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.05A
+[0;32mI (90981) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.05 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -61.68A
+[0;32mI (101031) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.68 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.97A
+[0;32mI (111081) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.97 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -61.68A
+[0;32mI (121131) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.68 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.83A
+[0;32mI (131181) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.83 A
+
+start charge
+[0;32mI (136231) M5_SYSTEM: Command received: START CHARGE[0m
+[0;32mI (136241) M5_SYSTEM: Move to long press1400[0m
+Initiating charge sequence...
+[0;32mI (136271) M5_SYSTEM: Pantalla actualizada: Charging...[0m
+[0;32mI (136741) M5_SYSTEM: Wait long press1500[0m
+[0;32mI (139741) M5_SYSTEM: Move to first depress 1600[0m
+[0;32mI (139941) M5_SYSTEM: Move to short press 1400[0m
+[0;32mI (140441) M5_SYSTEM: Move to final depress 1600[0m
+Auto-read:
+VOLT: 0.55V
+AMP: -60.56A
+[0;32mI (141231) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.56 A
+
+> Auto-read:
+VOLT: 0.55V
+AMP: -60.32A
+[0;32mI (151281) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.32 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.22A
+[0;32mI (161331) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.22 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.35A
+[0;32mI (171381) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.35 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -61.78A
+[0;32mI (181431) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.78 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.62A
+[0;32mI (191481) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.62 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.49A
+[0;32mI (201531) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.49 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.60A
+[0;32mI (211581) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.60 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.30A
+[0;32mI (221631) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.30 A
+
+starAuto-read:
+VOLT: 0.58V
+AMP: -60.86A
+[0;32mI (231681) M5_SYSTEM: Pantalla actualizada: BAT: 0.58 V[0m
+ AMP: -60.86 A
+
+t charge
+[0;32mI (235601) M5_SYSTEM: Command received: START CHARGE[0m
+Initiating charge sequence...
+[0;32mI (235601) M5_SYSTEM: Move to long press1400[0m
+[0;32mI (235631) M5_SYSTEM: Pantalla actualizada: Charging...[0m
+[0;32mI (236101) M5_SYSTEM: Wait long press1500[0m
+[0;32mI (239101) M5_SYSTEM: Move to first depress 1600[0m
+[0;32mI (239301) M5_SYSTEM: Move to short press 1400[0m
+[0;32mI (239801) M5_SYSTEM: Move to final depress 1600[0m
+> Auto-read:
+VOLT: 0.58V
+AMP: -61.10A
+[0;32mI (241731) M5_SYSTEM: Pantalla actualizada: BAT: 0.58 V[0m
+ AMP: -61.10 A
+
+start charge
+[0;32mI (249691) M5_SYSTEM: Command received: START CHARGE[0m
+Initiating charge sequence...
+[0;32mI (249691) M5_SYSTEM: Move to long press1400[0m
+[0;32mI (249721) M5_SYSTEM: Pantalla actualizada: Charging...[0m
+[0;32mI (250191) M5_SYSTEM: Wait long press1500[0m
+Auto-read:
+VOLT: 0.58V
+AMP: -61.13A
+[0;32mI (251781) M5_SYSTEM: Pantalla actualizada: BAT: 0.58 V[0m
+ AMP: -61.13 A
+
+[0;32mI (253191) M5_SYSTEM: Move to first depress 1600[0m
+[0;32mI (253391) M5_SYSTEM: Move to short press 1400[0m
+[0;32mI (253891) M5_SYSTEM: Move to final depress 1600[0m
+> startAuto-read:
+VOLT: 0.56V
+AMP: -61.69A
+[0;32mI (261831) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.69 A
+
+charge
+[0;32mI (265791) M5_SYSTEM: Command received: STARTCHARGE[0m
+Command not recognized> start chargAuto-read:
+VOLT: 0.56V
+AMP: -60.27A
+[0;32mI (271881) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.27 A
+
+e
+[0;32mI (273421) M5_SYSTEM: Command received: START CHARGE[0m
+[0;32mI (273431) M5_SYSTEM: Move to long press1400[0m
+Initiating charge sequence...
+[0;32mI (273461) M5_SYSTEM: Pantalla actualizada: Charging...[0m
+[0;32mI (273931) M5_SYSTEM: Wait long press1500[0m
+[0;32mI (276931) M5_SYSTEM: Move to first depress 1600[0m
+[0;32mI (277131) M5_SYSTEM: Move to short press 1400[0m
+[0;32mI (277631) M5_SYSTEM: Move to final depress 1600[0m
+> Auto-read:
+VOLT: 0.57V
+AMP: -61.32A
+[0;32mI (281931) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.32 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.96A
+[0;32mI (291981) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.96 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.61A
+[0;32mI (302031) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.61 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.37A
+[0;32mI (312081) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.37 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.56A
+[0;32mI (322131) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.56 A
+
+
+> Auto-read:
+VOLT: 0.57V
+AMP: -61.35A
+[0;32mI (332181) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.35 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.26A
+[0;32mI (342231) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.26 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.37A
+[0;32mI (352281) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.37 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.26A
+[0;32mI (362331) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.26 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.87A
+[0;32mI (372381) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.87 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.81A
+[0;32mI (382431) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.81 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.40A
+[0;32mI (392481) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.40 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.30A
+[0;32mI (402531) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.30 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.20A
+[0;32mI (412581) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.20 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.60A
+[0;32mI (422631) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.60 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.57A
+[0;32mI (432681) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.57 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.41A
+[0;32mI (442731) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.41 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.97A
+[0;32mI (452781) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.97 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.44A
+[0;32mI (462831) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.44 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.66A
+[0;32mI (472881) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.66 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.88A
+[0;32mI (482931) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.88 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -61.86A
+[0;32mI (492981) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.86 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.83A
+[0;32mI (503031) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.83 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.23A
+[0;32mI (513081) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.23 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.68A
+[0;32mI (523131) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.68 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.49A
+[0;32mI (533181) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.49 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.58A
+[0;32mI (543231) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.58 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.21A
+[0;32mI (553281) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.21 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.82A
+[0;32mI (563331) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.82 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.07A
+[0;32mI (573381) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.07 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.28A
+[0;32mI (583431) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.28 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.36A
+[0;32mI (593481) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.36 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.53A
+[0;32mI (603531) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.53 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.26A
+[0;32mI (613581) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.26 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.39A
+[0;32mI (623631) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.39 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.31A
+[0;32mI (633681) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.31 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.41A
+[0;32mI (643731) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.41 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.24A
+[0;32mI (653781) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.24 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.32A
+[0;32mI (663831) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.32 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.51A
+[0;32mI (673881) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.51 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.28A
+[0;32mI (683931) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.28 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.95A
+[0;32mI (693981) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.95 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.35A
+[0;32mI (704031) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.35 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.38A
+[0;32mI (714081) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.38 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.57A
+[0;32mI (724131) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.57 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.38A
+[0;32mI (734181) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.38 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.81A
+[0;32mI (744231) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.81 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.58A
+[0;32mI (754281) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.58 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.16A
+[0;32mI (764331) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.16 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.18A
+[0;32mI (774381) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.18 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.82A
+[0;32mI (784431) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.82 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.85A
+[0;32mI (794481) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.85 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.59A
+[0;32mI (804531) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.59 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.48A
+[0;32mI (814581) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.48 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.06A
+[0;32mI (824631) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.06 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.37A
+[0;32mI (834681) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.37 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.05A
+[0;32mI (844731) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.05 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.70A
+[0;32mI (854781) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.70 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.33A
+[0;32mI (864831) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.33 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.33A
+[0;32mI (874881) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.33 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.31A
+[0;32mI (884931) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.31 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.10A
+[0;32mI (894981) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.10 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.31A
+[0;32mI (905031) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.31 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.31A
+[0;32mI (915081) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.31 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.16A
+[0;32mI (925131) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.16 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.40A
+[0;32mI (935181) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.40 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.80A
+[0;32mI (945231) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.80 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.51A
+[0;32mI (955281) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.51 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.34A
+[0;32mI (965331) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.34 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.58A
+[0;32mI (975381) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.58 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.45A
+[0;32mI (985431) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.45 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.22A
+[0;32mI (995481) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.22 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.62A
+[0;32mI (1005531) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.62 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.61A
+[0;32mI (1015581) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.61 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.79A
+[0;32mI (1025631) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.79 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.53A
+[0;32mI (1035681) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.53 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.30A
+[0;32mI (1045731) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.30 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.36A
+[0;32mI (1055781) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.36 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.53A
+[0;32mI (1065831) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.53 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.01A
+[0;32mI (1075881) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.01 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.67A
+[0;32mI (1085931) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.67 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.93A
+[0;32mI (1095981) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.93 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.20A
+[0;32mI (1106031) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.20 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.66A
+[0;32mI (1116081) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.66 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.01A
+[0;32mI (1126131) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.01 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.10A
+[0;32mI (1136181) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.10 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.76A
+[0;32mI (1146231) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.76 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.34A
+[0;32mI (1156281) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.34 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.47A
+[0;32mI (1166331) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.47 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.47A
+[0;32mI (1176381) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.47 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -61.76A
+[0;32mI (1186431) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.76 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.29A
+[0;32mI (1196481) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.29 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.47A
+[0;32mI (1206531) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.47 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.81A
+[0;32mI (1216581) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.81 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.27A
+[0;32mI (1226631) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.27 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.90A
+[0;32mI (1236681) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.90 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.38A
+[0;32mI (1246731) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.38 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.10A
+[0;32mI (1256781) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.10 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.13A
+[0;32mI (1266831) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.13 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.23A
+[0;32mI (1276881) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.23 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.31A
+[0;32mI (1286931) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.31 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -61.93A
+[0;32mI (1296981) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.93 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.89A
+[0;32mI (1307031) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.89 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.66A
+[0;32mI (1317081) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.66 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.82A
+[0;32mI (1327131) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.82 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.29A
+[0;32mI (1337181) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.29 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.62A
+[0;32mI (1347231) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.62 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.31A
+[0;32mI (1357281) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.31 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -62.31A
+[0;32mI (1367331) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -62.31 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.01A
+[0;32mI (1377381) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.01 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.22A
+[0;32mI (1387431) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.22 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.82A
+[0;32mI (1397481) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.82 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -61.49A
+[0;32mI (1407531) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.49 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.57A
+[0;32mI (1417581) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.57 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -61.73A
+[0;32mI (1427631) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -61.73 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.18A
+[0;32mI (1437681) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.18 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.18A
+[0;32mI (1447731) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.18 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.95A
+[0;32mI (1457781) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.95 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -61.85A
+[0;32mI (1467831) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -61.85 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.28A
+[0;32mI (1477881) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.28 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.05A
+[0;32mI (1487931) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.05 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.18A
+[0;32mI (1497981) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.18 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.71A
+[0;32mI (1508031) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.71 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.35A
+[0;32mI (1518081) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.35 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.80A
+[0;32mI (1528131) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.80 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.31A
+[0;32mI (1538181) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.31 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.75A
+[0;32mI (1548231) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.75 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.48A
+[0;32mI (1558281) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.48 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -60.74A
+[0;32mI (1568331) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -60.74 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.73A
+[0;32mI (1578381) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.73 A
+
+Auto-read:
+VOLT: 0.54V
+AMP: -61.65A
+[0;32mI (1588431) M5_SYSTEM: Pantalla actualizada: BAT: 0.54 V[0m
+ AMP: -61.65 A
+
+Auto-read:
+VOLT: 0.56V
+AMP: -60.19A
+[0;32mI (1598481) M5_SYSTEM: Pantalla actualizada: BAT: 0.56 V[0m
+ AMP: -60.19 A
+
+Auto-read:
+VOLT: 0.55V
+AMP: -62.45A
+[0;32mI (1608531) M5_SYSTEM: Pantalla actualizada: BAT: 0.55 V[0m
+ AMP: -62.45 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -60.56A
+[0;32mI (1618581) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -60.56 A
+
+Auto-read:
+VOLT: 0.57V
+AMP: -61.51A
+[0;32mI (1628631) M5_SYSTEM: Pantalla actualizada: BAT: 0.57 V[0m
+ AMP: -61.51 A
+
+

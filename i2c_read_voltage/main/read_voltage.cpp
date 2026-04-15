@@ -18,6 +18,7 @@
 #include "driver/gpio.h" // GPIO functions for controlling pins (e.g., gpio_set_level, gpio_set_direction)
 #include "driver/uart.h" // UART functions for serial communication (e.g., uart_read_bytes, uart_write_bytes)
 #include "driver/i2c.h" // I2C functions for communication with peripherals (e.g., i2c_master_write_to_device, i2c_master_write_read_device)
+#include "driver/ledc.h" // LEDC functions for PWM control (e.g., ledc_timer_config, ledc_channel_config)
 #include "esp_adc/adc_oneshot.h" // ESP32 ADC one-shot mode functions (e.g., adc_oneshot_unit_init_cfg_t, adc_oneshot_read)
 #include "esp_adc/adc_cali.h" // ESP32 ADC calibration functions (e.g., adc_cali_characteristics_t, adc_cali_calibrate)
 #include "esp_adc/adc_cali_scheme.h" // ESP32 ADC calibration schemes (e.g., ADC_CALI_SCHEME_CURVE_FITTING)
@@ -29,7 +30,7 @@
 #include "I2Crelay.h" // Header file for relay control functions
 #include "ADS1115.h" // Header file for ADS1115 ADC functions
 
-// Configuración I2C (Puerto Grove M5StickCPlus2)
+// I2C Configuration (M5StickCPlus2 Grove Port)
 #define I2C_MASTER_SDA_IO         32        /*!<@brief I2C master SDA GPIO */
 #define I2C_MASTER_SCL_IO         33        /*!<@brief I2C master SCL GPIO */
 #define I2C_MASTER_NUM            I2C_NUM_0 /*!<@brief I2C master port number */
@@ -38,7 +39,7 @@
 #define RELAY_ADDR                0x26      /*!<@brief Relay I2C address */
 #define REG_RELAY_CTRL            0x11      /*!<@brief Relay control register */
 
-// ============ CONFIGURACIÓN ADS1115 ============
+// ============ ADS1115 CONFIGURATION ============
 #define ADS1115_ADDR          0x48      /*!<@brief ADS1115 I2C address */
 #define ADS1115_REG_CONV      0x00      /*!<@brief ADS1115 conversion register */
 #define ADS1115_REG_CONFIG    0x01      /*!<@brief ADS1115 configuration register */
@@ -73,6 +74,12 @@
 // GPIO for enabling the SGM2578 power management IC (used to provide power to the display)
 #define SGM2578_ENABLE_GPIO 27
 
+// ============ SERVO CONFIGURATION ============
+#define SERVO_PIN             26   // ESP32 pin used for the servo
+#define SERVO_MIN_PULSEWIDTH  410  // Ticks to 0.5ms (0 grades)
+#define SERVO_MAX_PULSEWIDTH  2048 // Ticks to 2.5ms (180 grades)
+#define SERVO_MAX_DEGREE      180  // Maximun angle for the servo
+
 /** 
  * @brief Logger tag for the M5StickCPlus2 system 
  */
@@ -83,7 +90,7 @@ static const char *TAG = "M5_SYSTEM";
  */
 static QueueHandle_t xQueueDisplay = NULL;
 
-/** * @brief Cola de eventos para el UART
+/** * @brief Queue for receiving UART input data
  */
 static QueueHandle_t uart_queue;
 
@@ -118,13 +125,13 @@ extern "C" void ShowText(void *pvParameters) {
   lcdInit(&dev, CONFIG_WIDTH, CONFIG_HEIGHT, CONFIG_OFFSETX, CONFIG_OFFSETY, true);
   lcdFillScreen(&dev, BLACK);
 
-  char texto_pantalla[64] = "Esperando..."; // Mensaje inicial
+  char texto_pantalla[64] = "Waiting..."; // Initial message
 
   while(1) {
-    // Esperar a recibir un mensaje de la cola (espera infinita)
+    // Wait until receiving data
     if (xQueueReceive(xQueueDisplay, &texto_pantalla, portMAX_DELAY)) {
       lcdFillScreen(&dev, BLACK);
-      lcdSetFontDirection(&dev, 1); // Rotación para M5StickC
+      lcdSetFontDirection(&dev, 1); // M5StickC rotation
             
       uint16_t xpos = (CONFIG_WIDTH - 1) - 20;
       uint16_t ypos = 10;
@@ -288,13 +295,14 @@ void ScanI2CBus() {
  */
 extern "C" void BatteryTask(void *pvParameters) {
     char msg_to_queue[64];
-    ESP_LOGI(TAG, "Tarea de batería iniciada (cada 10s)");
+    ADS1115 adc(I2C_MASTER_NUM, ADS1115_ADDR); // Create an instance of the ADS1115 class for I2C communication
 
     while (1) {
-        float v = GetADCPinVoltage();
+        float v = adc.ReadVoltage(2); // Read voltage from channel 2 of the ADS1115
+        float amp = adc.ReadCurrent(1); // Read current from channel 1 of the ADS1115 (if configured for current measurement)
 
         // Create message for the display
-        snprintf(msg_to_queue, sizeof(msg_to_queue), "BAT: %.2f V", v);
+        snprintf(msg_to_queue, sizeof(msg_to_queue), "BAT: %.2f V\r\n AMP: %.2f A\r\n", v, amp);
 
         // Write to display queue
         if (xQueueDisplay != NULL) {
@@ -302,11 +310,94 @@ extern "C" void BatteryTask(void *pvParameters) {
         }
 
         char uart_msg[64];
-        snprintf(uart_msg, sizeof(uart_msg), "Auto-lectura: %.2fV\r\n", v);
+        snprintf(uart_msg, sizeof(uart_msg), "Auto-read: %.2fV\r\nAMP: %.2fA\r\n", v, amp);
         uart_write_bytes(UART_NUM, uart_msg, strlen(uart_msg));
 
         vTaskDelay(pdMS_TO_TICKS(10000)); // Delay
     }
+}
+
+/**
+ * @brief Initializes the LEDC peripheral for controlling a servo motor connected to the specified GPIO pin.
+ * 
+ * This function performs the following steps:
+ * 1. Configures the LEDC timer with a frequency of 50Hz, which is required for standard servo control, and sets the duty resolution to 14 bits (0-16383).
+ * 2. Configures the LEDC channel to use the previously configured timer, assigns it to the specified GPIO pin for the servo signal, and initializes the duty cycle to 0 (no signal).
+ * 3. Installs the LEDC fade function, which allows for smooth transitions when changing the servo angle without blocking the CPU.
+ * 4. This function should be called during the initialization phase of the program before attempting to control the servo, as it sets up the necessary hardware configuration for generating the PWM signal required by the servo motor.
+ * @note: The servo control signal is generated using the LEDC peripheral, which allows for precise control of the duty cycle to achieve the desired servo angle. The function assumes that the servo is connected to the specified GPIO pin and that the appropriate power supply is provided for the servo motor. Proper error handling should be implemented in a production environment to ensure that the LEDC peripheral is initialized successfully before attempting to control the servo.
+ */
+void init_servo() {
+    // LEDC timer configuration
+    ledc_timer_config_t ledc_timer = {};
+    ledc_timer.speed_mode       = LEDC_LOW_SPEED_MODE;
+    ledc_timer.timer_num        = LEDC_TIMER_0;
+    ledc_timer.duty_resolution  = LEDC_TIMER_14_BIT; // 14 bits resolution for duty cycle (0-16383)
+    ledc_timer.freq_hz          = 50;  // 50Hz for standard servo control
+    ledc_timer.clk_cfg          = LEDC_AUTO_CLK;
+    ledc_timer_config(&ledc_timer);
+
+    // LEDC channel configuration
+    ledc_channel_config_t ledc_channel = {};
+    ledc_channel.speed_mode     = LEDC_LOW_SPEED_MODE;
+    ledc_channel.channel        = LEDC_CHANNEL_0;
+    ledc_channel.timer_sel      = LEDC_TIMER_0;
+    ledc_channel.intr_type      = LEDC_INTR_DISABLE;
+    ledc_channel.gpio_num       = SERVO_PIN;
+    ledc_channel.duty           = 0;
+    ledc_channel.hpoint         = 0;
+    ledc_channel_config(&ledc_channel);
+
+    // Fading service
+    ledc_fade_func_install(0);
+}
+
+/**
+ * @brief Sets the angle of the servo motor by calculating the appropriate duty cycle and updating the LEDC peripheral.
+ * 
+ * This function performs the following steps:
+ * 1. Validates the input angle to ensure it is within the range of 0 to SERVO_MAX_DEGREE (180 degrees). If the angle is out of bounds, it is clamped to the nearest valid value.
+ * 2. Uses a linear mapping (regla de tres) to convert the desired angle to the corresponding duty cycle in ticks, based on the defined minimum and maximum pulse widths for the servo.
+ * 3. Updates the LEDC peripheral with the calculated duty cycle to set the servo to the desired angle. The ledc_set_duty function is called to set the duty cycle, and ledc_update_duty is called to apply the change to the hardware.
+ * 4. This function allows for direct control of the servo angle by specifying the desired angle in degrees, and it handles the necessary calculations and hardware updates to achieve the correct position of the servo motor. Proper error handling should be implemented in a production environment to ensure that the input angle is valid and that the LEDC peripheral is updated successfully.
+ * @param angle The desired angle for the servo motor, in degrees. Valid values are from 0 to SERVO_MAX_DEGREE (180 degrees). Values outside this range will be clamped to the nearest valid value.
+ * @note: The servo motor should be connected to the specified GPIO pin and properly powered for the function to work correctly. The init_servo function should be called during initialization to set up the LEDC peripheral before using this function to control the servo angle.
+ */
+void set_servo_angle(int angle) {
+    if (angle < 0) angle = 0;
+    if (angle > SERVO_MAX_DEGREE) angle = SERVO_MAX_DEGREE;
+
+    // Map angle to duty cycle (ticks) using linear mapping
+    uint32_t duty = SERVO_MIN_PULSEWIDTH + (((SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) * angle) / SERVO_MAX_DEGREE);
+    
+    // Hardware update
+    ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, duty);
+    ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);
+}
+
+/**
+ * @brief Sets the angle of the servo motor smoothly over a specified time duration by using the LEDC fade functionality.
+ * 
+ * This function performs the following steps:
+ * 1. Validates the input angle to ensure it is within the range of 0 to SERVO_MAX_DEGREE (180 degrees). If the angle is out of bounds, it is clamped to the nearest valid value.
+ * 2. Uses a linear mapping (regla de tres) to convert the desired angle to the corresponding duty cycle in ticks, based on the defined minimum and maximum pulse widths for the servo.
+ * 3. Configures the LEDC fade functionality to transition from the current duty cycle to the target duty cycle over the specified time duration (time_ms). The ledc_set_fade_with_time function is called to set up the fade parameters, and ledc_fade_start is called to initiate the fade process.
+ * 4. This function allows for smooth transitions of the servo angle by gradually changing the duty cycle over time, which can help reduce mechanical stress on the servo motor and provide a more visually appealing movement. Proper error handling should be implemented in a production environment to ensure that the input angle is valid and that the LEDC fade functionality is configured successfully.
+ * @param angle The desired angle for the servo motor, in degrees. Valid values are from 0 to SERVO_MAX_DEGREE (180 degrees). Values outside this range will be clamped to the nearest valid value.
+ * @param time_ms The duration of the fade transition in milliseconds. This specifies how long it should take for the servo to move from its current angle to the target angle. A value of 0 will result in an immediate change without fading.
+ * @note: The servo motor should be connected to the specified GPIO pin and properly powered for the function to work correctly. The init_servo function should be called during initialization to set up the LEDC peripheral before using this function to control the servo angle with fading.
+ */
+void set_servo_angle_smooth(int angle, int time_ms) {
+    if (angle < 0) angle = 0;
+    if (angle > SERVO_MAX_DEGREE) angle = SERVO_MAX_DEGREE;
+
+    // Grade to duty cycle mapping
+    uint32_t target_duty = SERVO_MIN_PULSEWIDTH + (((SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) * angle) / SERVO_MAX_DEGREE);
+    
+    ledc_set_fade_with_time(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, target_duty, time_ms);
+    
+    // Start the fade (non-blocking)
+    ledc_fade_start(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, LEDC_FADE_NO_WAIT);
 }
 
 /**
@@ -332,29 +423,22 @@ extern "C" void UARTTask(void *pvParameters) {
   I2CRelay relayController; 
   ADS1115 adsController(I2C_MASTER_NUM, ADS1115_ADDR);
 
-  // ==========================================================
-  // 1. HELPER: Función para no repetir código de envío
-  // ==========================================================
   auto send_response = [&](const std::string& uart_msg, const std::string& tft_msg) {
-    // 1. Enviar por UART
     uart_write_bytes(UART_NUM, uart_msg.c_str(), uart_msg.length());
     
-    // 2. Enviar a la pantalla de forma segura (sin Buffer Overflow)
     if (!tft_msg.empty()) {
       char msg_to_queue[64];
       strncpy(msg_to_queue, tft_msg.c_str(), sizeof(msg_to_queue) - 1);
-      msg_to_queue[sizeof(msg_to_queue) - 1] = '\0'; // Asegurar terminador nulo
+      msg_to_queue[sizeof(msg_to_queue) - 1] = '\0'; // Null-terminate the string
       xQueueSend(xQueueDisplay, &msg_to_queue, 0);
     }
   };
 
-  // ==========================================================
-  // 2. DICCIONARIO DE COMANDOS (Command Parser)
-  // ==========================================================
+  // Dictionary mapper for commands to functions
   std::unordered_map<std::string, std::function<void()>> command_map = {
     {"HELLO",   [&]() { send_response("Hola desde ESP32!\r\n", ""); }},
     
-    // Relés individuales
+    // Individual relay commands
     {"R1 ON",   [&]() { relayController.set_relay(1, true);  send_response("Encendiendo R1\r\n", "RELAY 1: ON"); }},
     {"R1 OFF",  [&]() { relayController.set_relay(1, false); send_response("Apagando R1\r\n", "RELAY 1: OFF"); }},
     {"R2 ON",   [&]() { relayController.set_relay(2, true);  send_response("Encendiendo R2\r\n", "RELAY 2: ON"); }},
@@ -364,11 +448,11 @@ extern "C" void UARTTask(void *pvParameters) {
     {"R4 ON",   [&]() { relayController.set_relay(4, true);  send_response("Encendiendo R4\r\n", "RELAY 4: ON"); }},
     {"R4 OFF",  [&]() { relayController.set_relay(4, false); send_response("Apagando R4\r\n", "RELAY 4: OFF"); }},
     
-    // Relés globales
+    // Global relay commands
     {"ALL ON",  [&]() { relayController.set_all_relays_mask(0x0F); send_response("Encendiendo todos\r\n", "ALL: ON"); }},
     {"ALL OFF", [&]() { relayController.set_all_relays_mask(0x00); send_response("Apagando todos\r\n", "ALL: OFF"); }},
     
-    // Lecturas de Sensores
+    // Sensor readings
     {"VOLTAGE A1", [&]() { 
       float v = adsController.ReadVoltage(1);
       send_response("Bat: " + std::to_string(v) + "V\r\n", "Bat: " + std::to_string(v) + "V"); 
@@ -391,16 +475,14 @@ extern "C" void UARTTask(void *pvParameters) {
     }}
   };
 
-  // Pausa inicial
+  // Initial prompt
   vTaskDelay(pdMS_TO_TICKS(5000));
   uart_write_bytes(UART_NUM, "> ", 2);
 
   uart_event_t event;
   uint8_t dtmp[BUF_SIZE];
 
-  // ==========================================================
-  // 3. BUCLE PRINCIPAL DE LA TAREA
-  // ==========================================================
+  // Task loop to handle UART events and process commands
   while (1) {
     if (xQueueReceive(uart_queue, (void *)&event, portMAX_DELAY)) {
       if (event.type == UART_DATA) {
@@ -415,21 +497,36 @@ extern "C" void UARTTask(void *pvParameters) {
             if (cmd_idx > 0) {
               command[cmd_idx] = '\0'; 
               
-              // 1. Convertimos el comando entrante a mayúsculas (para emular strcasecmp)
+              // To uppercase for case-insensitive command recognition
               std::string cmd_str(command);
               std::transform(cmd_str.begin(), cmd_str.end(), cmd_str.begin(), ::toupper);
-              ESP_LOGI(TAG, "Comando recibido: %s", cmd_str.c_str());
+              ESP_LOGI(TAG, "Command received: %s", cmd_str.c_str());
 
-              // 2. Buscamos el comando en nuestro diccionario
-              auto it = command_map.find(cmd_str);
-              if (it != command_map.end()) {
-                // Comando encontrado: ejecutamos su función lambda
-                it->second();
+              if (cmd_str.rfind("SERVO ", 0) == 0) { 
+                int angle = std::stoi(cmd_str.substr(6)); 
+                if (angle < 0 || angle > 180) {
+                  uart_write_bytes(UART_NUM, "Error: Angle must be between 0 and 180\r\n", 40);
+                  continue;
+                }
+                set_servo_angle(angle);
+                send_response("Servo moved to " + std::to_string(angle) + " grades\r\n", "SERVO: " + std::to_string(angle) + " deg");
+              } else if (cmd_str.rfind("SWEEP ", 0) == 0) {
+                int target_angle = 0;
+                int time_ms = 0;
+                if (sscanf(cmd_str.c_str(), "SWEEP %d %d", &target_angle, &time_ms) == 2) {
+                    set_servo_angle_smooth(target_angle, time_ms);
+                    send_response("Servo moving to " + std::to_string(target_angle) + " in " + std::to_string(time_ms) + "ms\r\n", "SWEEP: " + std::to_string(target_angle));
+                } else {
+                    uart_write_bytes(UART_NUM, "Error. Use: SWEEP <angle> <time_ms>\r\n", 40);
+                }
               } else {
-                // Comando no encontrado
-                uart_write_bytes(UART_NUM, "Comando no reconocido\r\n", 23);
+                auto it = command_map.find(cmd_str);
+                if (it != command_map.end()) {
+                  it->second();
+                } else {
+                  uart_write_bytes(UART_NUM, "Command not recognized\r\n", 23);
+                }
               }
-
               cmd_idx = 0; 
             }
             vTaskDelay(pdMS_TO_TICKS(1000)); 
@@ -456,6 +553,7 @@ extern "C" void UARTTask(void *pvParameters) {
     }
   }
 }
+
 // ============ MAIN FUNCTION ============
 
 /**
@@ -488,6 +586,9 @@ extern "C" void app_main(void) {
   // Scan I2C bus to verify connections (useful for debugging)
   ScanI2CBus();
 
+  // Initialize servo control
+  init_servo();
+
   // Configure UART
   uart_config_t cfg;
   memset(&cfg, 0, sizeof(uart_config_t));
@@ -506,7 +607,7 @@ extern "C" void app_main(void) {
   // Display task
   xTaskCreate(ShowText, "TFT", 1024 * 6, NULL, 2, NULL);
 
-  //xTaskCreate(BatteryTask, "BAT_MONITOR", 1024 * 4, NULL, 1, NULL);
+  xTaskCreate(BatteryTask, "BAT_MONITOR", 1024 * 4, NULL, 1, NULL);
 
   // Command handling task (relays, voltage reading, etc.)
   xTaskCreate(UARTTask, "UART_COM", 1024 * 6, NULL, 1, NULL);
