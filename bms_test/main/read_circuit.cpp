@@ -379,12 +379,16 @@ extern "C" void UARTTask(void *pvParameters) {
     {"ALL OFF", [&]() { relay_controller->set_all_relays_mask(0x00); send_response("Apagando todos\r\n", "ALL: OFF"); }},
     
     // Sensor readings
+    {"VOLTAGE A0", [&]() { 
+      float v = ads_controller->ReadVoltage(0);
+      send_response("Bat: " + std::to_string(v) + "V\r\n", "Bat: " + std::to_string(v) + "V"); 
+    }},
     {"VOLTAGE A1", [&]() { 
       float v = ads_controller->ReadVoltage(1);
       send_response("Bat: " + std::to_string(v) + "V\r\n", "Bat: " + std::to_string(v) + "V"); 
     }},
     {"VOLTAGE A2", [&]() { 
-      float v = ads_controller->ReadVoltage(2);
+      float v = ads_controller->ReadVoltage(2, true);
       send_response("V(A2): " + std::to_string(v) + "V\r\n", "V(A2): " + std::to_string(v) + "V"); 
     }},
     {"VOLTAGE A3", [&]() { 
