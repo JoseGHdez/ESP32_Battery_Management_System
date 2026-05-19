@@ -1,0 +1,3 @@
+Command: cmake -G Ninja -DPYTHON_DEPS_CHECKED=1 -DPYTHON=C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe -DESP_PLATFORM=1 -DCCACHE_ENABLE=1 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system
+-- IDF_TARGET is not set, guessed 'esp32' from sdkconfig 'C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/sdkconfig'
+-- Found Git: C:/Espressif/tools/idf-git/2.44.0/cmd/git.exe (found version "2.44.0.windows.1")

@@ -1,0 +1,1748 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+
+[0;32mI (764) wifi:Init st�ets Jul 29 2019 12:21:46[0m
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 13 2026 12:36:33[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=28660h (165472) map[0m
+[0;32mI (165) esp_image: segment 1: paddr=00038688 vaddr=3ffb0000 size=041c4h ( 16836) load[0m
+[0;32mI (171) esp_image: segment 2: paddr=0003c854 vaddr=40080000 size=037c4h ( 14276) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=df4dch (914652) map[0m
+[0;32mI (490) esp_image: segment 4: paddr=0011f504 vaddr=400837c4 size=179c4h ( 96708) load[0m
+[0;32mI (528) esp_image: segment 5: paddr=00136ed0 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (541) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (541) boot: Disabling RNG early entropy source...[0m
+[0;32mI (552) cpu_start: Multicore app[0m
+[0;32mI (560) cpu_start: Pro cpu start user code[0m
+[0;32mI (560) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (560) app_init: Application information:[0m
+[0;32mI (560) app_init: Project name:     read_voltage[0m
+[0;32mI (565) app_init: App version:      bb08344-dirty[0m
+[0;32mI (569) app_init: Compile time:     May 13 2026 12:35:02[0m
+[0;32mI (574) app_init: ELF file SHA256:  670cfdfa7...[0m
+[0;32mI (578) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (582) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (586) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (590) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (594) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (600) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (605) heap_init: At 3FFBA888 len 00025778 (149 KiB): DRAM[0m
+[0;32mI (611) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (616) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (621) heap_init: At 4009B188 len 00004E78 (19 KiB): IRAM[0m
+[0;32mI (628) spi_flash: detected chip: generic[0m
+[0;32mI (630) spi_flash: flash io: dio[0m
+[0;33mW (636) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (644) main_task: Started on CPU0[0m
+[0;32mI (654) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (654) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (664) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (664) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (664) M5_SYSTEM: I2C master initialized successfully[0m
+Escaneando bus I2C...
+[0;32mI (694) servo_control: Inicializando MCPWM para el servo en GPIO 26[0m
+[0;32mI (734) wifi:wifi driver task: 3ffc3b88, prio:23, stack:6656, core=0[0m
+[0;32mI (744) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (744) wifi:wifi certification version: v7.0[0m
+[0;32mI (744) wifi:config NVS flash: enabled[0m
+[0;32mI (744) wifi:config nano formatting: disabled[0m
+[0;32mI (754) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (754) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (754) wifi:Init management short buffer num: 32[0m
+[0;32mI (764) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (764) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (774) wifi:Init static rx buffer num: 10[0m
+[0;32mI (774) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (784) wifi_init: rx ba win: 6[0m
+[0;32mI (784) wifi_init: accept mbox: 6[0m
+[0;32mI (784) wifi_init: tcpip mbox: 32[0m
+[0;32mI (784) wifi_init: udp mbox: 6[0m
+[0;32mI (794) wifi_init: tcp mbox: 6[0m
+[0;32mI (794) wifi_init: tcp tx win: 5760[0m
+[0;32mI (794) wifi_init: tcp rx win: 5760[0m
+[0;32mI (804) wifi_init: tcp mss: 1440[0m
+[0;32mI (804) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (804) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (814) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (824) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (904) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (904) wifi:enable tsf[0m
+[0;32mI (924) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (934) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (944) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (974) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (994) wifi:connected with Galaxy A02s85e9, aid = 3, channel 6, BW20, bssid = 9e:f4:ba:70:9c:0b[0m
+[0;32mI (994) wifi:security: WPA2-PSK, phy: bgn, rssi: -44[0m
+[0;32mI (994) wifi:pm start, type: 1[0m
+
+[0;32mI (994) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1044) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (1044) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (2054) esp_netif_handlers: sta ip: 10.121.220.201, mask: 255.255.255.0, gw: 10.121.220.195[0m
+[0;32mI (2054) M5_SYSTEM: got ip:10.121.22I (2064) uart: queue free spaces: 20[0m
+[0;32mI (2064) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2064) main_task: Returned from app_main()[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2174) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (2374) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (2584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (2784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (2984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (3184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (3384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (3584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (3784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (3984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (4064) ST7789: GPIO_CS=5[0m
+[0;32mI (4064) ST7789: GPIO_DC=14[0m
+[0;32mI (4064) ST7789: GPIO_RESET=12[0m
+[0;32mI (4184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (4214) ST7789: GPIO_BL=-1[0m
+[0;32mI (4214) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4214) ST7789: GPIO_SCLK=13[0m
+[0;32mI (4384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (4584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (4784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (4914) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (4964) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (5184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (5384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (5584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (5784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (5984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (6184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (6384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (6584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (6784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (6984) M5_SYSTEM: Button GPIO 39 pressed[0m
+> I (7184) M5_SYSTEM: Button GPIO 39 pressed
+[0;32mI (7384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (7584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (7784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (7984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (8184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (8384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (8584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (8784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (8984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (9184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (9384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (9584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (9784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (9984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (10184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (10384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (10584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (10784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (10984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (11184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (11384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (11584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (11784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (11984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (12074) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (12074) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (12074) mqtt_client: Error transport connect[0m
+[0;32mI (12074) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (12074) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (12084) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (12084) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (12094) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (12184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (12384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (12584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (12784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (12984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (13184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (13384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (13584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (13784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (13984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (14184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (14384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (14584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (14784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (14984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (15184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (15384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (15584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (15784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (15984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (16184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (16384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (16584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (16784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (16984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (17184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (17384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (17584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (17784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (17984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (18184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (18384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (18584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (18784) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (18984) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (19184) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (19384) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (19584) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (21244) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (21444) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (21644) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (21844) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (22134) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (23344) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (23544) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (23744) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (23944) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (24144) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (24344) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (25484) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (25684) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (25884) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (26084) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (26284) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (26484) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (26684) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (26884) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (27084) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (27094) M5_SYSTEM: Other event id:7[0m
+[0;32mI (27284) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (27484) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (27684) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (27884) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (28084) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (32144) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (35914) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (36114) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (36314) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (36514) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (36714) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (36914) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (37104) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (37104) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (37104) mqtt_client: Error transport connect[0m
+[0;32mI (37104) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (37104) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (37114) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (37114) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (37124) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (37124) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (37324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (37524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (37724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (37924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (38124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (38324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (38524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (38724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (38924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (39124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (39324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (39524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (39724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (39924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (40124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (40324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (40524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (40724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (40924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (41124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (41324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (41524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (41724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (41924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (42124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (42324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (42524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (42724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (42924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (43124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (43324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (43524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (43724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (43924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (44124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (44324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (44524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (44724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (44924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (45124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (45324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (45524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (45724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (45924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (46124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (46324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (46524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (46724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (46924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (47124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (47134) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (47184) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (47324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (47524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (47724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (47924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (48124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (48324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (48524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (48724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (48924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (49124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (49324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (49524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (49724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (49924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (50124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (50324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (50524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (50724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (50924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (51124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (51324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (51524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (51724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (51924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (52124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (52324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (52524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (52724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (52924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (53124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (53324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (53524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (53724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (53924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (54124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (54324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (54524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (54724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (54924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (55124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (55324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (55524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (55724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (55924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (56124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (56324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (56524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (56724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (56924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (57124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (57144) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (57144) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (57144) mqtt_client: Error transport connect[0m
+[0;32mI (57144) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (57144) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (57154) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (57154) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (57164) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (57324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (57524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (57724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (57924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (58124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (58324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (58524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (58724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (58924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (59124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (59324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (59524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (59724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (59924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (60124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (60324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (60524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (60724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (60924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (61124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (61324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (61524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (61724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (61924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (62124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (62324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (62524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (62724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (62924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (63124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (63324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (63524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (63724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (63924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (64124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (64324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (64524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (64724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (64924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (65124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (65324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (65524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (65724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (65924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (66124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (66324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (66524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (66724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (66924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (67124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (67204) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (67324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (67524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (67724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (67924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (68124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (68324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (68524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (68724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (68924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (69124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (69324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (69524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (69724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (69924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (70124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (70324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (70524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (70724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (70924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (71124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (71324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (71524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (71724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (71924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (72124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (72164) M5_SYSTEM: Other event id:7[0m
+[0;32mI (72324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (72524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (72724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (72924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (73124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (73324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (73524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (73724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (73924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (74124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (74324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (74524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (74724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (74924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (75124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (75324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (75524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (75724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (75924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (76124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (76324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (76524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (76724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (76924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (77124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (77214) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (77324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (77524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (77724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (77924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (78124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (78324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (78524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (78724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (78924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (79124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (79324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (79524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (79724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (79924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (80124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (80324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (80524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (80724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (80924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (81124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (81324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (81524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (81724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (81924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (82124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (82174) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (82174) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (82174) mqtt_client: Error transport connect[0m
+[0;32mI (82174) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (82174) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (82184) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (82184) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (82194) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (82324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (82524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (82724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (82924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (83124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (83324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (83524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (83724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (83924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (84124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (84324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (84524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (84724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (84924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (85124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (85324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (85524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (85724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (85924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (86124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (86324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (86524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (86724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (86924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (87124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (87324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (87524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (87724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (87924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (88124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (88324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (88524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (88724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (88924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (89124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (89324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (89524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (89724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (89924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (90124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (90324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (90524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (90724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (90924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (91124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (91324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (91524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (91724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (91924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (92124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (92234) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (92324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (92524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (92724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (92924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (93124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (93324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (93524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (93724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (93924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (94124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (94324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (94524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (94724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (94924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (95124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (95324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (95524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (95724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (95924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (96124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (96324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (96524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (96724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (96924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (97124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (97194) M5_SYSTEM: Other event id:7[0m
+[0;32mI (97324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (97524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (97724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (97924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (98124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (98324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (98524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (98724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (98924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (99124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (99324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (99524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (99724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (99924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (100124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (100324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (100524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (100724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (100924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (101124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (101324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (101524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (101724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (101924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (102124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (102244) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (102324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (102524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (102724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (102924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (103124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (103324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (103524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (103724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (103924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (104124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (104324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (104524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (104724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (104924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (105124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (105324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (105524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (105724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (105924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (106124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (106324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (106524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (106724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (106924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (107124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (107204) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (107204) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (107204) mqtt_client: Error transport connect[0m
+[0;32mI (107204) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (107204) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (107214) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (107214) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (107224) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (107324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (107524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (107724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (107924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (108124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (108324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (108524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (108724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (108924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (109124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (109324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (109524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (109724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (109924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (110124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (110324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (110524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (110724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (110924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (111124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (111324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (111524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (111724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (111924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (112124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (112324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (112524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (112724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (112924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (113124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (113324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (113524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (113724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (113924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (114124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (114324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (114524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (114724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (114924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (115124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (115324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (115524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (115724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (115924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (116124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (116324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (116524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (116724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (116924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (117124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (117264) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (117324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (117524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (117724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (117924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (118124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (118324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (118524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (118724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (118924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (119124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (119324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (119524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (119724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (119924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (120124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (120324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (120524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (120724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (120924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (121124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (121324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (121524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (121724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (121924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (122124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (122224) M5_SYSTEM: Other event id:7[0m
+[0;32mI (122324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (122524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (122724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (122924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (123124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (123324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (123524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (123724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (123924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (124124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (124324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (124524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (124724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (124924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (125124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (125324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (125524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (125724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (125924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (126124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (126324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (126524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (126724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (126924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (127124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (127274) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (127324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (127524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (127724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (127924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (128124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (128324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (128524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (128724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (128924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (129124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (129324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (129524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (129724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (129924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (130124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (130324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (130524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (130724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (130924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (131124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (131324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (131524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (131724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (131924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (132124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (132234) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (132234) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (132234) mqtt_client: Error transport connect[0m
+[0;32mI (132234) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (132234) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (132244) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (132244) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (132254) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (132324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (132524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (132724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (132924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (133124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (133324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (133524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (133724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (133924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (134124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (134324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (134524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (134724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (134924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (135124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (135324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (135524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (135724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (135924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (136124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (136324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (136524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (136724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (136924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (137124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (137324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (137524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (137724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (137924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (138124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (138324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (138524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (138724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (138924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (139124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (139324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (139524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (139724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (139924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (140124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (140324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (140524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (140724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (140924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (141124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (141324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (141524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (141724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (141924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (142124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (142294) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (142324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (142524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (142724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (142924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (143124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (143324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (143524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (143724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (143924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (144124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (144324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (144524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (144724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (144924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (145124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (145324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (145524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (145724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (145924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (146124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (146324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (146524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (146724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (146924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (147124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (147254) M5_SYSTEM: Other event id:7[0m
+[0;32mI (147324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (147524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (147724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (147924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (148124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (148324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (148524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (148724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (148924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (149124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (149324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (149524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (149724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (149924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (150124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (150324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (150524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (150724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (150924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (151124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (151324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (151524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (151724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (151924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (152124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (152304) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (152324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (152524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (152724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (152924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (153124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (153324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (153524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (153724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (153924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (154124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (154324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (154524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (154724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (154924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (155124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (155324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (155524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (155724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (155924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (156124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (156324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (156524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (156724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (156924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (157124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (157264) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (157264) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (157264) mqtt_client: Error transport connect[0m
+[0;32mI (157264) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (157264) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (157274) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (157274) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (157284) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (157324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (157524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (157724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (157924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (158124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (158324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (158524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (158724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (158924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (159124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (159324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (159524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (159724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (159924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (160124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (160324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (160524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (160724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (160924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (161124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (161324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (161524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (161724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (161924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (162124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (162324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (162524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (162724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (162924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (163124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (163324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (163524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (163724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (163924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (164124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (164324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (164524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (164724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (164924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (165124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (165324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (165524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (165724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (165924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (166124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (166324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (166524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (166724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (166924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (167124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (167324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (167324) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (167524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (167724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (167924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (168124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (168324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (168524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (168724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (168924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (169124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (169324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (169524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (169724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (169924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (170124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (170324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (170524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (170724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (170924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (171124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (171324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (171524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (171724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (171924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (172124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (172284) M5_SYSTEM: Other event id:7[0m
+[0;32mI (172324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (172524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (172724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (172924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (173124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (173324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (173524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (173724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (173924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (174124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (174324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (174524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (174724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (174924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (175124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (175324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (175524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (175724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (175924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (176124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (176324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (176524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (176724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (176924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (177124) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (177324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (177334) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (177524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (177724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (177924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (178124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (178324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (178524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (178724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (178924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (179124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (179324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (179524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (179724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (179924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (180124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (180324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (180524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (180724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (180924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (181124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (181324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (181524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (181724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (181924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (182124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (182294) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (182294) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (182294) mqtt_client: Error transport connect[0m
+[0;32mI (182294) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (182294) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (182304) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (182304) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (182314) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (182324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (182524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (182724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (182924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (183124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (183324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (183524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (183724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (183924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (184124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (184324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (184524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (184724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (184924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (185124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (185324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (185524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (185724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (185924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (186124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (186324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (186524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (186724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (186924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (187124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (187324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (187524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (187724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (187924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (188124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (188324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (188524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (188724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (188924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (189124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (189324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (189524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (189724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (189924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (190124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (190324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (190524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (190724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (190924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (191124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (191324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (191524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (191724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (191924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (192124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (192324) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (192354) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (192524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (192724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (192924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (193124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (193324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (193524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (193724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (193924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (194124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (194324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (194524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (194724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (194924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (195124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (195324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (195524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (195724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (195924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (196124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (196324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (196524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (196724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (196924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (197124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (197314) M5_SYSTEM: Other event id:7[0m
+[0;32mI (197324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (197524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (197724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (197924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (198124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (198324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (198524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (198724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (198924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (199124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (199324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (199524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (199724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (199924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (200124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (200324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (200524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (200724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (200924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (201124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (201324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (201524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (201724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (201924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (202124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (202324) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (202364) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (202524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (202724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (202924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (203124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (203324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (203524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (203724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (203924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (204124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (204324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (204524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (204724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (204924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (205124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (205324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (205524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (205724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (205924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (206124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (206324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (206524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (206724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (206924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (207124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (207324) esp-tls: [sock=54] select() timeout[0m
+[0;32mI (207324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (207324) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (207324) mqtt_client: Error transport connect[0m
+[0;32mI (207324) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (207334) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (207334) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (207344) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (207344) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (207524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (207724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (207924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (208124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (208324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (208524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (208724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (208924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (209124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (209324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (209524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (209724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (209924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (210124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (210324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (210524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (210724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (210924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (211124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (211324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (211524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (211724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (211924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (212124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (212324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (212524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (212724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (212924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (213124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (213324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (213524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (213724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (213924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (214124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (214324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (214524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (214724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (214924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (215124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (215324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (215524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (215724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (215924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (216124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (216324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (216524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (216724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (216924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (217124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (217324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (217354) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (217404) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (217524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (217724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (217924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (218124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (218324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (218524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (218724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (218924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (219124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (219324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (219524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (219724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (219924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (220124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (220324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (220524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (220724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (220924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (221124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (221324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (221524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (221724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (221924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (222124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (222324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (222524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (222724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (222924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (223124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (223324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (223524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (223724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (223924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (224124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (224324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (224524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (224724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (224924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (225124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (225324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (225524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (225724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (225924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (226124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (226324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (226524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (226724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (226924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (227124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (227324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (227364) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (227364) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (227364) mqtt_client: Error transport connect[0m
+[0;32mI (227364) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (227364) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (227374) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (227374) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (227384) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (227524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (227724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (227924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (228124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (228324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (228524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (228724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (228924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (229124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (229324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (229524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (229724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (229924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (230124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (230324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (230524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (230724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (230924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (231124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (231324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (231524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (231724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (231924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (232124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (232324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (232524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (232724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (232924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (233124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (233324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (233524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (233724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (233924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (234124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (234324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (234524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (234724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (234924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (235124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (235324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (235524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (235724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (235924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (236124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (236324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (236524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (236724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (236924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (237124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (237324) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (237424) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (237524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (237724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (237924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (238124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (238324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (238524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (238724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (238924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (239124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (239324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (239524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (239724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (239924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (240124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (240324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (240524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (240724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (240924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (241124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (241324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (241524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (241724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (241924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (242124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (242324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (242384) M5_SYSTEM: Other event id:7[0m
+[0;32mI (242524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (242724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (242924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (243124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (243324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (243524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (243724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (243924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (244124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (244324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (244524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (244724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (244924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (245124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (245324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (245524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (245724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (245924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (246124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (246324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (246524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (246724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (246924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (247124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (247324) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (247434) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (247524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (247724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (247924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (248124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (248324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (248524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (248724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (248924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (249124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (249324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (249524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (249724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (249924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (250124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (250324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (250524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (250724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (250924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (251124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (251324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (251524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (251724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (251924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (252124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (252324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (252394) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (252394) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (252394) mqtt_client: Error transport connect[0m
+[0;32mI (252394) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (252394) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (252404) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (252404) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (252414) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (252524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (252724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (252924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (253124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (253324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (253524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (253724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (253924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (254124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (254324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (254524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (254724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (254924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (255124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (255324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (255524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (255724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (255924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (256124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (256324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (256524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (256724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (256924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (257124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (257324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (257524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (257724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (257924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (258124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (258324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (258524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (258724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (258924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (259124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (259324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (259524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (259724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (259924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (260124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (260324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (260524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (260724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (260924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (261124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (261324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (261524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (261724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (261924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (262124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (262324) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (262454) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (262524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (262724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (262924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (263124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (263324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (263524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (263724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (263924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (264124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (264324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (264524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (264724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (264924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (265124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (265324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (265524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (265724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (265924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (266124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (266324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (266524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (266724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (266924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (267124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (267324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (267414) M5_SYSTEM: Other event id:7[0m
+[0;32mI (267524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (267724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (267924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (268124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (268324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (268524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (268724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (268924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (269124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (269324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (269524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (269724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (269924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (270124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (270324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (270524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (270724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (270924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (271124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (271324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (271524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (271724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (271924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (272124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (272324) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (272464) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (272524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (272724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (272924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (273124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (273324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (273524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (273724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (273924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (274124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (274324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (274524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (274724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (274924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (275124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (275324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (275524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (275724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (275924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (276124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (276324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (276524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (276724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (276924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (277124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (277324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[1;31mE (277424) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (277424) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (277424) mqtt_client: Error transport connect[0m
+[0;32mI (277424) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (277424) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (277434) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (277434) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (277444) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (277524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (277724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (277924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (278124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (278324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (278524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (278724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (278924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (279124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (279324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (279524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (279724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (279924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (280124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (280324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (280524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (280724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (280924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (281124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (281324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (281524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (281724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (281924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (282124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (282324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (282524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (282724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (282924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (283124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (283324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (283524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (283724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (283924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (284124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (284324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (284524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (284724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (284924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (285124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (285324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (285524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (285724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (285924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (286124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (286324) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (286524) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (286724) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (286924) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (287124) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (287324) M5_SYSTEM: Button GPIO 39 pressed[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (287484) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (287524) M5_SYSTEM: Button GPIO 39 pressed[0m

@@ -2,6 +2,6 @@
 0x1000 bootloader/bootloader.bin
 0x10000 read_voltage.bin
 0x8000 partition_table/partition-table.bin
-0x110000 storage1.bin
-0x130000 storage2.bin
-0x180000 storage3.bin
+0x210000 storage1.bin
+0x230000 storage2.bin
+0x280000 storage3.bin

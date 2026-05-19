@@ -1,0 +1,4137 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 13 2026 13:13:19[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=28d10h (167184) map[0m
+[0;32mI (165) esp_image: segment 1: paddr=00038d38 vaddr=3ffb0000 size=041c4h ( 16836) load[0m
+[0;32mI (172) esp_image: segment 2: paddr=0003cf04 vaddr=40080000 size=03114h ( 12564) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e0488h (918664) map[0m
+[0;32mI (491) esp_image: segment 4: paddr=001204b0 vaddr=40083114 size=18074h ( 98420) load[0m
+[0;32mI (530) esp_image: segment 5: paddr=0013852c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (543) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (543) boot: Disabling RNG early entropy source...[0m
+[0;32mI (554) cpu_start: Multicore app[0m
+[0;32mI (562) cpu_start: Pro cpu start user code[0m
+[0;32mI (562) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (562) app_init: Application information:[0m
+[0;32mI (562) app_init: Project name:     read_voltage[0m
+[0;32mI (566) app_init: App version:      bb08344-dirty[0m
+[0;32mI (571) app_init: Compile time:     May 13 2026 13:12:19[0m
+[0;32mI (576) app_init: ELF file SHA256:  b6d10aabe...[0m
+[0;32mI (580) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (584) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (588) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (592) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (596) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (602) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (607) heap_init: At 3FFBA890 len 00025770 (149 KiB): DRAM[0m
+[0;32mI (612) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (618) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (623) heap_init: At 4009B188 len 00004E78 (19 KiB): IRAM[0m
+[0;32mI (630) spi_flash: detected chip: generic[0m
+[0;32mI (632) spi_flash: flash io: dio[0m
+[0;33mW (638) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (646) main_task: Started on CPU0[0m
+[0;32mI (656) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (656) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (666) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (666) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (666) M5_SYSTEI (676) uart: queue free spaces: 20[0m
+[0;32mI (716) wifi:wifi driver task: 3ffc48d4, prio:23, stack:6656, core=0[0m
+[0;32mI (726) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (726) wifi:wifi certification version: v7.0[0m
+[0;32mI (726) wifi:config NVS flash: enabled[0m
+[0;32mI (726) wifi:config nano formatting: disabled[0m
+[0;32mI (736) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (736) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (746) wifi:Init management short buffer num: 32[0m
+[0;32mI (746) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (746) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (756) wifi:Init static rx buffer num: 10[0m
+[0;32mI (756) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (766) wifi_init: rx ba win: 6[0m
+[0;32mI (766) wifi_init: accept mbox: 6[0m
+[0;32mI (766) wifi_init: tcpip mbox: 32[0m
+[0;32mI (766) wifi_init: udp mbox: 6[0m
+[0;32mI (776) wifi_init: tcp mbox: 6[0m
+[0;32mI (776) wifi_init: tcp tx win: 5760[0m
+[0;32mI (776) wifi_init: tcp rx win: 5760[0m
+[0;32mI (786) wifi_init: tcp mss: 1440[0m
+[0;32mI (786) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (786) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (796) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (806) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (886) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (886) wifi:enable tsf[0m
+[0;32mI (906) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (906) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (926) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (936) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1066) wifi:connected with TP-Link_E3D6, aid = 1, channel 11, 40D, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1066) wifi:security: WPA2-PSK, phy: bgn, rssi: -33[0m
+[0;32mI (1076) wifi:pm start, type: 1[0m
+
+[0;32mI (1076) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1096) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:2, winSize:64[0m
+[0;32mI (1146) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2616) esp_netif_handlers: sta ip: 192.168.1.100, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2616) M5_SYSTEM: got ip:192.168.1.100[0m
+[0;32mI (2616) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2626) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2626) main_task: Returned from app_main()[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+[0;32mI (2656) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2656) M5_SYSTEM: sent subscribe successful, msg_id=13170[0m
+[0;32mI (2656) M5_SYSTEM: sent subscribe successful, msg_id=5961[0m
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: I (2666) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=13170, return code=0x00
+1.53094 V
+[0;32mI (2676) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=5961, return code=0x00[0m
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13575
+Debug ADS1115: Voltage read: 2.54593 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.05 A
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13599
+Debug ADS1115: Voltage read: 2.55044 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (4626) ST7789: GPIO_CS=5[0m
+[0;32mI (4626) ST7789: GPIO_DC=14[0m
+[0;32mI (4626) ST7789: GPIO_RESET=12[0m
+[0;32mI (4776) ST7789: GPIO_BL=-1[0m
+[0;32mI (4776) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4776) ST7789: GPIO_SCLK=13[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (5476) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5526) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (5566) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (5616) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8166
+Debug ADS1115: Voltage read: 1.5315 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (5996) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (7086) M5_SYSTEM: Pantalla actualizada[0m
+> Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (8176) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8158
+Debug ADS1115: Voltage read: 1.53 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (9266) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (10346) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (11436) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (12526) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13596
+Debug ADS1115: Voltage read: 2.54987 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (13616) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (14706) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (15796) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (16886) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -1.00 A
+[0;32mI (17976) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12199
+Debug ADS1115: Voltage read: 2.28787 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (19066) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (20156) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (21246) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20380
+Debug ADS1115: Voltage read: 3.82218 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (22326) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (23416) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12206
+Debug ADS1115: Voltage read: 2.28918 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (24506) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13600
+Debug ADS1115: Voltage read: 2.55062 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (25596) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (26686) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13597
+Debug ADS1115: Voltage read: 2.55006 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (27776) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12198
+Debug ADS1115: Voltage read: 2.28768 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -1.00 A
+[0;32mI (29866) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20393
+Debug ADS1115: Voltage read: 3.82462 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (30956) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (32046) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (33136) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13579
+Debug ADS1115: Voltage read: 2.54668 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.03 A
+[0;32mI (34226) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (35316) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13582
+Debug ADS1115: Voltage read: 2.54725 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (36406) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (37496) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20382
+Debug ADS1115: Voltage read: 3.82256 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13581
+Debug ADS1115: Voltage read: 2.54706 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.02 A
+[0;32mI (38586) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (39676) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (40766) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20382
+Debug ADS1115: Voltage read: 3.82256 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12199
+Debug ADS1115: Voltage read: 2.28787 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (41856) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (42946) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (44036) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (45126) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20377
+Debug ADS1115: Voltage read: 3.82162 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12198
+Debug ADS1115: Voltage read: 2.28768 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (46216) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (47306) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (48396) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13582
+Debug ADS1115: Voltage read: 2.54725 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (49486) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20375
+Debug ADS1115: Voltage read: 3.82125 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (50576) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (51666) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (52756) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (53846) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (54936) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (56016) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (57106) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (58196) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (59286) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20393
+Debug ADS1115: Voltage read: 3.82462 V
+Debug ADS1115: Raw ADC value: 8166
+Debug ADS1115: Voltage read: 1.5315 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13577
+Debug ADS1115: Voltage read: 2.54631 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.04 A
+[0;32mI (60376) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (61466) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (62556) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (63646) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (64736) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8168
+Debug ADS1115: Voltage read: 1.53187 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (65826) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13582
+Debug ADS1115: Voltage read: 2.54725 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (66916) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13582
+Debug ADS1115: Voltage read: 2.54725 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (67996) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13578
+Debug ADS1115: Voltage read: 2.5465 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.03 A
+[0;32mI (69086) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (70176) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (71266) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (72356) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13583
+Debug ADS1115: Voltage read: 2.54743 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (73446) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20378
+Debug ADS1115: Voltage read: 3.82181 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12199
+Debug ADS1115: Voltage read: 2.28787 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (74536) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (75626) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (76716) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (77806) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (78896) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (79986) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8158
+Debug ADS1115: Voltage read: 1.53 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (81076) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -1.00 A
+[0;32mI (82146) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (83236) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (84326) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (85406) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (86496) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20382
+Debug ADS1115: Voltage read: 3.82256 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (87586) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (88676) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13583
+Debug ADS1115: Voltage read: 2.54743 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (89766) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (90856) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (91946) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (93036) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (94126) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8166
+Debug ADS1115: Voltage read: 1.5315 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13582
+Debug ADS1115: Voltage read: 2.54725 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (95216) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (96306) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: -0.33 V
+AMP: 0.00 A
+[0;32mI (98386) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12208
+Debug ADS1115: Voltage read: 2.28956 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.84 V
+AMP: 0.01 A
+[0;32mI (99476) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (100566) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (101656) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (102746) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13583
+Debug ADS1115: Voltage read: 2.54743 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (103836) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20381
+Debug ADS1115: Voltage read: 3.82237 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (104926) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12210
+Debug ADS1115: Voltage read: 2.28993 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.84 V
+AMP: 0.02 A
+[0;32mI (106016) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (107106) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (108196) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20382
+Debug ADS1115: Voltage read: 3.82256 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (109286) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (110376) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20380
+Debug ADS1115: Voltage read: 3.82218 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (111466) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (112546) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8158
+Debug ADS1115: Voltage read: 1.53 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (113636) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (114726) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (115816) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13578
+Debug ADS1115: Voltage read: 2.5465 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.03 A
+[0;32mI (116906) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20394
+Debug ADS1115: Voltage read: 3.82481 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (117996) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (119086) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (120176) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12199
+Debug ADS1115: Voltage read: 2.28787 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (121266) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13581
+Debug ADS1115: Voltage read: 2.54706 V
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.02 A
+[0;32mI (122336) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8168
+Debug ADS1115: Voltage read: 1.53187 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (123426) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20379
+Debug ADS1115: Voltage read: 3.822 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12199
+Debug ADS1115: Voltage read: 2.28787 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (124516) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13596
+Debug ADS1115: Voltage read: 2.54987 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (125606) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (126696) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (127786) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12206
+Debug ADS1115: Voltage read: 2.28918 V
+Debug ADS1115: Raw ADC value: 13599
+Debug ADS1115: Voltage read: 2.55044 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (128876) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (129966) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20381
+Debug ADS1115: Voltage read: 3.82237 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13600
+Debug ADS1115: Voltage read: 2.55062 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (131056) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (132146) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (133226) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20379
+Debug ADS1115: Voltage read: 3.822 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12198
+Debug ADS1115: Voltage read: 2.28768 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (134316) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20393
+Debug ADS1115: Voltage read: 3.82462 V
+Debug ADS1115: Raw ADC value: 8167
+Debug ADS1115: Voltage read: 1.53169 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (135406) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (136496) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (137586) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (138676) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13600
+Debug ADS1115: Voltage read: 2.55062 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (139766) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (140856) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (141946) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (143036) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13601
+Debug ADS1115: Voltage read: 2.55081 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.10 A
+[0;32mI (144126) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8167
+Debug ADS1115: Voltage read: 1.53169 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13601
+Debug ADS1115: Voltage read: 2.55081 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.10 A
+[0;32mI (145206) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (146296) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13600
+Debug ADS1115: Voltage read: 2.55062 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (147386) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (148476) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20382
+Debug ADS1115: Voltage read: 3.82256 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (149566) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13604
+Debug ADS1115: Voltage read: 2.55137 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.11 A
+[0;32mI (150656) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (151746) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13604
+Debug ADS1115: Voltage read: 2.55137 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.11 A
+[0;32mI (152836) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (153916) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (155006) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20394
+Debug ADS1115: Voltage read: 3.82481 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13600
+Debug ADS1115: Voltage read: 2.55062 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (156096) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (157186) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12198
+Debug ADS1115: Voltage read: 2.28768 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (158276) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (159366) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13600
+Debug ADS1115: Voltage read: 2.55062 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (160456) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (161546) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13599
+Debug ADS1115: Voltage read: 2.55044 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (162636) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (163726) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (164816) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (165896) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (166986) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (168076) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12199
+Debug ADS1115: Voltage read: 2.28787 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (169166) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (170256) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (171346) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -1.00 A
+[0;32mI (173436) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12207
+Debug ADS1115: Voltage read: 2.28937 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (174526) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (175616) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (176706) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (177796) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20393
+Debug ADS1115: Voltage read: 3.82462 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12195
+Debug ADS1115: Voltage read: 2.28712 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (178886) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (179976) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (181066) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -1.00 A
+[0;32mI (182156) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (183246) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12206
+Debug ADS1115: Voltage read: 2.28918 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (184326) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (185396) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (186476) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (187566) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8166
+Debug ADS1115: Voltage read: 1.5315 V
+Debug ADS1115: Raw ADC value: 12198
+Debug ADS1115: Voltage read: 2.28768 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (188656) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (189746) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (190816) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20393
+Debug ADS1115: Voltage read: 3.82462 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (191906) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20382
+Debug ADS1115: Voltage read: 3.82256 V
+Debug ADS1115: Raw ADC value: 8167
+Debug ADS1115: Voltage read: 1.53169 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (192996) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8156
+Debug ADS1115: Voltage read: 1.52962 V
+Debug ADS1115: Raw ADC value: 12206
+Debug ADS1115: Voltage read: 2.28918 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (194086) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13600
+Debug ADS1115: Voltage read: 2.55062 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (195176) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (196266) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (197356) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13597
+Debug ADS1115: Voltage read: 2.55006 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (198446) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (199536) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20381
+Debug ADS1115: Voltage read: 3.82237 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (200626) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (201716) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13604
+Debug ADS1115: Voltage read: 2.55137 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.11 A
+[0;32mI (202806) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13604
+Debug ADS1115: Voltage read: 2.55137 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.11 A
+[0;32mI (203886) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (204976) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20374
+Debug ADS1115: Voltage read: 3.82106 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (206066) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12206
+Debug ADS1115: Voltage read: 2.28918 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (207156) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12197
+Debug ADS1115: Voltage read: 2.2875 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (208246) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (209336) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (210426) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (211516) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8157
+Debug ADS1115: Voltage read: 1.52981 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (212606) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (213696) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20394
+Debug ADS1115: Voltage read: 3.82481 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (214786) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -1.00 A
+[0;32mI (215846) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13596
+Debug ADS1115: Voltage read: 2.54987 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (216936) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13601
+Debug ADS1115: Voltage read: 2.55081 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.10 A
+[0;32mI (218016) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (219086) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (220166) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (221256) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (222346) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13603
+Debug ADS1115: Voltage read: 2.55119 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.11 A
+[0;32mI (223436) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13600
+Debug ADS1115: Voltage read: 2.55062 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (224526) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (225616) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (226706) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (227796) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20378
+Debug ADS1115: Voltage read: 3.82181 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13596
+Debug ADS1115: Voltage read: 2.54987 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (228886) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8166
+Debug ADS1115: Voltage read: 1.5315 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (229976) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (231066) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20379
+Debug ADS1115: Voltage read: 3.822 V
+Debug ADS1115: Raw ADC value: 8168
+Debug ADS1115: Voltage read: 1.53187 V
+Debug ADS1115: Raw ADC value: 12199
+Debug ADS1115: Voltage read: 2.28787 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (232146) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (233236) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13596
+Debug ADS1115: Voltage read: 2.54987 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (234326) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13586
+Debug ADS1115: Voltage read: 2.548 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (235416) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (236506) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (237596) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (238686) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (239776) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (240866) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (241956) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (243046) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (244106) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12206
+Debug ADS1115: Voltage read: 2.28918 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (245196) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (246286) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8157
+Debug ADS1115: Voltage read: 1.52981 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13596
+Debug ADS1115: Voltage read: 2.54987 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (247376) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (248466) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (249556) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (250646) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (251736) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (252826) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (253916) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20391
+Debug ADS1115: Voltage read: 3.82425 V
+Debug ADS1115: Raw ADC value: 8166
+Debug ADS1115: Voltage read: 1.5315 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (255006) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13582
+Debug ADS1115: Voltage read: 2.54725 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: -0.01 A
+[0;32mI (256096) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (257186) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13596
+Debug ADS1115: Voltage read: 2.54987 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (258256) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8159
+Debug ADS1115: Voltage read: 1.53019 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (259346) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20392
+Debug ADS1115: Voltage read: 3.82443 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (260436) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20381
+Debug ADS1115: Voltage read: 3.82237 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12208
+Debug ADS1115: Voltage read: 2.28956 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.84 V
+AMP: 0.06 A
+[0;32mI (261526) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 13601
+Debug ADS1115: Voltage read: 2.55081 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: -0.33 V
+AMP: 0.10 A
+[0;32mI (262596) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (263686) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (264776) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13601
+Debug ADS1115: Voltage read: 2.55081 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.10 A
+[0;32mI (265866) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (266956) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13596
+Debug ADS1115: Voltage read: 2.54987 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (268046) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (269136) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13601
+Debug ADS1115: Voltage read: 2.55081 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.10 A
+[0;32mI (270226) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (271316) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (272406) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13597
+Debug ADS1115: Voltage read: 2.55006 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (273496) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8164
+Debug ADS1115: Voltage read: 1.53112 V
+Debug ADS1115: Raw ADC value: 12206
+Debug ADS1115: Voltage read: 2.28918 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (274586) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20382
+Debug ADS1115: Voltage read: 3.82256 V
+Debug ADS1115: Raw ADC value: 8157
+Debug ADS1115: Voltage read: 1.52981 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13594
+Debug ADS1115: Voltage read: 2.5495 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (275666) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13587
+Debug ADS1115: Voltage read: 2.54818 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (276756) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20383
+Debug ADS1115: Voltage read: 3.82275 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13597
+Debug ADS1115: Voltage read: 2.55006 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.07 A
+[0;32mI (277846) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (278936) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20385
+Debug ADS1115: Voltage read: 3.82312 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (280026) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8166
+Debug ADS1115: Voltage read: 1.5315 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13593
+Debug ADS1115: Voltage read: 2.54931 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (281116) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20384
+Debug ADS1115: Voltage read: 3.82293 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13599
+Debug ADS1115: Voltage read: 2.55044 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (282206) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (283296) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20379
+Debug ADS1115: Voltage read: 3.822 V
+Debug ADS1115: Raw ADC value: 8158
+Debug ADS1115: Voltage read: 1.53 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13606
+Debug ADS1115: Voltage read: 2.55175 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.13 A
+[0;32mI (284386) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13592
+Debug ADS1115: Voltage read: 2.54912 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.05 A
+[0;32mI (285476) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20390
+Debug ADS1115: Voltage read: 3.82406 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12202
+Debug ADS1115: Voltage read: 2.28843 V
+Debug ADS1115: Raw ADC value: 13599
+Debug ADS1115: Voltage read: 2.55044 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.09 A
+[0;32mI (286566) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20381
+Debug ADS1115: Voltage read: 3.82237 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12201
+Debug ADS1115: Voltage read: 2.28825 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (287646) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12206
+Debug ADS1115: Voltage read: 2.28918 V
+Debug ADS1115: Raw ADC value: 13595
+Debug ADS1115: Voltage read: 2.54969 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.06 A
+[0;32mI (288736) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (289826) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8167
+Debug ADS1115: Voltage read: 1.53169 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13598
+Debug ADS1115: Voltage read: 2.55025 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.08 A
+[0;32mI (290916) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20387
+Debug ADS1115: Voltage read: 3.8235 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13584
+Debug ADS1115: Voltage read: 2.54762 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.00 A
+[0;32mI (292006) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20388
+Debug ADS1115: Voltage read: 3.82368 V
+Debug ADS1115: Raw ADC value: 8160
+Debug ADS1115: Voltage read: 1.53037 V
+Debug ADS1115: Raw ADC value: 12204
+Debug ADS1115: Voltage read: 2.28881 V
+Debug ADS1115: Raw ADC value: 13588
+Debug ADS1115: Voltage read: 2.54837 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.02 A
+[0;32mI (293096) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20386
+Debug ADS1115: Voltage read: 3.82331 V
+Debug ADS1115: Raw ADC value: 8161
+Debug ADS1115: Voltage read: 1.53056 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13585
+Debug ADS1115: Voltage read: 2.54781 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.01 A
+[0;32mI (294186) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20401
+Debug ADS1115: Voltage read: 3.82612 V
+Debug ADS1115: Raw ADC value: 8165
+Debug ADS1115: Voltage read: 1.53131 V
+Debug ADS1115: Raw ADC value: 12205
+Debug ADS1115: Voltage read: 2.289 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.83 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (295276) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8157
+Debug ADS1115: Voltage read: 1.52981 V
+Debug ADS1115: Raw ADC value: 12200
+Debug ADS1115: Voltage read: 2.28806 V
+Debug ADS1115: Raw ADC value: 13591
+Debug ADS1115: Voltage read: 2.54893 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.04 A
+[0;32mI (296366) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8163
+Debug ADS1115: Voltage read: 1.53094 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13590
+Debug ADS1115: Voltage read: 2.54875 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (297456) M5_SYSTEM: Pantalla actualizada[0m
+Debug ADS1115: Raw ADC value: 20389
+Debug ADS1115: Voltage read: 3.82387 V
+Debug ADS1115: Raw ADC value: 8162
+Debug ADS1115: Voltage read: 1.53075 V
+Debug ADS1115: Raw ADC value: 12203
+Debug ADS1115: Voltage read: 2.28862 V
+Debug ADS1115: Raw ADC value: 13589
+Debug ADS1115: Voltage read: 2.54856 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.85 V
+CELL 3 VOLT: 3.83 V
+AMP: 0.03 A
+[0;32mI (298546) M5_SYSTEM: Pantalla actualizada[0m

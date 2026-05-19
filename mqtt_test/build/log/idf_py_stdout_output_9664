@@ -1,0 +1,350 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\mqtt_test\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\mqtt_test\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+��000e9�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Apr 22 2026 15:59:13[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00110000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00130000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00180000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1e270h (123504) map[0m
+[0;32mI (151) esp_image: segment 1: paddr=0002e298 vaddr=3ffb0000 size=01d80h (  7552) load[0m
+[0;32mI (154) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=9f23ch (651836) map[0m
+[0;32mI (377) esp_image: segment 3: paddr=000cf264 vaddr=3ffb1d80 size=0216ch (  8556) load[0m
+[0;32mI (380) esp_image: segment 4: paddr=000d13d8 vaddr=40080000 size=17f48h ( 98120) load[0m
+[0;32mI (419) esp_image: segment 5: paddr=000e9328 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (431) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (431) boot: Disabling RNG early entropy source...[0m
+[0;32mI (442) cpu_start: Multicore app[0m
+[0;32mI (450) cpu_start: Pro cpu start user code[0m
+[0;32mI (450) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (450) app_init: Application information:[0m
+[0;32mI (450) app_init: Project name:     read_voltage[0m
+[0;32mI (454) app_init: App version:      bb08344-dirty[0m
+[0;32mI (459) app_init: Compile time:     Apr 22 2026 15:58:52[0m
+[0;32mI (464) app_init: ELF file SHA256:  4290f8b1c...[0m
+[0;32mI (468) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (472) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (476) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (480) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (484) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (490) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (495) heap_init: At 3FFB85C0 len 00027A40 (158 KiB): DRAM[0m
+[0;32mI (500) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (506) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (511) heap_init: At 40097F48 len 000080B8 (32 KiB): IRAM[0m
+[0;32mI (518) spi_flash: detected chip: generic[0m
+[0;32mI (520) spi_flash: flash io: dio[0m
+[0;32mI (524) main_task: Started on CPU0[0m
+[0;32mI (534) main_task: Calling app_main()[0m
+[0;32mI (564) wifi:wifi driver task: 3ffc0724, prio:23, stack:6656, core=0[0m
+[0;32mI (574) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (574) wifi:wifi certification version: v7.0[0m
+[0;32mI (574) wifi:config NVS flash: enabled[0m
+[0;32mI (574) wifi:config nano formatting: disabled[0m
+[0;32mI (584) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (584) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (584) wifi:Init management short buffer num: 32[0m
+[0;32mI (594) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (594) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (604) wifi:Init static rx buffer num: 10[0m
+[0;32mI (604) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (614) wifi_init: rx ba win: 6[0m
+[0;32mI (614) wifi_init: accept mbox: 6[0m
+[0;32mI (614) wifi_init: tcpip mbox: 32[0m
+[0;32mI (614) wifi_init: udp mbox: 6[0m
+[0;32mI (624) wifi_init: tcp mbox: 6[0m
+[0;32mI (624) wifi_init: tcp tx win: 5760[0m
+[0;32mI (624) wifi_init: tcp rx win: 5760[0m
+[0;32mI (634) wifi_init: tcp mss: 1440[0m
+[0;32mI (634) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (634) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (644) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (724) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (724) wifi:enable tsf[0m
+[0;32mI (724) wifi_station: wifi_init_sta finished.[0m
+[0;32mI (744) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (744) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (754) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (774) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (784) wifi:connected with Galaxy A02s85e9, aid = 9, channel 6, BW20, bssid = 9e:f4:ba:70:9c:0b[0m
+[0;32mI (784) wifi:security: WPA2-PSK, phy: bgn, rssi: -44[0m
+[0;32mI (794) wifi:pm start, type: 1[0m
+
+[0;32mI (794) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (824) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (824) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1834) esp_netif_handlers: sta ip: 10.236.171.201, mask: 255.255.255.0, gw: 10.236.171.45[0m
+[0;32mI (1834) wifi_station: got ip:10.236.171.201[0m
+[0;32mI (1834) wifi_station: Other event id:7[0m
+[0;32mI (2984) wifi:<ba-add>idx:0 (ifx:0, 9e:f4:ba:70:9c:0b), tid:0, ssn:8, winSize:64[0m
+[0;32mI (2994) wifi_station: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2994) wifi_station: sent subscribe successful, msg_id=25719[0m
+[0;32mI (3194) wifi_station: MQTT_EVENT_SUBSCRIBED, msg_id=25719, return code=0x00[0m
+[0;32mI (3194) wifi_station: Sent data: 92[0m
+[0;32mI (3394) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=92
+[0;32mI (13194) wifi_station: Sent data: 12[0m
+[0;32mI (13534) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=12
+[0;32mI (23194) wifi_station: Sent data: 8[0m
+[0;32mI (23464) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=8
+[0;32mI (33194) wifi_station: Sent data: 66[0m
+[0;32mI (33494) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=66
+[0;32mI (43194) wifi_station: Sent data: 50[0m
+[0;32mI (43534) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=50
+[0;32mI (53194) wifi_station: Sent data: 3[0m
+[0;32mI (53574) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=3
+[0;32mI (63194) wifi_station: Sent data: 14[0m
+[0;32mI (63604) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=14
+[0;32mI (73194) wifi_station: Sent data: 96[0m
+[0;32mI (73434) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=96
+[0;32mI (83194) wifi_station: Sent data: 88[0m
+[0;32mI (83464) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=88
+[0;32mI (93194) wifi_station: Sent data: 19[0m
+[0;32mI (93504) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=19
+[0;32mI (103194) wifi_station: Sent data: 4[0m
+[0;32mI (103334) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=4
+[0;32mI (113194) wifi_station: Sent data: 14[0m
+[0;32mI (113374) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=14
+[0;32mI (123194) wifi_station: Sent data: 63[0m
+[0;32mI (123444) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=63
+[0;32mI (133194) wifi_station: Sent data: 88[0m
+[0;32mI (133444) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=88
+[0;32mI (143194) wifi_station: Sent data: 38[0m
+[0;32mI (143484) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=38
+[0;32mI (153194) wifi_station: Sent data: 97[0m
+[0;32mI (153514) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=97
+[0;32mI (163194) wifi_station: Sent data: 21[0m
+[0;32mI (163344) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=21
+[0;32mI (173194) wifi_station: Sent data: 29[0m
+[0;32mI (173584) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=29
+[0;32mI (183194) wifi_station: Sent data: 56[0m
+[0;32mI (183414) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=56
+[0;32mI (193194) wifi_station: Sent data: 19[0m
+[0;32mI (193444) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=19
+[0;32mI (203194) wifi_station: Sent data: 72[0m
+[0;32mI (203484) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=72
+[0;32mI (213194) wifi_station: Sent data: 2[0m
+[0;32mI (213524) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=2
+[0;32mI (223194) wifi_station: Sent data: 73[0m
+[0;32mI (223354) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=73
+[0;32mI (233194) wifi_station: Sent data: 75[0m
+[0;32mI (233384) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=75
+[0;32mI (243194) wifi_station: Sent data: 71[0m
+[0;32mI (243624) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=71
+[0;32mI (253194) wifi_station: Sent data: 14[0m
+[0;32mI (253454) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=14
+[0;32mI (263194) wifi_station: Sent data: 23[0m
+[0;32mI (263494) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=23
+[0;32mI (273194) wifi_station: Sent data: 10[0m
+[0;32mI (273524) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=10
+[0;32mI (283194) wifi_station: Sent data: 23[0m
+[0;32mI (283354) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=23
+[0;32mI (293194) wifi_station: Sent data: 3[0m
+[0;32mI (293594) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=3
+[0;32mI (303194) wifi_station: Sent data: 34[0m
+[0;32mI (303424) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=34
+[0;32mI (313194) wifi_station: Sent data: 38[0m
+[0;32mI (313464) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=38
+[0;32mI (323194) wifi_station: Sent data: 45[0m
+[0;32mI (323494) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=45
+[0;32mI (333194) wifi_station: Sent data: 83[0m
+[0;32mI (333534) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=83
+[0;32mI (343194) wifi_station: Sent data: 42[0m
+[0;32mI (343564) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=42
+[0;32mI (353194) wifi_station: Sent data: 48[0m
+[0;32mI (353604) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=48
+[0;32mI (363194) wifi_station: Sent data: 27[0m
+[0;32mI (363434) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=27
+[0;32mI (373194) wifi_station: Sent data: 51[0m
+[0;32mI (373464) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=51
+[0;32mI (383194) wifi_station: Sent data: 0[0m
+[0;32mI (383504) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=0
+[0;32mI (393194) wifi_station: Sent data: 64[0m
+[0;32mI (393534) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=64
+[0;32mI (403194) wifi_station: Sent data: 93[0m
+[0;32mI (403574) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=93
+[0;32mI (413194) wifi_station: Sent data: 90[0m
+[0;32mI (413404) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=90
+[0;32mI (423194) wifi_station: Sent data: 40[0m
+[0;32mI (423434) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=40
+[0;32mI (433194) wifi_station: Sent data: 19[0m
+[0;32mI (433474) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=19
+[0;32mI (443194) wifi_station: Sent data: 37[0m
+[0;32mI (443504) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=37
+[0;32mI (453194) wifi_station: Sent data: 75[0m
+[0;32mI (453544) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=75
+[0;32mI (463194) wifi_station: Sent data: 51[0m
+[0;32mI (463584) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=51
+[0;32mI (473194) wifi_station: Sent data: 98[0m
+[0;32mI (473614) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=98
+[0;32mI (483194) wifi_station: Sent data: 48[0m
+[0;32mI (483444) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=48
+[0;32mI (493194) wifi_station: Sent data: 98[0m
+[0;32mI (493474) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=98
+[0;32mI (503194) wifi_station: Sent data: 65[0m
+[0;32mI (503514) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=65
+[0;32mI (513194) wifi_station: Sent data: 0[0m
+[0;32mI (513344) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=0
+[0;32mI (523194) wifi_station: Sent data: 61[0m
+[0;32mI (523584) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=61
+[0;32mI (525634) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=hello world
+[0;32mI (533194) wifi_station: Sent data: 44[0m
+[0;32mI (533414) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=44
+[0;32mI (543194) wifi_station: Sent data: 9[0m
+[0;32mI (543444) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=9
+[0;32mI (553194) wifi_station: Sent data: 46[0m
+[0;32mI (553484) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=46
+[0;32mI (563194) wifi_station: Sent data: 15[0m
+[0;32mI (563524) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=15
+[0;32mI (573194) wifi_station: Sent data: 13[0m
+[0;32mI (573564) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=13
+[0;32mI (583194) wifi_station: Sent data: 20[0m
+[0;32mI (583384) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=20
+[0;32mI (593194) wifi_station: Sent data: 99[0m
+[0;32mI (593424) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=99
+[0;32mI (603194) wifi_station: Sent data: 75[0m
+[0;32mI (603464) wifi_station: MQTT_EVENT_DATA[0m
+TOPIC=esp32-picoV3-2ULL/test1
+DATA=field1=75

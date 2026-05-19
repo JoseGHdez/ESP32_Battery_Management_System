@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "read_voltage",
-    "project_version":    "bbb5339",
+    "project_version":    "bb08344-dirty",
     "project_path":       "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/wifi_test",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.5.1",
     "build_dir":          "C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/wifi_test/build",

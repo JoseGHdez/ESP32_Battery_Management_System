@@ -1,0 +1,3126 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_test\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_test\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May  6 2026 21:08:38[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=28410h (164880) map[0m
+[0;32mI (165) esp_image: segment 1: paddr=00038438 vaddr=3ffb0000 size=041c4h ( 16836) load[0m
+[0;32mI (171) esp_image: segment 2: paddr=0003c604 vaddr=40080000 size=03a14h ( 14868) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=dec5ch (912476) map[0m
+[0;32mI (489) esp_image: segment 4: paddr=0011ec84 vaddr=40083a14 size=175bch ( 95676) load[0m
+[0;32mI (527) esp_image: segment 5: paddr=00136248 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (540) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (540) boot: Disabling RNG early entropy source...[0m
+[0;32mI (550) cpu_start: Multicore app[0m
+[0;32mI (559) cpu_start: Pro cpu start user code[0m
+[0;32mI (559) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (559) app_init: Application information:[0m
+[0;32mI (559) app_init: Project name:     read_voltage[0m
+[0;32mI (563) app_init: App version:      bb08344-dirty[0m
+[0;32mI (568) app_init: Compile time:     May  6 2026 21:08:24[0m
+[0;32mI (573) app_init: ELF file SHA256:  a5ab673cf...[0m
+[0;32mI (577) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (581) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (585) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (589) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (593) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (599) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (604) heap_init: At 3FFBA880 len 00025780 (149 KiB): DRAM[0m
+[0;32mI (609) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (615) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (620) heap_init: At 4009AFD0 len 00005030 (20 KiB): IRAM[0m
+[0;32mI (627) spi_flash: detected chip: generic[0m
+[0;32mI (629) spi_flash: flash io: dio[0m
+[0;33mW (635) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (643) main_task: Started on CPU0[0m
+[0;32mI (653) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (653) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (663) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (663) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (663) M5_SYSTEM: I2C master initialized successfully[0m
+Escaneando bus I2C...
+[0;32mI (693) servo_control: Inicializando MCPWM para el servo en GPIO 26[0m
+[0;32mI (733) wifi:wifi driver task: 3ffc3c04, prio:23, stack:6656, core=0[0m
+[0;32mI (743) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (743) wifi:wifi certification version: v7.0[0m
+[0;32mI (743) wifi:config NVS flash: enabled[0m
+[0;32mI (743) wifi:config nano formatting: disabled[0m
+[0;32mI (753) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (753) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (753) wifi:Init management short buffer num: 32[0m
+[0;32mI (763) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (763) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (773) wifi:Init static rx buffer num: 10[0m
+[0;32mI (773) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (783) wifi_init: rx ba win: 6[0m
+[0;32mI (783) wifi_init: accept mbox: 6[0m
+[0;32mI (783) wifi_init: tcpip mbox: 32[0m
+[0;32mI (783) wifi_init: udp mbox: 6[0m
+[0;32mI (793) wifi_init: tcp mbox: 6[0m
+[0;32mI (793) wifi_init: tcp tx win: 5760[0m
+[0;32mI (793) wifi_init: tcp rx win: 5760[0m
+[0;32mI (803) wifi_init: tcp mss: 1440[0m
+[0;32mI (803) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (803) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (813) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (823) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (903) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (903) wifi:enable tsf[0m
+[0;32mI (923) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (923) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (933) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (953) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1973) wifi:connected with Galaxy A02s85e9, aid = 31, channel 6, BW20, bssid = 9e:f4:ba:70:9c:0b[0m
+[0;32mI (1983) wifi:security: WPA2-PSK, phy: bgn, rssi: -27[0m
+[0;32mI (1983) wifi:pm start, type: 1[0m
+
+[0;32mI (1983) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1993) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (2003) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (3053) esp_netif_handlers: sta ip: 10.54.85.201, mask: 255.255.255.0, gw: 10.54.85.45[0m
+[0;32mI (3053) M5_SYSTEM: got ip:10.I (3063) uart: queue free spaces: 20[0m
+[0;32mI (3063) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (3063) main_task: Returned from app_main()[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (5063) ST7789: GPIO_CS=5[0m
+[0;32mI (5063) ST7789: GPIO_DC=14[0m
+[0;32mI (5063) ST7789: GPIO_RESET=12[0m
+[0;32mI (5213) ST7789: GPIO_BL=-1[0m
+[0;32mI (5213) ST7789: GPIO_MOSI=15[0m
+[0;32mI (5213) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5913) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5963) M5_SYSTEM: Pantalla actualizada[0m
+> E (13073) esp-tls: [sock=54] select() timeout
+[1;31mE (13073) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (13073) mqtt_client: Error transport connect[0m
+[0;32mI (13073) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (13073) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (13083) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (13083) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (13093) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (23133) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (28093) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (33143) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (38103) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (38103) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (38103) mqtt_client: Error transport connect[0m
+[0;32mI (38103) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (38103) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (38113) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (38113) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (38123) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (48163) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (53123) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (58173) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (63133) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (63133) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (63133) mqtt_client: Error transport connect[0m
+[0;32mI (63133) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (63133) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (63143) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (63143) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (63153) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (73193) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (78153) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (83203) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (88163) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (88163) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (88163) mqtt_client: Error transport connect[0m
+[0;32mI (88163) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (88163) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (88173) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (88173) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (88183) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (98223) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (103183) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (108233) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (113193) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (113193) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (113193) mqtt_client: Error transport connect[0m
+[0;32mI (113193) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (113193) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (113203) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (113203) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (113213) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (123253) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (128213) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (133273) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (138223) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (138223) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (138223) mqtt_client: Error transport connect[0m
+[0;32mI (138223) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (138223) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (138233) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (138233) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (138243) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (148283) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (153243) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (158293) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (163253) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (163253) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (163253) mqtt_client: Error transport connect[0m
+[0;32mI (163253) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (163253) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (163263) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (163263) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (163273) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (173313) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (178273) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (183323) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (188283) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (188283) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (188283) mqtt_client: Error transport connect[0m
+[0;32mI (188283) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (188283) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (188293) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (188293) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (188303) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (198343) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (203303) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (208353) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (213313) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (213313) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (213313) mqtt_client: Error transport connect[0m
+[0;32mI (213313) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (213313) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (213323) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (213323) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (213333) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (223373) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (228333) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (233383) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (238343) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (238343) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (238343) mqtt_client: Error transport connect[0m
+[0;32mI (238343) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (238343) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (238353) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (238353) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (238363) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (248403) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (253363) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (258413) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (263373) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (263373) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (263373) mqtt_client: Error transport connect[0m
+[0;32mI (263373) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (263373) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (263383) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (263383) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (263393) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (273433) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (278393) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (283443) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (288403) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (288403) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (288403) mqtt_client: Error transport connect[0m
+[0;32mI (288403) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (288403) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (288413) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (288413) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (288423) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (298463) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (303423) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (308473) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (313433) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (313433) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (313433) mqtt_client: Error transport connect[0m
+[0;32mI (313433) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (313433) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (313443) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (313443) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (313453) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (323493) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (328453) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (333503) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (338463) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (338463) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (338463) mqtt_client: Error transport connect[0m
+[0;32mI (338463) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (338463) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (338473) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (338473) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (338483) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (348523) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (353483) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (358533) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (363493) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (363493) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (363493) mqtt_client: Error transport connect[0m
+[0;32mI (363493) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (363493) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (363503) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (363503) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (363513) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (373553) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (378513) M5_SYSTEM: Other event id:7[0m
+[0;32mI (378553) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (378553) M5_SYSTEM: sent subscribe successful, msg_id=33019[0m
+[0;32mI (378583) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=33019, return code=0x00[0m
+[0;32mI (378603) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (378633) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=226[0m
+[0;32mI (378773) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (378773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=48725[0m
+[0;32mI (379633) wifi:<ba-add>idx:0 (ifx:0, 9e:f4:ba:70:9c:0b), tid:0, ssn:11, winSize:64[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (383573) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (383943) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (384023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64750[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (393573) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (393583) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (393773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54140[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (403593) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (403603) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (403783) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=356[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (413623) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (413623) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (413773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16062[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (423633) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (423643) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (423773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37194[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (433653) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (433663) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (433783) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63650[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (443673) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (443683) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (443773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=51930[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (453693) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (453703) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (453773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30374[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (463713) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (463723) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (463773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10594[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (473733) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (473743) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (473773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22315[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (483753) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (483763) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (483773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25922[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (493783) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (493793) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (494043) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33269[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (503793) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (503803) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (504043) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22279[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (513813) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (513823) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (514023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45056[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (523843) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (523843) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17995[0m
+[0;32mI (523853) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (533853) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (533863) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (534023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50625[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (543873) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (543883) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (544023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32614[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (553903) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (553923) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (554023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20460[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (563923) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (563923) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (564023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4139[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (573933) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (573943) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (574023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6722[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (583953) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (583963) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (584023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2662[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (593973) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (593983) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (594013) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=11924[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (603993) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (604003) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (604023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=13896[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (614013) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (614023) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (614033) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54103[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (624033) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (624043) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (624273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=61754[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (634053) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (634063) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (634283) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38313[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (644073) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (644083) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (644273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=15589[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (654093) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (654103) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (654273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24583[0m
+  
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (664113) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (664123) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (664273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64263[0m
+
+
+> voltagea  a2
+[0;32mI (669763) M5_SYSTEM: Command received: VOLTAGE A2[0m
+V(A2): -1.000000V
+[0;32mI (669803) M5_SYSTEM: Pantalla actualizada[0m
+
+> r
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (674133) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (674143) M5_SYSTEM: Pantalla actualizada[0m
+1I (674283) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63762
+ on
+[0;32mI (676833) M5_SYSTEM: Command received: R1 ON[0m
+[1;31mE (676843) I2C_RELAY: Error I2C (esperado): ESP_FAIL[0m
+Encendiendo R1
+[0;32mI (676873) M5_SYSTEM: Pantalla actualizada[0m
+
+> r1 off
+[0;32mI (681383) M5_SYSTEM: Command received: R1 OFF[0m
+[1;31mE (681383) I2C_RELAY: Error I2C (esperado): ESP_FAIL[0m
+Apagando R1
+[0;32mI (681423) M5_SYSTEM: Pantalla actualizada[0m
+
+> 
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (684153) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (684163) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (684273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33191[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (694173) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (694183) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (694193) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=44127[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (704193) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (704203) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (704273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52101[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (714213) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (714223) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (714273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42669[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (724233) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (724243) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (724273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64427[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (734253) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (734263) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (734273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37933[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (744273) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (744283) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (744523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50776[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (754293) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (754303) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (754533) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32281[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (764313) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (764323) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (764523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53672[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (774333) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (774343) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (774523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23796[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (784363) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (784373) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (784523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62291[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (794373) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (794393) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (794523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=27294[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (804403) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (804403) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (804523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25412[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (814413) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (814423) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (814523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57856[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (824443) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (824473) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (824523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2363[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (834463) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (834493) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (834543) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28271[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (844483) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (844513) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (844823) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6503[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (854503) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (854783) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (855193) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46077[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (864513) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (864523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7194[0m
+[0;32mI (864523) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (874543) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (874643) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (874773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57512[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (884553) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (884563) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (884773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45536[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (894583) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (894713) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (894773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=59818[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (904603) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (904643) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (904773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34982[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (914613) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (914623) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (914773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=51337[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (924633) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (924653) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (924773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24360[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (934653) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (934663) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (934773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10360[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (944673) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (944683) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (944773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=59834[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (954693) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (954703) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (954773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30048[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (964713) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (964723) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (964773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32751[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (974733) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (974743) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (974783) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21349[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (984763) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (984773) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (984793) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17292[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (994773) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (994783) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (995023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20547[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1004793) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1004803) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1005023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45246[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1014813) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1014823) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1015023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24248[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1024833) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1024843) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1025023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57112[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1034853) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1034863) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1034863) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2576[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1044873) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1044883) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1045033) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17941[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1054893) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1054903) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1055023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23485[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1064913) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1064933) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1065023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=61416[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1074923) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1074933) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1075033) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46657[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1084943) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1084953) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1085023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49936[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1094963) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1094973) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1095023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45621[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1104983) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1104993) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1105023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=269[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1115013) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1115033) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1115273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33232[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1125023) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1125033) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1125273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22166[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1135053) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1135053) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1135273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14708[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1145063) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1145073) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1145283) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=59061[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1155083) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1155093) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1155273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23961[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1165103) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1165113) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1165273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23245[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1175123) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1175133) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1175273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64769[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1185143) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1185153) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1185273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10641[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1195173) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1195173) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1195283) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12099[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1205183) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1205193) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1205203) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63053[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1215203) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1215213) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1215273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45011[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1225223) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1225233) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1225273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5857[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1235253) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1235263) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1235273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=36784[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1245273) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1245273) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1245523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=654[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1255283) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1255293) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1255523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63964[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1265303) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1265313) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1265523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42983[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1275333) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1275333) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1275523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20286[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1285343) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1285353) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1285523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=35743[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1295373) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1295373) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1295523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10593[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1305383) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1305393) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1305523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62982[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1315413) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1315413) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1315523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6211[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1325423) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1325443) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1325523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52784[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1335443) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1335463) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1335523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32040[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1345453) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1345463) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1345523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52909[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1355473) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1355483) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1355523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57998[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1365493) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1365503) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1365523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=44256[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1375523) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1375523) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1375533) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16988[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1385533) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1385543) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1385773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12991[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1395553) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1395563) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1395773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58843[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1405583) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1405693) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1405773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64357[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1415593) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1415603) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1415773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4452[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1425623) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1425633) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1425773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=1153[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1435633) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1435643) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1435793) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21463[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1445653) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1445663) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1445773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58024[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1455683) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1455693) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1455783) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42977[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1465693) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1465703) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1465773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=61638[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1475723) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1475933) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (1476073) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=59989[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1485743) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1495763) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1505773) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1515783) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1525793) M5_SYSTEM: Pantalla actualizada[0m
+[0;33mW (1527493) transport_base: Poll timeout or error, errno=Connection already in progress, fd=54, timeout_ms=10000[0m
+[1;31mE (1527493) mqtt_client: Writing didn't complete in specified timeout: errno=119[0m
+[1;31mE (1527493) mqtt_client: Error to resend data [0m
+[0;32mI (1527503) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1537543) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1542503) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1547553) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1552513) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1552513) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1552513) mqtt_client: Error transport connect[0m
+[0;32mI (1552513) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1552513) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1552523) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1552523) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1552533) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1562573) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1567533) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1572583) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1577543) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1577543) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1577543) mqtt_client: Error transport connect[0m
+[0;32mI (1577543) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1577543) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1577553) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1577553) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1577563) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1587603) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1592563) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1597613) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1602573) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1602573) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1602573) mqtt_client: Error transport connect[0m
+[0;32mI (1602573) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1602573) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1602583) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1602583) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1602593) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1612633) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1617593) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1622643) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1627603) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1627603) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1627603) mqtt_client: Error transport connect[0m
+[0;32mI (1627603) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1627603) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1627613) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1627613) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1627623) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1637663) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1642623) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1647673) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1652633) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1652633) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1652633) mqtt_client: Error transport connect[0m
+[0;32mI (1652633) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1652633) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1652643) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1652643) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1652653) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1662693) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1667653) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1672703) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1677663) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1677663) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1677663) mqtt_client: Error transport connect[0m
+[0;32mI (1677663) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1677663) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1677673) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1677673) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1677683) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1687733) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1692683) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1697733) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1702693) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1702693) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1702693) mqtt_client: Error transport connect[0m
+[0;32mI (1702693) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1702693) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1702703) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1702703) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1702713) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1712753) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1717713) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1722763) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1727723) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1727723) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1727723) mqtt_client: Error transport connect[0m
+[0;32mI (1727723) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1727723) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1727733) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1727733) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1727743) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1737783) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1742743) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1747793) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1752753) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1752753) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1752753) mqtt_client: Error transport connect[0m
+[0;32mI (1752753) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1752753) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1752763) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1752763) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1752773) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1762813) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1767773) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1772823) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1777783) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1777783) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1777783) mqtt_client: Error transport connect[0m
+[0;32mI (1777783) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1777783) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1777793) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1777793) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1777803) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1787843) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1792803) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1797853) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1802813) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1802813) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1802813) mqtt_client: Error transport connect[0m
+[0;32mI (1802813) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1802813) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1802823) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1802823) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1802833) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1812873) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1817833) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1822893) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1827843) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1827843) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1827843) mqtt_client: Error transport connect[0m
+[0;32mI (1827843) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1827843) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1827853) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1827853) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1827863) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1837903) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (1842863) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1847913) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (1852873) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1852873) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (1852873) mqtt_client: Error transport connect[0m
+[0;32mI (1852873) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (1852873) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (1852883) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (1852883) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (1852893) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (1862933) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2313473) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2318433) M5_SYSTEM: Other event id:7[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2323483) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (2328443) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (2328443) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (2328443) mqtt_client: Error transport connect[0m
+[0;32mI (2328443) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (2328443) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (2328453) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (2328453) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (2328463) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2338503) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2343463) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2343483) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2343493) M5_SYSTEM: sent subscribe successful, msg_id=21460[0m
+[0;32mI (2343503) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=21460, return code=0x00[0m
+[0;32mI (2343523) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2343533) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31440[0m
+[0;32mI (2343553) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2343553) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62143[0m
+[0;32mI (2343773) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2348513) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2348543) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2348803) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=59887[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2358533) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2358623) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2358773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8557[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2368543) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2368553) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2368773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10641[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2378573) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2378693) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2378773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18754[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2388593) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2388723) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2388773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2890[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2398613) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2398763) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2398773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32454[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2408623) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2408633) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2408773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53424[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2418663) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2418683) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2418773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=9863[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2428663) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2428863) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2429073) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46837[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2438683) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2438903) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2439063) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21355[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2448693) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2448703) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2448773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=44251[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2458723) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2458753) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2458813) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=65307[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2468743) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2468773) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2469053) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22101[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2478753) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2478763) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2478763) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63991[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2488783) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2488813) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2489023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10136[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2498803) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2498833) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2499023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63919[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2508823) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2508943) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2509023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22201[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2518843) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2518983) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2519023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=61452[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2528863) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2529013) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2529023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10252[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2538873) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2538883) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2539253) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18015[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2548913) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2548933) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2549023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64867[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2558913) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2558923) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2559053) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37199[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2568943) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2569163) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2569303) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31245[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2578953) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2578963) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2579023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10011[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2588983) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2589223) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2589273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2257[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2599003) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2599033) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2599303) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21029[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2609023) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2609293) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2609523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54520[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2619043) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2619433) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2619563) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64482[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2629063) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2629163) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2629273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25359[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2639083) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2639193) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2639273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32202[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2649103) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2649103) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2649123) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16604[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2659123) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2659263) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2659563) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10971[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2669143) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2669303) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2669563) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22221[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2679163) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2679193) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2679273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34887[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2689183) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2689373) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2689783) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=15630[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2699203) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2699403) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2699523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2769[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2709213) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2709223) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2709273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28113[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2719243) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2719263) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2719283) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31436[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2729263) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2729513) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2729523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34771[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2739273) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2739283) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2739523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5840[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2749293) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2749303) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2749523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=3550[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2759323) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2759323) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2759523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58060[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2769333) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2769343) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2769523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=19763[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2779353) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2779363) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2779523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=55419[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2789373) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2789383) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2789523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31851[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2799393) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2799403) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2799523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22893[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2809413) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2809423) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2809523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37978[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2819453) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2819503) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2819523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=39301[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2829453) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2829463) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2829523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33675[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2839473) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2839483) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2839523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6941[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2849493) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2849503) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2849533) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14648[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2859513) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2859523) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53063[0m
+[0;32mI (2859523) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2869533) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2869543) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2869773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=35295[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2879553) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2879563) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2879783) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33085[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2889573) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2889583) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2889773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7743[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2899593) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2899603) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2899773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14609[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (2909623) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (2909943) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (2910033) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10353[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3100003) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3100033) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3100303) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28374[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3480763) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3480903) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3481053) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=60732[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3490773) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3490783) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3491363) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=43768[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3500803) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3500833) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3500843) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7185[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3510813) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3510823) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3511023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49501[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3520843) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3520873) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3521023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25406[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3530853) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3530863) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3531023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=13975[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3540883) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3540913) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3541023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17836[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3550903) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3550933) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3551023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4862[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3560923) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3560953) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3561023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20547[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3570943) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3571243) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3571273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62367[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3580953) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3580963) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3581023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31633[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3590983) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3591103) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3591273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21444[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3600993) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3601003) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3601023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20746[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3611023) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3611173) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3611273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62822[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3621043) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3621213) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3621273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22022[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3631073) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3631073) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3631273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24824[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3881563) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3881813) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3882063) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8766[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3891583) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3891753) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3891773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20694[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3901613) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3901633) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3901773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=9704[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3911623) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3911823) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3912063) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=1074[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3921643) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3921673) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3921783) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53311[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3931663) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3931693) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3931773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=36023[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3941683) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3941923) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3942123) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29079[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3951693) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3951703) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3951773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5433[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3961723) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3961753) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3961773) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18444[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3971743) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3971773) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3972043) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22627[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3981763) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3981863) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3982023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=44132[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (3991783) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (3991893) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (3992033) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10176[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (4001803) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4001933) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (4002023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28528[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (4011823) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4012073) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (4012083) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30853[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (4021843) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4021873) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (4022023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46582[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (4031863) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4032033) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (4032273) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=11732[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (4041883) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4042073) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (4042313) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57713[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (4051903) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4051933) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (4052023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54325[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (4061913) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (4061923) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4062023) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32427[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: -1.00 V
+CELL 3 VOLT: -1.00 V
+AMP: -1.00 A
+[0;32mI (4071943) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (4072173) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensores
+DATA={"cell_1":-1.00, "cell_2":-1.00, "cell_3":-1.00, "current":-1.00}
+[0;32mI (4072303) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=9134[0m
+

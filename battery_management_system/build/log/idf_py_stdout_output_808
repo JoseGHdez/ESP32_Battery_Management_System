@@ -1,0 +1,2786 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 13 2026 13:13:19[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=29420h (168992) map[0m
+[0;32mI (166) esp_image: segment 1: paddr=00039448 vaddr=3ffb0000 size=0421ch ( 16924) load[0m
+[0;32mI (173) esp_image: segment 2: paddr=0003d66c vaddr=40080000 size=029ach ( 10668) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e1a28h (924200) map[0m
+[0;32mI (493) esp_image: segment 4: paddr=00121a50 vaddr=400829ac size=18a00h (100864) load[0m
+[0;32mI (533) esp_image: segment 5: paddr=0013a458 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (546) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (546) boot: Disabling RNG early entropy source...[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (565) cpu_start: Pro cpu start user code[0m
+[0;32mI (565) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (565) app_init: Application information:[0m
+[0;32mI (565) app_init: Project name:     read_voltage[0m
+[0;32mI (570) app_init: App version:      bb08344-dirty[0m
+[0;32mI (574) app_init: Compile time:     May 13 2026 13:12:19[0m
+[0;32mI (579) app_init: ELF file SHA256:  57bfc3a4b...[0m
+[0;32mI (583) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (587) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (591) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (595) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (599) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (605) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (610) heap_init: At 3FFBA940 len 000256C0 (149 KiB): DRAM[0m
+[0;32mI (615) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (621) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (626) heap_init: At 4009B3AC len 00004C54 (19 KiB): IRAM[0m
+[0;32mI (633) spi_flash: detected chip: generic[0m
+[0;32mI (635) spi_flash: flash io: dio[0m
+[0;33mW (641) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (649) main_task: Started on CPU0[0m
+[0;32mI (659) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (659) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (669) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (669) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (669) M5_SYSTEI (679) uart: queue free spaces: 20[0m
+[0;32mI (719) wifi:wifi driver task: 3ffc4984, prio:23, stack:6656, core=0[0m
+[0;32mI (729) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (729) wifi:wifi certification version: v7.0[0m
+[0;32mI (729) wifi:config NVS flash: enabled[0m
+[0;32mI (729) wifi:config nano formatting: disabled[0m
+[0;32mI (739) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (739) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (749) wifi:Init management short buffer num: 32[0m
+[0;32mI (749) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (749) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (759) wifi:Init static rx buffer num: 10[0m
+[0;32mI (759) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (769) wifi_init: rx ba win: 6[0m
+[0;32mI (769) wifi_init: accept mbox: 6[0m
+[0;32mI (769) wifi_init: tcpip mbox: 32[0m
+[0;32mI (769) wifi_init: udp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp tx win: 5760[0m
+[0;32mI (779) wifi_init: tcp rx win: 5760[0m
+[0;32mI (789) wifi_init: tcp mss: 1440[0m
+[0;32mI (789) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (789) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (799) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (809) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (889) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (889) wifi:enable tsf[0m
+[0;32mI (909) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (909) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (929) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (929) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1069) wifi:connected with TP-Link_E3D6, aid = 1, channel 11, 40D, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1069) wifi:security: WPA2-PSK, phy: bgn, rssi: -30[0m
+[0;32mI (1079) wifi:pm start, type: 1[0m
+
+[0;32mI (1079) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1099) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:2, winSize:64[0m
+[0;32mI (1159) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2619) esp_netif_handlers: sta ip: 192.168.1.100, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2619) M5_SYSTEM: got ip:192.168.1.100[0m
+[0;32mI (2619) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2629) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2629) main_task: Returned from app_main()[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.03 A
+[0;32mI (2909) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2919) M5_SYSTEM: sent subscribe successful, msg_id=39933[0m
+[0;32mI (2919) M5_SYSTEM: sent subscribe successful, msg_id=28386[0m
+[0;32mI (2919) M5_SYSTEM: sent subscribe successful, msg_id=36086[0m
+[0;32mI (2929) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=39933, return code=0x00[0m
+[0;32mI (2929) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=28386, return code=0x00[0m
+[0;32mI (3129) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=36086, return code=0x00[0m
+[0;32mI (4629) ST7789: GPIO_CS=5[0m
+[0;32mI (4629) ST7789: GPIO_DC=14[0m
+[0;32mI (4629) ST7789: GPIO_RESET=12[0m
+[0;32mI (4779) ST7789: GPIO_BL=-1[0m
+[0;32mI (4779) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4779) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5479) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5529) M5_SYSTEM: Pantalla actualizada[0m
+> 
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.09 A
+[0;32mI (12829) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (22919) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (33009) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (34249) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (34249) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (34249) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (34249) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (34359) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.05}
+[0;32mI (34369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33883[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.05}
+[0;32mI (34379) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.14A
+[0;32mI (35449) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.14}
+[0;32mI (35459) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (35779) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58845[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.14}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (36549) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (36559) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (37109) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29792[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (37649) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.03,"current":0.02}
+[0;32mI (37659) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (37879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=41510[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.03,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (38749) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.04}
+[0;32mI (38759) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (38879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18656[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.04}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (39849) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (39859) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (39879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23923[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (40399) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (40399) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Stopping experiment cycles...
+[0;32mI (40419) M5_SYSTEM: ExperimentCycle task stopped[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (40949) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.10}
+[0;32mI (40959) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (41129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=51184[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.10}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.11A
+[0;32mI (42049) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.11}
+[0;32mI (42059) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (42139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54289[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.11}
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.01 A
+[0;32mI (43099) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 2.55V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (43159) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.10}
+[0;32mI (43159) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (43379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16348[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.10}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (44249) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (44259) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (44379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54371[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (45359) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.02}
+[0;32mI (45359) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (45359) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52911[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.01A
+[0;32mI (46449) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.01}
+[0;32mI (46459) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (46669) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52544[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.01}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (47559) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (47559) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (48169) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38202[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.00A
+[0;32mI (48649) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.00}
+[0;32mI (48659) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (48879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=40487[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.00}
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (49749) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.08}
+[0;32mI (49759) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (49879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16700[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.08}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.14A
+[0;32mI (50849) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.14}
+[0;32mI (50859) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (50869) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33137[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.14}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (51949) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (51959) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (52129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=39149[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (53059) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[0;32mI (53059) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (53139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37424[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -0.03 A
+[0;32mI (53189) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (54149) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[0;32mI (54159) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (54379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49207[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (55239) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (55259) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (55399) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37320[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -1.00A
+[0;32mI (57339) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":-1.00}
+[0;32mI (57349) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (57369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2858[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":-1.00}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.00A
+[0;32mI (58439) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.00}
+[0;32mI (58449) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18531[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.00}
+[0;32mI (58449) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (59549) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (59739) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (59879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22712[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (60639) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[0;32mI (60649) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (60879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34377[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (61739) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (61749) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (61879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30717[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (62849) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.08}
+[0;32mI (62849) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (62879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37320[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.08}
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: -0.33 V
+AMP: 0.02 A
+[0;32mI (63259) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (63949) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (63949) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (64139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=65340[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (65039) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[0;32mI (65049) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (65169) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57146[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (66139) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[0;32mI (66149) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (66409) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5487[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (67239) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[0;32mI (67249) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (67379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14157[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (68339) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (68349) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (68369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17512[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (69439) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (69449) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (69979) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25755[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (70539) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[0;32mI (70549) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37166[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[0;32mI (70549) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (71639) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (71649) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (71879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30655[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (72739) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[0;32mI (72749) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (72879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5291[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.10 A
+[0;32mI (73349) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (73839) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.03}
+[0;32mI (73849) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (73879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=40703[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (74939) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[0;32mI (74949) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (75129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12753[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (76049) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (76049) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (76159) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53688[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (77139) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[0;32mI (77149) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (77399) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=35693[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (78239) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (78249) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (78379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24544[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (79199) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (79199) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (79199) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (79199) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 2.55V
+Cell 2: -0.50V
+Cell 3: 2.68V
+Battery: 8.04V
+Current: -4.61A
+[0;32mI (80309) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":-0.50,"cell_3":2.68,"battery":8.04,"current":-4.61}
+[0;32mI (80319) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (80339) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17913[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":-0.50,"cell_3":2.68,"battery":8.04,"current":-4.61}
+[0;32mI (80369) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (80379) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[0;32mI (80379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54925[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[1;31mE (81399) M5_SYSTEM: [CHG] Battery is charged![0m
+[0;32mI (81409) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[0;32mI (81419) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (81629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64439[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: -1.00A
+[0;32mI (82479) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":-1.00}
+[0;32mI (82489) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16571[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":-1.00}
+[0;32mI (82499) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (83439) M5_SYSTEM: Pantalla actualizada[0m
+Charging phase done.
+Connect load, then press Button B or send DISCHARGE to begin discharging.
+[0;32mI (83719) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -1.00A
+[0;32mI (84579) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":-1.00}
+[0;32mI (84589) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (84629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7828[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":-1.00}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (85679) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (85689) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (85879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25158[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (86779) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[0;32mI (86799) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (86879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2545[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (87879) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[0;32mI (87889) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (88129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=48180[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (88979) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[0;32mI (88989) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (89129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7462[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (90079) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (90089) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (90129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38405[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (91179) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (91189) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (91359) M5_SYSTEM: Button GPIO 37 pressed[0m
+--- DISCHARGING PHASE ---
+[0;32mI (91379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52515[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[1;31mE (91419) M5_SYSTEM: [DIS] Safety threshold — aborting[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -0.02A
+[0;32mI (92289) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":-0.02}
+[0;32mI (92289) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (92399) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42844[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":-0.02}
+Experiment stopped at cycle 0
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (93379) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[0;32mI (93389) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.08 A
+[0;32mI (93529) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (93629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63987[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (94479) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.05}
+[0;32mI (94489) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (94659) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62046[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (95579) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[0;32mI (95589) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38728[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[0;32mI (95589) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (96679) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.02}
+[0;32mI (96689) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (96879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5315[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (97779) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (97789) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (97879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37391[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (98099) M5_SYSTEM: Button GPIO 37 pressed[0m
+[0;33mW (98099) M5_SYSTEM: ExperimentCycle not running[0m
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (98879) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (98889) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (99279) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34315[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (99679) M5_SYSTEM: Button GPIO 37 pressed[0m
+[0;33mW (99679) M5_SYSTEM: ExperimentCycle not running[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (99979) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (99989) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (100129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37051[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (100629) M5_SYSTEM: Button GPIO 37 pressed[0m
+[0;33mW (100629) M5_SYSTEM: ExperimentCycle not running[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.06A
+[0;32mI (101079) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.06}
+[0;32mI (101089) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (101119) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57443[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.06}
+[0;32mI (101689) M5_SYSTEM: Button GPIO 37 pressed[0m
+[0;33mW (101689) M5_SYSTEM: ExperimentCycle not running[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (102179) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.05}
+[0;32mI (102189) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (102379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63662[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: 10.04V
+Cell 3: 2.68V
+Battery: 8.04V
+Current: -4.61A
+[0;32mI (104289) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":-1.00,"cell_2":10.04,"cell_3":2.68,"battery":8.04,"current":-4.61}
+[0;32mI (104289) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (104339) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (104419) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50636[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":-1.00,"cell_2":10.04,"cell_3":2.68,"battery":8.04,"current":-4.61}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (106379) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.04,"current":0.04}
+[0;32mI (106389) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (106629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12380[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.04,"current":0.04}
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (107479) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (107489) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (107629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20268[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (108589) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[0;32mI (108589) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (108619) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54339[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (109679) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[0;32mI (109689) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49775[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[0;32mI (109689) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.03A
+[0;32mI (110759) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.03}
+[0;32mI (110769) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (110889) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52451[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (111859) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (111869) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (111879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16823[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.08A
+[0;32mI (112959) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.08}
+[0;32mI (112969) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (113129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24110[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.08}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (114059) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (114069) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.02 A
+[0;32mI (114419) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (114619) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=40674[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (115159) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[0;32mI (115169) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (115379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=65096[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (116269) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (116279) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.10}
+[0;32mI (116379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=59649[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.10}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.13A
+[0;32mI (117359) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.13}
+[0;32mI (117369) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (117369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58842[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.13}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.16A
+[0;32mI (118459) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.16}
+[0;32mI (118469) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (118629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63325[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.16}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (119559) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.10}
+[0;32mI (119579) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (120159) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7982[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.10}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (120659) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (120669) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (120879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33100[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (121759) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.05}
+[0;32mI (121769) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (121779) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17099[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -0.05A
+[0;32mI (122859) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":-0.05}
+[0;32mI (122869) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (122879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50691[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":-0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (123949) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (123969) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64038[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (123969) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (124509) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (126049) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.04,"current":0.03}
+[0;32mI (126059) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (126609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=3710[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.04,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.01A
+[0;32mI (127149) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.01}
+[0;32mI (127159) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (127379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22031[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.01}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (128259) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (128259) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (128379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49281[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (129349) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (129359) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (129369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53134[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.11A
+[0;32mI (130449) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.11}
+[0;32mI (130459) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (130629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=11200[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.11}
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (131559) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[0;32mI (131559) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (131639) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=19553[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.10A
+[0;32mI (132649) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.10}
+[0;32mI (132659) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (132879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63844[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.10}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (133749) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (133759) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (133909) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31667[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.03 A
+[0;32mI (134599) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (134849) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (134859) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=56374[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (134859) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (135949) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.05}
+[0;32mI (135959) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (136129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10889[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (137049) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (137059) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (137669) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=60319[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (138149) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (138159) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (138529) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29221[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (140249) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":-1.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.03}
+[0;32mI (140259) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (140379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4298[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":-1.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (141349) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[0;32mI (141359) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (141379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=19517[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.07A
+[0;32mI (142429) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.07}
+[0;32mI (142439) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (142639) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42774[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (143529) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (143539) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (143669) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37037[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[1;31mE (144599) M5_SYSTEM: [CHG] Battery is charged![0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.02 A
+[0;32mI (144689) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.07 A
+[0;32mI (154779) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.07 A
+[0;32mI (164869) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (174959) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (185049) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.10 A
+[0;32mI (195139) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.07 A
+[0;32mI (205219) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (211889) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (211889) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (211889) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (211889) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 2.55V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (211999) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (212009) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (212129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=60363[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (213099) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[0;32mI (213109) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (213129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52716[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (214199) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[0;32mI (214209) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (214379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50290[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.02 A
+[0;32mI (215289) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (215299) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=13687[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.07}
+[0;32mI (215319) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (215359) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.15A
+[0;32mI (216389) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.15}
+[0;32mI (216399) M5_SYSTEM: Button GPIO 37 pressed[0m
+[0;32mI (216399) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (216819) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33181[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.15}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (217489) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.08}
+[0;32mI (217499) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (217639) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21356[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.04,"current":0.08}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.01A
+[0;32mI (218599) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (218769) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.04,"current":0.01}
+[0;32mI (218879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=56869[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.04,"current":0.01}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (219689) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[0;32mI (219699) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (219779) M5_SYSTEM: Button GPIO 37 pressed[0m
+[0;32mI (219879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42274[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (220789) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[0;32mI (220799) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (220919) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52175[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (221889) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (221899) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (222129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=471[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (222989) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.04}
+[0;32mI (222999) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (223129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=15267[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.04}
+[0;32mI (223649) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (223649) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Stopping experiment cycles...
+[0;32mI (223669) M5_SYSTEM: ExperimentCycle task stopped[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (224089) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (224099) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (224129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5981[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (225189) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.02}
+[0;32mI (225199) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: -0.33 V
+AMP: 0.01 A
+[0;32mI (225379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58692[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.02}
+[0;32mI (225379) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (226129) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (226129) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (226129) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (226129) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (226249) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 2.39V
+Cell 2: 6.40V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.00A
+[0;32mI (226269) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (226269) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=3574[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.02}
+[0;32mI (226309) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (226379) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":6.40,"cell_3":4.01,"battery":12.03,"current":0.00}
+[0;32mI (226389) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58195[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":6.40,"cell_3":4.01,"battery":12.03,"current":0.00}
+[0;32mI (227049) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (227049) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Stopping experiment cycles...
+[0;32mI (227069) M5_SYSTEM: ExperimentCycle task stopped[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[1;31mE (228339) M5_SYSTEM: [CHG] Battery is charged![0m
+[0;32mI (228349) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (228359) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (228369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38115[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.03,"current":0.05}
+Guru Meditation Error: Core  0 panic'ed (StoreProhibited). Exception was unhandled.
+
+Core  0 register dump:
+PC      : 0x4008e5ac  PS      : 0x00060e33  A0      : 0x800dc7ad  A1      : 0x3ffd57e0  
+A2      : 0x3ffbc15c  A3      : 0x3ffbc29c  A4      : 0x00000000  A5      : 0x00000002  
+A6      : 0x00000000  A7      : 0x3ffb4930  A8      : 0x0044001e  A9      : 0x00000001  
+A10     : 0x3ffbc18c  A11     : 0xffffffff  A12     : 0x3ffd57c0  A13     : 0x00060e23  
+A14     : 0x3ffd57b0  A15     : 0x0000cdcd  SAR     : 0x00000004  EXCCAUSE: 0x0000001d  
+EXCVADDR: 0x00000005  LBEG    : 0x400014fd  LEND    : 0x4000150d  LCOUNT  : 0xfffffffd  
+
+
+Backtrace: 0x4008e5a9:0x3ffd57e0 0x400dc7aa:0x3ffd5800 0x4008bd6d:0x3ffd5a00
+
+
+
+
+ELF file SHA256: 57bfc3a4b
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time May 13 2026 13:13:19[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=29420h (168992) map[0m
+[0;32mI (166) esp_image: segment 1: paddr=00039448 vaddr=3ffb0000 size=0421ch ( 16924) load[0m
+[0;32mI (172) esp_image: segment 2: paddr=0003d66c vaddr=40080000 size=029ach ( 10668) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e1a28h (924200) map[0m
+[0;32mI (493) esp_image: segment 4: paddr=00121a50 vaddr=400829ac size=18a00h (100864) load[0m
+[0;32mI (533) esp_image: segment 5: paddr=0013a458 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (546) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (546) boot: Disabling RNG early entropy source...[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (565) cpu_start: Pro cpu start user code[0m
+[0;32mI (565) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (565) app_init: Application information:[0m
+[0;32mI (565) app_init: Project name:     read_voltage[0m
+[0;32mI (569) app_init: App version:      bb08344-dirty[0m
+[0;32mI (574) app_init: Compile time:     May 13 2026 13:12:19[0m
+[0;32mI (579) app_init: ELF file SHA256:  57bfc3a4b...[0m
+[0;32mI (583) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (587) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (591) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (595) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (599) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (605) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (610) heap_init: At 3FFBA940 len 000256C0 (149 KiB): DRAM[0m
+[0;32mI (615) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (621) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (626) heap_init: At 4009B3AC len 00004C54 (19 KiB): IRAM[0m
+[0;32mI (633) spi_flash: detected chip: generic[0m
+[0;32mI (635) spi_flash: flash io: dio[0m
+[0;33mW (641) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (649) main_task: Started on CPU0[0m
+[0;32mI (659) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (659) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (669) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (669) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (669) M5_SYSTEI (679) uart: queue free spaces: 20[0m
+[0;32mI (719) wifi:wifi driver task: 3ffc4984, prio:23, stack:6656, core=0[0m
+[0;32mI (729) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (729) wifi:wifi certification version: v7.0[0m
+[0;32mI (729) wifi:config NVS flash: enabled[0m
+[0;32mI (729) wifi:config nano formatting: disabled[0m
+[0;32mI (739) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (739) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (749) wifi:Init management short buffer num: 32[0m
+[0;32mI (749) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (749) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (759) wifi:Init static rx buffer num: 10[0m
+[0;32mI (759) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (769) wifi_init: rx ba win: 6[0m
+[0;32mI (769) wifi_init: accept mbox: 6[0m
+[0;32mI (769) wifi_init: tcpip mbox: 32[0m
+[0;32mI (769) wifi_init: udp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp tx win: 5760[0m
+[0;32mI (779) wifi_init: tcp rx win: 5760[0m
+[0;32mI (789) wifi_init: tcp mss: 1440[0m
+[0;32mI (789) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (789) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (799) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (809) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (889) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (909) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (909) wifi:enable tsf[0m
+[0;32mI (929) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (929) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (949) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (949) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1089) wifi:connected with TP-Link_E3D6, aid = 1, channel 11, 40D, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1089) wifi:security: WPA2-PSK, phy: bgn, rssi: -37[0m
+[0;32mI (1089) wifi:pm start, type: 1[0m
+
+[0;32mI (1099) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1119) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:2, winSize:64[0m
+[0;32mI (1129) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2629) esp_netif_handlers: sta ip: 192.168.1.100, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2629) M5_SYSTEM: got ip:192.168.1.100[0m
+[0;32mI (2629) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2639) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2639) main_task: Returned from app_main()[0m
+[0;32mI (2689) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2699) M5_SYSTEM: sent subscribe successful, msg_id=53469[0m
+[0;32mI (2699) M5_SYSTEM: sent subscribe successful, msg_id=33513[0m
+[0;32mI (2699) M5_SYSTEM: sent subscribe successful, msg_id=40640[0m
+[0;32mI (2709) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=53469, return code=0x00[0m
+[0;32mI (2709) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=33513, return code=0x00[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.00 A
+[0;32mI (2889) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=40640, return code=0x00[0m
+[0;32mI (4639) ST7789: GPIO_CS=5[0m
+[0;32mI (4639) ST7789: GPIO_DC=14[0m
+[0;32mI (4639) ST7789: GPIO_RESET=12[0m
+[0;32mI (4789) ST7789: GPIO_BL=-1[0m
+[0;32mI (4789) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4789) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5489) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5539) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (5999) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (5999) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (5999) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (5999) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 2.55V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (6109) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (6119) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (6139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=56389[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (7209) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[0;32mI (7219) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (7589) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45741[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+> [CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (8309) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[0;32mI (8319) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (8809) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=27754[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (9409) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[0;32mI (9419) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (9839) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17326[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.05}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (10509) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.03}
+[0;32mI (10519) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (10639) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34096[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.03}
+[0;32mI (11009) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (11009) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Stopping experiment cycles...
+[0;32mI (11029) M5_SYSTEM: ExperimentCycle task stopped[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (11609) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[0;32mI (11619) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (11629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24096[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (12709) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (12719) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (12799) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (12799) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (12799) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (12799) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (12849) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (12889) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18733[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (12909) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[0;32mI (12929) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (13139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24680[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (13809) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (13819) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (13919) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=60926[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (14059) M5_SYSTEM: Button GPIO 39 pressed[0m
+Stopping experiment cycles...
+[0;32mI (14929) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (14949) M5_SYSTEM: ExperimentCycle task stopped[0m
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -28.68A
+[0;32mI (14999) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":-1.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.03,"current":-28.68}
+[CHG]
+cycle: 0
+Cell 1: 2.39V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.00A
+[0;32mI (15009) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (15019) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34713[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":-1.00,"cell_2":-0.50,"cell_3":4.01,"battery":12.03,"current":-28.68}
+[0;32mI (15059) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (15139) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.00}
+[0;32mI (15149) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=44184[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.00}
+[0;32mI (15939) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (15939) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (15939) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (15939) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -28.66A
+[0;32mI (16049) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":-28.66}
+[0;32mI (16059) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 2.39V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -0.02A
+[0;32mI (16069) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42563[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":-28.66}
+[CHG]
+cycle: 0
+Cell 1: 2.39V
+Cell 2: 6.40V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -0.03A
+[0;32mI (16109) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (16109) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":-0.02}
+[0;32mI (16119) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=716[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":-0.02}
+[0;32mI (16139) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":6.40,"cell_3":4.01,"battery":12.03,"current":-0.03}
+[0;32mI (16159) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64445[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":6.40,"cell_3":4.01,"battery":12.03,"current":-0.03}
+[0;32mI (16159) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 10.04V
+Cell 3: 2.68V
+Battery: 8.05V
+Current: -4.65A
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (17149) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":10.04,"cell_3":2.68,"battery":8.05,"current":-4.65}
+[0;32mI (17159) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=48733[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":10.04,"cell_3":2.68,"battery":8.05,"current":-4.65}
+[0;32mI (17169) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 2.39V
+Cell 2: 6.41V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -0.02A
+[0;32mI (17209) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[0;32mI (17219) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42019[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.04}
+[0;32mI (17219) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (17279) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (17389) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":6.41,"cell_3":4.01,"battery":12.04,"current":-0.02}
+[0;32mI (17399) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=39936[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.39,"cell_2":6.41,"cell_3":4.01,"battery":12.04,"current":-0.02}
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -1.00A
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.05A
+[0;32mI (19229) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":-1.00}
+[0;32mI (19239) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=41611[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":-1.00}
+[0;32mI (19239) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 2.55V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (19299) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (19349) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (19769) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.05}
+[0;32mI (19779) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=39351[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":3.99,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":0.05}
+[0;32mI (19799) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[0;32mI (19809) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32833[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":2.55,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.06}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 43.93A
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 43.93A
+[0;32mI (20319) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":43.93}
+[0;32mI (20329) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24096[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":-0.33,"battery":-1.00,"current":43.93}
+[0;32mI (20339) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (20389) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":43.93}
+[0;32mI (20389) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (20399) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46524[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":43.93}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (20459) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (20489) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.02}
+[0;32mI (20899) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31948[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.02}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -0.01A
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (21419) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":-0.01}
+[0;32mI (21429) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14973[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":-0.01}
+[0;32mI (21439) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (21489) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.12A
+[0;32mI (21559) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (22019) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[0;32mI (22029) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49751[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.04,"current":0.09}
+[0;32mI (22049) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.12}
+[0;32mI (22069) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50624[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.12}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.12A
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.12A
+[0;32mI (22509) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.12}
+[0;32mI (22519) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57840[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.12}
+[0;32mI (22539) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (22569) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (22569) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Stopping experiment cycles...
+[0;32mI (22579) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (22589) M5_SYSTEM: ExperimentCycle task stopped[0m
+[0;32mI (22639) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.12}
+[0;32mI (22649) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34734[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.12}
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (22679) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (22849) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.06}
+[0;32mI (22879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45099[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.03,"cell_3":4.01,"battery":12.03,"current":0.06}
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (22939) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (23569) M5_SYSTEM: [CHG] Battery is charged![0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (23619) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (23769) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (23779) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21910[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"cell_1":4.00,"cell_2":4.02,"cell_3":4.01,"battery":12.03,"current":0.09}
+[0;32mI (23799) M5_SYSTEM: Pantalla actualizada[0m
+Guru Meditation Error: Core  0 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  0 register dump:
+PC      : 0x4008e5f8  PS      : 0x00060733  A0      : 0x800dc7ad  A1      : 0x3ffd77e0  
+A2      : 0x3ffbc1e8  A3      : 0x3ffbc328  A4      : 0x00000000  A5      : 0x00000002  
+A6      : 0x00000000  A7      : 0x3ffb4930  A8      : 0xfea6b848  A9      : 0x3ffbc1ec  
+A10     : 0x3ffb45a0  A11     : 0xffffffff  A12     : 0x3ffd77c0  A13     : 0x00060723  
+A14     : 0x3ffd77b0  A15     : 0x0000cdcd  SAR     : 0x00000004  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0xfea6b84c  LBEG    : 0x400014fd  LEND    : 0x4000150d  LCOUNT  : 0xfffffffd  
+
+
+Backtrace: 0x4008e5f5:0x3ffd77e0 0x400dc7aa:0x3ffd7800 0x4008bd6d:0x3ffd7a00
+
+
+
+
+ELF file SHA256: 57bfc3a4b
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time May 13 2026 13:13:19[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=29420h (168992) map[0m
+[0;32mI (166) esp_image: segment 1: paddr=00039448 vaddr=3ffb0000 size=0421ch ( 16924) load[0m
+[0;32mI (172) esp_image: segment 2: paddr=0003d66c vaddr=40080000 size=029ach ( 10668) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e1a28h (924200) map[0m
+[0;32mI (493) esp_image: segment 4: paddr=00121a50 vaddr=400829ac size=18a00h (100864) load[0m
+[0;32mI (533) esp_image: segment 5: paddr=0013a458 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (546) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (546) boot: Disabling RNG early entropy source...[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (565) cpu_start: Pro cpu start user code[0m
+[0;32mI (565) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (565) app_init: Application information:[0m
+[0;32mI (565) app_init: Project name:     read_voltage[0m
+[0;32mI (569) app_init: App version:      bb08344-dirty[0m
+[0;32mI (574) app_init: Compile time:     May 13 2026 13:12:19[0m
+[0;32mI (579) app_init: ELF file SHA256:  57bfc3a4b...[0m
+[0;32mI (583) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (587) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (591) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (595) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (599) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (605) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (610) heap_init: At 3FFBA940 len 000256C0 (149 KiB): DRAM[0m
+[0;32mI (615) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (621) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (626) heap_init: At 4009B3AC len 00004C54 (19 KiB): IRAM[0m
+[0;32mI (633) spi_flash: detected chip: generic[0m
+[0;32mI (635) spi_flash: flash io: dio[0m
+[0;33mW (641) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (649) main_task: Started on CPU0[0m
+[0;32mI (659) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (659) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (669) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (669) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (669) M5_SYSTEI (679) uart: queue free spaces: 20[0m
+[0;32mI (719) wifi:wifi driver task: 3ffc4984, prio:23, stack:6656, core=0[0m
+[0;32mI (729) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (729) wifi:wifi certification version: v7.0[0m
+[0;32mI (729) wifi:config NVS flash: enabled[0m
+[0;32mI (729) wifi:config nano formatting: disabled[0m
+[0;32mI (739) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (739) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (749) wifi:Init management short buffer num: 32[0m
+[0;32mI (749) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (749) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (759) wifi:Init static rx buffer num: 10[0m
+[0;32mI (759) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (769) wifi_init: rx ba win: 6[0m
+[0;32mI (769) wifi_init: accept mbox: 6[0m
+[0;32mI (769) wifi_init: tcpip mbox: 32[0m
+[0;32mI (769) wifi_init: udp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp tx win: 5760[0m
+[0;32mI (779) wifi_init: tcp rx win: 5760[0m
+[0;32mI (789) wifi_init: tcp mss: 1440[0m
+[0;32mI (789) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (789) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (799) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (809) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (889) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (959) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (959) wifi:enable tsf[0m
+[0;32mI (979) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (979) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (999) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1009) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1139) wifi:connected with TP-Link_E3D6, aid = 1, channel 11, 40D, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1149) wifi:security: WPA2-PSK, phy: bgn, rssi: -34[0m
+[0;32mI (1149) wifi:pm start, type: 1[0m
+
+[0;32mI (1149) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1169) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1179) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:3, winSize:64[0m
+[0;32mI (2689) esp_netif_handlers: sta ip: 192.168.1.100, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2689) M5_SYSTEM: got ip:192.168.1.100[0m
+[0;32mI (2689) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2699) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2699) main_task: Returned from app_main()[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (3999) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (3999) M5_SYSTEM: sent subscribe successful, msg_id=33681[0m
+[0;32mI (3999) M5_SYSTEM: sent subscribe successful, msg_id=42831[0m
+[0;32mI (4009) M5_SYSTEM: sent subscribe successful, msg_id=41747[0m
+[0;32mI (4169) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=33681, return code=0x00[0m
+[0;32mI (4179) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=42831, return code=0x00[0m
+[0;32mI (4459) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=41747, return code=0x00[0m
+[0;32mI (4699) ST7789: GPIO_CS=5[0m
+[0;32mI (4699) ST7789: GPIO_DC=14[0m
+[0;32mI (4699) ST7789: GPIO_RESET=12[0m
+[0;32mI (4849) ST7789: GPIO_BL=-1[0m
+[0;32mI (4849) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4849) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5549) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5599) M5_SYSTEM: Pantalla actualizada[0m
+> 
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -1.00 A
+[0;32mI (12879) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (22959) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (33049) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.99 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -0.01 A
+[0;32mI (43129) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (53219) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.04 A
+[0;32mI (63309) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -1.00 A
+[0;32mI (73379) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.11 A
+[0;32mI (83469) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -1.00 A
+[0;32mI (93559) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (103649) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (113739) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.02 A
+[0;32mI (123829) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.04 A
+[0;32mI (133919) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (144009) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.02 A
+[0;32mI (154099) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.07 A
+[0;32mI (164189) M5_SYSTEM: Pantalla actualizada[0m
+

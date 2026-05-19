@@ -1,0 +1,628 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 19 2026 11:07:42[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=295b8h (169400) map[0m
+[0;32mI (166) esp_image: segment 1: paddr=000395e0 vaddr=3ffb0000 size=0421ch ( 16924) load[0m
+[0;32mI (173) esp_image: segment 2: paddr=0003d804 vaddr=40080000 size=02814h ( 10260) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e1c00h (924672) map[0m
+[0;32mI (493) esp_image: segment 4: paddr=00121c28 vaddr=40082814 size=18b98h (101272) load[0m
+[0;32mI (533) esp_image: segment 5: paddr=0013a7c8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (546) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (547) boot: Disabling RNG early entropy source...[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (565) cpu_start: Pro cpu start user code[0m
+[0;32mI (566) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (566) app_init: Application information:[0m
+[0;32mI (566) app_init: Project name:     read_voltage[0m
+[0;32mI (570) app_init: App version:      bb08344-dirty[0m
+[0;32mI (574) app_init: Compile time:     May 19 2026 11:07:30[0m
+[0;32mI (579) app_init: ELF file SHA256:  02cf18ec7...[0m
+[0;32mI (584) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (588) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (591) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (595) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (600) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (606) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (611) heap_init: At 3FFBA958 len 000256A8 (149 KiB): DRAM[0m
+[0;32mI (616) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (621) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (627) heap_init: At 4009B3AC len 00004C54 (19 KiB): IRAM[0m
+[0;32mI (634) spi_flash: detected chip: generic[0m
+[0;32mI (636) spi_flash: flash io: dio[0m
+[0;33mW (642) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (650) main_task: Started on CPU0[0m
+[0;32mI (660) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (660) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (670) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (670) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (670) M5_SYSTEI (680) uart: queue free spaces: 20[0m
+[0;32mI (720) wifi:wifi driver task: 3ffc499c, prio:23, stack:6656, core=0[0m
+[0;32mI (730) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (730) wifi:wifi certification version: v7.0[0m
+[0;32mI (730) wifi:config NVS flash: enabled[0m
+[0;32mI (730) wifi:config nano formatting: disabled[0m
+[0;32mI (740) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (740) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (740) wifi:Init management short buffer num: 32[0m
+[0;32mI (750) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (750) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (760) wifi:Init static rx buffer num: 10[0m
+[0;32mI (760) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (770) wifi_init: rx ba win: 6[0m
+[0;32mI (770) wifi_init: accept mbox: 6[0m
+[0;32mI (770) wifi_init: tcpip mbox: 32[0m
+[0;32mI (770) wifi_init: udp mbox: 6[0m
+[0;32mI (780) wifi_init: tcp mbox: 6[0m
+[0;32mI (780) wifi_init: tcp tx win: 5760[0m
+[0;32mI (780) wifi_init: tcp rx win: 5760[0m
+[0;32mI (790) wifi_init: tcp mss: 1440[0m
+[0;32mI (790) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (790) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (800) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (810) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (890) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (890) wifi:enable tsf[0m
+[0;32mI (910) wifi:new:<4,1>, old:<1,0>, ap:<255,255>, sta:<4,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (910) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (930) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (930) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1070) wifi:connected with TP-Link_E3D6, aid = 1, channel 4, 40U, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1070) wifi:security: WPA2-PSK, phy: bgn, rssi: -21[0m
+[0;32mI (1080) wifi:pm start, type: 1[0m
+
+[0;32mI (1080) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1080) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1100) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:2, winSize:64[0m
+[0;32mI (2620) esp_netif_handlers: sta ip: 192.168.1.101, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2620) M5_SYSTEM: got ip:192.168.1.101[0m
+[0;32mI (2620) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2630) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2630) main_task: Returned from app_main()[0m
+[0;32mI (3960) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (3960) M5_SYSTEM: sent subscribe successful, msg_id=18091[0m
+[0;32mI (3960) M5_SYSTEM: sent subscribe successful, msg_id=61951[0m
+[0;32mI (3970) M5_SYSTEM: sent subscribe successful, msg_id=24099[0m
+[0;32mI (4170) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=18091, return code=0x00[0m
+[0;32mI (4370) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=61951, return code=0x00[0m
+[0;32mI (4630) ST7789: GPIO_CS=5[0m
+[0;32mI (4630) ST7789: GPIO_DC=14[0m
+[0;32mI (4630) ST7789: GPIO_RESET=12[0m
+[0;32mI (4670) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=24099, return code=0x00[0m
+[0;32mI (4780) ST7789: GPIO_BL=-1[0m
+[0;32mI (4780) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4780) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5480) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.08 V
+AMP: 0.00 A
+[0;32mI (6740) M5_SYSTEM: Pantalla actualizada[0m
+> I (13520) M5_SYSTEM: Button GPIO 39 pressed
+Starting experiment cycles...
+[0;32mI (13550) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (13620) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (13620) M5_SYSTEM: ExperimentCycle started, running 5 cycles[0m
+
+=== CYCLE 1 / 5 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.09V
+Battery: 12.26V
+Current: 0.03A
+[0;32mI (15760) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (15940) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":2,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":0.03}
+[0;32mI (16130) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10862[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":2,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":0.03}
+[1;31mE (18750) ADS1115: Conversion read failed (ch2): ESP_FAIL[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: -0.00A
+[0;32mI (23870) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":10,"cell_1":4.06,"cell_2":4.10,"cell_3":4.08,"battery":12.25,"current":-0.00}
+[0;32mI (23880) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=15380[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":10,"cell_1":4.06,"cell_2":4.10,"cell_3":4.08,"battery":12.25,"current":-0.00}
+[0;32mI (23890) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (29890) ADS1115: Conversion read failed (ch2): ESP_ERR_TIMEOUT[0m
+[1;31mE (30780) ADS1115: Config write failed (ch3): ESP_ERR_TIMEOUT[0m
+[1;31mE (31780) ADS1115: Config write failed (ch2): ESP_ERR_TIMEOUT[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: -0.50V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: -0.02A
+[0;32mI (31920) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":18,"cell_1":4.06,"cell_2":-0.50,"cell_3":4.08,"battery":12.25,"current":-0.02}
+[0;32mI (31940) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (32130) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2421[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":18,"cell_1":4.06,"cell_2":-0.50,"cell_3":4.08,"battery":12.25,"current":-0.02}
+[1;31mE (36960) ADS1115: Conversion read failed (ch3): ESP_FAIL[0m
+[1;31mE (36960) ADS1115: Config write failed (ch2): ESP_FAIL[0m
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: -0.50V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: -0.01A
+[0;32mI (38010) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":24,"cell_1":-1.00,"cell_2":-0.50,"cell_3":4.08,"battery":12.25,"current":-0.01}
+[0;32mI (38020) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (38170) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52660[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":24,"cell_1":-1.00,"cell_2":-0.50,"cell_3":4.08,"battery":12.25,"current":-0.01}
+[1;31mE (44960) ADS1115: Config write failed (ch3): ESP_ERR_TIMEOUT[0m
+[1;31mE (45960) ADS1115: Config write failed (ch2): ESP_ERR_TIMEOUT[0m
+[1;31mE (46960) ADS1115: Config write failed (ch1): ESP_ERR_TIMEOUT[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.09V
+Battery: 12.26V
+Current: 0.03A
+[0;32mI (47060) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (47080) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":33,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":0.03}
+[0;32mI (47120) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30653[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":33,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":0.03}
+[1;31mE (55090) ADS1115: Config write failed (ch0): ESP_FAIL[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: -1.00A
+[0;32mI (55120) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":41,"cell_1":4.06,"cell_2":4.10,"cell_3":4.08,"battery":12.25,"current":-1.00}
+[0;32mI (55130) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53618[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":41,"cell_1":4.06,"cell_2":4.10,"cell_3":4.08,"battery":12.25,"current":-1.00}
+[0;32mI (55140) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (62070) ADS1115: Conversion read failed (ch1): ESP_ERR_TIMEOUT[0m
+[1;31mE (63070) ADS1115: Config write failed (ch0): ESP_ERR_TIMEOUT[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.09V
+Battery: 12.26V
+Current: 0.02A
+[0;32mI (65130) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":51,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":0.02}
+[0;32mI (65140) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (65390) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12221[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":51,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":0.02}
+[1;31mE (74070) ADS1115: Config write failed (ch3): ESP_ERR_TIMEOUT[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 10.21V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: 0.00A
+[0;32mI (74190) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":60,"cell_1":4.06,"cell_2":10.21,"cell_3":4.08,"battery":12.25,"current":0.00}
+[0;32mI (74200) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (74380) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10394[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":60,"cell_1":4.06,"cell_2":10.21,"cell_3":4.08,"battery":12.25,"current":0.00}
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.09V
+Battery: 12.26V
+Current: -0.00A
+[0;32mI (81340) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":67,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":-0.00}
+[0;32mI (81350) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (81380) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31569[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":67,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":-0.00}
+[1;31mE (88330) ADS1115: Conversion read failed (ch1): ESP_ERR_TIMEOUT[0m
+[1;31mE (89330) ADS1115: Config write failed (ch0): ESP_ERR_TIMEOUT[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: 0.04A
+[0;32mI (90360) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":76,"cell_1":4.06,"cell_2":4.10,"cell_3":4.08,"battery":12.25,"current":0.04}
+[0;32mI (90370) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (90380) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8797[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":76,"cell_1":4.06,"cell_2":4.10,"cell_3":4.08,"battery":12.25,"current":0.04}
+[1;31mE (97400) ADS1115: Conversion read failed (ch2): ESP_ERR_TIMEOUT[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: -0.50V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: -3.35A
+[0;32mI (97460) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":83,"cell_1":4.06,"cell_2":-0.50,"cell_3":4.08,"battery":12.25,"current":-3.35}
+[0;32mI (97470) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10851[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":83,"cell_1":4.06,"cell_2":-0.50,"cell_3":4.08,"battery":12.25,"current":-3.35}
+[0;32mI (97480) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: -0.01A
+[0;32mI (104540) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":90,"cell_1":4.06,"cell_2":4.10,"cell_3":4.08,"battery":12.25,"current":-0.01}
+[0;32mI (104550) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (104630) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32924[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":90,"cell_1":4.06,"cell_2":4.10,"cell_3":4.08,"battery":12.25,"current":-0.01}
+[1;31mE (112430) ADS1115: Config write failed (ch3): ESP_ERR_TIMEOUT[0m
+[1;31mE (113430) ADS1115: Config write failed (ch2): ESP_ERR_TIMEOUT[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.10V
+Cell 3: 4.09V
+Battery: 12.26V
+Current: 0.03A
+[0;32mI (113620) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":99,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":0.03}
+[0;32mI (113630) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (113890) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16202[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":99,"cell_1":4.06,"cell_2":4.10,"cell_3":4.09,"battery":12.26,"current":0.03}
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 8.68V
+Cell 3: 4.08V
+Battery: 12.25V
+Current: -3.30A
+[0;32mI (120740) M5_SYSTEM: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":107,"cell_1":4.06,"cell_2":8.68,"cell_3":4.08,"battery":12.25,"current":-3.30}
+[0;32mI (120750) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (120880) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31737[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"t_s":107,"cell_1":4.06,"cell_2":8.68,"cell_3":4.08,"battery":12.25,"current":-3.30}
+[1;31mE (127700) ADS1115: Conversion read failed (ch2): ESP_ERR_TIMEOUT[0m
+Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0). 
+
+Core  0 register dump:
+PC      : 0x40083190  PS      : 0x00050034  A0      : 0x40085468  A1      : 0x3ffb2150  
+A2      : 0x3ffbea38  A3      : 0x3ffb0478  A4      : 0x40083190  A5      : 0x3ffb2100  
+A6      : 0x3ffbea38  A7      : 0x00000400  A8      : 0x3ffd577c  A9      : 0x3ff53000  
+A10     : 0x00000000  A11     : 0x00002000  A12     : 0x00000000  A13     : 0x3ffb0b28  
+A14     : 0x3ffd576c  A15     : 0x00000001  SAR     : 0x0000001e  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0x00000000  
+Core  0 was running in ISR context:
+EPC1    : 0x400d418b  EPC2    : 0x00000000  EPC3    : 0x00000000  EPC4    : 0x40083190
+
+
+Backtrace: 0x4008318d:0x3ffb2150 0x40085465:0x3ffd56c0 0x400f6631:0x3ffd5700 0x400f6807:0x3ffd5740 0x400dc1fa:0x3ffd5830 0x400dc95b:0x3ffd5870 0x4008bd6d:0x3ffd5a90
+
+
+Core  1 register dump:
+PC      : 0x40088ab2  PS      : 0x00060f34  A0      : 0x801aee25  A1      : 0x3ffbd830  
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x3ffaf870  A5      : 0x3ffaf850  
+A6      : 0x40081be8  A7      : 0x00000001  A8      : 0x800eae1a  A9      : 0x3ffbd7f0  
+A10     : 0x00000000  A11     : 0x00000001  A12     : 0x8008c0cd  A13     : 0x3ffd0610  
+A14     : 0x00000003  A15     : 0x3ffbd918  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+
+
+Backtrace: 0x40088aaf:0x3ffbd830 0x401aee22:0x3ffbd850 0x4008cde9:0x3ffbd870 0x4008bd6d:0x3ffbd890
+
+
+
+
+ELF file SHA256: 02cf18ec7
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time May 19 2026 11:07:42[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=295b8h (169400) map[0m
+[0;32mI (166) esp_image: segment 1: paddr=000395e0 vaddr=3ffb0000 size=0421ch ( 16924) load[0m
+[0;32mI (173) esp_image: segment 2: paddr=0003d804 vaddr=40080000 size=02814h ( 10260) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e1c00h (924672) map[0m
+[0;32mI (493) esp_image: segment 4: paddr=00121c28 vaddr=40082814 size=18b98h (101272) load[0m
+[0;32mI (533) esp_image: segment 5: paddr=0013a7c8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (546) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (546) boot: Disabling RNG early entropy source...[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (565) cpu_start: Pro cpu start user code[0m
+[0;32mI (565) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (566) app_init: Application information:[0m
+[0;32mI (566) app_init: Project name:     read_voltage[0m
+[0;32mI (570) app_init: App version:      bb08344-dirty[0m
+[0;32mI (574) app_init: Compile time:     May 19 2026 11:07:30[0m
+[0;32mI (579) app_init: ELF file SHA256:  02cf18ec7...[0m
+[0;32mI (584) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (588) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (591) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (595) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (599) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (606) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (611) heap_init: At 3FFBA958 len 000256A8 (149 KiB): DRAM[0m
+[0;32mI (616) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (621) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (627) heap_init: At 4009B3AC len 00004C54 (19 KiB): IRAM[0m
+[0;32mI (634) spi_flash: detected chip: generic[0m
+[0;32mI (636) spi_flash: flash io: dio[0m
+[0;33mW (641) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+I (650) main_task: Started on CPU0
+[0;32mI (660) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (660) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (670) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (670) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (670) M5_SYSTEI (680) uart: queue free spaces: 20[0m
+[0;32mI (720) wifi:wifi driver task: 3ffc499c, prio:23, stack:6656, core=0[0m
+[0;32mI (730) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (730) wifi:wifi certification version: v7.0[0m
+[0;32mI (730) wifi:config NVS flash: enabled[0m
+[0;32mI (730) wifi:config nano formatting: disabled[0m
+[0;32mI (740) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (740) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (740) wifi:Init management short buffer num: 32[0m
+[0;32mI (750) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (750) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (760) wifi:Init static rx buffer num: 10[0m
+[0;32mI (760) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (770) wifi_init: rx ba win: 6[0m
+[0;32mI (770) wifi_init: accept mbox: 6[0m
+[0;32mI (770) wifi_init: tcpip mbox: 32[0m
+[0;32mI (770) wifi_init: udp mbox: 6[0m
+[0;32mI (780) wifi_init: tcp mbox: 6[0m
+[0;32mI (780) wifi_init: tcp tx win: 5760[0m
+[0;32mI (780) wifi_init: tcp rx win: 5760[0m
+[0;32mI (790) wifi_init: tcp mss: 1440[0m
+[0;32mI (790) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (790) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (800) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (810) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (890) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (910) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (910) wifi:enable tsf[0m
+[0;32mI (930) wifi:new:<4,1>, old:<1,0>, ap:<255,255>, sta:<4,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (930) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (950) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (960) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1090) wifi:connected with TP-Link_E3D6, aid = 1, channel 4, 40U, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1100) wifi:security: WPA2-PSK, phy: bgn, rssi: -22[0m
+[0;32mI (1100) wifi:pm start, type: 1[0m
+
+[0;32mI (1100) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1110) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1130) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:3, winSize:64[0m
+[0;32mI (2640) esp_netif_handlers: sta ip: 192.168.1.101, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2640) M5_SYSTEM: got ip:192.168.1.101[0m
+[0;32mI (2640) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2650) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2660) main_task: Returned from app_main()[0m
+[0;32mI (2780) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2780) M5_SYSTEM: sent subscribe successful, msg_id=4801[0m
+[0;32mI (2780) M5_SYSTEM: sent subscribe successful, msg_id=57674[0m
+[0;32mI (2780) M5_SYSTEM: sent subscribe successful, msg_id=25473[0m
+[0;32mI (2790) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=4801, return code=0x00[0m
+[0;32mI (2800) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=57674, return code=0x00[0m
+[0;32mI (3060) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=25473, return code=0x00[0m
+[0;32mI (4650) ST7789: GPIO_CS=5[0m
+[0;32mI (4650) ST7789: GPIO_DC=14[0m
+[0;32mI (4650) ST7789: GPIO_RESET=12[0m
+[0;32mI (4800) ST7789: GPIO_BL=-1[0m
+[0;32mI (4800) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4800) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5500) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.09 V
+CELL 3 VOLT: 4.08 V
+AMP: 0.04 A
+[0;32mI (6740) M5_SYSTEM: Pantalla actualizada[0m
+> 
+Auto-read:
+CELL 1 VOLT: 2.55 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.08 V
+AMP: 0.01 A
+[0;32mI (18830) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (30850) ADS1115: Config write failed (ch1): ESP_FAIL[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.09 V
+CELL 3 VOLT: -0.33 V
+AMP: -0.01 A
+[0;32mI (31910) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.09 V
+AMP: 0.02 A
+[0;32mI (45980) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.09 V
+AMP: 0.07 A
+[0;32mI (60090) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.09 V
+CELL 3 VOLT: 4.09 V
+AMP: 0.01 A
+[0;32mI (74120) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.08 V
+AMP: -0.01 A
+[0;32mI (86230) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 2.57 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.09 V
+AMP: 0.09 A
+[0;32mI (99300) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.08 V
+AMP: 0.07 A
+[0;32mI (112400) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.09 V
+AMP: 0.02 A
+[0;32mI (126470) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 2.55 V
+CELL 2 VOLT: 4.09 V
+CELL 3 VOLT: 4.08 V
+AMP: -0.01 A
+[0;32mI (138610) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.09 V
+AMP: -0.00 A
+[0;32mI (151740) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (163810) ADS1115: Conversion read failed (ch0): ESP_ERR_TIMEOUT[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.09 V
+CELL 3 VOLT: 4.08 V
+AMP: -1.00 A
+[0;32mI (163850) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.09 V
+CELL 3 VOLT: 4.08 V
+AMP: 0.02 A
+[0;32mI (175950) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (188970) ADS1115: Conversion read failed (ch2): ESP_ERR_TIMEOUT[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 4.09 V
+AMP: 0.09 A
+[0;32mI (191020) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.10 V
+CELL 3 VOLT: 4.08 V
+AMP: -0.02 A
+[0;32mI (205110) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.09 V
+CELL 3 VOLT: 4.08 V
+AMP: -0.01 A
+[0;32mI (219170) M5_SYSTEM: Pantalla actualizada[0m
+

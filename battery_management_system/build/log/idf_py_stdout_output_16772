@@ -1,0 +1,3498 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+땹��� tcp m�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 13 2026 13:13:19[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=29430h (169008) map[0m
+[0;32mI (166) esp_image: segment 1: paddr=00039458 vaddr=3ffb0000 size=0421ch ( 16924) load[0m
+[0;32mI (173) esp_image: segment 2: paddr=0003d67c vaddr=40080000 size=0299ch ( 10652) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e1a08h (924168) map[0m
+[0;32mI (493) esp_image: segment 4: paddr=00121a30 vaddr=4008299c size=18a10h (100880) load[0m
+[0;32mI (533) esp_image: segment 5: paddr=0013a448 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (546) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (546) boot: Disabling RNG early entropy source...[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (565) cpu_start: Pro cpu start user code[0m
+[0;32mI (565) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (565) app_init: Application information:[0m
+[0;32mI (565) app_init: Project name:     read_voltage[0m
+[0;32mI (569) app_init: App version:      bb08344-dirty[0m
+[0;32mI (574) app_init: Compile time:     May 13 2026 13:12:19[0m
+[0;32mI (579) app_init: ELF file SHA256:  abc8df754...[0m
+[0;32mI (583) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (587) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (591) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (595) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (599) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (605) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (610) heap_init: At 3FFBA940 len 000256C0 (149 KiB): DRAM[0m
+[0;32mI (615) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (621) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (626) heap_init: At 4009B3AC len 00004C54 (19 KiB): IRAM[0m
+[0;32mI (633) spi_flash: detected chip: generic[0m
+[0;32mI (635) spi_flash: flash io: dio[0m
+[0;33mW (641) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (649) main_task: Started on CPU0[0m
+[0;32mI (659) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (659) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (669) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (669) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (669) M5_SYSTEI (679) uart: queue free spaces: 20[0m
+[0;32mI (719) wifi:wifi driver task: 3ffc4984, prio:23, stack:6656, core=0[0m
+[0;32mI (729) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (729) wifi:wifi certification version: v7.0[0m
+[0;32mI (729) wifi:config NVS flash: enabled[0m
+[0;32mI (729) wifi:config nano formatting: disabled[0m
+[0;32mI (739) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (739) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (749) wifi:Init management short buffer num: 32[0m
+[0;32mI (749) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (749) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (759) wifi:Init static rx buffer num: 10[0m
+[0;32mI (759) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (769) wifi_init: rx ba win: 6[0m
+[0;32mI (769) wifi_init: accept mbox: 6[0m
+[0;32mI (769) wifi_init: tcpip mbox: 32[0m
+[0;32mI (769) wifi_init: udp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp tx win: 5760[0m
+[0;32mI (779) wifi_init: tcp rx win: 5760[0m
+[0;32mI (789) wifi_init: tcp mss: 1440[0m
+[0;32mI (789) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (789) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (799) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (809) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (889) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (889) wifi:enable tsf[0m
+[0;32mI (909) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (909) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (929) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (929) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1069) wifi:connected with TP-Link_E3D6, aid = 1, channel 11, 40D, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1069) wifi:security: WPA2-PSK, phy: bgn, rssi: -32[0m
+[0;32mI (1079) wifi:pm start, type: 1[0m
+
+[0;32mI (1079) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1099) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:2, winSize:64[0m
+[0;32mI (1169) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2609) esp_netif_handlers: sta ip: 192.168.1.100, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2609) M5_SYSTEM: got ip:192.168.1.100[0m
+[0;32mI (2609) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2619) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2619) main_task: Returned from app_main()[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.04 A
+[0;32mI (2739) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2739) M5_SYSTEM: sent subscribe successful, msg_id=61858[0m
+[0;32mI (2749) M5_SYSTEM: sent subscribe successful, msg_id=15144[0m
+[0;32mI (2759) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=61858, return code=0x00[0m
+[0;32mI (2759) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=15144, return code=0x00[0m
+[0;32mI (4619) ST7789: GPIO_CS=5[0m
+[0;32mI (4619) ST7789: GPIO_DC=14[0m
+[0;32mI (4619) ST7789: GPIO_RESET=12[0m
+[0;32mI (4769) ST7789: GPIO_BL=-1[0m
+[0;32mI (4769) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4769) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5469) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5519) M5_SYSTEM: Pantalla actualizada[0m
+> 
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.09 A
+[0;32mI (12819) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (22909) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.03 A
+[0;32mI (32989) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.03 A
+[0;32mI (43079) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.00 A
+[0;32mI (53169) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (63259) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.04 A
+[0;32mI (73339) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.03 A
+[0;32mI (83429) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (93509) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.07 A
+[0;32mI (103579) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.10 A
+[0;32mI (113669) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -1.00 A
+[0;32mI (123759) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: -1.00 A
+[0;32mI (133809) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (134659) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (134659) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (134659) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (134659) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 2.40V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (134769) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30422[0m
+TOPIC=
+DATA=
+[0;32mI (134779) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (135869) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52477[0m
+TOPIC=
+DATA=
+[0;32mI (135879) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (136969) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16272[0m
+TOPIC=
+DATA=
+[0;32mI (136989) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.10A
+[0;32mI (138069) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23016[0m
+TOPIC=
+DATA=
+[0;32mI (138079) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (139169) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18540[0m
+TOPIC=
+DATA=
+[0;32mI (139179) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (140279) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (140439) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=9648[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (141369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37152[0m
+TOPIC=
+DATA=
+[0;32mI (141379) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (142469) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=3877[0m
+TOPIC=
+DATA=
+[0;32mI (142479) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (143569) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=65189[0m
+TOPIC=
+DATA=
+[0;32mI (143579) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (143889) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (144669) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=535[0m
+TOPIC=
+DATA=
+[0;32mI (144679) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (145769) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=43306[0m
+TOPIC=
+DATA=
+[0;32mI (145779) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (146869) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=13034[0m
+TOPIC=
+DATA=
+[0;32mI (146879) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (147969) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=47672[0m
+TOPIC=
+DATA=
+[0;32mI (147979) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (149069) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=26333[0m
+TOPIC=
+DATA=
+[0;32mI (149079) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (150169) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25571[0m
+TOPIC=
+DATA=
+[0;32mI (150179) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (151269) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=55234[0m
+TOPIC=
+DATA=
+[0;32mI (151279) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (152379) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (152409) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54601[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (153449) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53409[0m
+TOPIC=
+DATA=
+[0;32mI (153459) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (153979) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (154549) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14432[0m
+TOPIC=
+DATA=
+[0;32mI (154559) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.10A
+[0;32mI (155649) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25512[0m
+TOPIC=
+DATA=
+[0;32mI (155659) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (156759) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=35782[0m
+TOPIC=
+DATA=
+[0;32mI (156759) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (157849) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38894[0m
+TOPIC=
+DATA=
+[0;32mI (157859) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (158949) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58511[0m
+TOPIC=
+DATA=
+[0;32mI (158959) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -1.00A
+[0;32mI (160029) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=60771[0m
+TOPIC=
+DATA=
+[0;32mI (160039) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (161139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63398[0m
+TOPIC=
+DATA=
+[0;32mI (161139) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (162229) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10527[0m
+TOPIC=
+DATA=
+[0;32mI (162239) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (163309) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53080[0m
+TOPIC=
+DATA=
+[0;32mI (163319) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (164069) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (164409) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28888[0m
+TOPIC=
+DATA=
+[0;32mI (164419) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (165509) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29158[0m
+TOPIC=
+DATA=
+[0;32mI (165519) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (166609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=47717[0m
+TOPIC=
+DATA=
+[0;32mI (166619) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (167709) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8974[0m
+TOPIC=
+DATA=
+[0;32mI (167719) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.16A
+[0;32mI (168809) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50945[0m
+TOPIC=
+DATA=
+[0;32mI (168819) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (169909) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42870[0m
+TOPIC=
+DATA=
+[0;32mI (169919) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (171009) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=65419[0m
+TOPIC=
+DATA=
+[0;32mI (171019) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (172119) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (172139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42577[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -1.00A
+[0;32mI (174199) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25536[0m
+TOPIC=
+DATA=
+[0;32mI (174199) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.02 A
+[0;32mI (174299) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (175289) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7772[0m
+TOPIC=
+DATA=
+[0;32mI (175299) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -1.00A
+[0;32mI (176389) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49505[0m
+TOPIC=
+DATA=
+[0;32mI (176399) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -0.03A
+[0;32mI (177489) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62949[0m
+TOPIC=
+DATA=
+[0;32mI (177499) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (178589) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33524[0m
+TOPIC=
+DATA=
+[0;32mI (178599) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (179689) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25860[0m
+TOPIC=
+DATA=
+[0;32mI (179699) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (180789) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12608[0m
+TOPIC=
+DATA=
+[0;32mI (180799) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.11A
+[0;32mI (181889) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25275[0m
+TOPIC=
+DATA=
+[0;32mI (181899) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.11A
+[0;32mI (182989) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42092[0m
+TOPIC=
+DATA=
+[0;32mI (182999) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (184089) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=13023[0m
+TOPIC=
+DATA=
+[0;32mI (184099) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (185349) M5_SYSTEM: Disconnecting circuit[0m
+[CHG]
+cycle: 0
+Cell 1: 2.40V
+Cell 2: 6.41V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (185419) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4767[0m
+TOPIC=
+DATA=
+[0;32mI (185429) M5_SYSTEM: Pantalla actualizada[0m
+C1: 3.9981 V, C2: -0.5 V, C3: 4.01407 V
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.09 A
+[0;32mI (186469) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 2.55V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (186519) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=2975[0m
+TOPIC=
+DATA=
+[0;32mI (186529) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.14A
+[0;32mI (187629) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (187659) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30468[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (188729) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (188879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=27641[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (189819) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29390[0m
+TOPIC=
+DATA=
+[0;32mI (189839) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (190919) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64352[0m
+TOPIC=
+DATA=
+[0;32mI (190929) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (192019) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20323[0m
+TOPIC=
+DATA=
+[0;32mI (192029) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (193119) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37374[0m
+TOPIC=
+DATA=
+[0;32mI (193129) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (194209) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=19315[0m
+TOPIC=
+DATA=
+[0;32mI (194229) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (195309) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30997[0m
+TOPIC=
+DATA=
+[0;32mI (195319) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (196409) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30333[0m
+TOPIC=
+DATA=
+[0;32mI (196419) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.08 A
+[0;32mI (196559) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (197509) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4809[0m
+TOPIC=
+DATA=
+[0;32mI (197519) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.15A
+[0;32mI (198609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=48384[0m
+TOPIC=
+DATA=
+[0;32mI (198619) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.13A
+[0;32mI (199709) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6926[0m
+TOPIC=
+DATA=
+[0;32mI (199719) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (200809) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=36949[0m
+TOPIC=
+DATA=
+[0;32mI (200819) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.12A
+[0;32mI (201909) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62452[0m
+TOPIC=
+DATA=
+[0;32mI (201919) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (203009) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34887[0m
+TOPIC=
+DATA=
+[0;32mI (203019) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (204119) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49005[0m
+TOPIC=
+DATA=
+[0;32mI (204119) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.15A
+[0;32mI (205209) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22044[0m
+TOPIC=
+DATA=
+[0;32mI (205219) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (206309) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4592[0m
+TOPIC=
+DATA=
+[0;32mI (206319) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.09 A
+[0;32mI (206649) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.13A
+[0;32mI (207409) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=27735[0m
+TOPIC=
+DATA=
+[0;32mI (207419) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (208509) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52006[0m
+TOPIC=
+DATA=
+[0;32mI (208519) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (209609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28830[0m
+TOPIC=
+DATA=
+[0;32mI (209619) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (210709) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17863[0m
+TOPIC=
+DATA=
+[0;32mI (210719) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (211819) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (212019) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=48835[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.07A
+[0;32mI (212889) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38643[0m
+TOPIC=
+DATA=
+[0;32mI (212899) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (214989) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46505[0m
+TOPIC=
+DATA=
+[0;32mI (214999) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (216089) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=9169[0m
+TOPIC=
+DATA=
+[0;32mI (216099) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.10 A
+[0;32mI (216739) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (217189) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=44455[0m
+TOPIC=
+DATA=
+[0;32mI (217199) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (218299) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (218469) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=27854[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (219399) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (219499) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62370[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (220499) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (220629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20339[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (221599) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (221759) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=65188[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (222689) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=11330[0m
+TOPIC=
+DATA=
+[0;32mI (222699) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (223789) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22901[0m
+TOPIC=
+DATA=
+[0;32mI (223799) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (224889) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18257[0m
+TOPIC=
+DATA=
+[0;32mI (224899) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (225989) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=44583[0m
+TOPIC=
+DATA=
+[0;32mI (225999) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.11 A
+[0;32mI (226829) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (227079) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30419[0m
+TOPIC=
+DATA=
+[0;32mI (227099) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (228179) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28878[0m
+TOPIC=
+DATA=
+[0;32mI (228189) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (229279) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58205[0m
+TOPIC=
+DATA=
+[0;32mI (229289) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (230389) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (230389) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17125[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.12A
+[0;32mI (231479) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16416[0m
+TOPIC=
+DATA=
+[0;32mI (231489) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.02V
+Battery: 12.05V
+Current: 0.09A
+[0;32mI (232589) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (232609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62390[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.01A
+[0;32mI (233679) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=41851[0m
+TOPIC=
+DATA=
+[0;32mI (233689) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (234779) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=43780[0m
+TOPIC=
+DATA=
+[0;32mI (234789) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.01A
+[0;32mI (235879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14214[0m
+TOPIC=
+DATA=
+[0;32mI (235889) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.07 A
+[0;32mI (236919) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (236979) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31324[0m
+TOPIC=
+DATA=
+[0;32mI (236989) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (238079) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10498[0m
+TOPIC=
+DATA=
+[0;32mI (238089) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (239179) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5908[0m
+TOPIC=
+DATA=
+[0;32mI (239189) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -1.00A
+[0;32mI (241279) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=19633[0m
+TOPIC=
+DATA=
+[0;32mI (241289) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (242379) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=1609[0m
+TOPIC=
+DATA=
+[0;32mI (242389) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.14A
+[0;32mI (243479) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25842[0m
+TOPIC=
+DATA=
+[0;32mI (243489) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (244589) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=654[0m
+TOPIC=
+DATA=
+[0;32mI (244599) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (245679) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=3734[0m
+TOPIC=
+DATA=
+[0;32mI (245689) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.13A
+[0;32mI (246779) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=26272[0m
+TOPIC=
+DATA=
+[0;32mI (246789) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.04 A
+[0;32mI (247009) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (247879) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18125[0m
+TOPIC=
+DATA=
+[0;32mI (247899) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (248979) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57946[0m
+TOPIC=
+DATA=
+[0;32mI (248989) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (250079) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5513[0m
+TOPIC=
+DATA=
+[0;32mI (250089) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (251179) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=61816[0m
+TOPIC=
+DATA=
+[0;32mI (251189) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (252269) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=968[0m
+TOPIC=
+DATA=
+[0;32mI (252289) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (253369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28210[0m
+TOPIC=
+DATA=
+[0;32mI (253379) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.08A
+[0;32mI (254469) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8230[0m
+TOPIC=
+DATA=
+[0;32mI (254479) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (255569) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6728[0m
+TOPIC=
+DATA=
+[0;32mI (255579) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (256669) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=35956[0m
+TOPIC=
+DATA=
+[0;32mI (256679) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.08 A
+[0;32mI (257099) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (257769) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21659[0m
+TOPIC=
+DATA=
+[0;32mI (257779) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (258869) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8184[0m
+TOPIC=
+DATA=
+[0;32mI (258879) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (259969) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7846[0m
+TOPIC=
+DATA=
+[0;32mI (259979) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (261069) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=19427[0m
+TOPIC=
+DATA=
+[0;32mI (261079) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (262169) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24421[0m
+TOPIC=
+DATA=
+[0;32mI (262179) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (263269) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28778[0m
+TOPIC=
+DATA=
+[0;32mI (263279) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (264379) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (264549) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=1530[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (265469) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49541[0m
+TOPIC=
+DATA=
+[0;32mI (265479) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (266569) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4910[0m
+TOPIC=
+DATA=
+[0;32mI (266579) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.04 A
+[0;32mI (267189) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (267679) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (267689) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64901[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (268789) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (268949) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10198[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (269869) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30730[0m
+TOPIC=
+DATA=
+[0;32mI (269879) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (270969) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22062[0m
+TOPIC=
+DATA=
+[0;32mI (270979) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (272069) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7838[0m
+TOPIC=
+DATA=
+[0;32mI (272079) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (273159) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=41318[0m
+TOPIC=
+DATA=
+[0;32mI (273179) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (274259) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58679[0m
+TOPIC=
+DATA=
+[0;32mI (274269) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (275359) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28844[0m
+TOPIC=
+DATA=
+[0;32mI (275369) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.10A
+[0;32mI (276459) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=270[0m
+TOPIC=
+DATA=
+[0;32mI (276469) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.03 A
+[0;32mI (277279) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (277569) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32147[0m
+TOPIC=
+DATA=
+[0;32mI (277569) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (278659) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=20531[0m
+TOPIC=
+DATA=
+[0;32mI (278669) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (279759) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8993[0m
+TOPIC=
+DATA=
+[0;32mI (279769) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (280859) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8714[0m
+TOPIC=
+DATA=
+[0;32mI (280869) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.13A
+[0;32mI (281959) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=33702[0m
+TOPIC=
+DATA=
+[0;32mI (281969) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (283059) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=15209[0m
+TOPIC=
+DATA=
+[0;32mI (283069) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (284159) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23062[0m
+TOPIC=
+DATA=
+[0;32mI (284169) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (285259) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=43986[0m
+TOPIC=
+DATA=
+[0;32mI (285269) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (286369) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5091[0m
+TOPIC=
+DATA=
+[0;32mI (286369) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.07 A
+[0;32mI (287369) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (287459) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49561[0m
+TOPIC=
+DATA=
+[0;32mI (287469) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (288559) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16335[0m
+TOPIC=
+DATA=
+[0;32mI (288569) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (289659) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12567[0m
+TOPIC=
+DATA=
+[0;32mI (289679) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (290759) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32868[0m
+TOPIC=
+DATA=
+[0;32mI (290769) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (291859) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50673[0m
+TOPIC=
+DATA=
+[0;32mI (291869) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.10A
+[0;32mI (292959) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=965[0m
+TOPIC=
+DATA=
+[0;32mI (292969) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.08A
+[0;32mI (294049) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37760[0m
+TOPIC=
+DATA=
+[0;32mI (294069) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.10A
+[0;32mI (295149) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=40288[0m
+TOPIC=
+DATA=
+[0;32mI (295159) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (296249) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=43120[0m
+TOPIC=
+DATA=
+[0;32mI (296259) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (297349) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6334[0m
+TOPIC=
+DATA=
+[0;32mI (297359) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -0.01 A
+[0;32mI (297459) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (298449) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31703[0m
+TOPIC=
+DATA=
+[0;32mI (298459) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (299549) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=15934[0m
+TOPIC=
+DATA=
+[0;32mI (299559) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (300659) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (300669) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=51376[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (301749) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=935[0m
+TOPIC=
+DATA=
+[0;32mI (301759) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (302829) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=47751[0m
+TOPIC=
+DATA=
+[0;32mI (302839) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (303939) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (303969) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45561[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (305039) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (305209) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32864[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (306139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16033[0m
+TOPIC=
+DATA=
+[0;32mI (306139) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (307229) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23046[0m
+TOPIC=
+DATA=
+[0;32mI (307239) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.04 A
+[0;32mI (307549) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (308329) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58514[0m
+TOPIC=
+DATA=
+[0;32mI (308339) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (309429) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=36163[0m
+TOPIC=
+DATA=
+[0;32mI (309439) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.13A
+[0;32mI (310529) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=45726[0m
+TOPIC=
+DATA=
+[0;32mI (310539) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (311639) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24761[0m
+TOPIC=
+DATA=
+[0;32mI (311639) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (312729) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=62726[0m
+TOPIC=
+DATA=
+[0;32mI (312739) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (313829) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=39831[0m
+TOPIC=
+DATA=
+[0;32mI (313839) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (314929) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17833[0m
+TOPIC=
+DATA=
+[0;32mI (314939) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (316029) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50134[0m
+TOPIC=
+DATA=
+[0;32mI (316039) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (317139) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=27907[0m
+TOPIC=
+DATA=
+[0;32mI (317139) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (317639) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (318229) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29745[0m
+TOPIC=
+DATA=
+[0;32mI (318249) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.05A
+[0;32mI (319309) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28645[0m
+TOPIC=
+DATA=
+[0;32mI (319319) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (320409) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6672[0m
+TOPIC=
+DATA=
+[0;32mI (320419) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (321509) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=18216[0m
+TOPIC=
+DATA=
+[0;32mI (321519) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (322609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46947[0m
+TOPIC=
+DATA=
+[0;32mI (322619) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (323709) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12805[0m
+TOPIC=
+DATA=
+[0;32mI (323719) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (324819) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25205[0m
+TOPIC=
+DATA=
+[0;32mI (324819) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (325909) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6309[0m
+TOPIC=
+DATA=
+[0;32mI (325919) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (327019) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (327219) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=56764[0m
+TOPIC=
+DATA=
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.10 A
+[1;31mE (328709) M5_SYSTEM: [CHG] Battery is charged![0m
+[0;32mI (328729) M5_SYSTEM: Pantalla actualizada[0m
+Experiment stopped at cycle 0
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.13 A
+[0;32mI (338819) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.01 A
+[0;32mI (348899) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.09 A
+[0;32mI (358989) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.03 A
+[0;32mI (369069) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.01 A
+[0;32mI (379159) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (383379) M5_SYSTEM: Button GPIO 39 pressed[0m
+[0;32mI (383379) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+[0;32mI (383379) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (383379) M5_SYSTEM: ExperimentCycle started, running 10000 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 10000 ===
+--- CHARGING PHASE ---
+[CHG]
+cycle: 0
+Cell 1: 2.55V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (383489) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32478[0m
+TOPIC=
+DATA=
+[0;32mI (383499) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.01A
+[0;32mI (384589) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22448[0m
+TOPIC=
+DATA=
+[0;32mI (384599) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -1.00A
+[0;32mI (385669) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=55997[0m
+TOPIC=
+DATA=
+[0;32mI (385679) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (386779) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50815[0m
+TOPIC=
+DATA=
+[0;32mI (386779) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.00A
+[0;32mI (387869) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24223[0m
+TOPIC=
+DATA=
+[0;32mI (387879) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (388969) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29435[0m
+TOPIC=
+DATA=
+[0;32mI (388979) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.02 V
+AMP: 0.14 A
+[0;32mI (389249) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (390069) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=17328[0m
+TOPIC=
+DATA=
+[0;32mI (390079) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.01A
+[0;32mI (391149) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22238[0m
+TOPIC=
+DATA=
+[0;32mI (391159) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (392249) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58007[0m
+TOPIC=
+DATA=
+[0;32mI (392259) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (393349) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=11806[0m
+TOPIC=
+DATA=
+[0;32mI (393359) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (394449) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=37751[0m
+TOPIC=
+DATA=
+[0;32mI (394459) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (395559) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (395729) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=48710[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.06A
+[0;32mI (396649) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=26425[0m
+TOPIC=
+DATA=
+[0;32mI (396659) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (397749) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46263[0m
+TOPIC=
+DATA=
+[0;32mI (397759) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (398849) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21875[0m
+TOPIC=
+DATA=
+[0;32mI (398859) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.06 A
+[0;32mI (399339) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (399949) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25867[0m
+TOPIC=
+DATA=
+[0;32mI (399959) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.09A
+[0;32mI (401029) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24548[0m
+TOPIC=
+DATA=
+[0;32mI (401039) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (402129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=39787[0m
+TOPIC=
+DATA=
+[0;32mI (402139) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (403229) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=47949[0m
+TOPIC=
+DATA=
+[0;32mI (403239) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (404329) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=42367[0m
+TOPIC=
+DATA=
+[0;32mI (404339) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (405429) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4823[0m
+TOPIC=
+DATA=
+[0;32mI (405439) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (406529) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54753[0m
+TOPIC=
+DATA=
+[0;32mI (406539) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (407629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=53443[0m
+TOPIC=
+DATA=
+[0;32mI (407639) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (408729) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=10416[0m
+TOPIC=
+DATA=
+[0;32mI (408739) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -1.00 A
+[0;32mI (409399) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.06A
+[0;32mI (410829) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=52786[0m
+TOPIC=
+DATA=
+[0;32mI (410839) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (411929) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38519[0m
+TOPIC=
+DATA=
+[0;32mI (411939) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (413029) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5850[0m
+TOPIC=
+DATA=
+[0;32mI (413039) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (414129) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38653[0m
+TOPIC=
+DATA=
+[0;32mI (414139) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.16A
+[0;32mI (415229) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=24298[0m
+TOPIC=
+DATA=
+[0;32mI (415239) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (416329) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=55398[0m
+TOPIC=
+DATA=
+[0;32mI (416339) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (417429) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32675[0m
+TOPIC=
+DATA=
+[0;32mI (417439) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (418529) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50010[0m
+TOPIC=
+DATA=
+[0;32mI (418539) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (419449) M5_SYSTEM: Disconnecting circuit[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (419629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4972[0m
+TOPIC=
+DATA=
+[0;32mI (419639) M5_SYSTEM: Pantalla actualizada[0m
+C1: -1 V, C2: 4.02224 V, C3: 4.01219 V
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.08 A
+[0;32mI (420569) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.12A
+[0;32mI (420719) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29418[0m
+TOPIC=
+DATA=
+[0;32mI (420739) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (421819) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=34842[0m
+TOPIC=
+DATA=
+[0;32mI (421829) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (422919) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=35434[0m
+TOPIC=
+DATA=
+[0;32mI (422929) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.02A
+[0;32mI (424019) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32179[0m
+TOPIC=
+DATA=
+[0;32mI (424029) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (425119) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49287[0m
+TOPIC=
+DATA=
+[0;32mI (425129) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (426219) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57099[0m
+TOPIC=
+DATA=
+[0;32mI (426239) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -0.01A
+[0;32mI (427319) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=35239[0m
+TOPIC=
+DATA=
+[0;32mI (427329) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (428419) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=31784[0m
+TOPIC=
+DATA=
+[0;32mI (428429) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.11A
+[0;32mI (429519) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=56393[0m
+TOPIC=
+DATA=
+[0;32mI (429529) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.01A
+[0;32mI (430619) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32679[0m
+TOPIC=
+DATA=
+
+Auto-read:
+CELL 1 VOLT: 2.40 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.05 A
+[0;32mI (430629) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (430679) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (431719) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=11157[0m
+TOPIC=
+DATA=
+[0;32mI (431729) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (432819) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12625[0m
+TOPIC=
+DATA=
+[0;32mI (432829) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: -0.50V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (434919) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21126[0m
+TOPIC=
+DATA=
+[0;32mI (434929) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (436019) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=43915[0m
+TOPIC=
+DATA=
+[0;32mI (436029) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.03A
+[0;32mI (437119) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=47191[0m
+TOPIC=
+DATA=
+[0;32mI (437129) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (438219) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=43400[0m
+TOPIC=
+DATA=
+[0;32mI (438229) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (439319) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=39877[0m
+TOPIC=
+DATA=
+[0;32mI (439329) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.03A
+[0;32mI (440419) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=58484[0m
+TOPIC=
+DATA=
+[0;32mI (440429) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.09 A
+[0;32mI (440749) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (441519) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=632[0m
+TOPIC=
+DATA=
+[0;32mI (441529) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.04A
+[0;32mI (442619) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57736[0m
+TOPIC=
+DATA=
+[0;32mI (442629) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (443719) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=54758[0m
+TOPIC=
+DATA=
+[0;32mI (443729) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (444819) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=49147[0m
+TOPIC=
+DATA=
+[0;32mI (444829) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (445909) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38501[0m
+TOPIC=
+DATA=
+[0;32mI (445929) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (447009) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=63482[0m
+TOPIC=
+DATA=
+[0;32mI (447019) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.11A
+[0;32mI (448109) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=36373[0m
+TOPIC=
+DATA=
+[0;32mI (448119) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (449209) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14250[0m
+TOPIC=
+DATA=
+[0;32mI (449219) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (450309) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=30697[0m
+TOPIC=
+DATA=
+[0;32mI (450319) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.09 A
+[0;32mI (450839) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (451419) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (451639) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=48061[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (452519) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (452519) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=40881[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (453609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=9829[0m
+TOPIC=
+DATA=
+[0;32mI (453619) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.09A
+[0;32mI (454709) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22304[0m
+TOPIC=
+DATA=
+[0;32mI (454719) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (455809) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8769[0m
+TOPIC=
+DATA=
+[0;32mI (455819) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (456909) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=27907[0m
+TOPIC=
+DATA=
+[0;32mI (456919) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (458009) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=21871[0m
+TOPIC=
+DATA=
+[0;32mI (458019) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (459109) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8483[0m
+TOPIC=
+DATA=
+[0;32mI (459119) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.14A
+[0;32mI (460209) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=12459[0m
+TOPIC=
+DATA=
+[0;32mI (460219) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.03 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.11 A
+[0;32mI (460929) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (461309) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=57183[0m
+TOPIC=
+DATA=
+[0;32mI (461319) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.02A
+[0;32mI (462409) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=60759[0m
+TOPIC=
+DATA=
+[0;32mI (462429) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.14A
+[0;32mI (463509) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=32943[0m
+TOPIC=
+DATA=
+[0;32mI (463519) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (464609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=50767[0m
+TOPIC=
+DATA=
+[0;32mI (464619) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.19A
+[0;32mI (465709) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5760[0m
+TOPIC=
+DATA=
+[0;32mI (465719) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: -0.33V
+Battery: -1.00V
+Current: 0.07A
+[0;32mI (466799) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=15697[0m
+TOPIC=
+DATA=
+[0;32mI (466819) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (467909) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (467939) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22877[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (468999) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25468[0m
+TOPIC=
+DATA=
+[0;32mI (469009) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (470099) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=7641[0m
+TOPIC=
+DATA=
+[0;32mI (470109) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.08 A
+[0;32mI (471019) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: -1.00A
+[0;32mI (471199) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=64920[0m
+TOPIC=
+DATA=
+[0;32mI (471209) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.09A
+[0;32mI (472299) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=28913[0m
+TOPIC=
+DATA=
+[0;32mI (472309) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.08A
+[0;32mI (473399) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4007[0m
+TOPIC=
+DATA=
+[0;32mI (473409) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (474499) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=8952[0m
+TOPIC=
+DATA=
+[0;32mI (474509) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.05A
+[0;32mI (475599) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5441[0m
+TOPIC=
+DATA=
+[0;32mI (475619) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (476699) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=59392[0m
+TOPIC=
+DATA=
+[0;32mI (476709) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+[0;32mI (477799) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=29741[0m
+TOPIC=
+DATA=
+[0;32mI (477809) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (478899) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=4108[0m
+TOPIC=
+DATA=
+[0;32mI (478909) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.11A
+[0;32mI (479999) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=6846[0m
+TOPIC=
+DATA=
+[0;32mI (480009) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.04A
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: 0.09 A
+[0;32mI (481089) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=59167[0m
+TOPIC=
+DATA=
+[0;32mI (481099) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (481149) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (482189) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=5197[0m
+TOPIC=
+DATA=
+[0;32mI (482199) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.11A
+[0;32mI (483299) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (483479) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=25732[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.07A
+[0;32mI (484399) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (484609) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=39645[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.07A
+[0;32mI (485489) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23967[0m
+TOPIC=
+DATA=
+[0;32mI (485499) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.06A
+[0;32mI (486599) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (486629) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=22655[0m
+TOPIC=
+DATA=
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.10A
+[0;32mI (487689) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=16413[0m
+TOPIC=
+DATA=
+[0;32mI (487699) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.13A
+[0;32mI (488789) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=27019[0m
+TOPIC=
+DATA=
+[0;32mI (488799) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 3.99V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: 0.15A
+[0;32mI (489889) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=46072[0m
+TOPIC=
+DATA=
+[0;32mI (489899) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.03V
+Current: -0.01A
+[0;32mI (490989) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=313[0m
+TOPIC=
+DATA=
+[0;32mI (490999) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 4.00 V
+CELL 2 VOLT: 4.02 V
+CELL 3 VOLT: 4.01 V
+AMP: -0.01 A
+[0;32mI (491199) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: -1.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (492089) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=55862[0m
+TOPIC=
+DATA=
+[0;32mI (492099) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (493189) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=38970[0m
+TOPIC=
+DATA=
+[0;32mI (493199) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.02V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.11A
+[0;32mI (494289) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=23175[0m
+TOPIC=
+DATA=
+[0;32mI (494299) M5_SYSTEM: Pantalla actualizada[0m
+[CHG]
+cycle: 0
+Cell 1: 4.00V
+Cell 2: 4.03V
+Cell 3: 4.01V
+Battery: 12.04V
+Current: 0.05A
+[0;32mI (495399) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (495569) M5_SYSTEM: MQTT_EVENT_PUBLISHED, msg_id=14056[0m
+TOPIC=
+DATA=

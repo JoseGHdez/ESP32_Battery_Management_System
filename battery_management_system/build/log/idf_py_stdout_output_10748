@@ -1,0 +1,4168 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 13 2026 13:13:19[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=28c98h (167064) map[0m
+[0;32mI (165) esp_image: segment 1: paddr=00038cc0 vaddr=3ffb0000 size=041c4h ( 16836) load[0m
+[0;32mI (172) esp_image: segment 2: paddr=0003ce8c vaddr=40080000 size=0318ch ( 12684) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e02bch (918204) map[0m
+[0;32mI (491) esp_image: segment 4: paddr=001202e4 vaddr=4008318c size=17ffch ( 98300) load[0m
+[0;32mI (529) esp_image: segment 5: paddr=001382e8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (543) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (543) boot: Disabling RNG early entropy source...[0m
+[0;32mI (553) cpu_start: Multicore app[0m
+[0;32mI (562) cpu_start: Pro cpu start user code[0m
+[0;32mI (562) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (562) app_init: Application information:[0m
+[0;32mI (562) app_init: Project name:     read_voltage[0m
+[0;32mI (566) app_init: App version:      bb08344-dirty[0m
+[0;32mI (571) app_init: Compile time:     May 13 2026 13:12:19[0m
+[0;32mI (576) app_init: ELF file SHA256:  df7c2d33d...[0m
+[0;32mI (580) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (584) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (588) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (592) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (596) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (602) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (607) heap_init: At 3FFBA890 len 00025770 (149 KiB): DRAM[0m
+[0;32mI (612) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (618) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (623) heap_init: At 4009B188 len 00004E78 (19 KiB): IRAM[0m
+[0;32mI (630) spi_flash: detected chip: generic[0m
+[0;32mI (632) spi_flash: flash io: dio[0m
+[0;33mW (638) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (646) main_task: Started on CPU0[0m
+[0;32mI (656) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (656) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (666) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (666) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (666) M5_SYSTEI (676) uart: queue free spaces: 20[0m
+[0;32mI (716) wifi:wifi driver task: 3ffc48d4, prio:23, stack:6656, core=0[0m
+[0;32mI (726) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (726) wifi:wifi certification version: v7.0[0m
+[0;32mI (726) wifi:config NVS flash: enabled[0m
+[0;32mI (726) wifi:config nano formatting: disabled[0m
+[0;32mI (736) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (736) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (746) wifi:Init management short buffer num: 32[0m
+[0;32mI (746) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (746) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (756) wifi:Init static rx buffer num: 10[0m
+[0;32mI (756) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (766) wifi_init: rx ba win: 6[0m
+[0;32mI (766) wifi_init: accept mbox: 6[0m
+[0;32mI (766) wifi_init: tcpip mbox: 32[0m
+[0;32mI (766) wifi_init: udp mbox: 6[0m
+[0;32mI (776) wifi_init: tcp mbox: 6[0m
+[0;32mI (776) wifi_init: tcp tx win: 5760[0m
+[0;32mI (776) wifi_init: tcp rx win: 5760[0m
+[0;32mI (786) wifi_init: tcp mss: 1440[0m
+[0;32mI (786) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (786) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (796) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (806) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (886) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (886) wifi:enable tsf[0m
+[0;32mI (906) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (906) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (926) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (936) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1076) wifi:connected with TP-Link_E3D6, aid = 1, channel 11, 40D, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1076) wifi:security: WPA2-PSK, phy: bgn, rssi: -38[0m
+[0;32mI (1086) wifi:pm start, type: 1[0m
+
+[0;32mI (1086) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1106) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:3, winSize:64[0m
+[0;32mI (1106) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2616) esp_netif_handlers: sta ip: 192.168.1.100, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2616) M5_SYSTEM: got ip:192.168.1.100[0m
+[0;32mI (2616) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2626) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2626) main_task: Returned from app_main()[0m
+[0;32mI (2696) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+Debug: Voltage read for current measurement: I (2706) M5_SYSTEM: sent subscribe successful, msg_id=38264
+2.5485 V
+[0;32mI (2706) M5_SYSTEM: sent subscribe successful, msg_id=46492[0m
+[0;32mI (2716) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=38264, return code=0x00[0m
+[0;32mI (2726) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=46492, return code=0x00[0m
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.81 V
+AMP: -0.23 A
+Debug: Voltage read for current measurement: 2.54888 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.22 A
+[0;32mI (4626) ST7789: GPIO_CS=5[0m
+[0;32mI (4626) ST7789: GPIO_DC=14[0m
+[0;32mI (4626) ST7789: GPIO_RESET=12[0m
+[0;32mI (4776) ST7789: GPIO_BL=-1[0m
+[0;32mI (4776) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4776) ST7789: GPIO_SCLK=13[0m
+Debug: Voltage read for current measurement: 2.54906 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (5476) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5526) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (5576) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (5616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54906 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (5986) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54944 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (7076) M5_SYSTEM: Pantalla actualizada[0m
+> Debug: Voltage read for current measurement: 2.54906 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (8166) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.5515 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.14 A
+[0;32mI (9256) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55056 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.17 A
+[0;32mI (10346) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54925 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (11436) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.28713 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.82 V
+CELL 3 VOLT: 3.82 V
+AMP: -8.15 A
+[0;32mI (12526) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.73306 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.81 V
+CELL 3 VOLT: 3.81 V
+AMP: -24.94 A
+[0;32mI (13616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54906 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (14706) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54925 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (15796) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54944 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (16886) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54925 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (17976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.81106 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.82 V
+CELL 3 VOLT: 3.81 V
+AMP: -22.58 A
+[0;32mI (19076) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.05931 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -15.05 A
+[0;32mI (20166) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.78744 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.82 V
+CELL 3 VOLT: 3.81 V
+AMP: -23.29 A
+[0;32mI (21256) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.07375 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.82 V
+CELL 3 VOLT: 3.81 V
+AMP: -14.62 A
+[0;32mI (22346) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.30025 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.81 V
+AMP: -7.75 A
+[0;32mI (23436) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.45587 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -3.04 A
+[0;32mI (24526) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.99406 V
+
+Auto-read:
+CELL 1 VOLT: 3.80 V
+CELL 2 VOLT: 3.82 V
+CELL 3 VOLT: 3.82 V
+AMP: -17.03 A
+[0;32mI (25616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.31356 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -7.35 A
+[0;32mI (26696) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.45775 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.81 V
+AMP: -2.98 A
+[0;32mI (27786) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55113 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.15 A
+[0;32mI (28876) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55225 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.12 A
+[0;32mI (29966) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54831 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.81 V
+AMP: -0.24 A
+[0;32mI (31056) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54981 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.19 A
+[0;32mI (32146) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55244 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.81 V
+AMP: -0.11 A
+[0;32mI (33236) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55094 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.16 A
+[0;32mI (34326) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55037 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.17 A
+[0;32mI (35416) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.18 A
+[0;32mI (36506) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55113 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.15 A
+[0;32mI (37596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55056 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.17 A
+[0;32mI (38676) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.5485 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.23 A
+[0;32mI (39766) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.5515 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.14 A
+[0;32mI (40856) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55319 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.09 A
+[0;32mI (41946) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (43036) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.18 A
+[0;32mI (44126) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (45216) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55206 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.12 A
+[0;32mI (46306) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55188 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.13 A
+[0;32mI (47396) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55094 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.16 A
+[0;32mI (48486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.18 A
+[0;32mI (49576) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54925 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (50656) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54794 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.25 A
+[0;32mI (51746) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.18 A
+[0;32mI (52836) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54981 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.19 A
+[0;32mI (53926) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (55016) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (56106) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (57196) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.18 A
+[0;32mI (58296) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (59386) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55169 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.13 A
+[0;32mI (60476) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55094 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.16 A
+[0;32mI (61566) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.20 A
+[0;32mI (62656) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.18 A
+[0;32mI (63746) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54925 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.21 A
+[0;32mI (64836) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54888 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.22 A
+[0;32mI (65916) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54813 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.24 A
+[0;32mI (67006) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55037 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.17 A
+[0;32mI (68096) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55056 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.17 A
+[0;32mI (69186) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.5515 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.14 A
+[0;32mI (70276) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.56031 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 3.82 V
+AMP: 0.13 A
+[0;32mI (71346) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54831 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: -0.50 V
+CELL 3 VOLT: 3.82 V
+AMP: -0.24 A
+[0;32mI (72436) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.56744 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.82 V
+AMP: 0.34 A
+[0;32mI (73526) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.57306 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.82 V
+AMP: 0.51 A
+[0;32mI (74616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.82 V
+CELL 2 VOLT: 3.92 V
+CELL 3 VOLT: 4.07 V
+AMP: -60.51 A
+[0;32mI (75706) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (76796) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.58 A
+[0;32mI (77886) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (78976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558375 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.54 A
+[0;32mI (80066) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (81156) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558375 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.54 A
+[0;32mI (82246) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (83326) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (84416) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.51 A
+[0;32mI (85506) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557063 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.58 A
+[0;32mI (86596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.555375 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.63 A
+[0;32mI (87686) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.51 A
+[0;32mI (88776) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (89866) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.5565 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.59 A
+[0;32mI (90956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55725 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.57 A
+[0;32mI (92046) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: -1 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -1.00 A
+[0;32mI (93136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.5595 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.50 A
+[0;32mI (94226) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.58 A
+[0;32mI (95306) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.52 A
+[0;32mI (96396) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (97486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (98576) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.555938 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.61 A
+[0;32mI (99666) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556313 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.60 A
+[0;32mI (100756) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557625 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.56 A
+[0;32mI (101846) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55725 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.57 A
+[0;32mI (102936) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (104026) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557625 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.56 A
+[0;32mI (105116) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.51 A
+[0;32mI (106206) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.58 A
+[0;32mI (107286) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: -1 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -1.00 A
+[0;32mI (108376) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.51 A
+[0;32mI (109466) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (110556) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (111646) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55725 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.57 A
+[0;32mI (112736) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557625 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: -0.33 V
+AMP: -60.56 A
+[0;32mI (113806) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.52 A
+[0;32mI (114896) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558375 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.54 A
+[0;32mI (115986) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556313 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.60 A
+[0;32mI (117076) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.50 A
+[0;32mI (118146) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558563 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (119236) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (120336) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556688 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.84 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.59 A
+[0;32mI (121416) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557063 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.58 A
+[0;32mI (122506) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557625 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.56 A
+[0;32mI (123596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (124686) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558187 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.54 A
+[0;32mI (125776) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558375 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.54 A
+[0;32mI (126866) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557063 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.58 A
+[0;32mI (127956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (129056) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558375 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.54 A
+[0;32mI (130136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.5595 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.50 A
+[0;32mI (131226) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (132316) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (133396) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557063 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.58 A
+[0;32mI (134486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557625 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.56 A
+[0;32mI (135576) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.53 A
+[0;32mI (136666) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559313 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.51 A
+[0;32mI (137756) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557625 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.56 A
+[0;32mI (138846) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (139936) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (141036) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.555375 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: -0.33 V
+AMP: -60.63 A
+[0;32mI (143116) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.51 A
+[0;32mI (144206) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.52 A
+[0;32mI (145296) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556688 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.59 A
+[0;32mI (146386) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557625 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.56 A
+[0;32mI (147486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.52 A
+[0;32mI (148566) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.52 A
+[0;32mI (149656) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558187 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.54 A
+[0;32mI (150756) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556875 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.58 A
+[0;32mI (151836) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556313 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.60 A
+[0;32mI (152926) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (154016) M5_SYSTEM: Pantalla actualizada[0m
+r1 Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.51 A
+[0;32mI (155106) M5_SYSTEM: Pantalla actualizada[0m
+onDebug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: 3.81 V
+CELL 2 VOLT: 3.83 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.55 A
+[0;32mI (156196) M5_SYSTEM: Pantalla actualizada[0m
+
+[0;32mI (156556) M5_SYSTEM: Command received: R1 ON[0m
+[0;32mI (156556) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Encendiendo R1
+[0;32mI (156596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.66 V
+CELL 2 VOLT: 3.62 V
+CELL 3 VOLT: 3.67 V
+AMP: -60.49 A
+[0;32mI (157286) M5_SYSTEM: Pantalla actualizada[0m
+
+> Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.65 V
+CELL 2 VOLT: 3.62 V
+CELL 3 VOLT: 3.67 V
+AMP: -60.47 A
+[0;32mI (158376) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.65 V
+CELL 2 VOLT: 3.62 V
+CELL 3 VOLT: 3.67 V
+AMP: -60.47 A
+[0;32mI (159466) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.561 V
+
+Auto-read:
+CELL 1 VOLT: 3.65 V
+CELL 2 VOLT: 3.62 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.46 A
+[0;32mI (160556) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.65 V
+CELL 2 VOLT: 3.61 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.47 A
+[0;32mI (161646) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.56025 V
+
+Auto-read:
+CELL 1 VOLT: 3.65 V
+CELL 2 VOLT: 3.61 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.48 A
+[0;32mI (162746) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.561 V
+
+Auto-read:
+CELL 1 VOLT: 3.65 V
+CELL 2 VOLT: 3.61 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.46 A
+[0;32mI (163836) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.61 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.50 A
+[0;32mI (164926) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.61 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.46 A
+[0;32mI (166016) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.61 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.47 A
+[0;32mI (167106) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.61 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.50 A
+[0;32mI (168196) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.46 A
+[0;32mI (169286) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.66 V
+AMP: -60.49 A
+[0;32mI (170366) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.47 A
+[0;32mI (171466) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.51 A
+[0;32mI (172546) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.5595 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.50 A
+[0;32mI (173636) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.49 A
+[0;32mI (174726) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.49 A
+[0;32mI (175816) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.50 A
+[0;32mI (176906) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.64 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.50 A
+[0;32mI (177996) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.47 A
+[0;32mI (179086) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.47 A
+[0;32mI (180176) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.52 A
+[0;32mI (181266) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.46 A
+[0;32mI (182346) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.47 A
+[0;32mI (183436) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.49 A
+[0;32mI (184536) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.46 A
+[0;32mI (185616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.49 A
+[0;32mI (186706) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.49 A
+[0;32mI (187796) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558563 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.53 A
+[0;32mI (188886) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559313 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.51 A
+[0;32mI (189976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.52 A
+[0;32mI (191066) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558563 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.53 A
+[0;32mI (192156) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.60 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.52 A
+[0;32mI (193246) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.561 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.46 A
+[0;32mI (194326) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.65 V
+AMP: -60.50 A
+[0;32mI (195416) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.56025 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.48 A
+[0;32mI (196506) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (197596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (198686) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.55 A
+[0;32mI (199776) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.52 A
+[0;32mI (200866) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (201956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.50 A
+[0;32mI (203046) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558563 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.53 A
+[0;32mI (204136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.52 A
+[0;32mI (205226) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.53 A
+[0;32mI (206306) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (207396) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (208486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.46 A
+[0;32mI (209576) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (210666) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558375 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.54 A
+[0;32mI (211756) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.56025 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.48 A
+[0;32mI (212846) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.561562 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.44 A
+[0;32mI (213946) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (215036) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (216126) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.561188 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.45 A
+[0;32mI (217216) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.46 A
+[0;32mI (218306) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (219396) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (220486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558563 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.53 A
+[0;32mI (221566) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.51 A
+[0;32mI (222656) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (223746) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (224836) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.50 A
+[0;32mI (225926) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (227026) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.5595 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.50 A
+[0;32mI (228106) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.46 A
+[0;32mI (229196) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (230286) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (231376) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.46 A
+[0;32mI (232466) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (233546) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559313 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.51 A
+[0;32mI (234636) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.46 A
+[0;32mI (235726) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (236816) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.56175 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.43 A
+[0;32mI (237906) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.5595 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.50 A
+[0;32mI (238996) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.49 A
+[0;32mI (240086) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.563812 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.37 A
+[0;32mI (241176) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.561188 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.45 A
+[0;32mI (242266) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.46 A
+[0;32mI (243356) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.566813 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.28 A
+[0;32mI (244446) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.567 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.28 A
+[0;32mI (245526) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.563438 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.38 A
+[0;32mI (246616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.47 A
+[0;32mI (247706) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.561 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -60.46 A
+[0;32mI (248796) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.567375 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.26 A
+[0;32mI (249886) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: -1 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -1.00 A
+[0;32mI (251976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.52 A
+[0;32mI (253066) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.5685 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.23 A
+[0;32mI (254156) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (255246) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560813 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.46 A
+[0;32mI (256336) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.570188 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.18 A
+[0;32mI (257426) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.565687 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.32 A
+[0;32mI (258516) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.52 A
+[0;32mI (259616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558563 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.53 A
+[0;32mI (260706) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.566813 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.28 A
+[0;32mI (261796) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.49 A
+[0;32mI (262886) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (263976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.564188 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.36 A
+[0;32mI (265066) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: -1 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -1.00 A
+[0;32mI (267156) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.53 A
+[0;32mI (268246) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.563062 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.40 A
+[0;32mI (269336) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (270426) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.565687 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.32 A
+[0;32mI (271516) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.565313 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.33 A
+[0;32mI (272606) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.56025 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.48 A
+[0;32mI (273686) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (274776) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (275866) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.51 A
+[0;32mI (276956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.49 A
+[0;32mI (278046) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.56025 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.48 A
+[0;32mI (279136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.52 A
+[0;32mI (280226) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.49 A
+[0;32mI (281326) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (282406) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.49 A
+[0;32mI (283496) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558937 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.52 A
+[0;32mI (284596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.49 A
+[0;32mI (285666) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560063 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.49 A
+[0;32mI (286756) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.51 A
+[0;32mI (287846) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.56025 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.48 A
+[0;32mI (288936) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560625 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (290026) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.56025 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.48 A
+[0;32mI (291116) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (292206) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.560438 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.47 A
+[0;32mI (293306) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.50 A
+[0;32mI (294396) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559313 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.51 A
+[0;32mI (295486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559313 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.51 A
+[0;32mI (296586) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559687 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.50 A
+[0;32mI (297666) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559313 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.51 A
+[0;32mI (298756) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559875 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.49 A
+[0;32mI (299846) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.561562 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.44 A
+[0;32mI (300936) M5_SYSTEM: Pantalla actualizada[0m
+r1Debug: Voltage read for current measurement: 0.567563 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.26 A
+ I (302016) M5_SYSTEM: Pantalla actualizada
+offDebug: Voltage read for current measurement: 0.56025 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -60.48 A
+[0;32mI (303106) M5_SYSTEM: Pantalla actualizada[0m
+
+[0;32mI (303116) M5_SYSTEM: Command received: R1 OFF[0m
+[0;32mI (303116) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Apagando R1
+[0;32mI (303156) M5_SYSTEM: Pantalla actualizada[0m
+
+> Debug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: 3.76 V
+CELL 2 VOLT: 3.78 V
+CELL 3 VOLT: 3.77 V
+AMP: -60.55 A
+[0;32mI (304196) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.76 V
+CELL 2 VOLT: 3.78 V
+CELL 3 VOLT: 3.77 V
+AMP: -60.51 A
+[0;32mI (305286) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556313 V
+
+Auto-read:
+CELL 1 VOLT: 3.76 V
+CELL 2 VOLT: 3.79 V
+CELL 3 VOLT: 3.77 V
+AMP: -60.60 A
+[0;32mI (306376) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.558187 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.79 V
+CELL 3 VOLT: 3.77 V
+AMP: -60.54 A
+[0;32mI (307466) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556313 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.78 V
+CELL 3 VOLT: 3.78 V
+AMP: -60.60 A
+[0;32mI (308556) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557063 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.79 V
+CELL 3 VOLT: -0.33 V
+AMP: -60.58 A
+[0;32mI (310646) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.82 V
+CELL 3 VOLT: 3.82 V
+AMP: -60.51 A
+[0;32mI (311736) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556875 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -60.58 A
+[0;32mI (312826) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.557813 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.81 V
+CELL 3 VOLT: 3.79 V
+AMP: -60.55 A
+[0;32mI (313916) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.555562 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -60.62 A
+[0;32mI (315016) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.556688 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -60.59 A
+[0;32mI (316106) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55725 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -60.57 A
+[0;32mI (317196) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.559125 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -60.51 A
+[0;32mI (318286) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 0.55875 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -60.53 A
+[0;32mI (319376) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.46844 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -2.66 A
+[0;32mI (320466) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55075 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.79 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.16 A
+[0;32mI (321556) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.77 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.18 A
+[0;32mI (322636) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.18 A
+[0;32mI (323726) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55206 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.79 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.12 A
+[0;32mI (324816) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.18 A
+[0;32mI (325906) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.18 A
+[0;32mI (326996) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55056 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.17 A
+[0;32mI (328086) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55019 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.18 A
+[0;32mI (329176) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55037 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.17 A
+[0;32mI (330266) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55056 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.17 A
+[0;32mI (331356) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55206 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -0.12 A
+[0;32mI (332446) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55113 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.15 A
+[0;32mI (333536) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.20 A
+[0;32mI (334616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55281 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.10 A
+[0;32mI (335706) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.27513 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -8.51 A
+[0;32mI (336796) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.13394 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -12.79 A
+[0;32mI (337886) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.99706 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.79 V
+CELL 3 VOLT: 3.79 V
+AMP: -16.94 A
+[0;32mI (338976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.46844 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.78 V
+AMP: -2.66 A
+[0;32mI (340066) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.74281 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.78 V
+CELL 3 VOLT: 3.78 V
+AMP: -24.65 A
+[0;32mI (341156) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.27606 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -8.49 A
+[0;32mI (342246) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55244 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.11 A
+[0;32mI (343336) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55075 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.16 A
+[0;32mI (344426) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55094 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.16 A
+[0;32mI (345516) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.20 A
+[0;32mI (346596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.5485 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.23 A
+[0;32mI (347686) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55244 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.11 A
+[0;32mI (348776) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55056 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.17 A
+[0;32mI (349866) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.18 A
+[0;32mI (350956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54944 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.20 A
+[0;32mI (352046) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54962 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.20 A
+[0;32mI (353136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54944 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.20 A
+[0;32mI (354226) M5_SYSTEM: Pantalla actualizada[0m
+r1 Debug: Voltage read for current measurement: 2.54981 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.19 A
+[0;32mI (355326) M5_SYSTEM: Pantalla actualizada[0m
+onDebug: Voltage read for current measurement: 2.55094 V
+
+Auto-read:
+CELL 1 VOLT: 3.78 V
+CELL 2 VOLT: 3.80 V
+CELL 3 VOLT: 3.79 V
+AMP: -0.16 A
+[0;32mI (356406) M5_SYSTEM: Pantalla actualizada[0m
+
+[0;32mI (356536) M5_SYSTEM: Command received: R1 ON[0m
+[0;32mI (356536) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Encendiendo R1
+[0;32mI (356576) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.35687 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.65 V
+AMP: -6.04 A
+[0;32mI (357496) M5_SYSTEM: Pantalla actualizada[0m
+
+> Debug: Voltage read for current measurement: 2.35744 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -6.02 A
+[0;32mI (358576) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.35669 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -6.04 A
+[0;32mI (359666) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.35744 V
+
+Auto-read:
+CELL 1 VOLT: 3.63 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -6.02 A
+[0;32mI (360766) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.35781 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.59 V
+CELL 3 VOLT: 3.64 V
+AMP: -6.01 A
+[0;32mI (361846) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.35725 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.64 V
+AMP: -6.03 A
+[0;32mI (362936) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.25338 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -9.17 A
+[0;32mI (364026) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.82531 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -22.15 A
+[0;32mI (365116) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.25075 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -9.25 A
+[0;32mI (366206) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.908 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -19.64 A
+[0;32mI (367296) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.24944 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.63 V
+AMP: -9.29 A
+[0;32mI (368386) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.09794 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -13.88 A
+[0;32mI (369476) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.98731 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -17.24 A
+[0;32mI (370556) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.31131 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.58 V
+CELL 3 VOLT: 3.62 V
+AMP: -7.42 A
+[0;32mI (371646) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.9845 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -17.32 A
+[0;32mI (372736) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.81875 V
+
+Auto-read:
+CELL 1 VOLT: 3.62 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -22.34 A
+[0;32mI (373826) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.35838 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -5.99 A
+[0;32mI (374916) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -5.88 A
+[0;32mI (376006) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.21887 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -10.22 A
+[0;32mI (377096) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.16337 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -11.90 A
+[0;32mI (378196) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.05463 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -15.20 A
+[0;32mI (379276) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.93444 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -18.84 A
+[0;32mI (380366) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.28056 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -8.35 A
+[0;32mI (381456) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.35931 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -5.96 A
+[0;32mI (382536) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36156 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.63 V
+AMP: -5.90 A
+[0;32mI (383626) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.19675 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -10.89 A
+[0;32mI (384716) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.04975 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -15.34 A
+[0;32mI (385806) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.26519 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -8.82 A
+[0;32mI (386896) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.02275 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -16.16 A
+[0;32mI (387986) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.31825 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -7.21 A
+[0;32mI (389076) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.35894 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.97 A
+[0;32mI (390176) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.00344 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -16.75 A
+[0;32mI (391266) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.86487 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -20.95 A
+[0;32mI (392356) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.27381 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -8.55 A
+[0;32mI (393446) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.91456 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -19.44 A
+[0;32mI (394536) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.25938 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -8.99 A
+[0;32mI (395626) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.16881 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -11.74 A
+[0;32mI (396726) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.82588 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -22.13 A
+[0;32mI (397796) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.26763 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -8.74 A
+[0;32mI (398886) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.11238 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -13.45 A
+[0;32mI (399976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.04919 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -15.36 A
+[0;32mI (401066) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.32238 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -7.08 A
+[0;32mI (402156) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.26575 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -8.80 A
+[0;32mI (403246) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.085 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -14.28 A
+[0;32mI (404336) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.09888 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -13.86 A
+[0;32mI (405426) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.29969 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.61 V
+AMP: -7.77 A
+[0;32mI (406516) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.96312 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -17.97 A
+[0;32mI (407606) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.2665 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -8.78 A
+[0;32mI (408696) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.26275 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -8.89 A
+[0;32mI (409776) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.99088 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -17.13 A
+[0;32mI (410866) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.361 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.91 A
+[0;32mI (411956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36063 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.92 A
+[0;32mI (413046) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36119 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.91 A
+[0;32mI (414136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.361 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.91 A
+[0;32mI (415226) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36081 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.92 A
+[0;32mI (416316) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.361 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.91 A
+[0;32mI (417416) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36269 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.86 A
+[0;32mI (418506) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (419596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36063 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.92 A
+[0;32mI (420686) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.361 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.91 A
+[0;32mI (421776) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.89 A
+[0;32mI (422866) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.31562 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -7.29 A
+[0;32mI (423956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.16731 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -11.78 A
+[0;32mI (425036) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.02144 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -16.20 A
+[0;32mI (426126) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.163 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -11.91 A
+[0;32mI (427216) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.86694 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -20.88 A
+[0;32mI (428306) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.30869 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -7.50 A
+[0;32mI (429396) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.76475 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.55 V
+CELL 3 VOLT: 3.61 V
+AMP: -23.98 A
+[0;32mI (430486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.15663 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -12.11 A
+[0;32mI (431576) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.02856 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -15.99 A
+[0;32mI (432666) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.89 A
+[0;32mI (433756) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.89 A
+[0;32mI (434846) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36138 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.90 A
+[0;32mI (435936) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36156 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.90 A
+[0;32mI (437016) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36119 V
+
+Auto-read:
+CELL 1 VOLT: 3.61 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.91 A
+[0;32mI (438106) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.22263 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -10.11 A
+[0;32mI (439196) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.87013 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.55 V
+CELL 3 VOLT: 3.61 V
+AMP: -20.79 A
+[0;32mI (440286) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.24719 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -9.36 A
+[0;32mI (441376) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 1.66144 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -27.11 A
+[0;32mI (442466) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.3625 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.87 A
+[0;32mI (443556) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.57 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.87 A
+[0;32mI (444646) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.361 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.91 A
+[0;32mI (445736) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (446826) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (447916) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (448996) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36081 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.92 A
+[0;32mI (450086) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (451176) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36325 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.84 A
+[0;32mI (452266) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36138 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.90 A
+[0;32mI (453356) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.89 A
+[0;32mI (454446) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36156 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.90 A
+[0;32mI (455536) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (456626) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (457716) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (458806) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.88 A
+[0;32mI (459906) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36138 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.90 A
+[0;32mI (460976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36081 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.92 A
+[0;32mI (462066) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36287 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.86 A
+[0;32mI (463156) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (464246) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (465336) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (466426) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.87 A
+[0;32mI (467516) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.62 V
+AMP: -5.89 A
+[0;32mI (468616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36287 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (469696) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36363 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.83 A
+[0;32mI (470786) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (471876) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (472956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36138 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.90 A
+[0;32mI (474046) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (475136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.3625 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (476226) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36287 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (477316) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (478406) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (479496) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.361 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.91 A
+[0;32mI (480596) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (481686) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (482776) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (483866) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36287 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (484956) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36269 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (486046) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.3625 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (487136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36138 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.90 A
+[0;32mI (488216) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36156 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.90 A
+[0;32mI (489306) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36269 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (490396) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (491486) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.361 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.91 A
+[0;32mI (492586) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36325 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.84 A
+[0;32mI (493666) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (494756) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (495856) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.364 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.82 A
+[0;32mI (496936) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (498026) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (499116) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36456 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.80 A
+[0;32mI (500196) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (501286) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.3625 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (502376) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (503466) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36119 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.91 A
+[0;32mI (504556) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (505646) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36456 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.80 A
+[0;32mI (506736) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36287 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (507836) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36156 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.90 A
+[0;32mI (508916) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (510006) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36419 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.82 A
+[0;32mI (511096) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36512 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.79 A
+[0;32mI (512176) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (513266) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36269 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (514356) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (515446) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36325 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.84 A
+[0;32mI (516536) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36325 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.84 A
+[0;32mI (517626) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36325 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.84 A
+[0;32mI (518716) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36306 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.85 A
+[0;32mI (519816) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36287 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (520906) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (521996) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (523086) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36475 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.55 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.80 A
+[0;32mI (524176) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36269 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (525266) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (526356) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (527436) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (528526) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (529616) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: -1 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -1.00 A
+[0;32mI (531706) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36363 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.83 A
+[0;32mI (532806) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (533886) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36175 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.89 A
+[0;32mI (534976) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36287 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (536066) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.3625 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (537156) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.55 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (538246) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.55 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (539336) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36194 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (540426) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36212 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.55 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.88 A
+[0;32mI (541516) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36287 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+[0;32mI (542606) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36231 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.55 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.87 A
+[0;32mI (543696) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.36475 V
+
+Auto-read:
+CELL 1 VOLT: 3.60 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.80 A
+[0;32mI (544796) M5_SYSTEM: Pantalla actualizada[0m
+r1 Debug: Voltage read for current measurement: 2.36269 V
+
+Auto-read:
+CELL 1 VOLT: 3.59 V
+CELL 2 VOLT: 3.56 V
+CELL 3 VOLT: 3.61 V
+AMP: -5.86 A
+oI (545866) M5_SYSTEM: Pantalla actualizada
+ff
+[0;32mI (546256) M5_SYSTEM: Command received: R1 OFF[0m
+[0;32mI (546256) I2C_RELAY: I2C OK (dispositivo encontrado)[0m
+Apagando R1
+[0;32mI (546296) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55094 V
+
+Auto-read:
+CELL 1 VOLT: 3.73 V
+CELL 2 VOLT: 3.76 V
+CELL 3 VOLT: 3.74 V
+AMP: -0.16 A
+[0;32mI (546956) M5_SYSTEM: Pantalla actualizada[0m
+
+> Debug: Voltage read for current measurement: 2.5515 V
+
+Auto-read:
+CELL 1 VOLT: 3.74 V
+CELL 2 VOLT: 3.76 V
+CELL 3 VOLT: 3.74 V
+AMP: -0.14 A
+[0;32mI (548046) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: -1 V
+
+Auto-read:
+CELL 1 VOLT: 3.74 V
+CELL 2 VOLT: 3.76 V
+CELL 3 VOLT: 3.75 V
+AMP: -1.00 A
+[0;32mI (549136) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.54981 V
+
+Auto-read:
+CELL 1 VOLT: 3.74 V
+CELL 2 VOLT: 3.76 V
+CELL 3 VOLT: 3.75 V
+AMP: -0.19 A
+[0;32mI (550226) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55113 V
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 3.76 V
+CELL 3 VOLT: -0.33 V
+AMP: -0.15 A
+[0;32mI (551316) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55188 V
+
+Auto-read:
+CELL 1 VOLT: 3.74 V
+CELL 2 VOLT: 3.77 V
+CELL 3 VOLT: 3.75 V
+AMP: -0.13 A
+[0;32mI (552406) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55075 V
+
+Auto-read:
+CELL 1 VOLT: 3.75 V
+CELL 2 VOLT: 3.77 V
+CELL 3 VOLT: 3.75 V
+AMP: -0.16 A
+[0;32mI (553506) M5_SYSTEM: Pantalla actualizada[0m
+Debug: Voltage read for current measurement: 2.55244 V
+
+Auto-read:
+CELL 1 VOLT: 3.75 V
+CELL 2 VOLT: 3.77 V
+CELL 3 VOLT: 3.75 V
+AMP: -0.11 A
+[0;32mI (554586) M5_SYSTEM: Pantalla actualizada[0m
+

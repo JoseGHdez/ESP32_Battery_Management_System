@@ -1,0 +1,289 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 13 2026 13:13:19[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=28be8h (166888) map[0m
+[0;32mI (165) esp_image: segment 1: paddr=00038c10 vaddr=3ffb0000 size=041c4h ( 16836) load[0m
+[0;32mI (172) esp_image: segment 2: paddr=0003cddc vaddr=40080000 size=0323ch ( 12860) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e00dch (917724) map[0m
+[0;32mI (491) esp_image: segment 4: paddr=00120104 vaddr=4008323c size=17f4ch ( 98124) load[0m
+[0;32mI (529) esp_image: segment 5: paddr=00138058 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (543) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (543) boot: Disabling RNG early entropy source...[0m
+[0;32mI (553) cpu_start: Multicore app[0m
+[0;32mI (562) cpu_start: Pro cpu start user code[0m
+[0;32mI (562) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (562) app_init: Application information:[0m
+[0;32mI (562) app_init: Project name:     read_voltage[0m
+[0;32mI (566) app_init: App version:      bb08344-dirty[0m
+[0;32mI (571) app_init: Compile time:     May 13 2026 13:12:19[0m
+[0;32mI (576) app_init: ELF file SHA256:  a459b5a5a...[0m
+[0;32mI (580) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (584) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (588) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (592) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (596) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (602) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (607) heap_init: At 3FFBA888 len 00025778 (149 KiB): DRAM[0m
+[0;32mI (612) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (617) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (623) heap_init: At 4009B188 len 00004E78 (19 KiB): IRAM[0m
+[0;32mI (630) spi_flash: detected chip: generic[0m
+[0;32mI (632) spi_flash: flash io: dio[0m
+[0;33mW (638) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (646) main_task: Started on CPU0[0m
+[0;32mI (656) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (656) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (666) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (666) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (666) M5_SYSTEI (676) uart: queue free spaces: 20[0m
+[0;32mI (716) wifi:wifi driver task: 3ffc48cc, prio:23, stack:6656, core=0[0m
+[0;32mI (726) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (726) wifi:wifi certification version: v7.0[0m
+[0;32mI (726) wifi:config NVS flash: enabled[0m
+[0;32mI (726) wifi:config nano formatting: disabled[0m
+[0;32mI (736) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (736) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (736) wifi:Init management short buffer num: 32[0m
+[0;32mI (746) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (746) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (756) wifi:Init static rx buffer num: 10[0m
+[0;32mI (756) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (766) wifi_init: rx ba win: 6[0m
+[0;32mI (766) wifi_init: accept mbox: 6[0m
+[0;32mI (766) wifi_init: tcpip mbox: 32[0m
+[0;32mI (766) wifi_init: udp mbox: 6[0m
+[0;32mI (776) wifi_init: tcp mbox: 6[0m
+[0;32mI (776) wifi_init: tcp tx win: 5760[0m
+[0;32mI (776) wifi_init: tcp rx win: 5760[0m
+[0;32mI (786) wifi_init: tcp mss: 1440[0m
+[0;32mI (786) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (786) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (796) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (806) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (886) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (886) wifi:enable tsf[0m
+[0;32mI (906) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (906) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (926) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (926) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1066) wifi:connected with TP-Link_E3D6, aid = 1, channel 11, 40D, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1066) wifi:security: WPA2-PSK, phy: bgn, rssi: -33[0m
+[0;32mI (1076) wifi:pm start, type: 1[0m
+
+[0;32mI (1076) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1086) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1106) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:3, winSize:64[0m
+[0;32mI (2616) esp_netif_handlers: sta ip: 192.168.1.100, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2616) M5_SYSTEM: got ip:192.168.1.100[0m
+[0;32mI (2616) M5_SYSTEM: Other event id:7[0m
+[0;32mI (2626) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2626) main_task: Returned from app_main()[0m
+
+Auto-read:
+CELL 1 VOLT: 2.55 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.10 A
+[0;32mI (2776) M5_SYSTEM: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2776) M5_SYSTEM: sent subscribe successful, msg_id=12568[0m
+[0;32mI (2776) M5_SYSTEM: sent subscribe successful, msg_id=3933[0m
+[0;32mI (2786) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=12568, return code=0x00[0m
+[0;32mI (2796) M5_SYSTEM: MQTT_EVENT_SUBSCRIBED, msg_id=3933, return code=0x00[0m
+[0;32mI (4626) ST7789: GPIO_CS=5[0m
+[0;32mI (4626) ST7789: GPIO_DC=14[0m
+[0;32mI (4626) ST7789: GPIO_RESET=12[0m
+[0;32mI (4776) ST7789: GPIO_BL=-1[0m
+[0;32mI (4776) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4776) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5476) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5526) M5_SYSTEM: Pantalla actualizada[0m
+> 
+Auto-read:
+CELL 1 VOLT: 3.99 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.04 A
+[0;32mI (12826) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.98 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.03 A
+[0;32mI (22916) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.98 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.03 A
+[0;32mI (33006) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.99 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.04 A
+[0;32mI (43096) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.99 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.12 A
+[0;32mI (53176) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.99 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.07 A
+[0;32mI (63266) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.99 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.08 A
+[0;32mI (73356) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: -1.00 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: -0.33 V
+AMP: 0.08 A
+[0;32mI (84446) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.99 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.04 A
+[0;32mI (94536) M5_SYSTEM: Pantalla actualizada[0m
+
+Auto-read:
+CELL 1 VOLT: 3.99 V
+CELL 2 VOLT: 4.01 V
+CELL 3 VOLT: 4.00 V
+AMP: 0.03 A
+[0;32mI (104626) M5_SYSTEM: Pantalla actualizada[0m
+[1;31mE (114676) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (114756) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (114836) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (114916) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (114996) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115076) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115156) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115236) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115316) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115396) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115476) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115556) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115636) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115716) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115796) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115876) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (115956) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116036) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116116) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116196) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116276) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116356) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116436) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116516) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116596) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116676) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116756) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116836) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116916) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (116996) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117076) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117156) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117236) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117316) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117396) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117476) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117556) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117636) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117716) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117796) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117876) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (117956) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118036) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118116) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118196) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118276) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118356) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118436) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118516) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118596) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118676) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118756) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118836) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118916) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (118996) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119076) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119156) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119236) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119316) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119396) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119476) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119556) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119636) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119716) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119796) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119876) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (119956) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120036) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120116) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120196) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120276) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120356) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120436) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120516) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120596) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120676) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120756) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120836) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120916) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (120996) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121076) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121156) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121236) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121316) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121396) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121476) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121556) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121636) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121716) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (121796) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+E (121876) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.
+[1;31mE (121956) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m
+[1;31mE (122036) M5_SYSTEM: Battery is overcharged! Disconnecting circuit for safety.[0m

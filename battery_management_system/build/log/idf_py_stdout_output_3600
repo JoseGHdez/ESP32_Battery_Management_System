@@ -1,0 +1,491 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 13 2026 13:13:19[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (84) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (97) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=276f0h (161520) map[0m
+[0;32mI (163) esp_image: segment 1: paddr=00037718 vaddr=3ffb0000 size=041c4h ( 16836) load[0m
+[0;32mI (170) esp_image: segment 2: paddr=0003b8e4 vaddr=40080000 size=04734h ( 18228) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=daf8ch (896908) map[0m
+[0;32mI (484) esp_image: segment 4: paddr=0011afb4 vaddr=40084734 size=169d4h ( 92628) load[0m
+[0;32mI (520) esp_image: segment 5: paddr=00131990 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (534) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (534) boot: Disabling RNG early entropy source...[0m
+[0;32mI (544) cpu_start: Multicore app[0m
+[0;32mI (553) cpu_start: Pro cpu start user code[0m
+[0;32mI (553) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (553) app_init: Application information:[0m
+[0;32mI (553) app_init: Project name:     read_voltage[0m
+[0;32mI (557) app_init: App version:      bb08344-dirty[0m
+[0;32mI (561) app_init: Compile time:     May 13 2026 13:12:19[0m
+[0;32mI (567) app_init: ELF file SHA256:  a130f9e08...[0m
+[0;32mI (571) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (575) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (579) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (582) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (587) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (593) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (598) heap_init: At 3FFBA870 len 00025790 (149 KiB): DRAM[0m
+[0;32mI (603) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (608) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (614) heap_init: At 4009B108 len 00004EF8 (19 KiB): IRAM[0m
+[0;32mI (621) spi_flash: detected chip: generic[0m
+[0;32mI (623) spi_flash: flash io: dio[0m
+[0;33mW (629) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (637) main_task: Started on CPU0[0m
+[0;32mI (647) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (647) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (657) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (657) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (657) M5_SYSTEM: I2C master initialized successfully[0m
+Escaneando bus I2C...
+[0;32mI (687) servo_control: Inicializando MCPWM para el servo en GPIO 26[0m
+[0;32mI (727) wifi:wifi driver task: 3ffc3bf4, prio:23, stack:6656, core=0[0m
+[0;32mI (737) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (737) wifi:wifi certification version: v7.0[0m
+[0;32mI (737) wifi:config NVS flash: enabled[0m
+[0;32mI (737) wifi:config nano formatting: disabled[0m
+[0;32mI (747) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (747) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (747) wifi:Init management short buffer num: 32[0m
+[0;32mI (757) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (757) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (767) wifi:Init static rx buffer num: 10[0m
+[0;32mI (767) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (777) wifi_init: rx ba win: 6[0m
+[0;32mI (777) wifi_init: accept mbox: 6[0m
+[0;32mI (777) wifi_init: tcpip mbox: 32[0m
+[0;32mI (777) wifi_init: udp mbox: 6[0m
+[0;32mI (787) wifi_init: tcp mbox: 6[0m
+[0;32mI (787) wifi_init: tcp tx win: 5760[0m
+[0;32mI (787) wifi_init: tcp rx win: 5760[0m
+[0;32mI (797) wifi_init: tcp mss: 1440[0m
+[0;32mI (797) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (797) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (807) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (817) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (897) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (897) wifi:enable tsf[0m
+[0;32mI (917) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (917) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (967) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (987) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1007) wifi:connected with Galaxy A02s85e9, aid = 9, channel 6, BW20, bssid = 9e:f4:ba:70:9c:0b[0m
+[0;32mI (1007) wifi:security: WPA2-PSK, phy: bgn, rssi: -14[0m
+[0;32mI (1017) wifi:pm start, type: 1[0m
+
+[0;32mI (1017) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1027) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (1027) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (2047) esp_netif_handlers: sta ip: 10.121.220.201, mask: 255.255.255.0, gw: 10.121.220.195[0m
+[0;32mI (2047) M5_SYSTEM: got ip:10.121.220.201[0m
+[0;32mI (2047) M5_SYSTEM: Other event id:7[0m
+[1;31mE (2057) gpio: gpio_pullup_en(78): GPIO number error (inpuI (2067) uart: queue free spaces: 20[0m
+[0;32mI (2067) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2067) main_task: Returned from app_main()[0m
+[0;32mI (2147) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (2347) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (2557) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (2757) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (2967) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (3167) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (3367) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (3577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (3777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (3977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (4067) ST7789: GPIO_CS=5[0m
+[0;32mI (4067) ST7789: GPIO_DC=14[0m
+[0;32mI (4067) ST7789: GPIO_RESET=12[0m
+[0;32mI (4177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (4217) ST7789: GPIO_BL=-1[0m
+[0;32mI (4217) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4217) ST7789: GPIO_SCLK=13[0m
+[0;32mI (4377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (4577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (4777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (4917) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (4977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (5177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (5377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (5577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (5777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (5977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (6177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (6377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (6577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (6777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (6977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (7177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (7377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (7577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (7777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (7977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (8177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (8377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (8577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (8777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (8977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (9177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (9377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (9577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (9777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (9977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (10177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (10377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (10577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (10777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (10977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (11177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (11377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (11577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (11777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (11977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[1;31mE (12067) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (12067) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (12067) mqtt_client: Error transport connect[0m
+[0;32mI (12067) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (12067) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (12077) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (12077) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (12087) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (12177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (12377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (12577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (12777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (12977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (13177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (13377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (13577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (13777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (13977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (14177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (14377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (14577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (14777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (14977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (15177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (15377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (15577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (15777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (15977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (16177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (16377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (16577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (16777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (16977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (17177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (17377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (17577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (17777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (17977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (18177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (18377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (18577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (18777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (18977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (19177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (19377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (19577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (19777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (19977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (20177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (20377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (20577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (20777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (20977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (21177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (21377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (21577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (21777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (21977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (22177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (22377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (22577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (22777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (22977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (23177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (23377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (23577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (23777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (23977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (24177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (24377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (24577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (24777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (24977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (25177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (25377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (25577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (25777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (25977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (26177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (26377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (26577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (26777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (26977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (27087) M5_SYSTEM: Other event id:7[0m
+[0;32mI (27177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (27377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (27577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (27777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (27977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (28177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (28377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (28577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (28777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (28977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (29177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (29377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (29577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (29777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (29977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (30177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (30377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (30577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (30777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (30977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (31177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (31377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (31577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (31777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (31977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (32177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (32377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (32577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (32777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (32977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (33177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (33377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (33577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (33777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (33977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (34177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (34377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (34577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (34777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (34977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (35177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (35377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (35577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (35777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (35977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (36177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (36377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (36577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (36777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (36977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[1;31mE (37097) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (37097) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (37097) mqtt_client: Error transport connect[0m
+[0;32mI (37097) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (37097) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (37107) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (37107) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (37117) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (37177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (37377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (37577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (37777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (37977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (38177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (38377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (38577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (38777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (38977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (39177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (39377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (39577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (39777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (39977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (40177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (40377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (40577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (40777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (40977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (41177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (41377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (41577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (41777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (41977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (42177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (42377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (42577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (42777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (42977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (43177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (43377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (43577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (43777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (43977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (44177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (44377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (44577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (44777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (44977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (45177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (45377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (45577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (45777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (45977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (46177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (46377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (46577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (46777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (46977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (47177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (47377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (47577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (47777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (47977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (48177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (48377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (48577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (48777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (48977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (49177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (49377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (49577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (49777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (49977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (50177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (50377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (50577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (50777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (50977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (51177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (51377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (51577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (51777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (51977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (52117) M5_SYSTEM: Other event id:7[0m
+[0;32mI (52177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (52377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (52577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (52777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (52977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (53177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (53377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (53577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (53777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (53977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (54177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (54377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (54577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (54777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (54977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (55177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (55377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (55577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (55777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (55977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (56177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (56377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (56577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (56777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (56977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (57177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (57377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (57577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (57777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (57977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (58177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (58377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (58577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (58777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (58977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (59177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (59377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (59577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (59777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (59977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (60177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (60377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (60577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (60777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (60977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (61177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (61377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (61577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (61777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (61977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[1;31mE (62127) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (62127) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (62127) mqtt_client: Error transport connect[0m
+[0;32mI (62127) M5_SYSTEM: MQTT_EVENT_ERROR[0m
+[0;32mI (62127) M5_SYSTEM: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (62137) M5_SYSTEM: Last tls stack error number: 0x0[0m
+[0;32mI (62137) M5_SYSTEM: Last captured errno : 0 (Success)[0m
+[0;32mI (62147) M5_SYSTEM: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (62177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (62377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (62577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (62777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (62977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (63177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (63377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (63577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (63777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (63977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (64177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (64377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (64577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (64777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (64977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (65177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (65377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (65577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (65777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (65977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (66177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (66377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (66577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (66777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (66977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (67177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (67377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (67577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (67777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (67977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (68177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (68377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (68577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (68777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (68977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (69177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (69377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (69577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (69777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (69977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (70177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (70377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (70577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (70777) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (70977) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (71177) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (71377) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m
+[0;32mI (71577) M5_SYSTEM: Button GPIO 39 pressed, val: 1[0m

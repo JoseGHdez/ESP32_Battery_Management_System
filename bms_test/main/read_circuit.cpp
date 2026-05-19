@@ -22,6 +22,10 @@
 #include "esp_adc/adc_oneshot.h" // ESP32 ADC one-shot mode functions (e.g., adc_oneshot_unit_init_cfg_t, adc_oneshot_read)
 #include "esp_adc/adc_cali.h" // ESP32 ADC calibration functions (e.g., adc_cali_characteristics_t, adc_cali_calibrate)
 #include "esp_adc/adc_cali_scheme.h" // ESP32 ADC calibration schemes (e.g., ADC_CALI_SCHEME_CURVE_FITTING)
+#include "esp_wifi.h"
+#include "esp_event.h"
+#include "nvs_flash.h"
+#include "mqtt_client.h"
 
 #include "sgm2578.h" // Display library for M5StickCPlus2
 #include "st7789.h" // TFT display driver for ST7789-based displays (used in M5StickCPlus2)
@@ -70,6 +74,34 @@
 #define CONFIG_OFFSETX 52    // X offset for the display (to center the content on the M5StickC screen)
 #define CONFIG_OFFSETY 40    // Y offset for the display (to center the content on the M5StickC screen)
 
+// Wifi configuration and MQTT
+// --- SOLUCIÓN A ERRORES DE COMPILACIÓN (Macros faltantes) ---
+#if CONFIG_ESP_WPA3_SAE_PWE_HUNT_AND_PECK
+    #define ESP_WIFI_SAE_MODE WPA3_SAE_PWE_HUNT_AND_PECK
+    #define EXAMPLE_H2E_IDENTIFIER ""
+#elif CONFIG_ESP_WPA3_SAE_PWE_HASH_TO_ELEMENT
+    #define ESP_WIFI_SAE_MODE WPA3_SAE_PWE_HASH_TO_ELEMENT
+    #define EXAMPLE_H2E_IDENTIFIER CONFIG_ESP_WIFI_PW_ID
+#elif CONFIG_ESP_WPA3_SAE_PWE_BOTH
+    #define ESP_WIFI_SAE_MODE WPA3_SAE_PWE_BOTH
+    #define EXAMPLE_H2E_IDENTIFIER CONFIG_ESP_WIFI_PW_ID
+#else
+    // Valores por defecto si no están en menuconfig
+    #define ESP_WIFI_SAE_MODE WPA3_SAE_PWE_BOTH
+    #define EXAMPLE_H2E_IDENTIFIER ""
+#endif
+
+#ifndef ESP_WIFI_SCAN_AUTH_MODE_THRESHOLD
+    #define ESP_WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WPA2_PSK
+#endif
+
+#define ESP_WIFI_SSID      "TP-Link_E3D6"
+#define ESP_WIFI_PASS      "76649769"
+#define MQTT_BROKER_URI    "mqtt://192.168.1.100"
+#define ESP_MAXIMUM_RETRY  5
+#define WIFI_CONNECTED_BIT BIT0
+#define WIFI_FAIL_BIT      BIT1
+
 // Power hold GPIO for the display (used to ensure the display receives power)
 #define POWER_HOLD_GPIO 4
 // GPIO for enabling the SGM2578 power management IC (used to provide power to the display)
@@ -85,15 +117,24 @@ static const char *TAG = "M5_SYSTEM";
  */
 static QueueHandle_t xQueueDisplay = NULL;
 
-/** * @brief Queue for receiving UART input data
+/** 
+ * @brief Queue for receiving UART input data
  */
 static QueueHandle_t uart_queue;
+
+static const char *WIFI_TAG = "wifi";
+static int s_retry_num = 0;
+volatile int isConnected = 0;
+static EventGroupHandle_t s_wifi_event_group;
+esp_mqtt_client_handle_t mqtt_client = NULL;
 
 struct AppContext {
   ServoController *servoController; // Pointer to the ServoController instance
   I2CRelay *relayController; // Pointer to the I2CRelay instance
   ADS1115 *adsController; // Pointer to the ADS1115 instance
 };
+
+bool experiment_flag = false; // Flag to indicate whether we are in an experiment or not
 
 /**
  * @brief FreeRTOS task that initializes the TFT display and waits for messages to update the screen.
@@ -126,28 +167,40 @@ extern "C" void ShowText(void *pvParameters) {
   lcdInit(&dev, CONFIG_WIDTH, CONFIG_HEIGHT, CONFIG_OFFSETX, CONFIG_OFFSETY, true);
   lcdFillScreen(&dev, BLACK);
 
-  char texto_pantalla[64] = "Waiting..."; // Initial message
+  char screen_text[128] = "Waiting..."; // Initial message
+  lcdDrawString(&dev, fx16G, (CONFIG_WIDTH - 1) - 20, 10, (uint8_t*)screen_text, WHITE);
 
   while(1) {
     // Wait until receiving data
-    if (xQueueReceive(xQueueDisplay, &texto_pantalla, portMAX_DELAY)) {
+    if (xQueueReceive(xQueueDisplay, &screen_text, portMAX_DELAY)) {
       lcdFillScreen(&dev, BLACK);
       lcdSetFontDirection(&dev, 1); // M5StickC rotation
-            
+     
       uint16_t xpos = (CONFIG_WIDTH - 1) - 20;
       uint16_t ypos = 10;
             
-      lcdDrawString(&dev, fx16G, xpos, ypos, (uint8_t*)texto_pantalla, WHITE);
+      // String separation at newline characters
+      char *line = strtok(screen_text, "\r\n");
+            
+      while (line != NULL) {
+        lcdDrawString(&dev, fx16G, xpos, ypos, (uint8_t*)line, WHITE);
+                
+        if (xpos >= 18) { // Evitamos que xpos haga underflow
+          xpos -= 18; 
+        }
+          
+        line = strtok(NULL, "\r\n");
+      }
+       
       lcdDrawFinish(&dev);
-      ESP_LOGI(TAG, "Pantalla actualizada: %s", texto_pantalla);
+      ESP_LOGI(TAG, "Pantalla actualizada");
     }
   }
 
-  // Does not reach here, but if we wanted to clean up:
-  // lcdFillScreen(&dev, BLACK);
+  // Does not reach here
   while (1) {
-		vTaskDelay(2000 / portTICK_PERIOD_MS);
-	}
+    vTaskDelay(2000 / portTICK_PERIOD_MS);
+  }
 }
 
 /**
@@ -193,6 +246,130 @@ extern "C" esp_err_t mountSPIFFS(const char * path, const char * label, int max_
 	}
 
 	return ret;
+}
+
+// --- Connection handlers ---
+static void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data) {
+    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
+        esp_wifi_connect();
+    } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        isConnected = 0;
+        if (s_retry_num < ESP_MAXIMUM_RETRY) {
+            esp_wifi_connect();
+            s_retry_num++;
+            ESP_LOGI(WIFI_TAG, "retry to connect to the AP");
+        } else {
+            xEventGroupSetBits(s_wifi_event_group, WIFI_FAIL_BIT);
+        }
+    } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+        ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
+        ESP_LOGI(TAG, "got ip:" IPSTR, IP2STR(&event->ip_info.ip));
+        s_retry_num = 0;
+        isConnected = 1;
+        xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
+    }
+}
+
+static void mqtt_event_handler(void* handler_args, esp_event_base_t base, int32_t event_id, void* event_data) {
+  AppContext *context = static_cast<AppContext *>(handler_args);
+    
+  esp_mqtt_event_handle_t event = (esp_mqtt_event_handle_t)event_data;
+  int msg_id;
+
+  switch ((esp_mqtt_event_id_t)event_id) {
+    case MQTT_EVENT_CONNECTED:
+      ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
+      msg_id = esp_mqtt_client_subscribe(mqtt_client, "m5stick/sensores", 0);
+      ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+      msg_id = esp_mqtt_client_subscribe(mqtt_client, "m5stick/relay/#", 0);
+      ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+      break;
+
+    case MQTT_EVENT_DISCONNECTED:
+      ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
+      break;
+
+    case MQTT_EVENT_SUBSCRIBED:
+      ESP_LOGI(TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d, return code=0x%02x", event->msg_id, (uint8_t)*event->data);
+      break;
+
+    case MQTT_EVENT_UNSUBSCRIBED:
+      ESP_LOGI(TAG, "MQTT_EVENT_UNSUBSCRIBED, msg_id=%d", event->msg_id);
+      break;
+
+    case MQTT_EVENT_PUBLISHED:
+      ESP_LOGI(TAG, "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
+      printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
+      printf("DATA=%.*s\r\n", event->data_len, event->data);
+      break;
+
+    case MQTT_EVENT_DATA:
+      ESP_LOGI(TAG, "MQTT_EVENT_DATA");
+      printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
+      printf("DATA=%.*s\r\n", event->data_len, event->data);
+      if (strncmp(event->topic, "m5stick/relay/", 14) == 0) {
+        char relay_char = event->topic[14];
+        int relay_num = relay_char - '0'; // Extrae el número (1-4)
+                
+        if (relay_num >= 1 && relay_num <= 4 && event->data_len > 0) {
+          bool turn_on = event->data;
+          context->relayController -> set_relay(relay_num, turn_on);
+          experiment_flag = turn_on; // Activar el modo experimento si se enciende un relé
+          ESP_LOGI(TAG, "MQTT: Relé %d -> %s", relay_num, turn_on ? "ON" : "OFF");
+        }
+      }
+      break;
+
+    case MQTT_EVENT_ERROR:
+      ESP_LOGI(TAG, "MQTT_EVENT_ERROR");
+      if (event->error_handle->error_type == MQTT_ERROR_TYPE_TCP_TRANSPORT) {
+        ESP_LOGI(TAG, "Last error code reported from esp-tls: 0x%x", event->error_handle->esp_tls_last_esp_err);
+        ESP_LOGI(TAG, "Last tls stack error number: 0x%x", event->error_handle->esp_tls_stack_err);
+        ESP_LOGI(TAG, "Last captured errno : %d (%s)", event->error_handle->esp_transport_sock_errno,
+          strerror(event->error_handle->esp_transport_sock_errno));
+      } else if (event->error_handle->error_type == MQTT_ERROR_TYPE_CONNECTION_REFUSED) {
+        ESP_LOGI(TAG, "Connection refused error: 0x%x", event->error_handle->connect_return_code);
+      } else {
+        ESP_LOGW(TAG, "Unknown error type: 0x%x", event->error_handle->error_type);
+      }
+      break;
+
+    default:
+      ESP_LOGI(TAG, "Other event id:%d", event->event_id);
+      break;
+  }
+}
+
+void wifi_and_mqtt_init(AppContext *context) {
+    ESP_ERROR_CHECK(nvs_flash_init());
+    s_wifi_event_group = xEventGroupCreate();
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    esp_netif_create_default_wifi_sta();
+
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+
+    esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &wifi_event_handler, NULL, NULL);
+    esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &wifi_event_handler, NULL, NULL);
+
+    wifi_config_t wifi_config = {};
+    strcpy((char*)wifi_config.sta.ssid, ESP_WIFI_SSID);
+    strcpy((char*)wifi_config.sta.password, ESP_WIFI_PASS);
+
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    ESP_ERROR_CHECK(esp_wifi_start());
+
+    // Esperar conexión antes de arrancar MQTT
+    xEventGroupWaitBits(s_wifi_event_group, WIFI_CONNECTED_BIT, pdFALSE, pdFALSE, portMAX_DELAY);
+
+    esp_mqtt_client_config_t mqtt_cfg = {};
+    mqtt_cfg.broker.address.uri = MQTT_BROKER_URI;
+    
+    mqtt_client = esp_mqtt_client_init(&mqtt_cfg);
+    esp_mqtt_client_register_event(mqtt_client, (esp_mqtt_event_id_t)ESP_EVENT_ANY_ID, mqtt_event_handler, context);
+    esp_mqtt_client_start(mqtt_client);
 }
 
 // ============ I2C FUNCTIONS ============
@@ -299,27 +476,61 @@ void ScanI2CBus() {
  * 6. Waits for 10 seconds (10000 ms) before repeating the process.
  */
 extern "C" void BatteryTask(void *pvParameters) {
-    char msg_to_queue[64];
-    ADS1115 adc(I2C_MASTER_NUM, ADS1115_ADDR); // Create an instance of the ADS1115 class for I2C communication
+    char msg_to_queue[128]; 
+    char uart_msg[128];
+    char mqtt_payload[128];
+
+    AppContext *app_context = static_cast<AppContext *>(pvParameters);
+    ADS1115 &adc = *(app_context->adsController);
 
     while (1) {
-      uart_write_bytes(UART_NUM, "\r\n", 0);
-        float v = adc.ReadVoltage(2); // Read voltage from channel 2 of the ADS1115
-        float amp = adc.ReadCurrent(1); // Read current from channel 1 of the ADS1115 (if configured for current measurement)
-
-        // Create message for the display
-        snprintf(msg_to_queue, sizeof(msg_to_queue), "BAT: %.2f V | AMP: %.2f A\r\n", v, amp);
-
-        // Write to display queue
-        if (xQueueDisplay != NULL) {
-            xQueueSend(xQueueDisplay, &msg_to_queue, 0);
+        // Read voltages and current from ADS1115
+        float cell_1_voltage = adc.ReadVoltage(3);       
+        float cell_2_voltage = adc.ReadVoltage(2, true); 
+        float cell_3_voltage = adc.ReadVoltage(1, true); 
+        float amp = adc.ReadCurrent(0);             
+        
+        if (experiment_flag) {
+          if (cell_1_voltage < 3.5 || cell_2_voltage - cell_1_voltage < 3.5 || cell_3_voltage - cell_2_voltage - cell_1_voltage < 3.5 || amp < 0) {
+            ESP_LOGE(TAG, "Disconnecting circuit");
+            app_context->relayController->set_all_relays_mask(0x0); // Apagar todos los relés
+            experiment_flag = false; // Salir del modo experimento
+            continue;
+          }
         }
 
-        char uart_msg[64];
-        snprintf(uart_msg, sizeof(uart_msg), "\r\nAuto-read:\r\nVOLT: %.2fV | AMP: %.2fA\r\n", v, amp);
+        // Create the message for the display
+        snprintf(msg_to_queue, sizeof(msg_to_queue), 
+                 "Cell 1: %.2f V\n"
+                 "Cell 2: %.2f V\n"
+                 "Cell 3: %.2f V\n"
+                 "AMP: %.2f A", 
+                 cell_1_voltage, cell_2_voltage, cell_3_voltage, amp);
+
+        if (xQueueDisplay != NULL) {
+          xQueueSend(xQueueDisplay, msg_to_queue, 0);
+        }
+
+        // Create the message for UART output
+        snprintf(uart_msg, sizeof(uart_msg), 
+                 "\r\nAuto-read:\r\n"
+                 "CELL 1 VOLT: %.2f V\r\n"
+                 "CELL 2 VOLT: %.2f V\r\n"
+                 "CELL 3 VOLT: %.2f V\r\n"
+                 "AMP: %.2f A\r\n", 
+                 cell_1_voltage, cell_2_voltage, cell_3_voltage, amp);
+                 
         uart_write_bytes(UART_NUM, uart_msg, strlen(uart_msg));
 
-        vTaskDelay(pdMS_TO_TICKS(10000)); // Delay
+        if (mqtt_client != NULL) {
+            snprintf(mqtt_payload, sizeof(mqtt_payload), 
+                     "{\"cell_1\":%.2f, \"cell_2\":%.2f, \"cell_3\":%.2f, \"current\":%.2f}", 
+                     cell_1_voltage, cell_2_voltage, cell_3_voltage, amp);
+                     
+            esp_mqtt_client_publish(mqtt_client, "m5stick/sensores", mqtt_payload, 0, 1, 0);
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(10000)); // 10 seconds delay between readings
     }
 }
 
@@ -365,14 +576,14 @@ extern "C" void UARTTask(void *pvParameters) {
     {"HELLO",   [&]() { send_response("Hola desde ESP32!\r\n", ""); }},
     
     // Individual relay commands
-    {"R1 ON",   [&]() { relay_controller->set_relay(1, true);  send_response("Encendiendo R1\r\n", "RELAY 1: ON"); }},
-    {"R1 OFF",  [&]() { relay_controller->set_relay(1, false); send_response("Apagando R1\r\n", "RELAY 1: OFF"); }},
-    {"R2 ON",   [&]() { relay_controller->set_relay(2, true);  send_response("Encendiendo R2\r\n", "RELAY 2: ON"); }},
-    {"R2 OFF",  [&]() { relay_controller->set_relay(2, false); send_response("Apagando R2\r\n", "RELAY 2: OFF"); }},
-    {"R3 ON",   [&]() { relay_controller->set_relay(3, true);  send_response("Encendiendo R3\r\n", "RELAY 3: ON"); }},
-    {"R3 OFF",  [&]() { relay_controller->set_relay(3, false); send_response("Apagando R3\r\n", "RELAY 3: OFF"); }},
-    {"R4 ON",   [&]() { relay_controller->set_relay(4, true);  send_response("Encendiendo R4\r\n", "RELAY 4: ON"); }},
-    {"R4 OFF",  [&]() { relay_controller->set_relay(4, false); send_response("Apagando R4\r\n", "RELAY 4: OFF"); }},
+    {"R1 ON",   [&]() { relay_controller->set_relay(1, true);  send_response("Encendiendo R1\r\n", "RELAY 1: ON"); experiment_flag = true; }},
+    {"R1 OFF",  [&]() { relay_controller->set_relay(1, false); send_response("Apagando R1\r\n", "RELAY 1: OFF"); experiment_flag = false; }},
+    {"R2 ON",   [&]() { relay_controller->set_relay(2, true);  send_response("Encendiendo R2\r\n", "RELAY 2: ON"); experiment_flag = true; }},
+    {"R2 OFF",  [&]() { relay_controller->set_relay(2, false); send_response("Apagando R2\r\n", "RELAY 2: OFF"); experiment_flag = false; }},
+    {"R3 ON",   [&]() { relay_controller->set_relay(3, true);  send_response("Encendiendo R3\r\n", "RELAY 3: ON"); experiment_flag = true; }},
+    {"R3 OFF",  [&]() { relay_controller->set_relay(3, false); send_response("Apagando R3\r\n", "RELAY 3: OFF"); experiment_flag = false; }},
+    {"R4 ON",   [&]() { relay_controller->set_relay(4, true);  send_response("Encendiendo R4\r\n", "RELAY 4: ON"); experiment_flag = true; }},
+    {"R4 OFF",  [&]() { relay_controller->set_relay(4, false); send_response("Apagando R4\r\n", "RELAY 4: OFF"); experiment_flag = false; }},
     
     // Global relay commands
     {"ALL ON",  [&]() { relay_controller->set_all_relays_mask(0x0F); send_response("Encendiendo todos\r\n", "ALL: ON"); }},
@@ -384,7 +595,7 @@ extern "C" void UARTTask(void *pvParameters) {
       send_response("Bat: " + std::to_string(v) + "V\r\n", "Bat: " + std::to_string(v) + "V"); 
     }},
     {"VOLTAGE A1", [&]() { 
-      float v = ads_controller->ReadVoltage(1);
+      float v = ads_controller->ReadVoltage(1, true);
       send_response("Bat: " + std::to_string(v) + "V\r\n", "Bat: " + std::to_string(v) + "V"); 
     }},
     {"VOLTAGE A2", [&]() { 
@@ -392,7 +603,7 @@ extern "C" void UARTTask(void *pvParameters) {
       send_response("V(A2): " + std::to_string(v) + "V\r\n", "V(A2): " + std::to_string(v) + "V"); 
     }},
     {"VOLTAGE A3", [&]() { 
-      float v = ads_controller->ReadVoltage(3, true);
+      float v = ads_controller->ReadVoltage(3);
       send_response("V(A3): " + std::to_string(v) + "V\r\n", "V(A3): " + std::to_string(v) + "V"); 
     }},
     {"VOLTAGE PIN", [&]() { 
@@ -400,7 +611,7 @@ extern "C" void UARTTask(void *pvParameters) {
       send_response("Bat: " + std::to_string(v) + "V\r\n", "Bat: " + std::to_string(v) + "V"); 
     }},
     {"CURRENT", [&]() { 
-      float ampers = ads_controller->ReadCurrent(2);
+      float ampers = ads_controller->ReadCurrent(0);
       send_response("Current: " + std::to_string(ampers) + "A\r\n", "Current: " + std::to_string(ampers) + "A"); 
     }},
     {"START CHARGE", [&]() {
@@ -523,7 +734,7 @@ extern "C" void app_main(void) {
 
   // Initialize I2C for relay and ADS1115
   if (i2c_master_init() == ESP_OK) {
-    ESP_LOGI(TAG, "I2C Relay inicializado");
+    ESP_LOGI(TAG, "I2C master initialized successfully");
   }
   
   // Scan I2C bus to verify connections (useful for debugging)
@@ -532,15 +743,17 @@ extern "C" void app_main(void) {
   // Initialize servo control
   static ServoController servo; // Create a global instance of the ServoController class to manage the servo state
   static I2CRelay relay_controller; // Create a global instance of the I2CRelay class to manage relay control
-  static ADS1115 adc_controller(I2C_MASTER_NUM, ADS1115_ADDR); // Create a global instance of the ADS1115 class for ADC readings
+  static ADS1115 ads_controller(I2C_MASTER_NUM, ADS1115_ADDR); // Create a global instance of the ADS1115 class for ADC readings
 
   servo.init_servo();
 
-  static AppContext AppContext = {
+  static AppContext app_context = {
     .servoController = &servo,
     .relayController = &relay_controller,
-    .adsController = &adc_controller
+    .adsController = &ads_controller
   };
+  
+  wifi_and_mqtt_init(&app_context); // Initialize Wi-Fi and MQTT connections
 
   // Configure UART
   uart_config_t cfg;
@@ -561,8 +774,8 @@ extern "C" void app_main(void) {
   xTaskCreate(ShowText, "TFT", 1024 * 6, NULL, 2, NULL);
 
   // Battery monitoring task
-  xTaskCreate(BatteryTask, "BAT_MONITOR", 1024 * 4, NULL, 1, NULL);
+  xTaskCreate(BatteryTask, "BAT_MONITOR", 1024 * 4, &app_context, 1, NULL);
 
   // Command handling task (relays, voltage reading, etc.)
-  xTaskCreate(UARTTask, "UART_COM", 1024 * 6, &AppContext, 1, NULL);
+  xTaskCreate(UARTTask, "UART_COM", 1024 * 6, &app_context, 1, NULL);
 }

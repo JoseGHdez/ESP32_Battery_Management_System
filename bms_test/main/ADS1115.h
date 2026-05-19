@@ -113,7 +113,7 @@ float ADS1115::ReadCurrent(uint8_t channel) {
   if (voltage < 0) return -1.0; // Error reading voltage
 
   // Example calibration for a current sensor with sensitivity of 0.033V/A
-  float zero_point = 2.5828f; // Voltage at 0A (this should be determined experimentally for your specific sensor)
+  float zero_point = 2.5478f; // Voltage at 0A (this should be determined experimentally for your specific sensor)
   voltage -= zero_point; // Remove zero-point offset
 
   float current = voltage / 0.033f; 

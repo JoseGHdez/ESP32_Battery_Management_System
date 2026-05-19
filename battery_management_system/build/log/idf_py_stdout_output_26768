@@ -1,0 +1,15 @@
+Command: ninja flash
+[1/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/spiffs/spiffsgen.py 0x20000 C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/fonts C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/build/storage1.bin --page-size=256 --obj-name-len=32 --meta-len=4 --use-magic --use-magic-len"
+[2/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/spiffs/spiffsgen.py 0x50000 C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/images C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/build/storage2.bin --page-size=256 --obj-name-len=32 --meta-len=4 --use-magic --use-magic-len"
+[3/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/spiffs/spiffsgen.py 0x80000 C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/icons C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/build/storage3.bin --page-size=256 --obj-name-len=32 --meta-len=4 --use-magic --use-magic-len"
+[4/13] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\battery_management_system\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6680 bytes. 0x980 bytes (8%) free.
+[5/13] No install step for 'bootloader'
+[6/13] Completed 'bootloader'
+[7/13] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/read_circuit.cpp.obj
+C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/main/read_circuit.cpp: In function 'void ExperimentCycle(void*)':
+C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/battery_management_system/main/read_circuit.cpp:654:22: warning: comparison is always true due to limited range of data type [-Wtype-limits]
+  654 |   while (cycle_count < EXPERIMENT_CICLES) {
+      |                      ^
+[8/13] Linking C static library esp-idf\main\libmain.a
