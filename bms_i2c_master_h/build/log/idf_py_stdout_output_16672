@@ -1,0 +1,127 @@
+Command: ninja flash
+[1/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/spiffs/spiffsgen.py 0x20000 C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/fonts C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/build/storage1.bin --page-size=256 --obj-name-len=32 --meta-len=4 --use-magic --use-magic-len"
+[2/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/spiffs/spiffsgen.py 0x50000 C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/images C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/build/storage2.bin --page-size=256 --obj-name-len=32 --meta-len=4 --use-magic --use-magic-len"
+[3/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/spiffs/spiffsgen.py 0x80000 C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/variables C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/build/storage3.bin --page-size=256 --obj-name-len=32 --meta-len=4 --use-magic --use-magic-len"
+[4/13] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6680 bytes. 0x980 bytes (8%) free.
+[5/13] No install step for 'bootloader'
+[6/13] Completed 'bootloader'
+[7/13] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/read_circuit.cpp.obj
+[8/13] Linking C static library esp-idf\main\libmain.a
+[9/13] Generating esp-idf/esp_system/ld/sections.ld
+[10/13] Linking CXX executable read_voltage.elf
+[11/13] Generating binary image from built executable
+esptool.py v4.11.dev2
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/build/read_voltage.bin
+[12/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/build/partition_table/partition-table.bin C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/build/read_voltage.bin"
+read_voltage.bin binary size 0x131070 bytes. Smallest app partition is 0x200000 bytes. 0xcef90 bytes (40%) free.
+[12/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.5.1\components\esptool_py && C:\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=C:/Espressif/frameworks/esp-idf-v5.5.1 -D SERIAL_TOOL=C:/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;C:/Espressif/frameworks/esp-idf-v5.5.1/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=C:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/build -P C:/Espressif/frameworks/esp-idf-v5.5.1/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32 -p COM4 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 8MB 0x1000 bootloader/bootloader.bin 0x10000 read_voltage.bin 0x8000 partition_table/partition-table.bin 0x210000 storage1.bin 0x230000 storage2.bin 0x280000 storage3.bin
+esptool.py v4.11.dev2
+Serial port COM4
+Connecting.....
+Chip is ESP32-PICO-V3-02 (revision v3.0)
+Features: WiFi, BT, Dual Core, 240MHz, Embedded Flash, Embedded PSRAM, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: e8:6b:ea:2f:91:cc
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x00141fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x00210000 to 0x0022ffff...
+Flash will be erased from 0x00230000 to 0x0027ffff...
+Flash will be erased from 0x00280000 to 0x002fffff...
+SHA digest in image updated
+Compressed 26240 bytes to 16483...
+Writing at 0x00001000... (50 %)
+Writing at 0x00007600... (100 %)
+Wrote 26240 bytes (16483 compressed) at 0x00001000 in 0.8 seconds (effective 275.4 kbit/s)...
+Hash of data verified.
+Compressed 1249392 bytes to 749490...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001ccde... (4 %)
+Writing at 0x00029b5f... (6 %)
+Writing at 0x00031ed1... (8 %)
+Writing at 0x0003df85... (10 %)
+Writing at 0x000446ff... (13 %)
+Writing at 0x0004a175... (15 %)
+Writing at 0x00050688... (17 %)
+Writing at 0x00056274... (19 %)
+Writing at 0x0005c215... (21 %)
+Writing at 0x00061fb6... (23 %)
+Writing at 0x000681df... (26 %)
+Writing at 0x0006e062... (28 %)
+Writing at 0x00073e2c... (30 %)
+Writing at 0x0007a770... (32 %)
+Writing at 0x000804f5... (34 %)
+Writing at 0x00086245... (36 %)
+Writing at 0x0008b9cc... (39 %)
+Writing at 0x00090d8b... (41 %)
+Writing at 0x00096945... (43 %)
+Writing at 0x0009c491... (45 %)
+Writing at 0x000a1c93... (47 %)
+Writing at 0x000a735a... (50 %)
+Writing at 0x000ace53... (52 %)
+Writing at 0x000b3034... (54 %)
+Writing at 0x000b8946... (56 %)
+Writing at 0x000be925... (58 %)
+Writing at 0x000c44d0... (60 %)
+Writing at 0x000c9eb5... (63 %)
+Writing at 0x000cf9bd... (65 %)
+Writing at 0x000d5746... (67 %)
+Writing at 0x000dd394... (69 %)
+Writing at 0x000e46aa... (71 %)
+Writing at 0x000ebff0... (73 %)
+Writing at 0x000f3f02... (76 %)
+Writing at 0x000fa1b6... (78 %)
+Writing at 0x000ffaaf... (80 %)
+Writing at 0x00105f78... (82 %)
+Writing at 0x0010f6af... (84 %)
+Writing at 0x00117aa3... (86 %)
+Writing at 0x0011efe1... (89 %)
+Writing at 0x001259c7... (91 %)
+Writing at 0x0012b7f2... (93 %)
+Writing at 0x00131215... (95 %)
+Writing at 0x0013779d... (97 %)
+Writing at 0x0013cae6... (100 %)
+Wrote 1249392 bytes (749490 compressed) at 0x00010000 in 16.9 seconds (effective 590.9 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 138...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (138 compressed) at 0x00008000 in 0.1 seconds (effective 425.5 kbit/s)...
+Hash of data verified.
+Compressed 131072 bytes to 21353...
+Writing at 0x00210000... (50 %)
+Writing at 0x0022687a... (100 %)
+Wrote 131072 bytes (21353 compressed) at 0x00210000 in 1.1 seconds (effective 986.1 kbit/s)...
+Hash of data verified.
+Compressed 327680 bytes to 167804...
+Writing at 0x00230000... (9 %)
+Writing at 0x00234719... (18 %)
+Writing at 0x0023967f... (27 %)
+Writing at 0x0023e5ee... (36 %)
+Writing at 0x00243474... (45 %)
+Writing at 0x00248517... (54 %)
+Writing at 0x0024c8dd... (63 %)
+Writing at 0x00250d1f... (72 %)
+Writing at 0x002558f2... (81 %)
+Writing at 0x0025a9a0... (90 %)
+Writing at 0x0025f84c... (100 %)
+Wrote 327680 bytes (167804 compressed) at 0x00230000 in 4.2 seconds (effective 630.5 kbit/s)...
+Hash of data verified.
+Compressed 524288 bytes to 1241...
+Writing at 0x00280000... (100 %)
+Wrote 524288 bytes (1241 compressed) at 0x00280000 in 2.3 seconds (effective 1833.0 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

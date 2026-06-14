@@ -1,0 +1,804 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM4 instead...[0m
+[0;33m--- esp-idf-monitor 1.9.0 on \\.\COM4 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2235[0m
+[0m--- 0x40080638: [0;33mcall_start_cpu0[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x4000bfed: [0;33m_xtos_set_intlevel[0m[0m in [0;32mROM[0m
+[0m--- 0x4008bdaa: [0;33mvPortClearInterruptMaskFromISR[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h[0m[0m:[1;31m560[0m
+[0m--- (inlined by) [0;33mvPortExitCritical[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m514[0m
+[0m--- 0x40085e83: [0;33mphy_exit_critical[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_phy/src/phy_init.c[0m[0m:[1;31m236[0m
+[0m--- 0x40086811: [0;33mphy_close_rf[0m[0m at [0;32m/home/lxf/gittree/chip7.1_phy/chip_7.1/board_code/app_test/pp/phy/phy_chip_v7.c[0m[0m:[1;31m4235[0m
+[0m--- 0x401406ed: [0;33mesp_phy_disable[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_phy/src/phy_init.c[0m[0m:[1;31m404[0m
+[0m--- 0x401b4c01: [0;33mesp_phy_disable_wrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_wifi/esp32/esp_adapter.c[0m[0m:[1;31m620[0m
+[0m--- 0x4009370d: [0;33mwifi_rf_phy_disable[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x40097116: [0;33mpm_sleep[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x40097433: [0;33mpm_process_tim[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4009751f: [0;33mpm_rx_beacon_process[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4009789b: [0;33mpm_on_beacon_rx[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x40097d61: [0;33mppRxProtoProc[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x40097e01: [0;33mppRxPkt[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x40094e4b: [0;33mppTask[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x400da98f: [0;33mesp_vfs_select[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/vfs/vfs.c[0m[0m:[1;31m1489[0m
+[0m--- 0x400fa296: [0;33mbase_poll_read[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/tcp_transport/transport_ssl.c[0m[0m:[1;31m176[0m
+[0m--- 0x401a7ed5: [0;33mesp_transport_poll_read[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/tcp_transport/transport.c[0m[0m:[1;31m156[0m
+[0m--- 0x400fa749: [0;33mtcp_read[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/tcp_transport/transport_ssl.c[0m[0m:[1;31m301[0m
+[0m--- 0x401a7e91: [0;33mesp_transport_read[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/tcp_transport/transport.c[0m[0m:[1;31m140[0m
+[0m--- 0x400e170c: [0;33mmqtt_message_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/mqtt/esp-mqtt/mqtt_client.c[0m[0m:[1;31m1256[0m
+[0m--- 0x400e1c99: [0;33mmqtt_process_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/mqtt/esp-mqtt/mqtt_client.c[0m[0m:[1;31m1360[0m
+[0m--- 0x400e22b8: [0;33mesp_mqtt_task[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/mqtt/esp-mqtt/mqtt_client.c[0m[0m:[1;31m1726[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0026: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b0023: [0;33mi2c_ll_is_bus_busy[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/hal/esp32/include/hal/i2c_ll.h[0m[0m:[1;31m463[0m
+[0m--- (inlined by) [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m543[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m--- 0x400ecd26: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400ed0ec: [0;33mtask_wdt_isr[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40083155: [0;33m_xt_lowint1[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x401b001b: [0;33ms_i2c_send_commands[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m539[0m
+[0m--- 0x401b01dc: [0;33ms_i2c_transaction_start[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m649[0m
+[0m--- 0x401b02ca: [0;33ms_i2c_synchronous_transaction[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m945[0m
+[0m--- 0x401b1087: [0;33mi2c_master_transmit_receive[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_driver_i2c/i2c_master.c[0m[0m:[1;31m1248[0m
+[0m--- 0x400dc72e: [0;33mADS1115::ReadVoltage(unsigned char, bool)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/ADS1115.h[0m[0m:[1;31m141[0m
+[0m--- 0x400def70: [0;33mMeasureCharging(void*)[0m[0m at [0;32mC:/Users/Jose/ESP32_Battery_Management_System/ESP32_Battery_Management_System/bms_i2c_master_h/main/experiment.h[0m[0m:[1;31m129[0m
+[0m--- 0x4008ba4d: [0;33mvPortTaskWrapper[0m[0m at [0;32mC:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m

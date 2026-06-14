@@ -1,0 +1,9 @@
+# Usar tabla de particiones personalizada
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+CONFIG_PARTITION_TABLE_FILENAME="partitions.csv"
+
+# Configurar el tamaño de la memoria Flash
+# El ESP32-PICO-V3-02 (M5StickC PLUS2) tiene 8MB de Flash
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+CONFIG_ESPTOOLPY_FLASHSIZE="8MB"

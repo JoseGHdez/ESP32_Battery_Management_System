@@ -1,0 +1,62 @@
+services:
+  # ESP_IDF service
+  esp-idf:
+    image: espressif/idf:release-v5.5
+    container_name: m5stick_espidf
+    privileged: true
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0" # Used port for flashing and monitoring the ESP32.
+    volumes:
+      - .:/project
+    working_dir: /project
+    command: /bin/bash -c "idf.py set-target esp32 && idf.py -p /dev/ttyACM0 build flash monitor"
+    stdin_open: true # Standard input open
+    tty: true        # Pseudoterminal enabled
+    # Enter the container with: docker exec -it m5stick_espidf /bin/bash
+
+  # Broker MQTT Mosquitto
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: m5stick_mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: unless-stopped
+
+  # InfluxDB service
+  influxdb:
+    image: influxdb:2.7
+    container_name: m5stick_influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=joseghdezcruz
+      - DOCKER_INFLUXDB_INIT_PASSWORD=Cm2krpSY
+      - DOCKER_INFLUXDB_INIT_ORG=ULL
+      - DOCKER_INFLUXDB_INIT_BUCKET=BMS_M5Stick
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=90Q72zPXsgMrmDplg5dFRXR6_bwI-u-8-inxYiHcz6bq0-d2O1cNIuqQhYPHutR-PC4KkeRtPgwZwaAjgqMJ5g==
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+    restart: unless-stopped
+
+  # Node-RED service
+  node-red:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: m5stick_nodered
+    ports:
+      - "1880:1880"
+    environment:
+      - FLOWS=flow_mosquitto.json
+    volumes:
+      - nodered-data:/data
+    depends_on:
+      - influxdb
+    restart: unless-stopped
+
+volumes:
+  influxdb-data:
+  nodered-data:

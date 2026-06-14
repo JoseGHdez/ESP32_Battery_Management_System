@@ -1,0 +1,9 @@
+{
+  "name": "m5stick-nodered-project",
+  "version": "1.0.0",
+  "description": "ESP32 Battery Management System with Node-RED and InfluxDB",
+  "dependencies": {
+    "node-red-contrib-influxdb": "latest",
+    "@flowfuse/node-red-dashboard": "latest"
+  }
+}

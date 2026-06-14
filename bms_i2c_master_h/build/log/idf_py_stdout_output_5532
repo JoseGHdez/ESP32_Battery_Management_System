@@ -1,0 +1,1683 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build\read_voltage.elf C:\Users\Jose\ESP32_Battery_Management_System\ESP32_Battery_Management_System\bms_i2c_master_h\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21:46
+
+rst:0x0 (NO_MEAN),boot:0x13 (SPI_FAST_FLASH_BOOT)
+ets_main.c 404 
+ets Jul 29 2019 12:21:46
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (30) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 26 2026 16:08:01[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (38) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 storage1         Unknown data     01 82 00210000 00020000[0m
+[0;32mI (85) boot:  4 storage2         Unknown data     01 82 00230000 00050000[0m
+[0;32mI (91) boot:  5 storage3         Unknown data     01 82 00280000 00080000[0m
+[0;32mI (98) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=2ab5ch (174940) map[0m
+[0;32mI (168) esp_image: segment 1: paddr=0003ab84 vaddr=3ffb0000 size=041fch ( 16892) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0003ed88 vaddr=40080000 size=01290h (  4752) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=e7360h (947040) map[0m
+[0;32mI (503) esp_image: segment 4: paddr=00127388 vaddr=40081290 size=19c9ch (105628) load[0m
+[0;32mI (545) esp_image: segment 5: paddr=0014102c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (558) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (558) boot: Disabling RNG early entropy source...[0m
+[0;32mI (569) cpu_start: Multicore app[0m
+[0;32mI (577) cpu_start: Pro cpu start user code[0m
+[0;32mI (577) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (577) app_init: Application information:[0m
+[0;32mI (577) app_init: Project name:     read_voltage[0m
+[0;32mI (581) app_init: App version:      d772300-dirty[0m
+[0;32mI (586) app_init: Compile time:     May 26 2026 16:07:18[0m
+[0;32mI (591) app_init: ELF file SHA256:  bf5e0bad4...[0m
+[0;32mI (595) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (599) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (603) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (607) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (611) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (617) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (622) heap_init: At 3FFBA970 len 00025690 (149 KiB): DRAM[0m
+[0;32mI (627) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (633) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (638) heap_init: At 4009AF2C len 000050D4 (20 KiB): IRAM[0m
+[0;32mI (645) spi_flash: detected chip: generic[0m
+[0;32mI (647) spi_flash: flash io: dio[0m
+[0;32mI (654) main_task: Started on CPU0[0m
+[0;32mI (664) main_task: Calling app_main()[0m
+----- Initialising program -----
+[0;32mI (664) M5_SYSTEM: Initializing SPIFFS[0m
+[0;32mI (674) M5_SYSTEM: Mount /fonts to storage1 success[0m
+[0;32mI (674) M5_SYSTEM: Partition size: total: 113201, used: 95631[0m
+[0;32mI (714) M5_SYSTEM: Mount /variables to storage3 success[0m
+[0;32mI (714) M5_SYSTEM: Partition size: total: 474641, used: 502[0m
+[0;32mI (714) M5_SYSTEM: Loaded param: CHG_BIAS = 0.0066[0m
+[0;32mI (714) M5_SYSTEM: Loaded param: DCG_BIAS = 0.5[0m
+[0;33mW (714) M5_SYSTEM: Unknown parameter in file: DCG_BIAS[0m
+[0;32mI (724) M5_SYSTEM: Loaded param: MSQT_IP = 192.168.1.101[0m
+[0;32mI (724) M5_SYSTEM: Loaded param: EXP_NAME = 25/05/2026[0m
+[0;32mI (734) M5_SYSTEM: Loaded param: BAT_TYPE = LiPo[0m
+[0;32mI (734) M5_SYSTEM: Loaded param: EXP_SUBTAG = [A,B,C,D,E][0m
+[0;32mI (744) M5_SYSTEM: Loaded param: CHG_TIME = 15[0m
+[0;32mI (744) M5_SYSTEM: Loaded param: DCG_TIME = 15[0m
+[0;33mW (754) M5_SYSTEM: Unknown parameter in file: DCG_TIME[0m
+[0;32mI (754) M5_SYSTEM: Loaded param: DEVICE = M5STICK_C_PLUS2[0m
+[0;32mI (764) M5_SYSTEM: Loaded param: LOCATION = LABORATORY[0m
+[0;32mI (764) M5_SYSTEM: Loaded param: BAT_CAP = 2200[0m
+[0;32mI (774) M5_SYSTEM: Loaded param: PCENT_R1 = 80[0m
+[0;32mI (774) M5_SYSTEM: Loaded param: PCENT_R2 = 50[0m
+[0;32mI (774) M5_SYSTEM: Loaded param: PCENT_R3 = 20[0m
+--- Escaneando Bus I2C Maestro ---
+-> Dispositivo encontrado en dirección: 0x26
+-> Dispositivo encontrado en dirección: 0x48
+----------------------------------
+[0;32mI (814) I2C_RELAY: Relé registrado correctamente en el bus I2C[0m
+[0;32mI (814) ADS1115: ADS11I (824) uart: queue free spaces: 20[0m
+[0;32mI (864) wifi:wifi driver task: 3ffc5dfc, prio:23, stack:6656, core=0[0m
+[0;32mI (874) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (874) wifi:wifi certification version: v7.0[0m
+[0;32mI (874) wifi:config NVS flash: enabled[0m
+[0;32mI (874) wifi:config nano formatting: disabled[0m
+[0;32mI (884) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (884) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (884) wifi:Init management short buffer num: 32[0m
+[0;32mI (894) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (894) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (904) wifi:Init static rx buffer num: 10[0m
+[0;32mI (904) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (914) wifi_init: rx ba win: 6[0m
+[0;32mI (914) wifi_init: accept mbox: 6[0m
+[0;32mI (914) wifi_init: tcpip mbox: 32[0m
+[0;32mI (914) wifi_init: udp mbox: 6[0m
+[0;32mI (924) wifi_init: tcp mbox: 6[0m
+[0;32mI (924) wifi_init: tcp tx win: 5760[0m
+[0;32mI (924) wifi_init: tcp rx win: 5760[0m
+[0;32mI (934) wifi_init: tcp mss: 1440[0m
+[0;32mI (934) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (934) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (944) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (954) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (1034) wifi:mode : sta (e8:6b:ea:2f:91:cc)[0m
+[0;32mI (1034) wifi:enable tsf[0m
+[0;32mI (1054) wifi:new:<4,1>, old:<1,0>, ap:<255,255>, sta:<4,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1054) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1064) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1074) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1214) wifi:connected with TP-Link_E3D6, aid = 1, channel 4, 40U, bssid = b0:19:21:c3:e3:d6[0m
+[0;32mI (1214) wifi:security: WPA2-PSK, phy: bgn, rssi: -22[0m
+[0;32mI (1224) wifi:pm start, type: 1[0m
+
+[0;32mI (1224) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1244) wifi:<ba-add>idx:0 (ifx:0, b0:19:21:c3:e3:d6), tid:0, ssn:3, winSize:64[0m
+[0;32mI (1314) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2754) esp_netif_handlers: sta ip: 192.168.1.100, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (2754) wifi: got ip:192.168.1.100[0m
+[0;32mI (2754) wifi: Other event id:7[0m
+[0;32mI (2764) M5_SYSTEM: Tarea TFT iniciada[0m
+[0;32mI (2764) main_task: Returned from app_main()[0m
+[1;31mE (2864) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (2864) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (2864) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (2864) i2c.master: i2c_master_transmit_receive(1248): I2C transaction failed[0m
+[0;33mW (2874) ADS1115: Read attempt 1 failed (ch3): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[0;32mI (2914) wifi: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2914) wifi: sent subscribe successful, msg_id=61018[0m
+[0;32mI (2914) wifi: sent subscribe successful, msg_id=44475[0m
+[0;32mI (2924) wifi: sent subscribe successful, msg_id=9908[0m
+[0;32mI (2924) wifi: MQTT_EVENT_SUBSCRIBED, msg_id=61018, return code=0x00[0m
+[0;32mI (2934) wifi: MQTT_EVENT_SUBSCRIBED, msg_id=44475, return code=0x00[0m
+[0;32mI (3004) wifi: MQTT_EVENT_SUBSCRIBED, msg_id=9908, return code=0x00[0m
+
+Auto-read:
+CELL 1 VOLT: 4.05 V
+CELL 2 VOLT: 4.06 V
+CELL 3 VOLT: 4.06 V
+AMP: -3.25 A
+[0;32mI (4764) ST7789: GPIO_CS=5[0m
+[0;32mI (4764) ST7789: GPIO_DC=14[0m
+[0;32mI (4764) ST7789: GPIO_RESET=12[0m
+[0;32mI (4914) ST7789: GPIO_BL=-1[0m
+[0;32mI (4914) ST7789: GPIO_MOSI=15[0m
+[0;32mI (4914) ST7789: GPIO_SCLK=13[0m
+[0;32mI (5614) ST7789: heap_caps_malloc success. Frame buffer is available.[0m
+[0;32mI (5664) M5_SYSTEM: Pantalla actualizada[0m
+> E (13794) i2c.master: I2C hardware NACK detected
+[1;31mE (13794) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (13794) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (13794) i2c.master: i2c_master_transmit_receive(1248): I2C transaction failed[0m
+[0;33mW (13804) ADS1115: Read attempt 1 failed (ch2): ESP_ERR_INVALID_STATE. Reintentando...[0m
+
+Auto-read:
+CELL 1 VOLT: 4.06 V
+CELL 2 VOLT: 4.05 V
+CELL 3 VOLT: 4.05 V
+AMP: -3.40 A
+[0;32mI (14304) M5_SYSTEM: Pantalla actualizada[0m
+start cycles
+[0;32mI (23144) M5_SYSTEM: Command received: START CYCLES[0m
+[0;32mI (23154) M5_SYSTEM: ExperimentCycle task started[0m
+[0;32mI (23154) M5_SYSTEM: ExperimentCycle started, running 5 cycles[0m
+Starting experiment cycles...
+
+=== CYCLE 1 / 5 ===
+--- CHARGING PHASE ---
+[0;32mI (23184) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (23874) M5_SYSTEM: [CHG] Sample OK. Current: -3.14 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.14A
+[0;32mI (23914) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"23","place":"lab","t_s":0,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0571780204772949,"cell_2":4.0462703704833984,"cell_3":4.06119155883789,"battery":12.183574676513672,"current":-3.1427543163299561,"coulombs":0.00087298732250928879,"success_count":0,"failure_count":0}
+[0;32mI (23924) M5_SYSTEM: Pantalla actualizada[0m
+
+> I (24364) wifi: MQTT_EVENT_PUBLISHED, msg_id=44545
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"23","place":"lab","t_s":0,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0571780204772949,"cell_2":4.0462703704833984,"cell_3":4.06119155883789,"battery":12.183574676513672,"current":-3.1427543163299561,"coulombs":0.00087298732250928879,"success_count":0,"failure_count":0}
+[0;32mI (25674) M5_SYSTEM: [CHG] Sample OK. Current: -3.45 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.45A
+[0;32mI (25714) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"25","place":"lab","t_s":2,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.05811595916748,"cell_2":4.0556941032409668,"cell_3":4.05710792541504,"battery":12.171323776245117,"current":-3.4496424198150635,"coulombs":0.0018312213942408562,"success_count":1,"failure_count":0}
+[0;32mI (25724) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (25754) wifi: MQTT_EVENT_PUBLISHED, msg_id=33290[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"25","place":"lab","t_s":2,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.05811595916748,"cell_2":4.0556941032409668,"cell_3":4.05710792541504,"battery":12.171323776245117,"current":-3.4496424198150635,"coulombs":0.0018312213942408562,"success_count":1,"failure_count":0}
+[1;31mE (26844) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (26844) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (26844) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (26844) i2c.master: i2c_master_transmit_receive(1248): I2C transaction failed[0m
+[0;33mW (26854) ADS1115: Read attempt 1 failed (ch3): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[0;32mI (27494) M5_SYSTEM: [CHG] Sample OK. Current: -3.40 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.40A
+[0;32mI (27524) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"26","place":"lab","t_s":4,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.055302619934082,"cell_2":4.0613489151000977,"cell_3":4.0552231470743818,"battery":12.165669441223145,"current":-3.3984978199005127,"coulombs":0.0027752486057579517,"success_count":2,"failure_count":0}
+[0;32mI (27544) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (27764) wifi: MQTT_EVENT_PUBLISHED, msg_id=18235[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"26","place":"lab","t_s":4,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.055302619934082,"cell_2":4.0613489151000977,"cell_3":4.0552231470743818,"battery":12.165669441223145,"current":-3.3984978199005127,"coulombs":0.0027752486057579517,"success_count":2,"failure_count":0}
+[1;31mE (28924) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (28924) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (28924) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (28924) i2c.master: i2c_master_multi_buffer_transmit(1214): I2C transaction failed[0m
+[0;33mW (28934) ADS1115: Config write attempt 1 failed (ch1): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[0;32mI (29314) M5_SYSTEM: [CHG] Sample OK. Current: -3.30 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.30A
+[0;32mI (29354) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"28","place":"lab","t_s":6,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0530524253845215,"cell_2":4.0547518730163574,"cell_3":4.05867862701416,"battery":12.17603588104248,"current":-3.2961945533752441,"coulombs":0.0036908583715558052,"success_count":3,"failure_count":0}
+[0;32mI (29364) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (29384) wifi: MQTT_EVENT_PUBLISHED, msg_id=20755[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"28","place":"lab","t_s":6,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0530524253845215,"cell_2":4.0547518730163574,"cell_3":4.05867862701416,"battery":12.17603588104248,"current":-3.2961945533752441,"coulombs":0.0036908583715558052,"success_count":3,"failure_count":0}
+[0;32mI (31144) M5_SYSTEM: [CHG] Sample OK. Current: -3.25 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.25A
+[0;32mI (31184) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"30","place":"lab","t_s":8,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0556778907775879,"cell_2":4.0585212707519531,"cell_3":4.0599352518717451,"battery":12.179805755615234,"current":-3.2450501918792725,"coulombs":0.0045922612771391869,"success_count":4,"failure_count":0}
+[0;32mI (31194) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (31264) wifi: MQTT_EVENT_PUBLISHED, msg_id=53877[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"30","place":"lab","t_s":8,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0556778907775879,"cell_2":4.0585212707519531,"cell_3":4.0599352518717451,"battery":12.179805755615234,"current":-3.2450501918792725,"coulombs":0.0045922612771391869,"success_count":4,"failure_count":0}
+[0;32mI (32944) M5_SYSTEM: [CHG] Sample OK. Current: -3.51 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.51A
+[0;32mI (32974) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"32","place":"lab","t_s":9,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0551152229309082,"cell_2":4.0533385276794434,"cell_3":4.0593067804972334,"battery":12.1779203414917,"current":-3.5121586322784424,"coulombs":0.0055678607895970345,"success_count":5,"failure_count":0}
+[0;32mI (32994) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (33014) wifi: MQTT_EVENT_PUBLISHED, msg_id=4065[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"32","place":"lab","t_s":9,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0551152229309082,"cell_2":4.0533385276794434,"cell_3":4.0593067804972334,"battery":12.1779203414917,"current":-3.5121586322784424,"coulombs":0.0055678607895970345,"success_count":5,"failure_count":0}
+[1;31mE (34474) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (34474) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (34474) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (34474) i2c.master: i2c_master_transmit_receive(1248): I2C transaction failed[0m
+[0;33mW (34484) ADS1115: Read attempt 1 failed (ch1): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[0;32mI (34764) M5_SYSTEM: [CHG] Sample OK. Current: -3.35 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.05V
+Battery: 12.16V
+Current: -3.35A
+[0;32mI (34804) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"34","place":"lab","t_s":11,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0577406883239746,"cell_2":4.0523958206176758,"cell_3":4.05459467569987,"battery":12.163784027099609,"current":-3.353032112121582,"coulombs":0.0064992588013410568,"success_count":6,"failure_count":0}
+[0;32mI (34814) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (35014) wifi: MQTT_EVENT_PUBLISHED, msg_id=29394[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"34","place":"lab","t_s":11,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0577406883239746,"cell_2":4.0523958206176758,"cell_3":4.05459467569987,"battery":12.163784027099609,"current":-3.353032112121582,"coulombs":0.0064992588013410568,"success_count":6,"failure_count":0}
+[0;32mI (36564) M5_SYSTEM: [CHG] Sample OK. Current: -3.27 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.27A
+[0;32mI (36604) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"36","place":"lab","t_s":13,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0549278259277344,"cell_2":4.0566368103027344,"cell_3":4.05867862701416,"battery":12.17603588104248,"current":-3.2734653949737549,"coulombs":0.0074085546657443047,"success_count":7,"failure_count":0}
+[0;32mI (36614) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (36634) wifi: MQTT_EVENT_PUBLISHED, msg_id=35315[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"36","place":"lab","t_s":13,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0549278259277344,"cell_2":4.0566368103027344,"cell_3":4.05867862701416,"battery":12.17603588104248,"current":-3.2734653949737549,"coulombs":0.0074085546657443047,"success_count":7,"failure_count":0}
+[0;32mI (38394) M5_SYSTEM: [CHG] Sample OK. Current: -3.36 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.36A
+[0;32mI (38434) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"37","place":"lab","t_s":15,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0532398223876953,"cell_2":4.0556941032409668,"cell_3":4.055537223815918,"battery":12.166611671447754,"current":-3.3643968105316162,"coulombs":0.0083431089296937,"success_count":8,"failure_count":0}
+[0;32mI (38444) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (38544) wifi: MQTT_EVENT_PUBLISHED, msg_id=40188[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"37","place":"lab","t_s":15,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0532398223876953,"cell_2":4.0556941032409668,"cell_3":4.055537223815918,"battery":12.166611671447754,"current":-3.3643968105316162,"coulombs":0.0083431089296937,"success_count":8,"failure_count":0}
+[1;31mE (39654) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (39654) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (39654) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (39654) i2c.master: i2c_master_multi_buffer_transmit(1214): I2C transaction failed[0m
+[0;33mW (39664) ADS1115: Config write attempt 1 failed (ch2): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[0;32mI (40224) M5_SYSTEM: [CHG] Sample OK. Current: -3.33 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.33A
+[0;32mI (40264) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"39","place":"lab","t_s":17,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0556778907775879,"cell_2":4.0514535903930664,"cell_3":4.05867862701416,"battery":12.17603588104248,"current":-3.33029580116272,"coulombs":0.00926819071173668,"success_count":9,"failure_count":0}
+[0;32mI (40274) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (40514) wifi: MQTT_EVENT_PUBLISHED, msg_id=27251[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"39","place":"lab","t_s":17,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0556778907775879,"cell_2":4.0514535903930664,"cell_3":4.05867862701416,"battery":12.17603588104248,"current":-3.33029580116272,"coulombs":0.00926819071173668,"success_count":9,"failure_count":0}
+[0;32mI (42024) M5_SYSTEM: [CHG] Sample OK. Current: -3.39 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.05V
+Battery: 12.16V
+Current: -3.39A
+[0;32mI (42064) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"41","place":"lab","t_s":18,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.062291145324707,"cell_3":4.0549090703328448,"battery":12.164727210998535,"current":-3.3871259689331055,"coulombs":0.010209059342741966,"success_count":10,"failure_count":0}
+[0;32mI (42074) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (42264) wifi: MQTT_EVENT_PUBLISHED, msg_id=18545[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"41","place":"lab","t_s":18,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.062291145324707,"cell_3":4.0549090703328448,"battery":12.164727210998535,"current":-3.3871259689331055,"coulombs":0.010209059342741966,"success_count":10,"failure_count":0}
+[0;32mI (43824) M5_SYSTEM: [CHG] Sample OK. Current: -3.26 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.26A
+[0;32mI (43864) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"43","place":"lab","t_s":20,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0547399520874023,"cell_2":4.0566368103027344,"cell_3":4.055537223815918,"battery":12.166611671447754,"current":-3.2564148902893066,"coulombs":0.011113619431853294,"success_count":11,"failure_count":0}
+[0;32mI (43874) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (43894) wifi: MQTT_EVENT_PUBLISHED, msg_id=15818[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"43","place":"lab","t_s":20,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0547399520874023,"cell_2":4.0566368103027344,"cell_3":4.055537223815918,"battery":12.166611671447754,"current":-3.2564148902893066,"coulombs":0.011113619431853294,"success_count":11,"failure_count":0}
+[0;32mI (45654) M5_SYSTEM: [CHG] Sample OK. Current: -3.35 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.35A
+[0;32mI (45694) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"45","place":"lab","t_s":22,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0575532913208,"cell_2":4.05710792541504,"cell_3":4.05710792541504,"battery":12.171323776245117,"current":-3.353032112121582,"coulombs":0.012045017443597317,"success_count":12,"failure_count":0}
+[0;32mI (45704) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (46274) wifi: MQTT_EVENT_PUBLISHED, msg_id=22248[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"45","place":"lab","t_s":22,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0575532913208,"cell_2":4.05710792541504,"cell_3":4.05710792541504,"battery":12.171323776245117,"current":-3.353032112121582,"coulombs":0.012045017443597317,"success_count":12,"failure_count":0}
+[0;32mI (47454) M5_SYSTEM: [CHG] Sample OK. Current: -3.32 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.32A
+[0;32mI (47494) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"46","place":"lab","t_s":24,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0562405586242676,"cell_2":4.05710792541504,"cell_3":4.0577360788981123,"battery":12.173208236694336,"current":-3.3189311027526855,"coulombs":0.012966942973434925,"success_count":13,"failure_count":0}
+[0;32mI (47504) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (47524) wifi: MQTT_EVENT_PUBLISHED, msg_id=57905[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"46","place":"lab","t_s":24,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0562405586242676,"cell_2":4.05710792541504,"cell_3":4.0577360788981123,"battery":12.173208236694336,"current":-3.3189311027526855,"coulombs":0.012966942973434925,"success_count":13,"failure_count":0}
+[1;31mE (49024) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (49024) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (49024) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (49024) i2c.master: i2c_master_transmit_receive(1248): I2C transaction failed[0m
+[0;33mW (49034) ADS1115: Read attempt 1 failed (ch1): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[0;32mI (49314) M5_SYSTEM: [CHG] Sample OK. Current: -3.22 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.22A
+[0;32mI (49364) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (49364) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"48","place":"lab","t_s":26,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.05867862701416,"cell_2":4.058992862701416,"cell_3":4.0567935307820635,"battery":12.170380592346191,"current":-3.2166352272033691,"coulombs":0.013860452920198441,"success_count":14,"failure_count":0}
+[0;32mI (49514) wifi: MQTT_EVENT_PUBLISHED, msg_id=35101[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"48","place":"lab","t_s":26,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.05867862701416,"cell_2":4.058992862701416,"cell_3":4.0567935307820635,"battery":12.170380592346191,"current":-3.2166352272033691,"coulombs":0.013860452920198441,"success_count":14,"failure_count":0}
+[0;32mI (51114) M5_SYSTEM: [CHG] Sample OK. Current: -3.39 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.39A
+[0;32mI (51154) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"50","place":"lab","t_s":27,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0547399520874023,"cell_2":4.0476837158203125,"cell_3":4.05867862701416,"battery":12.17603588104248,"current":-3.3871259689331055,"coulombs":0.014801321551203728,"success_count":15,"failure_count":0}
+[0;32mI (51164) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (51184) wifi: MQTT_EVENT_PUBLISHED, msg_id=19937[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"50","place":"lab","t_s":27,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0547399520874023,"cell_2":4.0476837158203125,"cell_3":4.05867862701416,"battery":12.17603588104248,"current":-3.3871259689331055,"coulombs":0.014801321551203728,"success_count":15,"failure_count":0}
+[0;32mI (52954) M5_SYSTEM: [CHG] Sample OK. Current: -3.29 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.29A
+[0;32mI (52994) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"52","place":"lab","t_s":29,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.055302619934082,"cell_2":4.0556941032409668,"cell_3":4.058364550272624,"battery":12.175093650817871,"current":-3.2905158996582031,"coulombs":0.0157153531908989,"success_count":16,"failure_count":0}
+[0;32mI (53004) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (53034) wifi: MQTT_EVENT_PUBLISHED, msg_id=34791[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"52","place":"lab","t_s":29,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.055302619934082,"cell_2":4.0556941032409668,"cell_3":4.058364550272624,"battery":12.175093650817871,"current":-3.2905158996582031,"coulombs":0.0157153531908989,"success_count":16,"failure_count":0}
+[0;32mI (54794) M5_SYSTEM: [CHG] Sample OK. Current: -3.26 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.26A
+[0;32mI (54834) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"54","place":"lab","t_s":31,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.05699062347412,"cell_2":4.058992862701416,"cell_3":4.0580504735310869,"battery":12.174151420593262,"current":-3.2564148902893066,"coulombs":0.016619913280010223,"success_count":17,"failure_count":0}
+[0;32mI (54844) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (55014) wifi: MQTT_EVENT_PUBLISHED, msg_id=28595[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"54","place":"lab","t_s":31,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.05699062347412,"cell_2":4.058992862701416,"cell_3":4.0580504735310869,"battery":12.174151420593262,"current":-3.2564148902893066,"coulombs":0.016619913280010223,"success_count":17,"failure_count":0}
+[0;32mI (56594) M5_SYSTEM: [CHG] Sample OK. Current: -3.62 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.62A
+[0;32mI (56634) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"56","place":"lab","t_s":33,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0564279556274414,"cell_2":4.06040620803833,"cell_3":4.059621175130208,"battery":12.178863525390625,"current":-3.620140552520752,"coulombs":0.017625506967306137,"success_count":18,"failure_count":0}
+[0;32mI (56644) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (56764) wifi: MQTT_EVENT_PUBLISHED, msg_id=11741[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"56","place":"lab","t_s":33,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0564279556274414,"cell_2":4.06040620803833,"cell_3":4.059621175130208,"battery":12.178863525390625,"current":-3.620140552520752,"coulombs":0.017625506967306137,"success_count":18,"failure_count":0}
+[0;32mI (58394) M5_SYSTEM: [CHG] Sample OK. Current: -3.32 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.32A
+[0;32mI (58434) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"57","place":"lab","t_s":35,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0579285621643066,"cell_2":4.0575790405273438,"cell_3":4.0599352518717451,"battery":12.179805755615234,"current":-3.3189311027526855,"coulombs":0.018547432497143745,"success_count":19,"failure_count":0}
+[0;32mI (58444) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (58464) wifi: MQTT_EVENT_PUBLISHED, msg_id=42194[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"57","place":"lab","t_s":35,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0579285621643066,"cell_2":4.0575790405273438,"cell_3":4.0599352518717451,"battery":12.179805755615234,"current":-3.3189311027526855,"coulombs":0.018547432497143745,"success_count":19,"failure_count":0}
+[0;32mI (60224) M5_SYSTEM: [CHG] Sample OK. Current: -3.32 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.05V
+Battery: 12.16V
+Current: -3.32A
+[0;32mI (60264) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"59","place":"lab","t_s":37,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0577406883239746,"cell_2":4.0552229881286621,"cell_3":4.0539665222167969,"battery":12.161899566650391,"current":-3.3189311027526855,"coulombs":0.019469358026981354,"success_count":20,"failure_count":0}
+[0;32mI (60274) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (60544) wifi: MQTT_EVENT_PUBLISHED, msg_id=27404[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"59","place":"lab","t_s":37,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0577406883239746,"cell_2":4.0552229881286621,"cell_3":4.0539665222167969,"battery":12.161899566650391,"current":-3.3189311027526855,"coulombs":0.019469358026981354,"success_count":20,"failure_count":0}
+[0;32mI (62024) M5_SYSTEM: [CHG] Sample OK. Current: -3.47 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.19V
+Current: -3.47A
+[0;32mI (62054) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"61","place":"lab","t_s":38,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0524897575378418,"cell_2":4.0599350929260254,"cell_3":4.0646473566691084,"battery":12.193942070007324,"current":-3.4723787307739258,"coulombs":0.020433908328413963,"success_count":21,"failure_count":0}
+[0;32mI (62074) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (62294) wifi: MQTT_EVENT_PUBLISHED, msg_id=54181[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"61","place":"lab","t_s":38,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0524897575378418,"cell_2":4.0599350929260254,"cell_3":4.0646473566691084,"battery":12.193942070007324,"current":-3.4723787307739258,"coulombs":0.020433908328413963,"success_count":21,"failure_count":0}
+[0;32mI (63814) M5_SYSTEM: [CHG] Sample OK. Current: -3.26 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.05V
+Battery: 12.16V
+Current: -3.26A
+[0;32mI (63854) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"63","place":"lab","t_s":40,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.058866024017334,"cell_2":4.0476837158203125,"cell_3":4.0517673492431641,"battery":12.155302047729492,"current":-3.2621006965637207,"coulombs":0.021340047940611839,"success_count":22,"failure_count":0}
+[0;32mI (63864) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (64014) wifi: MQTT_EVENT_PUBLISHED, msg_id=63003[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"63","place":"lab","t_s":40,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.058866024017334,"cell_2":4.0476837158203125,"cell_3":4.0517673492431641,"battery":12.155302047729492,"current":-3.2621006965637207,"coulombs":0.021340047940611839,"success_count":22,"failure_count":0}
+[0;32mI (65614) M5_SYSTEM: [CHG] Sample OK. Current: -3.43 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.43A
+[0;32mI (65644) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"65","place":"lab","t_s":42,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0566153526306152,"cell_2":4.05710792541504,"cell_3":4.0605634053548174,"battery":12.181690216064453,"current":-3.4325916767120361,"coulombs":0.022293545305728912,"success_count":23,"failure_count":0}
+[0;32mI (65664) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (65674) wifi: MQTT_EVENT_PUBLISHED, msg_id=54206[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"65","place":"lab","t_s":42,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0566153526306152,"cell_2":4.05710792541504,"cell_3":4.0605634053548174,"battery":12.181690216064453,"current":-3.4325916767120361,"coulombs":0.022293545305728912,"success_count":23,"failure_count":0}
+[1;31mE (67354) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (67374) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (67374) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (67384) i2c.master: i2c_master_transmit_receive(1248): I2C transaction failed[0m
+[0;33mW (67384) ADS1115: Read attempt 1 failed (ch0): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[0;32mI (67484) M5_SYSTEM: [CHG] Sample OK. Current: -3.34 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.34A
+[0;32mI (67524) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"66","place":"lab","t_s":44,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.0505108833313,"cell_3":4.0558516184488935,"battery":12.16755485534668,"current":-3.3359816074371338,"coulombs":0.023220207542181015,"success_count":24,"failure_count":0}
+[0;32mI (67534) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (67764) wifi: MQTT_EVENT_PUBLISHED, msg_id=43683[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"66","place":"lab","t_s":44,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.0505108833313,"cell_3":4.0558516184488935,"battery":12.16755485534668,"current":-3.3359816074371338,"coulombs":0.023220207542181015,"success_count":24,"failure_count":0}
+[0;32mI (69284) M5_SYSTEM: [CHG] Sample OK. Current: -3.43 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.43A
+[0;32mI (69324) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"68","place":"lab","t_s":46,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.0547518730163574,"cell_3":4.0580504735310869,"battery":12.174151420593262,"current":-3.4269130229949951,"coulombs":0.024172127246856689,"success_count":25,"failure_count":0}
+[0;32mI (69334) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (69514) wifi: MQTT_EVENT_PUBLISHED, msg_id=63999[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"68","place":"lab","t_s":46,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.0547518730163574,"cell_3":4.0580504735310869,"battery":12.174151420593262,"current":-3.4269130229949951,"coulombs":0.024172127246856689,"success_count":25,"failure_count":0}
+[0;32mI (71084) M5_SYSTEM: [CHG] Sample OK. Current: -3.23 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.23A
+[0;32mI (71134) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (71134) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"70","place":"lab","t_s":47,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0583033561706543,"cell_2":4.0505108833313,"cell_3":4.055537223815918,"battery":12.166611671447754,"current":-3.2279996871948242,"coulombs":0.025068793445825577,"success_count":26,"failure_count":0}
+[0;32mI (71774) wifi: MQTT_EVENT_PUBLISHED, msg_id=3234[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"70","place":"lab","t_s":47,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0583033561706543,"cell_2":4.0505108833313,"cell_3":4.055537223815918,"battery":12.166611671447754,"current":-3.2279996871948242,"coulombs":0.025068793445825577,"success_count":26,"failure_count":0}
+[0;32mI (72884) M5_SYSTEM: [CHG] Sample OK. Current: -3.35 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.35A
+[0;32mI (72914) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"72","place":"lab","t_s":49,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0579285621643066,"cell_2":4.05710792541504,"cell_3":4.05710792541504,"battery":12.171323776245117,"current":-3.347346305847168,"coulombs":0.025998611003160477,"success_count":27,"failure_count":0}
+[0;32mI (72934) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (72944) wifi: MQTT_EVENT_PUBLISHED, msg_id=62715[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"72","place":"lab","t_s":49,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0579285621643066,"cell_2":4.05710792541504,"cell_3":4.05710792541504,"battery":12.171323776245117,"current":-3.347346305847168,"coulombs":0.025998611003160477,"success_count":27,"failure_count":0}
+[1;31mE (74624) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (74624) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (74624) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (74624) i2c.master: i2c_master_transmit_receive(1248): I2C transaction failed[0m
+[0;33mW (74634) ADS1115: Read attempt 1 failed (ch0): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[1;31mE (74654) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (74654) i2c.master: I2C transaction unexpected nack detected[0m
+[1;31mE (74654) i2c.master: s_i2c_synchronous_transaction(945): I2C transaction failed[0m
+[1;31mE (74654) i2c.master: i2c_master_transmit_receive(1248): I2C transaction failed[0m
+[0;33mW (74664) ADS1115: Read attempt 2 failed (ch0): ESP_ERR_INVALID_STATE. Reintentando...[0m
+[0;32mI (74764) M5_SYSTEM: [CHG] Sample OK. Current: -3.43 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.05V
+Battery: 12.16V
+Current: -3.43A
+[0;32mI (74804) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"74","place":"lab","t_s":51,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.059053897857666,"cell_2":4.060877799987793,"cell_3":4.0549090703328448,"battery":12.164727210998535,"current":-3.4269130229949951,"coulombs":0.026950530707836151,"success_count":28,"failure_count":0}
+[0;32mI (74814) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (75034) wifi: MQTT_EVENT_PUBLISHED, msg_id=62546[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"74","place":"lab","t_s":51,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.059053897857666,"cell_2":4.060877799987793,"cell_3":4.0549090703328448,"battery":12.164727210998535,"current":-3.4269130229949951,"coulombs":0.026950530707836151,"success_count":28,"failure_count":0}
+[0;32mI (76564) M5_SYSTEM: [CHG] Sample OK. Current: -3.40 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.40A
+[0;32mI (76604) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"76","place":"lab","t_s":53,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0562405586242676,"cell_2":4.0556941032409668,"cell_3":4.05710792541504,"battery":12.171323776245117,"current":-3.4041767120361328,"coulombs":0.027896136045455933,"success_count":29,"failure_count":0}
+[0;32mI (76614) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (76774) wifi: MQTT_EVENT_PUBLISHED, msg_id=55304[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"76","place":"lab","t_s":53,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0562405586242676,"cell_2":4.0556941032409668,"cell_3":4.05710792541504,"battery":12.171323776245117,"current":-3.4041767120361328,"coulombs":0.027896136045455933,"success_count":29,"failure_count":0}
+[0;32mI (78364) M5_SYSTEM: [CHG] Sample OK. Current: -3.43 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.43A
+[0;32mI (78404) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"77","place":"lab","t_s":55,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.0500397682189941,"cell_3":4.0589930216471357,"battery":12.176979064941406,"current":-3.4325916767120361,"coulombs":0.028849633410573006,"success_count":30,"failure_count":0}
+[0;32mI (78414) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (78514) wifi: MQTT_EVENT_PUBLISHED, msg_id=23964[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"77","place":"lab","t_s":55,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.0500397682189941,"cell_3":4.0589930216471357,"battery":12.176979064941406,"current":-3.4325916767120361,"coulombs":0.028849633410573006,"success_count":30,"failure_count":0}
+[0;32mI (80164) M5_SYSTEM: [CHG] Sample OK. Current: -3.37 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.37A
+[0;32mI (80204) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"79","place":"lab","t_s":57,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.05811595916748,"cell_2":4.0585212707519531,"cell_3":4.0599352518717451,"battery":12.179805755615234,"current":-3.37008285522461,"coulombs":0.029785767197608948,"success_count":31,"failure_count":0}
+[0;32mI (80214) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (80244) wifi: MQTT_EVENT_PUBLISHED, msg_id=31604[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"79","place":"lab","t_s":57,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.05811595916748,"cell_2":4.0585212707519531,"cell_3":4.0599352518717451,"battery":12.179805755615234,"current":-3.37008285522461,"coulombs":0.029785767197608948,"success_count":31,"failure_count":0}
+[0;32mI (81974) M5_SYSTEM: [CHG] Sample OK. Current: -3.23 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.23A
+[0;32mI (82014) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"81","place":"lab","t_s":58,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0545525550842285,"cell_2":4.05946397781372,"cell_3":4.058364550272624,"battery":12.175093650817871,"current":-3.2336857318878174,"coulombs":0.030684012919664383,"success_count":32,"failure_count":0}
+[0;32mI (82024) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (82424) wifi: MQTT_EVENT_PUBLISHED, msg_id=18687[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"81","place":"lab","t_s":58,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0545525550842285,"cell_2":4.05946397781372,"cell_3":4.058364550272624,"battery":12.175093650817871,"current":-3.2336857318878174,"coulombs":0.030684012919664383,"success_count":32,"failure_count":0}
+[0;32mI (83774) M5_SYSTEM: [CHG] Sample OK. Current: -3.35 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.35A
+[0;32mI (83814) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"83","place":"lab","t_s":60,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0519270896911621,"cell_2":4.05946397781372,"cell_3":4.0593067804972334,"battery":12.1779203414917,"current":-3.353032112121582,"coulombs":0.031615410000085831,"success_count":33,"failure_count":0}
+[0;32mI (83824) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (84014) wifi: MQTT_EVENT_PUBLISHED, msg_id=53626[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"83","place":"lab","t_s":60,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.0519270896911621,"cell_2":4.05946397781372,"cell_3":4.0593067804972334,"battery":12.1779203414917,"current":-3.353032112121582,"coulombs":0.031615410000085831,"success_count":33,"failure_count":0}
+[0;32mI (85574) M5_SYSTEM: [CHG] Sample OK. Current: -3.51 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.05V
+Cell 2: 4.06V
+Cell 3: 4.06V
+Battery: 12.18V
+Current: -3.51A
+[0;32mI (85624) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (85634) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"85","place":"lab","t_s":62,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.053614616394043,"cell_2":4.0618200302124023,"cell_3":4.0599352518717451,"battery":12.179805755615234,"current":-3.5064725875854492,"coulombs":0.03258943185210228,"success_count":34,"failure_count":0}
+[0;32mI (86314) wifi: MQTT_EVENT_PUBLISHED, msg_id=58411[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"85","place":"lab","t_s":62,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.053614616394043,"cell_2":4.0618200302124023,"cell_3":4.0599352518717451,"battery":12.179805755615234,"current":-3.5064725875854492,"coulombs":0.03258943185210228,"success_count":34,"failure_count":0}
+[0;32mI (87374) M5_SYSTEM: [CHG] Sample OK. Current: -3.34 A, Coulombs: 0.0000 Ah[0m
+[CHG]
+cycle: 0
+Cell 1: 4.06V
+Cell 2: 4.05V
+Cell 3: 4.06V
+Battery: 12.17V
+Current: -3.34A
+[0;32mI (87414) wifi: MQTT_EVENT_DATA[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"86","place":"lab","t_s":64,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.0547518730163574,"cell_3":4.05616537729899,"battery":12.168496131896973,"current":-3.3416602611541748,"coulombs":0.033517669886350632,"success_count":35,"failure_count":0}
+[0;32mI (87424) M5_SYSTEM: Pantalla actualizada[0m
+[0;32mI (87444) wifi: MQTT_EVENT_PUBLISHED, msg_id=44139[0m
+TOPIC=m5stick/sensors/charge
+DATA={"phase":"charge","cycle":0,"device":"m5stick","exp_name":"cycle_test","date":"86","place":"lab","t_s":64,"bat_type":"LiPo","bat_cap_Ah":2.2000000476837158,"sub_tag":"A","cell_1":4.057365894317627,"cell_2":4.0547518730163574,"cell_3":4.05616537729899,"battery":12.168496131896973,"current":-3.3416602611541748,"coulombs":0.033517669886350632,"success_count":35,"failure_count":0}
+[1;31mE (88944) i2c.master: I2C hardware NACK detected[0m
+[1;31mE (93944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (93944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (93944) task_wdt: Tasks currently running:[0m
+[1;31mE (93944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (93944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (93944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (98944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (98944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (98944) task_wdt: Tasks currently running:[0m
+[1;31mE (98944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (98944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (98944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (103944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (103944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (103944) task_wdt: Tasks currently running:[0m
+[1;31mE (103944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (103944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (103944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (108944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (108944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (108944) task_wdt: Tasks currently running:[0m
+[1;31mE (108944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (108944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (108944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (113944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (113944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (113944) task_wdt: Tasks currently running:[0m
+[1;31mE (113944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (113944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (113944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (118944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (118944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (118944) task_wdt: Tasks currently running:[0m
+[1;31mE (118944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (118944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (118944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (123944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (123944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (123944) task_wdt: Tasks currently running:[0m
+[1;31mE (123944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (123944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (123944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (128944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (128944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (128944) task_wdt: Tasks currently running:[0m
+[1;31mE (128944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (128944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (128944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (133944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (133944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (133944) task_wdt: Tasks currently running:[0m
+[1;31mE (133944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (133944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (133944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A3:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (138944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (138944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (138944) task_wdt: Tasks currently running:[0m
+[1;31mE (138944) task_wdt: CPU 0: wifi[0m
+[1;31mE (138944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (138944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x4000BFED:0x3FFC5C10 0x4008BDAA:0x3FFC5C20 0x40085F62:0x3FFC5C40 0x401AF039:0x3FFC5C60 0x40097879:0x3FFC5CC0 0x40097D61:0x3FFC5CF0 0x40097E01:0x3FFC5D20 0x40094E4B:0x3FFC5D40 0x4008BA4D:0x3FFC5D70
+
+[1;31mE (143944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (143944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (143944) task_wdt: Tasks currently running:[0m
+[1;31mE (143944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (143944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (143944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (148944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (148944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (148944) task_wdt: Tasks currently running:[0m
+[1;31mE (148944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (148944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (148944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (153944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (153944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (153944) task_wdt: Tasks currently running:[0m
+[1;31mE (153944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (153944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (153944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (158944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (158944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (158944) task_wdt: Tasks currently running:[0m
+[1;31mE (158944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (158944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (158944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (163944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (163944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (163944) task_wdt: Tasks currently running:[0m
+[1;31mE (163944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (163944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (163944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (168944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (168944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (168944) task_wdt: Tasks currently running:[0m
+[1;31mE (168944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (168944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (168944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (173944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (173944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (173944) task_wdt: Tasks currently running:[0m
+[1;31mE (173944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (173944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (173944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (178944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (178944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (178944) task_wdt: Tasks currently running:[0m
+[1;31mE (178944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (178944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (178944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (183944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (183944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (183944) task_wdt: Tasks currently running:[0m
+[1;31mE (183944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (183944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (183944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (188944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (188944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (188944) task_wdt: Tasks currently running:[0m
+[1;31mE (188944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (188944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (188944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (193944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (193944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (193944) task_wdt: Tasks currently running:[0m
+[1;31mE (193944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (193944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (193944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (198944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (198944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (198944) task_wdt: Tasks currently running:[0m
+[1;31mE (198944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (198944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (198944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (203944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (203944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (203944) task_wdt: Tasks currently running:[0m
+[1;31mE (203944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (203944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (203944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (208944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (208944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (208944) task_wdt: Tasks currently running:[0m
+[1;31mE (208944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (208944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (208944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (213944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (213944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (213944) task_wdt: Tasks currently running:[0m
+[1;31mE (213944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (213944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (213944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00AB:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (218944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (218944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (218944) task_wdt: Tasks currently running:[0m
+[1;31mE (218944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (218944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (218944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (223944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (223944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (223944) task_wdt: Tasks currently running:[0m
+[1;31mE (223944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (223944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (223944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (228944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (228944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (228944) task_wdt: Tasks currently running:[0m
+[1;31mE (228944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (228944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (228944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (233944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (233944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (233944) task_wdt: Tasks currently running:[0m
+[1;31mE (233944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (233944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (233944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (238944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (238944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (238944) task_wdt: Tasks currently running:[0m
+[1;31mE (238944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (238944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (238944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (243944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (243944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (243944) task_wdt: Tasks currently running:[0m
+[1;31mE (243944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (243944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (243944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (248944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (248944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (248944) task_wdt: Tasks currently running:[0m
+[1;31mE (248944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (248944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (248944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (253944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (253944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (253944) task_wdt: Tasks currently running:[0m
+[1;31mE (253944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (253944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (253944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (258944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (258944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (258944) task_wdt: Tasks currently running:[0m
+[1;31mE (258944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (258944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (258944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (263944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (263944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (263944) task_wdt: Tasks currently running:[0m
+[1;31mE (263944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (263944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (263944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (268944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (268944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (268944) task_wdt: Tasks currently running:[0m
+[1;31mE (268944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (268944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (268944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (273944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (273944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (273944) task_wdt: Tasks currently running:[0m
+[1;31mE (273944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (273944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (273944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (278944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (278944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (278944) task_wdt: Tasks currently running:[0m
+[1;31mE (278944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (278944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (278944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (283944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (283944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (283944) task_wdt: Tasks currently running:[0m
+[1;31mE (283944) task_wdt: CPU 0: wifi[0m
+[1;31mE (283944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (283944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x40122F8C:0x3FFC5AB0 0x4012D0A1:0x3FFC5AD0 0x40135F67:0x3FFC5B00 0x40130A2D:0x3FFC5B90 0x400935B5:0x3FFC5CA0 0x40093611:0x3FFC5D00 0x40097E99:0x3FFC5D20 0x40094E4B:0x3FFC5D40 0x4008BA4D:0x3FFC5D70
+
+[1;31mE (288944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (288944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (288944) task_wdt: Tasks currently running:[0m
+[1;31mE (288944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (288944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (288944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (293944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (293944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (293944) task_wdt: Tasks currently running:[0m
+[1;31mE (293944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (293944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (293944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (298944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (298944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (298944) task_wdt: Tasks currently running:[0m
+[1;31mE (298944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (298944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (298944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (303944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (303944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (303944) task_wdt: Tasks currently running:[0m
+[1;31mE (303944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (303944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (303944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (308944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (308944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (308944) task_wdt: Tasks currently running:[0m
+[1;31mE (308944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (308944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (308944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (313944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (313944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (313944) task_wdt: Tasks currently running:[0m
+[1;31mE (313944) task_wdt: CPU 0: mqtt_task[0m
+[1;31mE (313944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (313944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x400E1785:0x3FFCF2E0 0x400E1D15:0x3FFCF320 0x400E2334:0x3FFCF350 0x4008BA4D:0x3FFCF380
+
+[1;31mE (318944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (318944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (318944) task_wdt: Tasks currently running:[0m
+[1;31mE (318944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (318944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (318944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (323944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (323944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (323944) task_wdt: Tasks currently running:[0m
+[1;31mE (323944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (323944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (323944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (328944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (328944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (328944) task_wdt: Tasks currently running:[0m
+[1;31mE (328944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (328944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (328944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (333944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (333944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (333944) task_wdt: Tasks currently running:[0m
+[1;31mE (333944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (333944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (333944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (338944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (338944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (338944) task_wdt: Tasks currently running:[0m
+[1;31mE (338944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (338944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (338944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (343944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (343944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (343944) task_wdt: Tasks currently running:[0m
+[1;31mE (343944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (343944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (343944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (348944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (348944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (348944) task_wdt: Tasks currently running:[0m
+[1;31mE (348944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (348944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (348944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (353944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (353944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (353944) task_wdt: Tasks currently running:[0m
+[1;31mE (353944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (353944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (353944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (358944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (358944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (358944) task_wdt: Tasks currently running:[0m
+[1;31mE (358944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (358944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (358944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (363944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (363944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (363944) task_wdt: Tasks currently running:[0m
+[1;31mE (363944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (363944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (363944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (368944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (368944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (368944) task_wdt: Tasks currently running:[0m
+[1;31mE (368944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (368944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (368944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (373944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (373944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (373944) task_wdt: Tasks currently running:[0m
+[1;31mE (373944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (373944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (373944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (378944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (378944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (378944) task_wdt: Tasks currently running:[0m
+[1;31mE (378944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (378944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (378944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (383944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (383944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (383944) task_wdt: Tasks currently running:[0m
+[1;31mE (383944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (383944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (383944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (388944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (388944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (388944) task_wdt: Tasks currently running:[0m
+[1;31mE (388944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (388944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (388944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (393944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (393944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (393944) task_wdt: Tasks currently running:[0m
+[1;31mE (393944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (393944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (393944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (398944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (398944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (398944) task_wdt: Tasks currently running:[0m
+[1;31mE (398944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (398944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (398944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (403944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (403944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (403944) task_wdt: Tasks currently running:[0m
+[1;31mE (403944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (403944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (403944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (408944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (408944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (408944) task_wdt: Tasks currently running:[0m
+[1;31mE (408944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (408944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (408944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A3:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (413944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (413944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (413944) task_wdt: Tasks currently running:[0m
+[1;31mE (413944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (413944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (413944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (418944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (418944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (418944) task_wdt: Tasks currently running:[0m
+[1;31mE (418944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (418944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (418944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (423944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (423944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (423944) task_wdt: Tasks currently running:[0m
+[1;31mE (423944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (423944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (423944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A3:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (428944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (428944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (428944) task_wdt: Tasks currently running:[0m
+[1;31mE (428944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (428944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (428944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A3:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (433944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (433944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (433944) task_wdt: Tasks currently running:[0m
+[1;31mE (433944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (433944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (433944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (438944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (438944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (438944) task_wdt: Tasks currently running:[0m
+[1;31mE (438944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (438944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (438944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (443944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (443944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (443944) task_wdt: Tasks currently running:[0m
+[1;31mE (443944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (443944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (443944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (448944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (448944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (448944) task_wdt: Tasks currently running:[0m
+[1;31mE (448944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (448944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (448944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (453944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (453944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (453944) task_wdt: Tasks currently running:[0m
+[1;31mE (453944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (453944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (453944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (458944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (458944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (458944) task_wdt: Tasks currently running:[0m
+[1;31mE (458944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (458944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (458944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A3:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (463944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (463944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (463944) task_wdt: Tasks currently running:[0m
+[1;31mE (463944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (463944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (463944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (468944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (468944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (468944) task_wdt: Tasks currently running:[0m
+[1;31mE (468944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (468944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (468944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (473944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (473944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (473944) task_wdt: Tasks currently running:[0m
+[1;31mE (473944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (473944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (473944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (478944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (478944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (478944) task_wdt: Tasks currently running:[0m
+[1;31mE (478944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (478944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (478944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (483944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (483944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (483944) task_wdt: Tasks currently running:[0m
+[1;31mE (483944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (483944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (483944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (488944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (488944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (488944) task_wdt: Tasks currently running:[0m
+[1;31mE (488944) task_wdt: CPU 0: wifi[0m
+[1;31mE (488944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (488944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x40083477:0x3FFC5BE0 0x4008BDAA:0x3FFC5BF0 0x40085E83:0x3FFC5C10 0x401B6C45:0x3FFC5C30 0x401409DF:0x3FFC5C50 0x401B4CD9:0x3FFC5C70 0x40093689:0x3FFC5C90 0x40096ED9:0x3FFC5CB0 0x40097ADE:0x3FFC5CE0 0x401AF12E:0x3FFC5D00 0x401AF192:0x3FFC5D20 0x40094DE9:0x3FFC5D40 0x4008BA4D:0x3FFC5D70
+
+[1;31mE (493944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (493944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (493944) task_wdt: Tasks currently running:[0m
+[1;31mE (493944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (493944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (493944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (498944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (498944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (498944) task_wdt: Tasks currently running:[0m
+[1;31mE (498944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (498944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (498944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (503944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (503944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (503944) task_wdt: Tasks currently running:[0m
+[1;31mE (503944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (503944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (503944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (508944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (508944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (508944) task_wdt: Tasks currently running:[0m
+[1;31mE (508944) task_wdt: CPU 0: mqtt_task[0m
+[1;31mE (508944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (508944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x400E176E:0x3FFCF2E0 0x400E1D15:0x3FFCF320 0x400E2334:0x3FFCF350 0x4008BA4D:0x3FFCF380
+
+[1;31mE (513944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (513944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (513944) task_wdt: Tasks currently running:[0m
+[1;31mE (513944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (513944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (513944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A3:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (518944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (518944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (518944) task_wdt: Tasks currently running:[0m
+[1;31mE (518944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (518944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (518944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (523944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (523944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (523944) task_wdt: Tasks currently running:[0m
+[1;31mE (523944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (523944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (523944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (528944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (528944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (528944) task_wdt: Tasks currently running:[0m
+[1;31mE (528944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (528944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (528944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (533944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (533944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (533944) task_wdt: Tasks currently running:[0m
+[1;31mE (533944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (533944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (533944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (538944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (538944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (538944) task_wdt: Tasks currently running:[0m
+[1;31mE (538944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (538944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (538944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A3:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (543944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (543944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (543944) task_wdt: Tasks currently running:[0m
+[1;31mE (543944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (543944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (543944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+[1;31mE (548944) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (548944) task_wdt:  - IDLE0 (CPU 0)[0m
+[1;31mE (548944) task_wdt: Tasks currently running:[0m
+[1;31mE (548944) task_wdt: CPU 0: CHG_PHASE[0m
+[1;31mE (548944) task_wdt: CPU 1: IDLE1[0m
+[1;31mE (548944) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x400ECDA2:0x3FFB20E0 0x400ED168:0x3FFB2100 0x40083155:0x3FFB2130 0x401B00A5:0x3FFD6AF0 0x401B0264:0x3FFD6B20 0x401B0352:0x3FFD6B50 0x401B117F:0x3FFD6B80 0x400DC77A:0x3FFD6C10 0x400DF012:0x3FFD6D00 0x4008BA4D:0x3FFD6EF0
+
+
