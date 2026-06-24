@@ -83,7 +83,18 @@ static EventGroupHandle_t s_wifi_event_group;
 esp_mqtt_client_handle_t mqtt_client = NULL;
 
 // --- Connection handlers ---
-static void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data) {
+/**
+ * @brief Event handler for WiFi events, managing connection and disconnection
+ *        events.
+ * 
+ * @param arg User-defined argument (not used in this handler).
+ * @param event_base The base of the event (e.g., WIFI_EVENT, IP_EVENT).
+ * @param event_id The specific event ID (e.g., WIFI_EVENT_STA_START, 
+ *        WIFI_EVENT_STA_DISCONNECTED, IP_EVENT_STA_GOT_IP).
+ * @param event_data Pointer to event-specific data (not used in this handler).
+ */
+static void wifi_event_handler(void* arg, esp_event_base_t event_base, 
+  int32_t event_id, void* event_data) {
     if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
         esp_wifi_connect();
     } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
@@ -105,6 +116,16 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t e
     }
 }
 
+/**
+ * @brief Event handler for MQTT events, managing connection, disconnection, 
+ *        subscription, and message events.
+ * 
+ * @param handler_args Pointer to user-defined arguments
+ * @param base The base of the event (e.g., MQTT_EVENT).
+ * @param event_id The specific event ID (e.g., MQTT_EVENT_CONNECTED, 
+ *        MQTT_EVENT_DATA).
+ * @param event_data Pointer to event-specific data (esp_mqtt_event_handle_t).
+ */
 static void mqtt_event_handler(void* handler_args, esp_event_base_t base, int32_t event_id, void* event_data) {
   AppContext *context = static_cast<AppContext *>(handler_args);
     
@@ -146,13 +167,13 @@ static void mqtt_event_handler(void* handler_args, esp_event_base_t base, int32_
       printf("DATA=%.*s\r\n", event->data_len, event->data);
       if (strncmp(event->topic, "m5stick/relay/", 14) == 0) {
         char relay_char = event->topic[14];
-        int relay_num = relay_char - '0'; // Extrae el número (1-4)
+        int relay_num = relay_char - '0'; 
                 
         if (!experiment_flag) {
           if (relay_num >= 1 && relay_num <= 4 && event->data_len > 0) {
             bool turn_on = event->data;
             context->relayController -> set_relay(relay_num, turn_on);
-            experiment_flag = turn_on; // Activar el modo experimento si se enciende un relé
+            experiment_flag = turn_on;
             ESP_LOGI(WIFI_TAG, "MQTT: Relé %d -> %s", relay_num, turn_on ? "ON" : "OFF");
           }
         }
@@ -179,6 +200,11 @@ static void mqtt_event_handler(void* handler_args, esp_event_base_t base, int32_
   }
 }
 
+/**
+ * @brief Initializes WiFi and MQTT connections using the provided AppContext.
+ * 
+ * @param context Pointer to the AppContext containing experiment parameters.
+ */
 void wifi_and_mqtt_init(AppContext *context) {
   AppContext *ctx = context;
   ExperimentParams *exp_params = ctx->experimentParams;
@@ -215,7 +241,10 @@ void wifi_and_mqtt_init(AppContext *context) {
   esp_mqtt_client_start(mqtt_client);
 }
 
-inline void sincronizar_hora_sntp(void) {
+/**
+ * @brief Synchronizes the system time with an NTP server using SNTP.
+ */
+inline void sntp_time_sync(void) {
   ESP_LOGI("WIFI_TIME", "Inicializando SNTP (API Clasica)...");
     
   esp_sntp_setoperatingmode(SNTP_OPMODE_POLL);
@@ -223,11 +252,11 @@ inline void sincronizar_hora_sntp(void) {
   esp_sntp_init();
 
   // Wait for SNTP synchronization with a timeout
-  int intentos = 0;
-  const int max_intentos = 10;
+  int tries = 0;
+  const int max_tries = 10;
     
-  while (sntp_get_sync_status() == SNTP_SYNC_STATUS_RESET && ++intentos <= max_intentos) {
-    ESP_LOGI("WIFI_TIME", "Esperando respuesta del servidor NTP... (%d/%d)", intentos, max_intentos);
+  while (sntp_get_sync_status() == SNTP_SYNC_STATUS_RESET && ++tries <= max_tries) {
+    ESP_LOGI("WIFI_TIME", "Esperando respuesta del servidor NTP... (%d/%d)", tries, max_tries);
     vTaskDelay(pdMS_TO_TICKS(2000));
   }
 

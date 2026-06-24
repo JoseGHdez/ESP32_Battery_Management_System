@@ -22,9 +22,14 @@ static const char *SERVO_TAG = "servo_control";
 #define SERVO_TIMEBASE_RESOLUTION_HZ 1000000  // 1MHz, 1us per tick
 #define SERVO_TIMEBASE_PERIOD        20000    // 20000 ticks, 20ms frequency (50Hz)
 
+/**
+ * @class ServoController
+ * @brief A class to control the MG996R servo motor using the MCPWM peripheral 
+ *        of the ESP32.
+ */
 class ServoController {
  public:
-  // Cnstructor
+  // Constructor
   ServoController() : comparator(NULL), current_angle(0), speed(100), nsteps(1) {}
 
   void init_servo();
@@ -32,7 +37,7 @@ class ServoController {
   void set_servo_angle_smooth(int target_angle, int time_ms);
   void set_servo_pulse(uint32_t pulse_us);
   uint32_t angle_to_pulse_width(int angle);
-  int get_servo_speed() const { return speed; } // Getter para la velocidad del servo
+  int get_servo_speed() const { return speed; }
   void stop_timer() {
     if (timer_handle) {
       mcpwm_timer_start_stop(timer_handle, MCPWM_TIMER_STOP_EMPTY);
@@ -70,7 +75,7 @@ void ServoController::init_servo() {
   // Create the operator
   mcpwm_oper_handle_t oper = NULL;
   mcpwm_operator_config_t operator_config = {};
-  operator_config.group_id = 0; // El operador debe estar en el mismo grupo que el timer
+  operator_config.group_id = 0; 
   ESP_ERROR_CHECK(mcpwm_new_operator(&operator_config, &oper));
     
   // Connect the operator to the timer

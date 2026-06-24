@@ -181,7 +181,7 @@ extern "C" void ShowText(void *pvParameters) {
       while (line != NULL) {
         lcdDrawString(&dev, fx16G, xpos, ypos, (uint8_t*)line, WHITE);
 
-        if (xpos >= 18) { // Evitamos que xpos haga underflow
+        if (xpos >= 18) {
           xpos -= 18;
         }
 
@@ -244,82 +244,86 @@ extern "C" esp_err_t mountSPIFFS(const char * path, const char * label, int max_
 	return ret;
 }
 
-void LeerConfiguracionSPIFFS(ExperimentParams &experiment_params) {
-    // Abrir el archivo desde la partición SPIFFS
-    std::ifstream file("/variables/exp_vars.txt");
+/**
+ * @brief Reads configuration parameters from a text file stored in SPIFFS 
+ *  and populates the ExperimentParams struct.
+ * 
+ * @param experiment_params Reference to the ExperimentParams struct where 
+ *  the configuration parameters will be stored.
+ */
+void ReadConfigurationSPIFFS(ExperimentParams &experiment_params) {
+  // Open the configuration file in read mode
+  std::ifstream file("/variables/exp_vars.txt");
     
-    if (!file.is_open()) {
-        ESP_LOGE("SPIFFS", "Error al abrir el archivo de configuración");
-        return;
-    }
+  if (!file.is_open()) {
+    ESP_LOGE("SPIFFS", "Error opening configuration file: /variables/exp_vars.txt");
+    return;
+  }
 
-    std::string line;
-    // std::getline lee la línea entera hasta el salto de línea, respetando los espacios
-    while (std::getline(file, line)) {
+  std::string line;
+  while (std::getline(file, line)) {
         
-        // 1. Limpiar el posible retorno de carro '\r' (CRÍTICO en archivos creados en Windows)
-        if (!line.empty() && line.back() == '\r') {
-            line.pop_back();
-        }
-
-        // 2. Buscar la posición del separador '='
-        size_t pos = line.find('=');
-        if (pos != std::string::npos) {
-            // 3. Extraer la clave y el valor
-            std::string key = line.substr(0, pos);
-            std::string value = line.substr(pos + 1);
-
-            if (value.length() >= 2 && value.front() == '"' && value.back() == '"') {
-                value = value.substr(1, value.length() - 2);
-            }
-
-            // --- Uso de las variables ---
-            ESP_LOGI("SPIFFS", "Clave: '%s', Valor: '%s'", key.c_str(), value.c_str());
-            
-            if (key == "CHG_BIAS") {
-            experiment_params.charge_bias = std::stof(value);
-          } else if (key == "DCH_BIAS") {
-            experiment_params.discharge_bias = std::stof(value);
-          } else if (key == "CHG_TIME") {
-            experiment_params.charge_time_limit_minutes = std::stoi(value);
-          } else if (key == "DCH_TIME") {
-            experiment_params.discharge_time_limit_minutes = std::stoi(value);
-          } else if (key == "MSQT_IP") {
-            experiment_params.mosquitto_ip = value;
-          } else if (key == "BAT_TYPE") {
-            experiment_params.battery_type = value;
-          } else if (key == "EXP_NAME") {
-            experiment_params.experiment_name = value;
-          } else if (key == "EXP_SUBTAG") {
-            experiment_params.experiment_tags = value;
-            if (value.length() >= 2) {
-              value = value.substr(1, value.length() - 2);
-            }
-            experiment_params.tags = split_string(value, ',');
-          } else if (key == "DEVICE") {
-            experiment_params.device_name = value;
-          } else if (key == "LOCATION") {
-            experiment_params.location = value;
-          } else if (key == "BAT_CAP") {
-            experiment_params.battery_capacity_ah = std::stof(value);
-          } else if (key == "PCENT_R1") {
-            experiment_params.percentage_resistance_1 = std::stof(value);
-          } else if (key == "PCENT_R2") {
-            experiment_params.percentage_resistance_2 = std::stof(value);
-          } else if (key == "PCENT_R3") {
-            experiment_params.percentage_resistance_3 = std::stof(value);
-          } else if (key == "WIFI_SSID") {
-            experiment_params.wifi_ssid = value;
-          } else if (key == "WIFI_PASSWD") {
-            experiment_params.wifi_password = value;
-          } else if (key == "TIMER") {
-            experiment_params.timer_flag = (value == "1") ? true : false;
-          } else {
-            ESP_LOGW(TAG, "Unknown parameter in file: %s", key.c_str());
-          }
-        }
+    // Clear trailing carriage return character if present (for Windows-style line endings)
+    if (!line.empty() && line.back() == '\r') {
+      line.pop_back();
     }
-    file.close();
+
+    // Search '=' to separate key and value
+    size_t pos = line.find('=');
+    if (pos != std::string::npos) {
+      std::string key = line.substr(0, pos);
+      std::string value = line.substr(pos + 1);
+
+      if (value.length() >= 2 && value.front() == '"' && value.back() == '"') {
+        value = value.substr(1, value.length() - 2);
+      }
+
+      ESP_LOGI("SPIFFS", "Key: '%s', Value: '%s'", key.c_str(), value.c_str());
+            
+      if (key == "CHG_BIAS") {
+        experiment_params.charge_bias = std::stof(value);
+      } else if (key == "DCH_BIAS") {
+        experiment_params.discharge_bias = std::stof(value);
+      } else if (key == "CHG_TIME") {
+        experiment_params.charge_time_limit_minutes = std::stoi(value);
+      } else if (key == "DCH_TIME") {
+        experiment_params.discharge_time_limit_minutes = std::stoi(value);
+      } else if (key == "MSQT_IP") {
+        experiment_params.mosquitto_ip = value;
+      } else if (key == "BAT_TYPE") {
+        experiment_params.battery_type = value;
+      } else if (key == "EXP_NAME") {
+        experiment_params.experiment_name = value;
+      } else if (key == "EXP_SUBTAG") {
+        experiment_params.experiment_tags = value;
+        if (value.length() >= 2) {
+          value = value.substr(1, value.length() - 2);
+        }
+        experiment_params.tags = split_string(value, ',');
+      } else if (key == "DEVICE") {
+        experiment_params.device_name = value;
+      } else if (key == "LOCATION") {
+        experiment_params.location = value;
+      } else if (key == "BAT_CAP") {
+        experiment_params.battery_capacity_ah = std::stof(value);
+      } else if (key == "PCENT_R1") {
+        experiment_params.percentage_resistance_1 = std::stof(value);
+      } else if (key == "PCENT_R2") {
+        experiment_params.percentage_resistance_2 = std::stof(value);
+      } else if (key == "PCENT_R3") {
+        experiment_params.percentage_resistance_3 = std::stof(value);
+      } else if (key == "WIFI_SSID") {
+        experiment_params.wifi_ssid = value;
+      } else if (key == "WIFI_PASSWD") {
+        experiment_params.wifi_password = value;
+      } else if (key == "TIMER") {
+        experiment_params.timer_flag = (value == "1") ? true : false;
+      } else {
+        ESP_LOGW(TAG, "Unknown parameter in file: %s", key.c_str());
+      }
+    }
+  }
+  file.close();
 }
 // ============ I2C FUNCTIONS ============
 
@@ -750,7 +754,7 @@ extern "C" void app_main(void) {
   static ExperimentParams experiment_params;
   experiment_params.current_tag = "A";
   
-  LeerConfiguracionSPIFFS(experiment_params);
+  ReadConfigurationSPIFFS(experiment_params);
 
   // Initialize I2C for relay and ADS1115
   InitGroveI2C();
@@ -792,7 +796,7 @@ extern "C" void app_main(void) {
   wifi_and_mqtt_init(&app_context);
 
   // Syncronize time with SNTP for accurate timestamps in experiments and MQTT messages
-  sincronizar_hora_sntp();
+  sntp_time_sync();
 
   // Configure button GPIO pins.
   gpio_config_t io_conf = {};
